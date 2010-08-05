@@ -11,7 +11,7 @@
 			<string key="NS.object.0">788</string>
 		</object>
 		<array class="NSMutableArray" key="IBDocument.EditedObjectIDs">
-			<integer value="6"/>
+			<integer value="192"/>
 		</array>
 		<array key="IBDocument.PluginDependencies">
 			<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
@@ -264,8 +264,8 @@ dCBmaXggdGhpcyBoZXJlLg</string>
 												<object class="NSTextFieldCell" key="NSCell" id="446921199">
 													<int key="NSCellFlags">68288064</int>
 													<int key="NSCellFlags2">272630784</int>
-													<string type="base64-UTF8" key="NSContents">Tm90IHNhdGlzZmllZD8gVW5pbnN0YWxsIHRoZSBidW5kZSBhbmQKcmVtb3ZlIHRoZSBwcmVmZXJlbmNl
-IHBhbmUgYWZ0ZXJ3YXJkcy4</string>
+													<string type="base64-UTF8" key="NSContents">Tm90IHNhdGlzZmllZD8gVW5pbnN0YWxsIHRoZSBidW5kbGUgYW5kCnJlbW92ZSB0aGUgcHJlZmVyZW5j
+ZSBwYW5lIGFmdGVyd2FyZHMuA</string>
 													<reference key="NSSupport" ref="271635649"/>
 													<reference key="NSControlView" ref="978352962"/>
 													<reference key="NSBackgroundColor" ref="204879837"/>
