@@ -1,0 +1,8 @@
+//
+// Prefix header for all source files of the 'GPGMail' target in the 'GPGMail' project.
+//
+
+#ifdef __OBJC__
+    #import <Foundation/Foundation.h>
+    #import <AppKit/AppKit.h>
+#endif
