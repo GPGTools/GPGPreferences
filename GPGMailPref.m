@@ -12,7 +12,6 @@
 @implementation GPGMailPref
 
 - (void) mainViewDidLoad {
-	
 }
 
 @end

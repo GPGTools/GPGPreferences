@@ -11,7 +11,7 @@
 			<string key="NS.object.0">788</string>
 		</object>
 		<array class="NSMutableArray" key="IBDocument.EditedObjectIDs">
-			<integer value="192"/>
+			<integer value="6"/>
 		</array>
 		<array key="IBDocument.PluginDependencies">
 			<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
@@ -275,21 +275,22 @@ ZSBwYW5lIGFmdGVyd2FyZHMuA</string>
 											<object class="NSButton" id="771352314">
 												<reference key="NSNextResponder" ref="610022692"/>
 												<int key="NSvFlags">268</int>
-												<string key="NSFrame">{{17, 4}, {112, 19}}</string>
+												<string key="NSFrame">{{11, -3}, {96, 32}}</string>
 												<reference key="NSSuperview" ref="610022692"/>
 												<bool key="NSEnabled">YES</bool>
 												<object class="NSButtonCell" key="NSCell" id="855740888">
 													<int key="NSCellFlags">67239424</int>
 													<int key="NSCellFlags2">134217728</int>
-													<string key="NSContents">Fix GPGMail</string>
-													<object class="NSFont" key="NSSupport" id="256537967">
+													<string key="NSContents">Fix</string>
+													<reference key="NSSupport" ref="271635649"/>
+													<reference key="NSControlView" ref="771352314"/>
+													<int key="NSButtonFlags">-2038021889</int>
+													<int key="NSButtonFlags2">129</int>
+													<object class="NSFont" key="NSAlternateImage" id="987440459">
 														<string key="NSName">LucidaGrande</string>
-														<double key="NSSize">12</double>
+														<double key="NSSize">13</double>
 														<int key="NSfFlags">16</int>
 													</object>
-													<reference key="NSControlView" ref="771352314"/>
-													<int key="NSButtonFlags">-2038152961</int>
-													<int key="NSButtonFlags2">164</int>
 													<string key="NSAlternateContents"/>
 													<string key="NSKeyEquivalent"/>
 													<int key="NSPeriodicDelay">400</int>
@@ -299,17 +300,18 @@ ZSBwYW5lIGFmdGVyd2FyZHMuA</string>
 											<object class="NSButton" id="513051681">
 												<reference key="NSNextResponder" ref="610022692"/>
 												<int key="NSvFlags">268</int>
-												<string key="NSFrame">{{333, 4}, {112, 19}}</string>
+												<string key="NSFrame">{{327, -3}, {96, 32}}</string>
 												<reference key="NSSuperview" ref="610022692"/>
 												<bool key="NSEnabled">YES</bool>
 												<object class="NSButtonCell" key="NSCell" id="971824523">
 													<int key="NSCellFlags">67239424</int>
 													<int key="NSCellFlags2">134217728</int>
-													<string key="NSContents">Remove GPGMail</string>
-													<reference key="NSSupport" ref="256537967"/>
+													<string key="NSContents">Remove</string>
+													<reference key="NSSupport" ref="271635649"/>
 													<reference key="NSControlView" ref="513051681"/>
-													<int key="NSButtonFlags">-2038152961</int>
-													<int key="NSButtonFlags2">164</int>
+													<int key="NSButtonFlags">-2038021889</int>
+													<int key="NSButtonFlags2">129</int>
+													<reference key="NSAlternateImage" ref="987440459"/>
 													<string key="NSAlternateContents"/>
 													<string key="NSKeyEquivalent"/>
 													<int key="NSPeriodicDelay">400</int>
@@ -396,17 +398,18 @@ dHRwOi8vd3d3LmdwZ21haWwub3JnLg</string>
 											<object class="NSButton" id="288565691">
 												<reference key="NSNextResponder" ref="1002012616"/>
 												<int key="NSvFlags">268</int>
-												<string key="NSFrame">{{17, 4}, {112, 19}}</string>
+												<string key="NSFrame">{{11, 0}, {96, 32}}</string>
 												<reference key="NSSuperview" ref="1002012616"/>
 												<bool key="NSEnabled">YES</bool>
 												<object class="NSButtonCell" key="NSCell" id="56286067">
 													<int key="NSCellFlags">67239424</int>
 													<int key="NSCellFlags2">134217728</int>
-													<string key="NSContents">Open website</string>
-													<reference key="NSSupport" ref="256537967"/>
+													<string key="NSContents">Open URL</string>
+													<reference key="NSSupport" ref="271635649"/>
 													<reference key="NSControlView" ref="288565691"/>
-													<int key="NSButtonFlags">-2038152961</int>
-													<int key="NSButtonFlags2">164</int>
+													<int key="NSButtonFlags">-2038021889</int>
+													<int key="NSButtonFlags2">129</int>
+													<reference key="NSAlternateImage" ref="987440459"/>
 													<string key="NSAlternateContents"/>
 													<string key="NSKeyEquivalent"/>
 													<int key="NSPeriodicDelay">400</int>
@@ -422,8 +425,8 @@ dHRwOi8vd3d3LmdwZ21haWwub3JnLg</string>
 												<object class="NSTextFieldCell" key="NSCell" id="749558820">
 													<int key="NSCellFlags">68288064</int>
 													<int key="NSCellFlags2">272630784</int>
-													<string type="base64-UTF8" key="NSContents">SGF2ZSBhIGxvb2sgYXQgdGhlIGNvbnNvbGUgZm9yIGZ1cnRoZXIgZGV0YWlscy4KVmVyc2lvbiAwLjIg
-KDIwMTAtMDgtMDUpA</string>
+													<string type="base64-UTF8" key="NSContents">SGF2ZSBhIGxvb2sgYXQgdGhlIGNvbnNvbGUgZm9yIGZ1cnRoZXIgZGV0YWlscy4KVmVyc2lvbiAwLjMg
+KDIwMTAtMDgtMTMpA</string>
 													<object class="NSFont" key="NSSupport">
 														<string key="NSName">LucidaGrande</string>
 														<double key="NSSize">10</double>
@@ -673,9 +676,9 @@ KDIwMTAtMDgtMDUpA</string>
 						<array class="NSMutableArray" key="children">
 							<reference ref="854505876"/>
 							<reference ref="839177087"/>
-							<reference ref="288565691"/>
 							<reference ref="695779395"/>
 							<reference ref="327320970"/>
+							<reference ref="288565691"/>
 						</array>
 						<reference key="parent" ref="806899239"/>
 					</object>
@@ -684,12 +687,12 @@ KDIwMTAtMDgtMDUpA</string>
 						<reference key="object" ref="610022692"/>
 						<array class="NSMutableArray" key="children">
 							<reference ref="1045286433"/>
-							<reference ref="771352314"/>
-							<reference ref="513051681"/>
 							<reference ref="863521501"/>
 							<reference ref="119773933"/>
 							<reference ref="737031912"/>
 							<reference ref="978352962"/>
+							<reference ref="513051681"/>
+							<reference ref="771352314"/>
 						</array>
 						<reference key="parent" ref="509698866"/>
 					</object>
@@ -837,9 +840,9 @@ KDIwMTAtMDgtMDUpA</string>
 			</object>
 			<dictionary class="NSMutableDictionary" key="flattenedProperties">
 				<string key="-3.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
-				<string key="12.IBEditorWindowLastContentRect">{{137, 360}, {668, 210}}</string>
+				<string key="12.IBEditorWindowLastContentRect">{{1, 360}, {668, 210}}</string>
 				<string key="12.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
-				<string key="12.IBWindowTemplateEditedContentRect">{{137, 360}, {668, 210}}</string>
+				<string key="12.IBWindowTemplateEditedContentRect">{{1, 360}, {668, 210}}</string>
 				<integer value="1" key="12.ImportedFromIB2"/>
 				<integer value="1" key="12.windowTemplate.hasMinSize"/>
 				<string key="12.windowTemplate.minSize">{224.664, 10}</string>
