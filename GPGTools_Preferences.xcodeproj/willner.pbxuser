@@ -41,7 +41,7 @@
 				PBXFileTableDataSourceColumnSortingKey = PBXFileDataSource_Filename_ColumnID;
 				PBXFileTableDataSourceColumnWidthsKey = (
 					20,
-					327,
+					747,
 					20,
 					48,
 					43,
@@ -132,22 +132,19 @@
 					PBXFileDataSource_Warnings_ColumnID,
 				);
 			};
-			PBXPerProjectTemplateStateSaveDate = 317592773;
-			PBXWorkspaceStateSaveDate = 317592773;
+			PBXPerProjectTemplateStateSaveDate = 317595839;
+			PBXWorkspaceStateSaveDate = 317595839;
 		};
 		perUserProjectItems = {
-			2241772E12EE14DC00A08259 /* PBXTextBookmark */ = 2241772E12EE14DC00A08259 /* PBXTextBookmark */;
-			2241775012EE15F900A08259 /* PBXTextBookmark */ = 2241775012EE15F900A08259 /* PBXTextBookmark */;
-			2241775112EE15F900A08259 /* PBXTextBookmark */ = 2241775112EE15F900A08259 /* PBXTextBookmark */;
-			22796C0D12EE0EF000E74C50 = 22796C0D12EE0EF000E74C50 /* PlistBookmark */;
-			22796C1112EE0EF000E74C50 = 22796C1112EE0EF000E74C50 /* PBXTextBookmark */;
-			229613B012EE134300926A23 = 229613B012EE134300926A23 /* PBXTextBookmark */;
-			229613B712EE138D00926A23 = 229613B712EE138D00926A23 /* PBXBookmark */;
-			229613B812EE138D00926A23 = 229613B812EE138D00926A23 /* PBXTextBookmark */;
-			229613B912EE138D00926A23 = 229613B912EE138D00926A23 /* PBXTextBookmark */;
-			229613BE12EE14B200926A23 = 229613BE12EE14B200926A23 /* PBXTextBookmark */;
-			229613BF12EE14B200926A23 = 229613BF12EE14B200926A23 /* PBXTextBookmark */;
-			229613C012EE14B200926A23 = 229613C012EE14B200926A23 /* PBXTextBookmark */;
+			2249068A12EE20E9007C613E /* PBXTextBookmark */ = 2249068A12EE20E9007C613E /* PBXTextBookmark */;
+			22796C0D12EE0EF000E74C50 /* PlistBookmark */ = 22796C0D12EE0EF000E74C50 /* PlistBookmark */;
+			22796C1112EE0EF000E74C50 /* PBXTextBookmark */ = 22796C1112EE0EF000E74C50 /* PBXTextBookmark */;
+			229613B012EE134300926A23 /* PBXTextBookmark */ = 229613B012EE134300926A23 /* PBXTextBookmark */;
+			229613B712EE138D00926A23 /* PBXBookmark */ = 229613B712EE138D00926A23 /* PBXBookmark */;
+			229613B912EE138D00926A23 /* PBXTextBookmark */ = 229613B912EE138D00926A23 /* PBXTextBookmark */;
+			229613BE12EE14B200926A23 /* PBXTextBookmark */ = 229613BE12EE14B200926A23 /* PBXTextBookmark */;
+			22F698B912EE197500205151 /* PBXTextBookmark */ = 22F698B912EE197500205151 /* PBXTextBookmark */;
+			22F698DD12EE1C8900205151 /* PBXTextBookmark */ = 22F698DD12EE1C8900205151 /* PBXTextBookmark */;
 		};
 		sourceControlManager = 22796BCB12EE0B9600E74C50 /* Source Control */;
 		userBuildSettings = {
@@ -155,46 +152,27 @@
 	};
 	089C167EFE841241C02AAC07 /* English */ = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {516, 532}}";
+			sepNavIntBoundsRect = "{{0, 0}, {1307, 809}}";
 			sepNavSelRange = "{91, 0}";
 			sepNavVisRange = "{0, 118}";
+			sepNavWindowFrame = "{{15, 86}, {1366, 937}}";
 		};
 	};
-	2241772E12EE14DC00A08259 /* PBXTextBookmark */ = {
+	2249068A12EE20E9007C613E /* PBXTextBookmark */ = {
 		isa = PBXTextBookmark;
-		fRef = 22E7F131120A149200EB0E77 /* GPGToolsPrefController.h */;
-		name = "GPGToolsPrefController.h: 29";
+		fRef = 2270106A120A1FD300538E81 /* fix_gpgmail.sh */;
+		name = "fix_gpgmail.sh: 34";
 		rLen = 0;
-		rLoc = 431;
+		rLoc = 1448;
 		rType = 0;
-		vrLen = 450;
+		vrLen = 1714;
 		vrLoc = 0;
 	};
-	2241775012EE15F900A08259 /* PBXTextBookmark */ = {
-		isa = PBXTextBookmark;
-		fRef = 22E7F131120A149200EB0E77 /* GPGToolsPrefController.h */;
-		name = "GPGToolsPrefController.h: 29";
-		rLen = 0;
-		rLoc = 431;
-		rType = 0;
-		vrLen = 450;
-		vrLoc = 0;
-	};
-	2241775112EE15F900A08259 /* PBXTextBookmark */ = {
-		isa = PBXTextBookmark;
-		fRef = 22E7F131120A149200EB0E77 /* GPGToolsPrefController.h */;
-		name = "GPGToolsPrefController.h: 29";
-		rLen = 0;
-		rLoc = 431;
-		rType = 0;
-		vrLen = 450;
-		vrLoc = 0;
-	};
-	2270106A120A1FD300538E81 /* org.gpgmail.loginscript.sh */ = {
+	2270106A120A1FD300538E81 /* fix_gpgmail.sh */ = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {635, 975}}";
-			sepNavSelRange = "{0, 0}";
-			sepNavVisRange = "{0, 1789}";
+			sepNavIntBoundsRect = "{{0, 0}, {925, 962}}";
+			sepNavSelRange = "{1448, 0}";
+			sepNavVisRange = "{0, 1714}";
 		};
 	};
 	22796BCB12EE0B9600E74C50 /* Source Control */ = {
@@ -246,16 +224,6 @@
 		isa = PBXBookmark;
 		fRef = 22EE1F2E12EE10A90002556B /* gpgtools.icns */;
 	};
-	229613B812EE138D00926A23 /* PBXTextBookmark */ = {
-		isa = PBXTextBookmark;
-		fRef = 2270106A120A1FD300538E81 /* org.gpgmail.loginscript.sh */;
-		name = "org.gpgmail.loginscript.sh: 1";
-		rLen = 0;
-		rLoc = 0;
-		rType = 0;
-		vrLen = 1789;
-		vrLoc = 0;
-	};
 	229613B912EE138D00926A23 /* PBXTextBookmark */ = {
 		isa = PBXTextBookmark;
 		fRef = 089C167EFE841241C02AAC07 /* English */;
@@ -276,29 +244,9 @@
 		vrLen = 283;
 		vrLoc = 0;
 	};
-	229613BF12EE14B200926A23 /* PBXTextBookmark */ = {
-		isa = PBXTextBookmark;
-		fRef = 22E7F131120A149200EB0E77 /* GPGToolsPrefController.h */;
-		name = "GPGToolsPrefController.h: 29";
-		rLen = 0;
-		rLoc = 431;
-		rType = 0;
-		vrLen = 450;
-		vrLoc = 0;
-	};
-	229613C012EE14B200926A23 /* PBXTextBookmark */ = {
-		isa = PBXTextBookmark;
-		fRef = 22E7F131120A149200EB0E77 /* GPGToolsPrefController.h */;
-		name = "GPGToolsPrefController.h: 29";
-		rLen = 0;
-		rLoc = 431;
-		rType = 0;
-		vrLen = 450;
-		vrLoc = 0;
-	};
 	22E7F131120A149200EB0E77 /* GPGToolsPrefController.h */ = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {505, 524}}";
+			sepNavIntBoundsRect = "{{0, 0}, {505, 516}}";
 			sepNavSelRange = "{431, 0}";
 			sepNavVisRange = "{0, 450}";
 			sepNavWindowFrame = "{{84, 23}, {1366, 937}}";
@@ -306,9 +254,9 @@
 	};
 	22E7F132120A149200EB0E77 /* GPGToolsPrefController.m */ = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {1048, 962}}";
-			sepNavSelRange = "{1367, 0}";
-			sepNavVisRange = "{944, 970}";
+			sepNavIntBoundsRect = "{{0, 0}, {1307, 962}}";
+			sepNavSelRange = "{1466, 14}";
+			sepNavVisRange = "{38, 1773}";
 			sepNavWindowFrame = "{{38, 65}, {1366, 937}}";
 		};
 	};
@@ -325,8 +273,33 @@
 			sepNavWindowFrame = "{{15, 86}, {1366, 937}}";
 		};
 	};
+	22F698B912EE197500205151 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 22E7F131120A149200EB0E77 /* GPGToolsPrefController.h */;
+		name = "GPGToolsPrefController.h: 29";
+		rLen = 0;
+		rLoc = 431;
+		rType = 0;
+		vrLen = 450;
+		vrLoc = 0;
+	};
+	22F698DD12EE1C8900205151 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 2270106A120A1FD300538E81 /* fix_gpgmail.sh */;
+		name = "fix_gpgmail.sh: 34";
+		rLen = 0;
+		rLoc = 1448;
+		rType = 0;
+		vrLen = 1714;
+		vrLoc = 0;
+	};
 	8D202CE80486D31800D8A456 /* GPGTools */ = {
 		activeExec = 0;
+	};
+	8D202CF70486D31800D8A456 /* Info.plist */ = {
+		uiCtxt = {
+			sepNavWindowFrame = "{{15, 86}, {1366, 937}}";
+		};
 	};
 	F506C03C013D9D7901CA16C8 /* GPGToolsPref.h */ = {
 		uiCtxt = {

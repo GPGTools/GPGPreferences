@@ -254,7 +254,7 @@
 						<dict>
 							<key>PBXSmartGroupTreeModuleColumnWidthsKey</key>
 							<array>
-								<real>252</real>
+								<real>672</real>
 							</array>
 							<key>PBXSmartGroupTreeModuleColumnsKey_v4</key>
 							<array>
@@ -276,13 +276,13 @@
 							<key>PBXSmartGroupTreeModuleOutlineStateSelectionKey</key>
 							<array>
 								<array>
-									<integer>16</integer>
-									<integer>15</integer>
+									<integer>13</integer>
+									<integer>8</integer>
 									<integer>0</integer>
 								</array>
 							</array>
 							<key>PBXSmartGroupTreeModuleOutlineStateVisibleRectKey</key>
-							<string>{{0, 0}, {252, 910}}</string>
+							<string>{{0, 0}, {672, 910}}</string>
 						</dict>
 						<key>PBXTopSmartGroupGIDs</key>
 						<array/>
@@ -294,19 +294,19 @@
 					<key>GeometryConfiguration</key>
 					<dict>
 						<key>Frame</key>
-						<string>{{0, 0}, {269, 928}}</string>
+						<string>{{0, 0}, {689, 928}}</string>
 						<key>GroupTreeTableConfiguration</key>
 						<array>
 							<string>MainColumn</string>
-							<real>252</real>
+							<real>672</real>
 						</array>
 						<key>RubberWindowFrame</key>
-						<string>0 59 840 969 0 0 1680 1028 </string>
+						<string>0 59 1680 969 0 0 1680 1028 </string>
 					</dict>
 					<key>Module</key>
 					<string>PBXSmartGroupTreeModule</string>
 					<key>Proportion</key>
-					<string>269pt</string>
+					<string>689pt</string>
 				</dict>
 				<dict>
 					<key>Dock</key>
@@ -317,7 +317,7 @@
 								<key>PBXProjectModuleGUID</key>
 								<string>1CE0B20306471E060097A5F4</string>
 								<key>PBXProjectModuleLabel</key>
-								<string>GPGToolsPrefController.h</string>
+								<string>fix_gpgmail.sh</string>
 								<key>PBXSplitModuleInNavigatorKey</key>
 								<dict>
 									<key>Split0</key>
@@ -325,21 +325,21 @@
 										<key>PBXProjectModuleGUID</key>
 										<string>1CE0B20406471E060097A5F4</string>
 										<key>PBXProjectModuleLabel</key>
-										<string>GPGToolsPrefController.h</string>
+										<string>fix_gpgmail.sh</string>
 										<key>_historyCapacity</key>
 										<integer>0</integer>
 										<key>bookmark</key>
-										<string>2241775112EE15F900A08259</string>
+										<string>2249068A12EE20E9007C613E</string>
 										<key>history</key>
 										<array>
 											<string>22796C0D12EE0EF000E74C50</string>
 											<string>22796C1112EE0EF000E74C50</string>
 											<string>229613B012EE134300926A23</string>
 											<string>229613B712EE138D00926A23</string>
-											<string>229613B812EE138D00926A23</string>
 											<string>229613B912EE138D00926A23</string>
 											<string>229613BE12EE14B200926A23</string>
-											<string>2241775012EE15F900A08259</string>
+											<string>22F698B912EE197500205151</string>
+											<string>22F698DD12EE1C8900205151</string>
 										</array>
 									</dict>
 									<key>SplitCount</key>
@@ -351,14 +351,14 @@
 							<key>GeometryConfiguration</key>
 							<dict>
 								<key>Frame</key>
-								<string>{{0, 0}, {566, 556}}</string>
+								<string>{{0, 0}, {986, 530}}</string>
 								<key>RubberWindowFrame</key>
-								<string>0 59 840 969 0 0 1680 1028 </string>
+								<string>0 59 1680 969 0 0 1680 1028 </string>
 							</dict>
 							<key>Module</key>
 							<string>PBXNavigatorGroup</string>
 							<key>Proportion</key>
-							<string>556pt</string>
+							<string>530pt</string>
 						</dict>
 						<dict>
 							<key>ContentConfiguration</key>
@@ -371,18 +371,18 @@
 							<key>GeometryConfiguration</key>
 							<dict>
 								<key>Frame</key>
-								<string>{{0, 561}, {566, 367}}</string>
+								<string>{{0, 535}, {986, 393}}</string>
 								<key>RubberWindowFrame</key>
-								<string>0 59 840 969 0 0 1680 1028 </string>
+								<string>0 59 1680 969 0 0 1680 1028 </string>
 							</dict>
 							<key>Module</key>
 							<string>XCDetailModule</string>
 							<key>Proportion</key>
-							<string>367pt</string>
+							<string>393pt</string>
 						</dict>
 					</array>
 					<key>Proportion</key>
-					<string>566pt</string>
+					<string>986pt</string>
 				</dict>
 			</array>
 			<key>Name</key>
@@ -397,9 +397,9 @@
 			</array>
 			<key>TableOfContents</key>
 			<array>
-				<string>2241772F12EE14DC00A08259</string>
+				<string>2249068612EE20C3007C613E</string>
 				<string>1CE0B1FE06471DED0097A5F4</string>
-				<string>2241773012EE14DC00A08259</string>
+				<string>2249068712EE20C3007C613E</string>
 				<string>1CE0B20306471E060097A5F4</string>
 				<string>1CE0B20506471E060097A5F4</string>
 			</array>
@@ -537,13 +537,11 @@
 	<integer>5</integer>
 	<key>WindowOrderList</key>
 	<array>
-		<string>1C78EAAD065D492600B07095</string>
-		<string>1CD10A99069EF8BA00B06720</string>
 		<string>22796BC912EE0B9600E74C50</string>
 		<string>/Data/Temp/GPGMail_Preferences/GPGTools_Preferences.xcodeproj</string>
 	</array>
 	<key>WindowString</key>
-	<string>0 59 840 969 0 0 1680 1028 </string>
+	<string>0 59 1680 969 0 0 1680 1028 </string>
 	<key>WindowToolsV3</key>
 	<array>
 		<dict>
@@ -620,7 +618,7 @@
 			<key>TableOfContents</key>
 			<array>
 				<string>22796BC912EE0B9600E74C50</string>
-				<string>2241773112EE14DC00A08259</string>
+				<string>2249068812EE20C3007C613E</string>
 				<string>1CD0528F0623707200166675</string>
 				<string>XCMainBuildResultsModuleGUID</string>
 			</array>

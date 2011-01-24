@@ -25,7 +25,7 @@
 # setup
 ################################################################################
 _bundleId="gpgmail";
-_bundleName="GPGTools.mailbundle";
+_bundleName="GPGMail.mailbundle";
 _bundleRootPath="$HOME/Library/Mail/Bundles";
 _bundlePath="$_bundleRootPath/$_bundleName";
 _plistBundle="$_bundlePath/Contents/Info";

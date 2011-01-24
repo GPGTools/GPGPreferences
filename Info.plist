@@ -25,10 +25,12 @@
 	<key>NSMainNibFile</key>
 	<string>GPGToolsPref</string>
 	<key>NSPrefPaneIconFile</key>
-	<string>GPGToolsPref.tiff</string>
+	<string>gpgtools.icns</string>
 	<key>NSPrefPaneIconLabel</key>
 	<string>GPGTools</string>
 	<key>NSPrincipalClass</key>
 	<string>GPGToolsPref</string>
+	<key></key>
+	<string></string>
 </dict>
 </plist>

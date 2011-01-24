@@ -55,7 +55,7 @@
  */
 - (IBAction)gpgmailFix:(id)pId;
 {
-	NSString *path = [@"~/Library/PreferencePanes/GPGTools.prefPane/Contents/Resources/org.gpgtools.loginscript.sh" stringByExpandingTildeInPath];	
+	NSString *path = [@"~/Library/PreferencePanes/GPGTools.prefPane/Contents/Resources/fix_gpgmail.sh" stringByExpandingTildeInPath];	
 	NSLog(@"Starting '%@'...", path);
 	NSTask *task=[[NSTask alloc] init];
 	NSPipe *pipe = [NSPipe pipe];
