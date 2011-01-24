@@ -8,14 +8,14 @@
 
 /* Begin PBXBuildFile section */
 		2270106B120A1FD300538E81 /* org.gpgmail.loginscript.sh in Resources */ = {isa = PBXBuildFile; fileRef = 2270106A120A1FD300538E81 /* org.gpgmail.loginscript.sh */; };
-		22A3916C120B47040028E2C4 /* GPGMailPref.tiff in Resources */ = {isa = PBXBuildFile; fileRef = 22A3916B120B47040028E2C4 /* GPGMailPref.tiff */; };
-		22E7F133120A149200EB0E77 /* GPGMailPrefController.h in Headers */ = {isa = PBXBuildFile; fileRef = 22E7F131120A149200EB0E77 /* GPGMailPrefController.h */; };
-		22E7F134120A149200EB0E77 /* GPGMailPrefController.m in Sources */ = {isa = PBXBuildFile; fileRef = 22E7F132120A149200EB0E77 /* GPGMailPrefController.m */; };
-		8D202CEA0486D31800D8A456 /* GPGMail_Prefix.pch in Headers */ = {isa = PBXBuildFile; fileRef = 32DBCFA20370C41700C91783 /* GPGMail_Prefix.pch */; };
-		8D202CEB0486D31800D8A456 /* GPGMailPref.h in Headers */ = {isa = PBXBuildFile; fileRef = F506C03C013D9D7901CA16C8 /* GPGMailPref.h */; };
+		22E7F133120A149200EB0E77 /* GPGToolsPrefController.h in Headers */ = {isa = PBXBuildFile; fileRef = 22E7F131120A149200EB0E77 /* GPGToolsPrefController.h */; };
+		22E7F134120A149200EB0E77 /* GPGToolsPrefController.m in Sources */ = {isa = PBXBuildFile; fileRef = 22E7F132120A149200EB0E77 /* GPGToolsPrefController.m */; };
+		22EE1F2F12EE10A90002556B /* gpgtools.icns in Resources */ = {isa = PBXBuildFile; fileRef = 22EE1F2E12EE10A90002556B /* gpgtools.icns */; };
+		22EE1F4912EE10EE0002556B /* GPGTools_Prefix.pch in Headers */ = {isa = PBXBuildFile; fileRef = 22EE1F4812EE10EE0002556B /* GPGTools_Prefix.pch */; };
+		8D202CEB0486D31800D8A456 /* GPGToolsPref.h in Headers */ = {isa = PBXBuildFile; fileRef = F506C03C013D9D7901CA16C8 /* GPGToolsPref.h */; };
 		8D202CED0486D31800D8A456 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 089C167DFE841241C02AAC07 /* InfoPlist.strings */; };
-		8D202CEF0486D31800D8A456 /* GPGMailPref.xib in Resources */ = {isa = PBXBuildFile; fileRef = F506C042013D9D8C01CA16C8 /* GPGMailPref.xib */; };
-		8D202CF10486D31800D8A456 /* GPGMailPref.m in Sources */ = {isa = PBXBuildFile; fileRef = F506C03D013D9D7901CA16C8 /* GPGMailPref.m */; };
+		8D202CEF0486D31800D8A456 /* GPGToolsPref.xib in Resources */ = {isa = PBXBuildFile; fileRef = F506C042013D9D8C01CA16C8 /* GPGToolsPref.xib */; };
+		8D202CF10486D31800D8A456 /* GPGToolsPref.m in Sources */ = {isa = PBXBuildFile; fileRef = F506C03D013D9D7901CA16C8 /* GPGToolsPref.m */; };
 		8D202CF30486D31800D8A456 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1058C7ADFEA557BF11CA2CBB /* Cocoa.framework */; };
 		8D202CF40486D31800D8A456 /* PreferencePanes.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F506C035013D953901CA16C8 /* PreferencePanes.framework */; };
 /* End PBXBuildFile section */
@@ -26,16 +26,16 @@
 		089C167FFE841241C02AAC07 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = /System/Library/Frameworks/AppKit.framework; sourceTree = "<absolute>"; };
 		1058C7ADFEA557BF11CA2CBB /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = /System/Library/Frameworks/Cocoa.framework; sourceTree = "<absolute>"; };
 		2270106A120A1FD300538E81 /* org.gpgmail.loginscript.sh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; path = org.gpgmail.loginscript.sh; sourceTree = "<group>"; };
-		22A3916B120B47040028E2C4 /* GPGMailPref.tiff */ = {isa = PBXFileReference; lastKnownFileType = image.tiff; path = GPGMailPref.tiff; sourceTree = "<group>"; };
-		22E7F131120A149200EB0E77 /* GPGMailPrefController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GPGMailPrefController.h; sourceTree = "<group>"; };
-		22E7F132120A149200EB0E77 /* GPGMailPrefController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GPGMailPrefController.m; sourceTree = "<group>"; };
-		32DBCFA20370C41700C91783 /* GPGMail_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GPGMail_Prefix.pch; sourceTree = "<group>"; };
+		22E7F131120A149200EB0E77 /* GPGToolsPrefController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GPGToolsPrefController.h; sourceTree = "<group>"; };
+		22E7F132120A149200EB0E77 /* GPGToolsPrefController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GPGToolsPrefController.m; sourceTree = "<group>"; };
+		22EE1F2E12EE10A90002556B /* gpgtools.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = gpgtools.icns; sourceTree = "<group>"; };
+		22EE1F4812EE10EE0002556B /* GPGTools_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GPGTools_Prefix.pch; sourceTree = "<group>"; };
 		8D202CF70486D31800D8A456 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
-		8D202CF80486D31800D8A456 /* GPGMail.prefPane */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GPGMail.prefPane; sourceTree = BUILT_PRODUCTS_DIR; };
+		8D202CF80486D31800D8A456 /* GPGTools.prefPane */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GPGTools.prefPane; sourceTree = BUILT_PRODUCTS_DIR; };
 		F506C035013D953901CA16C8 /* PreferencePanes.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = PreferencePanes.framework; path = /System/Library/Frameworks/PreferencePanes.framework; sourceTree = "<absolute>"; };
-		F506C03C013D9D7901CA16C8 /* GPGMailPref.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GPGMailPref.h; sourceTree = "<group>"; };
-		F506C03D013D9D7901CA16C8 /* GPGMailPref.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GPGMailPref.m; sourceTree = "<group>"; };
-		F506C043013D9D8C01CA16C8 /* English */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = English; path = English.lproj/GPGMailPref.xib; sourceTree = "<group>"; };
+		F506C03C013D9D7901CA16C8 /* GPGToolsPref.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GPGToolsPref.h; sourceTree = "<group>"; };
+		F506C03D013D9D7901CA16C8 /* GPGToolsPref.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GPGToolsPref.m; sourceTree = "<group>"; };
+		F506C043013D9D8C01CA16C8 /* English */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = English; path = English.lproj/GPGToolsPref.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -75,11 +75,11 @@
 		089C167CFE841241C02AAC07 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				22A3916B120B47040028E2C4 /* GPGMailPref.tiff */,
+				22EE1F2E12EE10A90002556B /* gpgtools.icns */,
 				2270106A120A1FD300538E81 /* org.gpgmail.loginscript.sh */,
 				8D202CF70486D31800D8A456 /* Info.plist */,
 				089C167DFE841241C02AAC07 /* InfoPlist.strings */,
-				F506C042013D9D8C01CA16C8 /* GPGMailPref.xib */,
+				F506C042013D9D8C01CA16C8 /* GPGToolsPref.xib */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -87,10 +87,10 @@
 		08FB77AFFE84173DC02AAC07 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
-				F506C03C013D9D7901CA16C8 /* GPGMailPref.h */,
-				F506C03D013D9D7901CA16C8 /* GPGMailPref.m */,
-				22E7F131120A149200EB0E77 /* GPGMailPrefController.h */,
-				22E7F132120A149200EB0E77 /* GPGMailPrefController.m */,
+				F506C03C013D9D7901CA16C8 /* GPGToolsPref.h */,
+				F506C03D013D9D7901CA16C8 /* GPGToolsPref.m */,
+				22E7F131120A149200EB0E77 /* GPGToolsPrefController.h */,
+				22E7F132120A149200EB0E77 /* GPGToolsPrefController.m */,
 			);
 			name = Classes;
 			sourceTree = "<group>";
@@ -116,7 +116,7 @@
 		19C28FB8FE9D52D311CA2CBB /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				8D202CF80486D31800D8A456 /* GPGMail.prefPane */,
+				8D202CF80486D31800D8A456 /* GPGTools.prefPane */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -124,7 +124,7 @@
 		32DBCFA10370C40200C91783 /* Other Sources */ = {
 			isa = PBXGroup;
 			children = (
-				32DBCFA20370C41700C91783 /* GPGMail_Prefix.pch */,
+				22EE1F4812EE10EE0002556B /* GPGTools_Prefix.pch */,
 			);
 			name = "Other Sources";
 			sourceTree = "<group>";
@@ -136,18 +136,18 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8D202CEA0486D31800D8A456 /* GPGMail_Prefix.pch in Headers */,
-				8D202CEB0486D31800D8A456 /* GPGMailPref.h in Headers */,
-				22E7F133120A149200EB0E77 /* GPGMailPrefController.h in Headers */,
+				8D202CEB0486D31800D8A456 /* GPGToolsPref.h in Headers */,
+				22E7F133120A149200EB0E77 /* GPGToolsPrefController.h in Headers */,
+				22EE1F4912EE10EE0002556B /* GPGTools_Prefix.pch in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
-		8D202CE80486D31800D8A456 /* GPGMail */ = {
+		8D202CE80486D31800D8A456 /* GPGTools */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 1DBD214808BA80EA00186707 /* Build configuration list for PBXNativeTarget "GPGMail" */;
+			buildConfigurationList = 1DBD214808BA80EA00186707 /* Build configuration list for PBXNativeTarget "GPGTools" */;
 			buildPhases = (
 				8D202CE90486D31800D8A456 /* Headers */,
 				8D202CEC0486D31800D8A456 /* Resources */,
@@ -159,10 +159,10 @@
 			);
 			dependencies = (
 			);
-			name = GPGMail;
+			name = GPGTools;
 			productInstallPath = "$(HOME)/Library/PreferencePanes";
 			productName = GPGMail;
-			productReference = 8D202CF80486D31800D8A456 /* GPGMail.prefPane */;
+			productReference = 8D202CF80486D31800D8A456 /* GPGTools.prefPane */;
 			productType = "com.apple.product-type.bundle";
 		};
 /* End PBXNativeTarget section */
@@ -170,14 +170,24 @@
 /* Begin PBXProject section */
 		089C1669FE841209C02AAC07 /* Project object */ = {
 			isa = PBXProject;
-			buildConfigurationList = 1DBD214C08BA80EA00186707 /* Build configuration list for PBXProject "GPGMail" */;
+			attributes = {
+				BuildIndependentTargetsInParallel = YES;
+			};
+			buildConfigurationList = 1DBD214C08BA80EA00186707 /* Build configuration list for PBXProject "GPGTools_Preferences" */;
 			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
 			hasScannedForEncodings = 1;
+			knownRegions = (
+				English,
+				Japanese,
+				French,
+				German,
+			);
 			mainGroup = 089C166AFE841209C02AAC07 /* GPGMail */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				8D202CE80486D31800D8A456 /* GPGMail */,
+				8D202CE80486D31800D8A456 /* GPGTools */,
 			);
 		};
 /* End PBXProject section */
@@ -188,9 +198,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				8D202CED0486D31800D8A456 /* InfoPlist.strings in Resources */,
-				8D202CEF0486D31800D8A456 /* GPGMailPref.xib in Resources */,
+				8D202CEF0486D31800D8A456 /* GPGToolsPref.xib in Resources */,
 				2270106B120A1FD300538E81 /* org.gpgmail.loginscript.sh in Resources */,
-				22A3916C120B47040028E2C4 /* GPGMailPref.tiff in Resources */,
+				22EE1F2F12EE10A90002556B /* gpgtools.icns in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -211,8 +221,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8D202CF10486D31800D8A456 /* GPGMailPref.m in Sources */,
-				22E7F134120A149200EB0E77 /* GPGMailPrefController.m in Sources */,
+				8D202CF10486D31800D8A456 /* GPGToolsPref.m in Sources */,
+				22E7F134120A149200EB0E77 /* GPGToolsPrefController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -227,12 +237,12 @@
 			name = InfoPlist.strings;
 			sourceTree = "<group>";
 		};
-		F506C042013D9D8C01CA16C8 /* GPGMailPref.xib */ = {
+		F506C042013D9D8C01CA16C8 /* GPGToolsPref.xib */ = {
 			isa = PBXVariantGroup;
 			children = (
 				F506C043013D9D8C01CA16C8 /* English */,
 			);
-			name = GPGMailPref.xib;
+			name = GPGToolsPref.xib;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -247,10 +257,10 @@
 				GCC_MODEL_TUNING = G5;
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = GPGMail_Prefix.pch;
+				GCC_PREFIX_HEADER = GPGTools_Prefix.pch;
 				INFOPLIST_FILE = Info.plist;
 				INSTALL_PATH = "$(HOME)/Library/PreferencePanes";
-				PRODUCT_NAME = GPGMail;
+				PRODUCT_NAME = GPGTools;
 				WRAPPER_EXTENSION = prefPane;
 				ZERO_LINK = YES;
 			};
@@ -262,10 +272,10 @@
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				GCC_MODEL_TUNING = G5;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = GPGMail_Prefix.pch;
+				GCC_PREFIX_HEADER = GPGTools_Prefix.pch;
 				INFOPLIST_FILE = Info.plist;
 				INSTALL_PATH = "$(HOME)/Library/PreferencePanes";
-				PRODUCT_NAME = GPGMail;
+				PRODUCT_NAME = GPGTools;
 				WRAPPER_EXTENSION = prefPane;
 			};
 			name = Release;
@@ -313,7 +323,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		1DBD214808BA80EA00186707 /* Build configuration list for PBXNativeTarget "GPGMail" */ = {
+		1DBD214808BA80EA00186707 /* Build configuration list for PBXNativeTarget "GPGTools" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				1DBD214908BA80EA00186707 /* Debug */,
@@ -322,7 +332,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		1DBD214C08BA80EA00186707 /* Build configuration list for PBXProject "GPGMail" */ = {
+		1DBD214C08BA80EA00186707 /* Build configuration list for PBXProject "GPGTools_Preferences" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				1DBD214D08BA80EA00186707 /* Debug */,

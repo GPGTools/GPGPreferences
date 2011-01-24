@@ -1,5 +1,5 @@
 //
-// Prefix header for all source files of the 'GPGMail' target in the 'GPGMail' project.
+// Prefix header for all source files of the 'GPGTools' target in the 'GPGTools' project.
 //
 
 #ifdef __OBJC__

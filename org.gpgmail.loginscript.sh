@@ -1,7 +1,7 @@
 #!/bin/bash
 ################################################################################
 #
-# GPGMail auto fix (for new Mail.app releases).
+# GPGTools auto fix (for new Mail.app releases).
 #
 # @author   Alexander Willner <alex@willner.ws>
 # @version  2010-08-05 (v0.3)
@@ -25,7 +25,7 @@
 # setup
 ################################################################################
 _bundleId="gpgmail";
-_bundleName="GPGMail.mailbundle";
+_bundleName="GPGTools.mailbundle";
 _bundleRootPath="$HOME/Library/Mail/Bundles";
 _bundlePath="$_bundleRootPath/$_bundleName";
 _plistBundle="$_bundlePath/Contents/Info";
