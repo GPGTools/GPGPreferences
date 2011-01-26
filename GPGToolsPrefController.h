@@ -19,13 +19,18 @@
 - (IBAction)gpgtoolsOpenURL:(id)pId;
 
 /*
- * Remove GPGTools plug-in.
+ * Remove GPGMail plug-in.
  */
 - (IBAction)gpgmailRemove:(id)pId;
 
 /*
- * Fix GPGTools plug-in.
+ * Fix GPGMail plug-in.
  */
 - (IBAction)gpgmailFix:(id)pId;
+
+/*
+ * Fix GPG.
+ */
+- (IBAction)gpgFix:(id)pId;
 
 @end

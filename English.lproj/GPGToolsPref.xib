@@ -11,7 +11,7 @@
 			<string key="NS.object.0">823</string>
 		</object>
 		<array class="NSMutableArray" key="IBDocument.EditedObjectIDs">
-			<integer value="191"/>
+			<integer value="218"/>
 		</array>
 		<array key="IBDocument.PluginDependencies">
 			<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
@@ -148,7 +148,7 @@
 								<string type="base64-UTF8" key="NSContents">R1BHVG9vbHMgaXMgYW4gb3BlbiBzb3VyY2UgaW5pdGlhdGl2ZSB0byBicmluZyBPcGVuUEdQIHRvIEFw
 cGxlIE9TIFggaW4gdGhlIGZvcm0gb2YgYSAKc2luZ2xlIGluc3RhbGxlciBwYWNrYWdlLiBUaGlzIGFs
 bG93cyB5b3UgdG8gc2lnbiwgdmVyaWZ5LCBlbmNyeXB0LCBhbmQgZGVjcnlwdCBmaWxlcyBhbmQKZS1t
-YWlscw</string>
+YWlscy4</string>
 								<object class="NSFont" key="NSSupport" id="271635649">
 									<string key="NSName">LucidaGrande</string>
 									<double key="NSSize">13</double>
@@ -201,6 +201,81 @@ YWlscw</string>
 							<string key="NSFrame">{{13, 10}, {642, 143}}</string>
 							<reference key="NSSuperview" ref="1037298196"/>
 							<array class="NSMutableArray" key="NSTabViewItems">
+								<object class="NSTabViewItem" id="135203895">
+									<string key="NSIdentifier">Item 2</string>
+									<object class="NSView" key="NSView" id="767432390">
+										<reference key="NSNextResponder" ref="970373435"/>
+										<int key="NSvFlags">256</int>
+										<array class="NSMutableArray" key="NSSubviews">
+											<object class="NSTextField" id="1064018907">
+												<reference key="NSNextResponder" ref="767432390"/>
+												<int key="NSvFlags">268</int>
+												<string key="NSFrame">{{14, 77}, {146, 17}}</string>
+												<reference key="NSSuperview" ref="767432390"/>
+												<bool key="NSEnabled">YES</bool>
+												<object class="NSTextFieldCell" key="NSCell" id="762946565">
+													<int key="NSCellFlags">68288064</int>
+													<int key="NSCellFlags2">272630784</int>
+													<string key="NSContents">Fix the installation</string>
+													<object class="NSFont" key="NSSupport" id="701901755">
+														<string key="NSName">LucidaGrande-Bold</string>
+														<double key="NSSize">13</double>
+														<int key="NSfFlags">16</int>
+													</object>
+													<reference key="NSControlView" ref="1064018907"/>
+													<reference key="NSBackgroundColor" ref="204879837"/>
+													<reference key="NSTextColor" ref="880469835"/>
+												</object>
+											</object>
+											<object class="NSTextField" id="491142841">
+												<reference key="NSNextResponder" ref="767432390"/>
+												<int key="NSvFlags">268</int>
+												<string key="NSFrame">{{14, 47}, {570, 22}}</string>
+												<reference key="NSSuperview" ref="767432390"/>
+												<bool key="NSEnabled">YES</bool>
+												<object class="NSTextFieldCell" key="NSCell" id="980107879">
+													<int key="NSCellFlags">-2079195584</int>
+													<int key="NSCellFlags2">272630784</int>
+													<string key="NSContents">If you have issues with your MacGPG2 installation this might help to solve your problems.</string>
+													<reference key="NSSupport" ref="271635649"/>
+													<reference key="NSControlView" ref="491142841"/>
+													<reference key="NSBackgroundColor" ref="204879837"/>
+													<reference key="NSTextColor" ref="880469835"/>
+												</object>
+											</object>
+											<object class="NSButton" id="117369621">
+												<reference key="NSNextResponder" ref="767432390"/>
+												<int key="NSvFlags">268</int>
+												<string key="NSFrame">{{11, 9}, {96, 32}}</string>
+												<reference key="NSSuperview" ref="767432390"/>
+												<bool key="NSEnabled">YES</bool>
+												<object class="NSButtonCell" key="NSCell" id="867760394">
+													<int key="NSCellFlags">-2080244224</int>
+													<int key="NSCellFlags2">134217728</int>
+													<string key="NSContents">Fix</string>
+													<object class="NSFont" key="NSSupport" id="987440459">
+														<string key="NSName">LucidaGrande</string>
+														<double key="NSSize">13</double>
+														<int key="NSfFlags">16</int>
+													</object>
+													<reference key="NSControlView" ref="117369621"/>
+													<int key="NSButtonFlags">-2038021889</int>
+													<int key="NSButtonFlags2">129</int>
+													<reference key="NSAlternateImage" ref="987440459"/>
+													<string key="NSAlternateContents"/>
+													<string key="NSKeyEquivalent"/>
+													<int key="NSPeriodicDelay">400</int>
+													<int key="NSPeriodicInterval">75</int>
+												</object>
+											</object>
+										</array>
+										<string key="NSFrame">{{10, 33}, {622, 97}}</string>
+										<reference key="NSSuperview" ref="970373435"/>
+									</object>
+									<string key="NSLabel">GPG</string>
+									<reference key="NSColor" ref="204879837"/>
+									<reference key="NSTabView" ref="970373435"/>
+								</object>
 								<object class="NSTabViewItem" id="509698866">
 									<string key="NSIdentifier">1</string>
 									<object class="NSView" key="NSView" id="610022692">
@@ -217,11 +292,7 @@ YWlscw</string>
 													<int key="NSCellFlags">68288064</int>
 													<int key="NSCellFlags2">272630784</int>
 													<string key="NSContents">Fix after OS X update</string>
-													<object class="NSFont" key="NSSupport" id="701901755">
-														<string key="NSName">LucidaGrande-Bold</string>
-														<double key="NSSize">13</double>
-														<int key="NSfFlags">16</int>
-													</object>
+													<reference key="NSSupport" ref="701901755"/>
 													<reference key="NSControlView" ref="863521501"/>
 													<reference key="NSBackgroundColor" ref="204879837"/>
 													<reference key="NSTextColor" ref="880469835"/>
@@ -286,11 +357,7 @@ dCBmaXggdGhpcyBoZXJlLg</string>
 													<int key="NSCellFlags">-2080244224</int>
 													<int key="NSCellFlags2">134217728</int>
 													<string key="NSContents">Fix</string>
-													<object class="NSFont" key="NSSupport" id="987440459">
-														<string key="NSName">LucidaGrande</string>
-														<double key="NSSize">13</double>
-														<int key="NSfFlags">16</int>
-													</object>
+													<reference key="NSSupport" ref="987440459"/>
 													<reference key="NSControlView" ref="771352314"/>
 													<int key="NSButtonFlags">-2038021889</int>
 													<int key="NSButtonFlags2">129</int>
@@ -362,7 +429,7 @@ dCBmaXggdGhpcyBoZXJlLg</string>
 								<object class="NSTabViewItem" id="806899239">
 									<string key="NSIdentifier">2</string>
 									<object class="NSView" key="NSView" id="1002012616">
-										<reference key="NSNextResponder" ref="970373435"/>
+										<nil key="NSNextResponder"/>
 										<int key="NSvFlags">256</int>
 										<array class="NSMutableArray" key="NSSubviews">
 											<object class="NSTextField" id="839177087">
@@ -464,20 +531,19 @@ KDIwMTEtMDEtMjQpA</string>
 											</object>
 										</array>
 										<string key="NSFrame">{{10, 33}, {622, 97}}</string>
-										<reference key="NSSuperview" ref="970373435"/>
 									</object>
 									<string key="NSLabel">About</string>
 									<reference key="NSColor" ref="204879837"/>
 									<reference key="NSTabView" ref="970373435"/>
 								</object>
 							</array>
-							<reference key="NSSelectedTabViewItem" ref="806899239"/>
+							<reference key="NSSelectedTabViewItem" ref="135203895"/>
 							<reference key="NSFont" ref="271635649"/>
 							<int key="NSTvFlags">0</int>
 							<bool key="NSAllowTruncatedLabels">YES</bool>
 							<bool key="NSDrawsBackground">YES</bool>
 							<array class="NSMutableArray" key="NSSubviews">
-								<reference ref="1002012616"/>
+								<reference ref="767432390"/>
 							</array>
 						</object>
 					</array>
@@ -545,6 +611,14 @@ KDIwMTEtMDEtMjQpA</string>
 						<reference key="destination" ref="513051681"/>
 					</object>
 					<int key="connectionID">216</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBActionConnection" key="connection">
+						<string key="label">gpgFix:</string>
+						<reference key="source" ref="54120353"/>
+						<reference key="destination" ref="117369621"/>
+					</object>
+					<int key="connectionID">231</int>
 				</object>
 			</array>
 			<object class="IBMutableOrderedSet" key="objectRecords">
@@ -650,6 +724,7 @@ KDIwMTEtMDEtMjQpA</string>
 						<array class="NSMutableArray" key="children">
 							<reference ref="509698866"/>
 							<reference ref="806899239"/>
+							<reference ref="135203895"/>
 						</array>
 						<reference key="parent" ref="1037298196"/>
 					</object>
@@ -840,13 +915,70 @@ KDIwMTEtMDEtMjQpA</string>
 						<reference key="object" ref="54120353"/>
 						<reference key="parent" ref="0"/>
 					</object>
+					<object class="IBObjectRecord">
+						<int key="objectID">217</int>
+						<reference key="object" ref="135203895"/>
+						<array class="NSMutableArray" key="children">
+							<reference ref="767432390"/>
+						</array>
+						<reference key="parent" ref="970373435"/>
+					</object>
+					<object class="IBObjectRecord">
+						<int key="objectID">218</int>
+						<reference key="object" ref="767432390"/>
+						<array class="NSMutableArray" key="children">
+							<reference ref="1064018907"/>
+							<reference ref="491142841"/>
+							<reference ref="117369621"/>
+						</array>
+						<reference key="parent" ref="135203895"/>
+					</object>
+					<object class="IBObjectRecord">
+						<int key="objectID">219</int>
+						<reference key="object" ref="1064018907"/>
+						<array class="NSMutableArray" key="children">
+							<reference ref="762946565"/>
+						</array>
+						<reference key="parent" ref="767432390"/>
+					</object>
+					<object class="IBObjectRecord">
+						<int key="objectID">220</int>
+						<reference key="object" ref="762946565"/>
+						<reference key="parent" ref="1064018907"/>
+					</object>
+					<object class="IBObjectRecord">
+						<int key="objectID">226</int>
+						<reference key="object" ref="491142841"/>
+						<array class="NSMutableArray" key="children">
+							<reference ref="980107879"/>
+						</array>
+						<reference key="parent" ref="767432390"/>
+					</object>
+					<object class="IBObjectRecord">
+						<int key="objectID">227</int>
+						<reference key="object" ref="980107879"/>
+						<reference key="parent" ref="491142841"/>
+					</object>
+					<object class="IBObjectRecord">
+						<int key="objectID">228</int>
+						<reference key="object" ref="117369621"/>
+						<array class="NSMutableArray" key="children">
+							<reference ref="867760394"/>
+						</array>
+						<reference key="parent" ref="767432390"/>
+					</object>
+					<object class="IBObjectRecord">
+						<int key="objectID">229</int>
+						<reference key="object" ref="867760394"/>
+						<reference key="parent" ref="117369621"/>
+					</object>
 				</array>
 			</object>
 			<dictionary class="NSMutableDictionary" key="flattenedProperties">
 				<string key="-3.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
-				<string key="12.IBEditorWindowLastContentRect">{{612, 66}, {668, 222}}</string>
+				<string key="12.IBEditorWindowLastContentRect">{{186, 126}, {668, 222}}</string>
 				<string key="12.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
-				<string key="12.IBWindowTemplateEditedContentRect">{{612, 66}, {668, 222}}</string>
+				<string key="12.IBWindowTemplateEditedContentRect">{{186, 126}, {668, 222}}</string>
 				<integer value="1" key="12.ImportedFromIB2"/>
 				<integer value="1" key="12.windowTemplate.hasMinSize"/>
 				<string key="12.windowTemplate.minSize">{224.664, 10}</string>
@@ -856,6 +988,9 @@ KDIwMTEtMDEtMjQpA</string>
 				</object>
 				<string key="124.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
 				<string key="125.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
+				<object class="NSAffineTransform" key="125.IBViewBoundsToFrameTransform">
+					<bytes key="NSTransformStruct">P4AAAL+AAABBYAAAwrgAAA</bytes>
+				</object>
 				<string key="126.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
 				<string key="127.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
 				<string key="128.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
@@ -900,6 +1035,21 @@ KDIwMTEtMDEtMjQpA</string>
 				<string key="200.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
 				<string key="202.CustomClassName">GPGToolsPrefController</string>
 				<string key="202.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
+				<string key="219.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
+				<object class="NSAffineTransform" key="219.IBViewBoundsToFrameTransform">
+					<bytes key="NSTransformStruct">P4AAAL+AAABDEQAAwpoAAA</bytes>
+				</object>
+				<string key="220.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
+				<string key="226.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
+				<object class="NSAffineTransform" key="226.IBViewBoundsToFrameTransform">
+					<bytes key="NSTransformStruct">P4AAAL+AAABBiAAAwoYAAA</bytes>
+				</object>
+				<string key="227.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
+				<string key="228.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
+				<object class="NSAffineTransform" key="228.IBViewBoundsToFrameTransform">
+					<bytes key="NSTransformStruct">P4AAAL+AAABDg4AAwnAAAA</bytes>
+				</object>
+				<string key="229.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
 				<string key="6.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
 				<integer value="1" key="6.ImportedFromIB2"/>
 			</dictionary>
@@ -907,7 +1057,7 @@ KDIwMTEtMDEtMjQpA</string>
 			<nil key="activeLocalization"/>
 			<dictionary class="NSMutableDictionary" key="localizations"/>
 			<nil key="sourceID"/>
-			<int key="maxID">216</int>
+			<int key="maxID">231</int>
 		</object>
 		<object class="IBClassDescriber" key="IBDocument.Classes">
 			<array class="NSMutableArray" key="referencedPartialClassDescriptions">
@@ -923,11 +1073,16 @@ KDIwMTEtMDEtMjQpA</string>
 					<string key="className">GPGToolsPrefController</string>
 					<string key="superclassName">NSButtonCell</string>
 					<dictionary class="NSMutableDictionary" key="actions">
+						<string key="gpgFix:">id</string>
 						<string key="gpgmailFix:">id</string>
 						<string key="gpgmailRemove:">id</string>
 						<string key="gpgtoolsOpenURL:">id</string>
 					</dictionary>
 					<dictionary class="NSMutableDictionary" key="actionInfosByName">
+						<object class="IBActionInfo" key="gpgFix:">
+							<string key="name">gpgFix:</string>
+							<string key="candidateClassName">id</string>
+						</object>
 						<object class="IBActionInfo" key="gpgmailFix:">
 							<string key="name">gpgmailFix:</string>
 							<string key="candidateClassName">id</string>

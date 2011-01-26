@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2219F8CB12F0098700499187 /* fix_gpg.sh in Resources */ = {isa = PBXBuildFile; fileRef = 2219F8CA12F0098700499187 /* fix_gpg.sh */; };
 		2270106B120A1FD300538E81 /* fix_gpgmail.sh in Resources */ = {isa = PBXBuildFile; fileRef = 2270106A120A1FD300538E81 /* fix_gpgmail.sh */; };
 		22E7F133120A149200EB0E77 /* GPGToolsPrefController.h in Headers */ = {isa = PBXBuildFile; fileRef = 22E7F131120A149200EB0E77 /* GPGToolsPrefController.h */; };
 		22E7F134120A149200EB0E77 /* GPGToolsPrefController.m in Sources */ = {isa = PBXBuildFile; fileRef = 22E7F132120A149200EB0E77 /* GPGToolsPrefController.m */; };
@@ -25,6 +26,7 @@
 		089C167EFE841241C02AAC07 /* English */ = {isa = PBXFileReference; fileEncoding = 10; lastKnownFileType = text.plist.strings; name = English; path = English.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		089C167FFE841241C02AAC07 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = /System/Library/Frameworks/AppKit.framework; sourceTree = "<absolute>"; };
 		1058C7ADFEA557BF11CA2CBB /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = /System/Library/Frameworks/Cocoa.framework; sourceTree = "<absolute>"; };
+		2219F8CA12F0098700499187 /* fix_gpg.sh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; path = fix_gpg.sh; sourceTree = "<group>"; };
 		2270106A120A1FD300538E81 /* fix_gpgmail.sh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; path = fix_gpgmail.sh; sourceTree = "<group>"; };
 		22E7F131120A149200EB0E77 /* GPGToolsPrefController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GPGToolsPrefController.h; sourceTree = "<group>"; };
 		22E7F132120A149200EB0E77 /* GPGToolsPrefController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GPGToolsPrefController.m; sourceTree = "<group>"; };
@@ -77,6 +79,7 @@
 			children = (
 				22EE1F2E12EE10A90002556B /* gpgtools.icns */,
 				2270106A120A1FD300538E81 /* fix_gpgmail.sh */,
+				2219F8CA12F0098700499187 /* fix_gpg.sh */,
 				8D202CF70486D31800D8A456 /* Info.plist */,
 				089C167DFE841241C02AAC07 /* InfoPlist.strings */,
 				F506C042013D9D8C01CA16C8 /* GPGToolsPref.xib */,
@@ -201,6 +204,7 @@
 				8D202CEF0486D31800D8A456 /* GPGToolsPref.xib in Resources */,
 				2270106B120A1FD300538E81 /* fix_gpgmail.sh in Resources */,
 				22EE1F2F12EE10A90002556B /* gpgtools.icns in Resources */,
+				2219F8CB12F0098700499187 /* fix_gpg.sh in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
