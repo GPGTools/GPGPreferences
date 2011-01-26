@@ -2,6 +2,8 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<key></key>
+	<string></string>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>English</string>
 	<key>CFBundleDisplayName</key>
@@ -19,9 +21,9 @@
 	<key>CFBundlePackageType</key>
 	<string>BNDL</string>
 	<key>CFBundleShortVersionString</key>
-	<string>0.2</string>
+	<string>0.5</string>
 	<key>CFBundleVersion</key>
-	<string>0.4</string>
+	<string>0.5</string>
 	<key>NSMainNibFile</key>
 	<string>GPGToolsPref</string>
 	<key>NSPrefPaneIconFile</key>
@@ -30,7 +32,5 @@
 	<string>GPGTools</string>
 	<key>NSPrincipalClass</key>
 	<string>GPGToolsPref</string>
-	<key></key>
-	<string></string>
 </dict>
 </plist>
