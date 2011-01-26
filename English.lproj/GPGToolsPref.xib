@@ -11,7 +11,7 @@
 			<string key="NS.object.0">823</string>
 		</object>
 		<array class="NSMutableArray" key="IBDocument.EditedObjectIDs">
-			<integer value="218"/>
+			<integer value="191"/>
 		</array>
 		<array key="IBDocument.PluginDependencies">
 			<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
@@ -204,7 +204,7 @@ YWlscy4</string>
 								<object class="NSTabViewItem" id="135203895">
 									<string key="NSIdentifier">Item 2</string>
 									<object class="NSView" key="NSView" id="767432390">
-										<reference key="NSNextResponder" ref="970373435"/>
+										<nil key="NSNextResponder"/>
 										<int key="NSvFlags">256</int>
 										<array class="NSMutableArray" key="NSSubviews">
 											<object class="NSTextField" id="1064018907">
@@ -270,7 +270,6 @@ YWlscy4</string>
 											</object>
 										</array>
 										<string key="NSFrame">{{10, 33}, {622, 97}}</string>
-										<reference key="NSSuperview" ref="970373435"/>
 									</object>
 									<string key="NSLabel">GPG</string>
 									<reference key="NSColor" ref="204879837"/>
@@ -429,7 +428,7 @@ dCBmaXggdGhpcyBoZXJlLg</string>
 								<object class="NSTabViewItem" id="806899239">
 									<string key="NSIdentifier">2</string>
 									<object class="NSView" key="NSView" id="1002012616">
-										<nil key="NSNextResponder"/>
+										<reference key="NSNextResponder" ref="970373435"/>
 										<int key="NSvFlags">256</int>
 										<array class="NSMutableArray" key="NSSubviews">
 											<object class="NSTextField" id="839177087">
@@ -495,8 +494,8 @@ aHR0cDovL2dwZ3Rvb2xzLm9yZy4</string>
 												<object class="NSTextFieldCell" key="NSCell" id="749558820">
 													<int key="NSCellFlags">68288064</int>
 													<int key="NSCellFlags2">272630784</int>
-													<string type="base64-UTF8" key="NSContents">SGF2ZSBhIGxvb2sgYXQgdGhlIGNvbnNvbGUgZm9yIGZ1cnRoZXIgZGV0YWlscy4KVmVyc2lvbiAwLjQg
-KDIwMTEtMDEtMjQpA</string>
+													<string type="base64-UTF8" key="NSContents">SGF2ZSBhIGxvb2sgYXQgdGhlIGNvbnNvbGUgZm9yIGZ1cnRoZXIgZGV0YWlscy4KVmVyc2lvbiAwLjUg
+KDIwMTEtMDEtMjYpA</string>
 													<object class="NSFont" key="NSSupport">
 														<string key="NSName">LucidaGrande</string>
 														<double key="NSSize">10</double>
@@ -531,19 +530,20 @@ KDIwMTEtMDEtMjQpA</string>
 											</object>
 										</array>
 										<string key="NSFrame">{{10, 33}, {622, 97}}</string>
+										<reference key="NSSuperview" ref="970373435"/>
 									</object>
 									<string key="NSLabel">About</string>
 									<reference key="NSColor" ref="204879837"/>
 									<reference key="NSTabView" ref="970373435"/>
 								</object>
 							</array>
-							<reference key="NSSelectedTabViewItem" ref="135203895"/>
+							<reference key="NSSelectedTabViewItem" ref="806899239"/>
 							<reference key="NSFont" ref="271635649"/>
 							<int key="NSTvFlags">0</int>
 							<bool key="NSAllowTruncatedLabels">YES</bool>
 							<bool key="NSDrawsBackground">YES</bool>
 							<array class="NSMutableArray" key="NSSubviews">
-								<reference ref="767432390"/>
+								<reference ref="1002012616"/>
 							</array>
 						</object>
 					</array>

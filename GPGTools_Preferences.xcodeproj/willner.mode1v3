@@ -276,7 +276,7 @@
 							<key>PBXSmartGroupTreeModuleOutlineStateSelectionKey</key>
 							<array>
 								<array>
-									<integer>10</integer>
+									<integer>14</integer>
 									<integer>8</integer>
 									<integer>0</integer>
 								</array>
@@ -329,7 +329,7 @@
 										<key>_historyCapacity</key>
 										<integer>0</integer>
 										<key>bookmark</key>
-										<string>226A7B2112F015FE00FDCC38</string>
+										<string>22883E7612F04DDC000357EF</string>
 										<key>history</key>
 										<array>
 											<string>229613BE12EE14B200926A23</string>
@@ -340,7 +340,7 @@
 											<string>226A7B1912F0141700FDCC38</string>
 											<string>226A7B1A12F0141700FDCC38</string>
 											<string>226A7B1B12F0141700FDCC38</string>
-											<string>2219F8F112F00B4A00499187</string>
+											<string>226A7B2112F015FE00FDCC38</string>
 										</array>
 									</dict>
 									<key>SplitCount</key>
@@ -352,14 +352,14 @@
 							<key>GeometryConfiguration</key>
 							<dict>
 								<key>Frame</key>
-								<string>{{0, 0}, {751, 368}}</string>
+								<string>{{0, 0}, {751, 358}}</string>
 								<key>RubberWindowFrame</key>
 								<string>400 309 1280 719 0 0 1680 1028 </string>
 							</dict>
 							<key>Module</key>
 							<string>PBXNavigatorGroup</string>
 							<key>Proportion</key>
-							<string>368pt</string>
+							<string>358pt</string>
 						</dict>
 						<dict>
 							<key>ContentConfiguration</key>
@@ -372,14 +372,14 @@
 							<key>GeometryConfiguration</key>
 							<dict>
 								<key>Frame</key>
-								<string>{{0, 373}, {751, 305}}</string>
+								<string>{{0, 363}, {751, 315}}</string>
 								<key>RubberWindowFrame</key>
 								<string>400 309 1280 719 0 0 1680 1028 </string>
 							</dict>
 							<key>Module</key>
 							<string>XCDetailModule</string>
 							<key>Proportion</key>
-							<string>305pt</string>
+							<string>315pt</string>
 						</dict>
 					</array>
 					<key>Proportion</key>
@@ -398,9 +398,9 @@
 			</array>
 			<key>TableOfContents</key>
 			<array>
-				<string>226A7B0D12F0111A00FDCC38</string>
+				<string>22883E7112F04DC8000357EF</string>
 				<string>1CE0B1FE06471DED0097A5F4</string>
-				<string>226A7B0E12F0111A00FDCC38</string>
+				<string>22883E7212F04DC8000357EF</string>
 				<string>1CE0B20306471E060097A5F4</string>
 				<string>1CE0B20506471E060097A5F4</string>
 			</array>
@@ -539,7 +539,7 @@
 	<key>WindowOrderList</key>
 	<array>
 		<string>22796BC912EE0B9600E74C50</string>
-		<string>/Data/Temp/GPGMail_Preferences/GPGTools_Preferences.xcodeproj</string>
+		<string>/Data/Temp/GPGTools_Preferences/GPGTools_Preferences.xcodeproj</string>
 	</array>
 	<key>WindowString</key>
 	<string>400 309 1280 719 0 0 1680 1028 </string>
@@ -619,7 +619,7 @@
 			<key>TableOfContents</key>
 			<array>
 				<string>22796BC912EE0B9600E74C50</string>
-				<string>226A7B0F12F0111A00FDCC38</string>
+				<string>22883E7312F04DC8000357EF</string>
 				<string>1CD0528F0623707200166675</string>
 				<string>XCMainBuildResultsModuleGUID</string>
 			</array>
