@@ -11,7 +11,7 @@
 			<string key="NS.object.0">823</string>
 		</object>
 		<array class="NSMutableArray" key="IBDocument.EditedObjectIDs">
-			<integer value="6"/>
+			<integer value="217"/>
 		</array>
 		<array key="IBDocument.PluginDependencies">
 			<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
@@ -495,8 +495,8 @@ aHR0cDovL2dwZ3Rvb2xzLm9yZy4</string>
 												<object class="NSTextFieldCell" key="NSCell" id="749558820">
 													<int key="NSCellFlags">68288064</int>
 													<int key="NSCellFlags2">272630784</int>
-													<string type="base64-UTF8" key="NSContents">SGF2ZSBhIGxvb2sgYXQgdGhlIGNvbnNvbGUgZm9yIGZ1cnRoZXIgZGV0YWlscy4KVmVyc2lvbiAwLjUg
-KDIwMTEtMDEtMjYpA</string>
+													<string type="base64-UTF8" key="NSContents">SGF2ZSBhIGxvb2sgYXQgdGhlIGNvbnNvbGUgZm9yIGZ1cnRoZXIgZGV0YWlscy4KVmVyc2lvbiAwLjYg
+KDIwMTEtMDEtMjcpA</string>
 													<object class="NSFont" key="NSSupport">
 														<string key="NSName">LucidaGrande</string>
 														<double key="NSSize">10</double>
@@ -976,9 +976,9 @@ KDIwMTEtMDEtMjYpA</string>
 			</object>
 			<dictionary class="NSMutableDictionary" key="flattenedProperties">
 				<string key="-3.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
-				<string key="12.IBEditorWindowLastContentRect">{{186, 126}, {668, 222}}</string>
+				<string key="12.IBEditorWindowLastContentRect">{{463, 126}, {668, 222}}</string>
 				<string key="12.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
-				<string key="12.IBWindowTemplateEditedContentRect">{{186, 126}, {668, 222}}</string>
+				<string key="12.IBWindowTemplateEditedContentRect">{{463, 126}, {668, 222}}</string>
 				<integer value="1" key="12.ImportedFromIB2"/>
 				<integer value="1" key="12.windowTemplate.hasMinSize"/>
 				<string key="12.windowTemplate.minSize">{224.664, 10}</string>

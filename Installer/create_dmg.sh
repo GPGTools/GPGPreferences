@@ -9,14 +9,7 @@ pushd "$(dirname "$0")/.." > /dev/null
 
 
 #config ------------------------------------------------------------------
-releaseDir="build"
-appName="GPGTools.prefPane"
-rmName=""
-appPath="$releaseDir/Release/$appName"
-dmgName="GPGPreferences-0.5.dmg"
-dmgPath="build/$dmgName"
-dmgTempPath="build/temp.dmg"
-volumeName="GPGPreferences"
+source "Makefile.config"
 #-------------------------------------------------------------------------
 
 
@@ -24,6 +17,17 @@ volumeName="GPGPreferences"
 if ( ! test -e Makefile ) then
 	echo "Wrong directory..."
 	exit 1
+fi
+
+if [ "" != "$appPkg" ]; then
+    if ( test -e /usr/local/bin/packagesbuild ) then
+        echo "Building the installer..."
+        /usr/local/bin/packagesbuild "$appPkg"
+    else
+        echo "ERROR: You need the Application \"Packages\"!"
+        echo "get it at http://s.sudre.free.fr/Software/Packages.html"
+        exit 1
+    fi
 fi
 #-------------------------------------------------------------------------
 
@@ -40,10 +44,16 @@ echo "Creating temp folder..."
 mkdir build/dmgTemp
 
 echo "Copying files..."
+if [ "" != "$rmPath" ]; then
+    "$pathSetIcon"/setfileicon "$imgTrash" "$rmPath"
+    cp -PR "$rmPath" build/dmgTemp/
+fi
+"$pathSetIcon"/setfileicon "$imgInstaller" "$appPath"
 mkdir build/dmgTemp/.background
-cp images/dmg_background.png build/dmgTemp/.background/Background.png
-cp images/gpgtoolsdmg.icns build/dmgTemp/.VolumeIcon.icns
+cp "$imgBackground" build/dmgTemp/.background/Background.png
+cp "$imgDmg" build/dmgTemp/.VolumeIcon.icns
 cp -PR "$appPath" build/dmgTemp/
+
 
 echo "Creating DMG..."
 hdiutil create -scrub -quiet -fs HFS+ -fsargs "-c c=64,a=16,e=16" -format UDRW -srcfolder build/dmgTemp -volname "$volumeName" "$dmgTempPath"
@@ -64,18 +74,30 @@ echo "Setting attributes..."
 			set statusbar visible of container window to false
 			set bounds of container window to {400, 200, 580 + 400, 320 + 200}
 			set arrangement of viewOptions to not arranged
-			set icon size of viewOptions to 112
+			set icon size of viewOptions to "$iconSize"
 			set text size of viewOptions to 13
 			set background picture of viewOptions to file ".background:Background.png"
 
-			set position of item "$appName" of container window to {300, 210}
+			set position of item "$appName" of container window to {$appPos}
 			update without registering applications
 			close
 		end tell
 	end tell
 EOT1
 
-./scripts/setfileicon images/macgpg.icns "$mountPoint/$appName"
+if [ "" != "$rmName" ]; then
+    osascript >/dev/null << EOT1
+	tell application "Finder"
+		tell disk "$volumeName"
+			open
+			set position of item "$rmName" of container window to {$rmPos}
+			update without registering applications
+			close
+		end tell
+	end tell
+EOT1
+fi
+
 chmod -Rf +r,go-w "$mountPoint"
 rm -r "$mountPoint/.Trashes" "$mountPoint/.fseventsd"
 hdiutil detach -quiet "$mountPoint"
@@ -90,6 +112,5 @@ rm -f "$dmgTempPath"
 
 echo "Signing..."
 gpg2 -bu 76D78F0500D026C4 "$dmgPath"
-
 
 popd > /dev/null

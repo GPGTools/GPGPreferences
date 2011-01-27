@@ -8,10 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		2219F8CB12F0098700499187 /* fix_gpg.sh in Resources */ = {isa = PBXBuildFile; fileRef = 2219F8CA12F0098700499187 /* fix_gpg.sh */; };
+		222FCA0E12F150D700B55D40 /* Icon.icns in Resources */ = {isa = PBXBuildFile; fileRef = 222FCA0D12F150D700B55D40 /* Icon.icns */; };
 		2270106B120A1FD300538E81 /* fix_gpgmail.sh in Resources */ = {isa = PBXBuildFile; fileRef = 2270106A120A1FD300538E81 /* fix_gpgmail.sh */; };
 		22E7F133120A149200EB0E77 /* GPGToolsPrefController.h in Headers */ = {isa = PBXBuildFile; fileRef = 22E7F131120A149200EB0E77 /* GPGToolsPrefController.h */; };
 		22E7F134120A149200EB0E77 /* GPGToolsPrefController.m in Sources */ = {isa = PBXBuildFile; fileRef = 22E7F132120A149200EB0E77 /* GPGToolsPrefController.m */; };
-		22EE1F2F12EE10A90002556B /* gpgtools.icns in Resources */ = {isa = PBXBuildFile; fileRef = 22EE1F2E12EE10A90002556B /* gpgtools.icns */; };
 		22EE1F4912EE10EE0002556B /* GPGTools_Prefix.pch in Headers */ = {isa = PBXBuildFile; fileRef = 22EE1F4812EE10EE0002556B /* GPGTools_Prefix.pch */; };
 		8D202CEB0486D31800D8A456 /* GPGToolsPref.h in Headers */ = {isa = PBXBuildFile; fileRef = F506C03C013D9D7901CA16C8 /* GPGToolsPref.h */; };
 		8D202CED0486D31800D8A456 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 089C167DFE841241C02AAC07 /* InfoPlist.strings */; };
@@ -27,10 +27,10 @@
 		089C167FFE841241C02AAC07 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = /System/Library/Frameworks/AppKit.framework; sourceTree = "<absolute>"; };
 		1058C7ADFEA557BF11CA2CBB /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = /System/Library/Frameworks/Cocoa.framework; sourceTree = "<absolute>"; };
 		2219F8CA12F0098700499187 /* fix_gpg.sh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; path = fix_gpg.sh; sourceTree = "<group>"; };
+		222FCA0D12F150D700B55D40 /* Icon.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = Icon.icns; sourceTree = "<group>"; };
 		2270106A120A1FD300538E81 /* fix_gpgmail.sh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; path = fix_gpgmail.sh; sourceTree = "<group>"; };
 		22E7F131120A149200EB0E77 /* GPGToolsPrefController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GPGToolsPrefController.h; sourceTree = "<group>"; };
 		22E7F132120A149200EB0E77 /* GPGToolsPrefController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GPGToolsPrefController.m; sourceTree = "<group>"; };
-		22EE1F2E12EE10A90002556B /* gpgtools.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = gpgtools.icns; sourceTree = "<group>"; };
 		22EE1F4812EE10EE0002556B /* GPGTools_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GPGTools_Prefix.pch; sourceTree = "<group>"; };
 		8D202CF70486D31800D8A456 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		8D202CF80486D31800D8A456 /* GPGTools.prefPane */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GPGTools.prefPane; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -77,8 +77,8 @@
 		089C167CFE841241C02AAC07 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				22EE1F2E12EE10A90002556B /* gpgtools.icns */,
 				2270106A120A1FD300538E81 /* fix_gpgmail.sh */,
+				222FCA0D12F150D700B55D40 /* Icon.icns */,
 				2219F8CA12F0098700499187 /* fix_gpg.sh */,
 				8D202CF70486D31800D8A456 /* Info.plist */,
 				089C167DFE841241C02AAC07 /* InfoPlist.strings */,
@@ -203,8 +203,8 @@
 				8D202CED0486D31800D8A456 /* InfoPlist.strings in Resources */,
 				8D202CEF0486D31800D8A456 /* GPGToolsPref.xib in Resources */,
 				2270106B120A1FD300538E81 /* fix_gpgmail.sh in Resources */,
-				22EE1F2F12EE10A90002556B /* gpgtools.icns in Resources */,
 				2219F8CB12F0098700499187 /* fix_gpg.sh in Resources */,
+				222FCA0E12F150D700B55D40 /* Icon.icns in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

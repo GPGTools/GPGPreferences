@@ -13,7 +13,7 @@ install: compile
 	@cp -r build/Release/GPGTools.prefPane ~/Library/PreferencePanes >> build.log 2>&1
 
 dmg: compile
-	@./scripts/create_dmg.sh
+	@./Installer/create_dmg.sh
 
 clean:
 	xcodebuild -project GPGTools_Preferences.xcodeproj -target GPGTools -configuration Release clean > /dev/null
