@@ -4,7 +4,7 @@
 # GPGTools auto fix (for new Mail.app releases).
 #
 # @author   Alexander Willner <alex@willner.ws>
-# @version  2010-08-05 (v0.3)
+# @version  2011-01-27 (v0.4)
 # @source   http://www.mail-archive.com/gpgmail-users@lists.sourceforge.net/msg00178.html
 #
 # To install it:
@@ -18,6 +18,7 @@
 #               2010-08-03 (v0.2)   added "(Disabled" to the search path
 #                                   using "defaults write" and "plutil" now
 #               2010-08-05 (v0.3)	using "defaults read"
+#               2011-01-27 (v0.4)	Updates for 10.6.7
 ################################################################################
 
 
@@ -42,7 +43,7 @@ isInstalled=`if [ -d "$_bundlePath" ]; then echo "1"; else echo "0"; fi`
 if [ "1" == "$isInstalled" ]; then
   echo "[$_bundleId] is installed";
 else
-  foundDisabled=`find "$_bundleRootPath (Disabled"* -type d -name "$_bundleName"|head -n1`
+  foundDisabled=`find "$_bundleRootPath ("* -type d -name "$_bundleName"|head -n1`
   if [ "" != "$foundDisabled" ]; then
     mkdir -p "$_bundleRootPath";
     mv "$foundDisabled" "$_bundleRootPath";
@@ -60,9 +61,10 @@ fi
 ################################################################################
 uuid1=`defaults read "$_plistMail" "PluginCompatibilityUUID"`
 uuid2=`defaults read "$_plistFramework" "PluginCompatibilityUUID"`
-isPatched=`grep $uuid1 "$_bundlePath/Contents/Info.plist" 2>/dev/null`
+isPatched1=`grep $uuid1 "$_bundlePath/Contents/Info.plist" 2>/dev/null`
+isPatched2=`grep $uuid2 "$_bundlePath/Contents/Info.plist" 2>/dev/null`
 
-if [ "" != "$isPatched" ]; then
+if [ "" != "$isPatched1" ] && [ "" != "$isPatched2" ] ; then
   echo "[$_bundleId] already patched";
 else
   defaults write "$_plistBundle" "SupportedPluginCompatibilityUUIDs" -array-add "$uuid1"
