@@ -57,6 +57,10 @@ _bundleId="gpg";
     if [ "" == "`grep 'comment GPGTools' $HOME/.gnupg/gpg.conf`" ]; then
         echo "comment GPGTools - http://gpgtools.org" >> $HOME/.gnupg/gpg.conf;
     fi
+    # Remove any gpg-agent pinentry program options
+    if [ -e "$HOME/.gnupg/gpg-agent.conf" ]; then
+        sed -i '' 's/^[ 	]*pinentry-program/#pinentry-program/g' "$HOME/.gnupg/gpg-agent.conf"
+    fi
 
 
 ################################################################################
