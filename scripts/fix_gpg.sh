@@ -58,9 +58,8 @@ _bundleId="gpg";
         echo "comment GPGTools - http://gpgtools.org" >> $HOME/.gnupg/gpg.conf;
     fi
     # Remove any gpg-agent pinentry program options
-    if [ -e "$HOME/.gnupg/gpg-agent.conf" ]; then
-        sed -i '' 's/^[ 	]*pinentry-program/#pinentry-program/g' "$HOME/.gnupg/gpg-agent.conf"
-    fi
+[ -e "$HOME/.gnupg/gpg-agent.conf" ] && sed -i '' 's/^[ 	]*\(pinentry-program\)/#\1/g' "$HOME/.gnupg/gpg-agent.conf"
+[ -e "$HOME/.gnupg/gpg-agent.conf" ] && sed -i '' 's/^[ 	]*\(no-use-standard-socket\)/#\1/g' "$HOME/.gnupg/gpg-agent.conf"
 
 
 ################################################################################
