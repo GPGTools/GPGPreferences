@@ -4,9 +4,6 @@
 # GPG auto fix.
 #
 # @author   Alexander Willner <alex@willner.ws>
-# @version  2011-01-25 (v0.1)
-#
-# @changelog    2011-02-25 (v0.1)   initial release
 ################################################################################
 
 
@@ -36,6 +33,7 @@ _bundleId="gpg";
 # Add some links (force the symlink to be sure)
 ################################################################################
   echo "[$_bundleId] Linking gpg2...";
+  mkdir -p /usr/local/bin/
   rm -f /usr/local/bin/gpg2; ln -s /usr/local/MacGPG2/bin/gpg2 /usr/local/bin/gpg2
   [ ! -e /usr/local/bin/gpg ] && ln -s /usr/local/MacGPG2/bin/gpg2 /usr/local/bin/gpg
 
