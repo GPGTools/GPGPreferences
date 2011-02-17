@@ -55,6 +55,10 @@ _bundleId="gpg";
     if [ "" == "`grep 'comment GPGTools' $HOME/.gnupg/gpg.conf`" ]; then
         echo "comment GPGTools - http://gpgtools.org" >> $HOME/.gnupg/gpg.conf;
     fi
+    if [ "" == "`grep '^[ 	]*keyserver ' $HOME/.gnupg/gpg.conf`" ]; then
+        echo "keyserver pool.sks-keyservers.net" >> $HOME/.gnupg/gpg.conf;
+    fi
+
     # Remove any gpg-agent pinentry program options
 [ -e "$HOME/.gnupg/gpg-agent.conf" ] && sed -i '' 's/^[ 	]*\(pinentry-program\)/#\1/g' "$HOME/.gnupg/gpg-agent.conf"
 [ -e "$HOME/.gnupg/gpg-agent.conf" ] && sed -i '' 's/^[ 	]*\(no-use-standard-socket\)/#\1/g' "$HOME/.gnupg/gpg-agent.conf"
