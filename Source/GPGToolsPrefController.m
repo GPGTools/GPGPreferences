@@ -138,6 +138,9 @@
 - (NSUInteger)indexOfSelectedSecretKey {
 	GPGOptions *options = [GPGOptions sharedOptions];
 	NSString *defaultKey = [options valueForKey:@"default-key"];
+	if ([defaultKey length] == 0) {
+		return 0;
+	}
 	
 	NSArray *keys = self.secretKeys;
 	
