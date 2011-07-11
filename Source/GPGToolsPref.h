@@ -9,8 +9,7 @@
 #import <PreferencePanes/PreferencePanes.h>
 
 
-@interface GPGToolsPref : NSPreferencePane 
-{
+@interface GPGToolsPref : NSPreferencePane {
 
 }
 

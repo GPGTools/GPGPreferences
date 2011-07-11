@@ -21,9 +21,9 @@
 	<key>CFBundlePackageType</key>
 	<string>BNDL</string>
 	<key>CFBundleShortVersionString</key>
-	<string>0.6</string>
+	<string>0.6+</string>
 	<key>CFBundleVersion</key>
-	<string>0.6</string>
+	<string>0.6+</string>
 	<key>NSMainNibFile</key>
 	<string>GPGToolsPref</string>
 	<key>NSPrefPaneIconFile</key>
