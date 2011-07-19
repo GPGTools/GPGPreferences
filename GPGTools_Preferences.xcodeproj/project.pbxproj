@@ -435,6 +435,7 @@
 				ARCHS = (
 					i386,
 					x86_64,
+					ppc,
 				);
 				DEAD_CODE_STRIPPING = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
@@ -445,7 +446,7 @@
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				LLVM_LTO = YES;
-				ONLY_ACTIVE_ARCH = NO;
+				ONLY_ACTIVE_ARCH = YES;
 				PREBINDING = NO;
 				SDKROOT = macosx10.5;
 				VALID_ARCHS = "ppc i386 x86_64";
@@ -458,6 +459,7 @@
 				ARCHS = (
 					i386,
 					x86_64,
+					ppc,
 				);
 				DEAD_CODE_STRIPPING = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
