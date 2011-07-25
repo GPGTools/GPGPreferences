@@ -409,6 +409,7 @@
 				INFOPLIST_FILE = Resources/Info.plist;
 				INSTALL_PATH = "$(HOME)/Library/PreferencePanes";
 				PRODUCT_NAME = GPGTools;
+				VALID_ARCHS = "i386 x86_64";
 				WRAPPER_EXTENSION = prefPane;
 				ZERO_LINK = YES;
 			};
@@ -425,6 +426,7 @@
 				INFOPLIST_FILE = Resources/Info.plist;
 				INSTALL_PATH = "$(HOME)/Library/PreferencePanes";
 				PRODUCT_NAME = GPGTools;
+				VALID_ARCHS = "i386 x86_64";
 				WRAPPER_EXTENSION = prefPane;
 			};
 			name = Release;
