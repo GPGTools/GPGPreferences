@@ -21,6 +21,7 @@
 		30D5315F13CA09750035AA8B /* GPGToolsPrefController.h in Headers */ = {isa = PBXBuildFile; fileRef = 22E7F131120A149200EB0E77 /* GPGToolsPrefController.h */; };
 		30D5316213CA09790035AA8B /* GPGTools_Prefix.pch in Headers */ = {isa = PBXBuildFile; fileRef = 22EE1F4812EE10EE0002556B /* GPGTools_Prefix.pch */; };
 		30D5317D13CA0B130035AA8B /* Libmacgpg.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3060E6D313C9F9150083CF14 /* Libmacgpg.framework */; };
+		30F048F413EB570E00A428BC /* Keyservers.plist in Resources */ = {isa = PBXBuildFile; fileRef = 30F048F313EB570E00A428BC /* Keyservers.plist */; };
 		8D202CED0486D31800D8A456 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 089C167DFE841241C02AAC07 /* InfoPlist.strings */; };
 		8D202CEF0486D31800D8A456 /* GPGToolsPref.xib in Resources */ = {isa = PBXBuildFile; fileRef = F506C042013D9D8C01CA16C8 /* GPGToolsPref.xib */; };
 		8D202CF10486D31800D8A456 /* GPGToolsPref.m in Sources */ = {isa = PBXBuildFile; fileRef = F506C03D013D9D7901CA16C8 /* GPGToolsPref.m */; };
@@ -83,6 +84,7 @@
 		300799B213CB09C7008F0D9B /* English */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; name = English; path = Resources/English.lproj/Credits.rtf; sourceTree = "<group>"; };
 		3060E6CA13C9F9150083CF14 /* Libmacgpg.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Libmacgpg.xcodeproj; path = Dependencies/Libmacgpg/Libmacgpg.xcodeproj; sourceTree = "<group>"; };
 		30D5314C13CA06FF0035AA8B /* GPGTools.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = GPGTools.png; path = Resources/GPGTools.png; sourceTree = "<group>"; };
+		30F048F313EB570E00A428BC /* Keyservers.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Keyservers.plist; path = Resources/Keyservers.plist; sourceTree = "<group>"; };
 		8D202CF70486D31800D8A456 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist; name = Info.plist; path = Resources/Info.plist; sourceTree = "<group>"; };
 		8D202CF80486D31800D8A456 /* GPGTools.prefPane */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GPGTools.prefPane; sourceTree = BUILT_PRODUCTS_DIR; };
 		F506C035013D953901CA16C8 /* PreferencePanes.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = PreferencePanes.framework; path = /System/Library/Frameworks/PreferencePanes.framework; sourceTree = "<absolute>"; };
@@ -133,6 +135,7 @@
 				30D5312513C9FEF10035AA8B /* XIBs */,
 				30D5312413C9FEEF0035AA8B /* Strings */,
 				30D5312313C9FEE80035AA8B /* Images */,
+				30F048F313EB570E00A428BC /* Keyservers.plist */,
 				8D202CF70486D31800D8A456 /* Info.plist */,
 				300799B113CB09C7008F0D9B /* Credits.rtf */,
 			);
@@ -342,6 +345,7 @@
 				2220F7D612F5E4860058CE0D /* fix_gpgmail.sh in Resources */,
 				30D5314D13CA06FF0035AA8B /* GPGTools.png in Resources */,
 				300799B313CB09C7008F0D9B /* Credits.rtf in Resources */,
+				30F048F413EB570E00A428BC /* Keyservers.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

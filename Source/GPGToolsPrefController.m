@@ -14,6 +14,20 @@
 
 
 
+
+/*
+ * Returns a list of possible keyservers.
+ */
+- (NSArray *)keyservers {
+    GPGOptions *options = [GPGOptions sharedOptions];
+    
+    NSURL *keyserversPlistURL = [[NSBundle bundleForClass:[self class]] URLForResource:@"Keyservers" withExtension:@"plist"];
+    NSMutableSet *keyservers = [NSMutableSet setWithArray:[NSArray arrayWithContentsOfURL:keyserversPlistURL]];
+    [keyservers addObjectsFromArray:[options allValuesInGPGConfForKey:@"keyserver"]];
+    return [keyservers allObjects];
+}
+
+
 /*
  * Returns all secret keys.
  *
@@ -32,7 +46,7 @@
  */
 - (void)simpleSheetWithTitle:(NSString *)title informativeText:(NSString *)informativeText {
 	NSAlert *alert = [NSAlert alertWithMessageText:title defaultButton:nil alternateButton:nil otherButton:nil informativeTextWithFormat:@"%@", informativeText];
-	[alert setIcon:[[NSImage alloc] initWithContentsOfURL:[self.myBundle URLForImageResource:@"GPGTools"]]];
+	[alert setIcon:[[NSImage alloc] initWithContentsOfFile:[self.myBundle pathForImageResource:@"GPGTools"]]];
 	[alert beginSheetModalForWindow:[NSApp mainWindow] modalDelegate:nil didEndSelector:nil contextInfo:nil];	
 }
 
@@ -117,7 +131,7 @@
  * Give the credits from Credits.rtf.
  */
 - (NSAttributedString *)credits {
-	return [[[NSAttributedString alloc] initWithURL:[self.myBundle URLForResource:@"Credits" withExtension:@"rtf"] documentAttributes:nil] autorelease];
+	return [[[NSAttributedString alloc] initWithPath:[self.myBundle pathForResource:@"Credits" ofType:@"rtf"] documentAttributes:nil] autorelease];
 }
 
 /*

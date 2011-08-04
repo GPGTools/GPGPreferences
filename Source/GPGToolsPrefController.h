@@ -16,6 +16,7 @@
 }
 @property (readonly) NSBundle *myBundle;
 @property (readonly) NSArray *secretKeys;
+@property (readonly) NSArray *keyservers;
 @property NSUInteger indexOfSelectedSecretKey;
 
 /*
