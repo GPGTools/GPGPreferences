@@ -4,33 +4,33 @@
 <dict>
 	<key></key>
 	<string></string>
-	<key>CFBundleDevelopmentRegion</key>
-	<string>English</string>
-	<key>CFBundleDisplayName</key>
-	<string>GPGTools</string>
-	<key>CFBundleExecutable</key>
-	<string>${EXECUTABLE_NAME}</string>
-	<key>CFBundleIconFile</key>
-	<string>Icon.icns</string>
 	<key>CFBundleIdentifier</key>
 	<string>org.gpgtools.${PRODUCT_NAME:identifier}</string>
 	<key>CFBundleInfoDictionaryVersion</key>
 	<string>6.0</string>
 	<key>CFBundleName</key>
 	<string>${PRODUCT_NAME}</string>
-	<key>CFBundlePackageType</key>
-	<string>BNDL</string>
-	<key>CFBundleShortVersionString</key>
-	<string>0.6+</string>
 	<key>CFBundleVersion</key>
-	<string>0.6+</string>
-	<key>NSMainNibFile</key>
-	<string>GPGToolsPref</string>
-	<key>NSPrefPaneIconFile</key>
-	<string>Icon.icns</string>
+	<string>0.7</string>
 	<key>NSPrefPaneIconLabel</key>
+	<string>GPGTools</string>
+	<key>CFBundleExecutable</key>
+	<string>${EXECUTABLE_NAME}</string>
+	<key>CFBundleDisplayName</key>
 	<string>GPGTools</string>
 	<key>NSPrincipalClass</key>
 	<string>GPGToolsPref</string>
+	<key>NSPrefPaneIconFile</key>
+	<string>Icon.icns</string>
+	<key>CFBundlePackageType</key>
+	<string>BNDL</string>
+	<key>CFBundleIconFile</key>
+	<string>Icon.icns</string>
+	<key>NSMainNibFile</key>
+	<string>GPGToolsPref</string>
+	<key>CFBundleDevelopmentRegion</key>
+	<string>English</string>
+	<key>CFBundleShortVersionString</key>
+	<string>0.7</string>
 </dict>
 </plist>
