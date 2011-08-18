@@ -89,7 +89,7 @@
  *
  * @todo	Do not use shell script, implement it using objective-c instead
  */
-- (IBAction)gpgFix:(id)pId:(id)sender {
+- (IBAction)gpgFix:(id)sender {
 	NSString *path = [self.myBundle pathForResource:@"gpgtools-autofix" ofType:@"sh"];	
 	NSLog(@"Starting '%@'...", path);
 	NSTask *task=[[NSTask alloc] init];

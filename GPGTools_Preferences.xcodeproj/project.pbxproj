@@ -109,7 +109,6 @@
 		089C166AFE841209C02AAC07 /* GPGMail */ = {
 			isa = PBXGroup;
 			children = (
-				2285BA5013FCF2D700CB623B /* gpgtools-autofix.sh */,
 				2220F7C512F5E4720058CE0D /* Dependencies */,
 				08FB77AFFE84173DC02AAC07 /* Classes */,
 				32DBCFA10370C40200C91783 /* Other Sources */,
@@ -135,6 +134,7 @@
 				30D5312513C9FEF10035AA8B /* XIBs */,
 				30D5312413C9FEEF0035AA8B /* Strings */,
 				30D5312313C9FEE80035AA8B /* Images */,
+				2285BA5013FCF2D700CB623B /* gpgtools-autofix.sh */,
 				30F048F313EB570E00A428BC /* Keyservers.plist */,
 				8D202CF70486D31800D8A456 /* Info.plist */,
 				300799B113CB09C7008F0D9B /* Credits.rtf */,
