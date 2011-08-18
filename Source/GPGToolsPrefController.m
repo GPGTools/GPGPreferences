@@ -85,12 +85,12 @@
 
 
 /*
- * Fix GPGMail plug-in.
+ * Fix GPGTools.
  *
  * @todo	Do not use shell script, implement it using objective-c instead
  */
-- (IBAction)gpgmailFix:(id)sender {
-	NSString *path = [self.myBundle pathForResource:@"fix_gpgmail" ofType:@"sh"];	
+- (IBAction)gpgFix:(id)pId:(id)sender {
+	NSString *path = [self.myBundle pathForResource:@"gpgtools-autofix" ofType:@"sh"];	
 	NSLog(@"Starting '%@'...", path);
 	NSTask *task=[[NSTask alloc] init];
 	NSPipe *pipe = [NSPipe pipe];
@@ -106,24 +106,27 @@
 }
 
 /*
- * Fix GPG.
+ * Open FAQ.
  *
- * @todo	Do not use shell script, implement it using objective-c instead
  */
-- (IBAction)gpgFix:(id)sender {
-	NSString *path = [self.myBundle pathForResource:@"fix_gpg" ofType:@"sh"];
-	NSLog(@"Starting '%@'...", path);
-	NSTask *task=[[NSTask alloc] init];
-	NSPipe *pipe = [NSPipe pipe];
-	NSFileHandle *file = [pipe fileHandleForReading];
-	[task setStandardOutput:pipe];
-	[task setLaunchPath:path];
-	[task launch];
-	[task waitUntilExit];
-	NSData *data = [file readDataToEndOfFile];
-	NSString *result = [[NSString alloc] initWithData: data encoding: NSUTF8StringEncoding];
-	
-	[self simpleSheetWithTitle:@"GPG fix result:" informativeText:result];
+- (IBAction)openFAQ:(id)sender {
+    [[NSWorkspace sharedWorkspace] openURL:[NSURL URLWithString:@"http://gpgtools.org/faq.html"]];
+}
+
+/*
+ * Open Contact.
+ *
+ */
+- (IBAction)openContact:(id)sender {
+    [[NSWorkspace sharedWorkspace] openURL:[NSURL URLWithString:@"http://gpgtools.org/about.html"]];
+}
+
+/*
+ * Open Donate.
+ *
+ */
+- (IBAction)openDonate:(id)sender {
+    [[NSWorkspace sharedWorkspace] openURL:[NSURL URLWithString:@"http://gpgtools.org/donate.html"]];
 }
 
 

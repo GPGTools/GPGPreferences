@@ -19,21 +19,20 @@
 @property (readonly) NSArray *keyservers;
 @property NSUInteger indexOfSelectedSecretKey;
 
-/*
- * Remove GPGMail plug-in.
- */
+/* Remove GPGMail plug-in. */
 - (IBAction)gpgmailRemove:(id)pId;
 
-/*
- * Fix GPGMail plug-in.
- */
-- (IBAction)gpgmailFix:(id)pId;
-
-/*
- * Fix GPG.
- */
+/* Fix GPGTools. */
 - (IBAction)gpgFix:(id)pId;
 
+/* Open FAQ */
+- (IBAction)openFAQ:(id)pId;
+
+/* Open Contact */
+- (IBAction)openContact:(id)pId;
+
+/* Open Donate */
+- (IBAction)openDonate:(id)pId;
 
 - (NSAttributedString *)credits;
 
