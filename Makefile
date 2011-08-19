@@ -1,8 +1,12 @@
 all: compile
 
-update:
-	@git submodule foreach git pull origin master
+update-core:
+	@cd Dependencies/GPGTools_Core; git pull origin master; cd -
+update-libmac:
+	@cd Dependencies/Libmacgpg; git pull origin lion; cd -
+update-me:
 	@git pull
+update: update-core update-libmac update-me
 
 compile:
 	@echo "(have a look at build.log for details)";
@@ -16,8 +20,8 @@ install: compile
 	@rm -rf ~/Library/PreferencePanes/GPGTools.prefPane >> build.log 2>&1
 	@cp -r build/Release/GPGTools.prefPane ~/Library/PreferencePanes >> build.log 2>&1
 
-dmg: compile
-	@./Dependencies/GPGTools_Core/scripts/create_dmg.sh `pwd`
+dmg: update compile
+	@./Dependencies/GPGTools_Core/scripts/create_dmg.sh $(pwd)
 
 clean:
 	xcodebuild -project GPGTools_Preferences.xcodeproj -target GPGTools -configuration Release clean > /dev/null
