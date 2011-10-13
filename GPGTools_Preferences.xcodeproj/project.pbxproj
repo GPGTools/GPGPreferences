@@ -287,6 +287,7 @@
 			isa = PBXProject;
 			attributes = {
 				BuildIndependentTargetsInParallel = YES;
+				LastUpgradeCheck = 0420;
 			};
 			buildConfigurationList = 1DBD214C08BA80EA00186707 /* Build configuration list for PBXProject "GPGTools_Preferences" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -404,7 +405,6 @@
 				COPY_PHASE_STRIP = NO;
 				FRAMEWORK_SEARCH_PATHS = Dependencies/Libmacgpg/build/$BUILD_STYLE;
 				GCC_DYNAMIC_NO_PIC = NO;
-				GCC_ENABLE_FIX_AND_CONTINUE = YES;
 				GCC_MODEL_TUNING = G5;
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
@@ -447,7 +447,6 @@
 				);
 				DEAD_CODE_STRIPPING = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
-				GCC_ENABLE_FIX_AND_CONTINUE = NO;
 				GCC_ENABLE_OBJC_GC = required;
 				GCC_ENABLE_TRIGRAPHS = YES;
 				GCC_VERSION = 4.2;
@@ -455,8 +454,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				LLVM_LTO = YES;
 				ONLY_ACTIVE_ARCH = YES;
-				PREBINDING = NO;
-				SDKROOT = macosx10.6;
+				SDKROOT = macosx;
 				VALID_ARCHS = "ppc i386 x86_64";
 			};
 			name = Debug;
@@ -471,7 +469,6 @@
 				);
 				DEAD_CODE_STRIPPING = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
-				GCC_ENABLE_FIX_AND_CONTINUE = NO;
 				GCC_ENABLE_OBJC_GC = required;
 				GCC_ENABLE_TRIGRAPHS = YES;
 				GCC_VERSION = 4.2;
@@ -479,8 +476,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				LLVM_LTO = YES;
 				ONLY_ACTIVE_ARCH = NO;
-				PREBINDING = NO;
-				SDKROOT = macosx10.6;
+				SDKROOT = macosx;
 				VALID_ARCHS = "ppc i386 x86_64";
 			};
 			name = Release;
