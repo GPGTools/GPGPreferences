@@ -9,10 +9,8 @@ update-me:
 update: update-core update-libmac update-me
 
 compile:
-	@echo "(have a look at build.log for details)";
-	@echo "" > build.log
 	@echo "  * Building...(can take some minutes)";
-	@xcodebuild -project GPGTools_Preferences.xcodeproj -target GPGTools -configuration Release build >> build.log 2>&1
+	@xcodebuild -project GPGTools_Preferences.xcodeproj -target GPGTools -configuration Release build
 
 install: compile
 	@echo "  * Installing...";
@@ -21,7 +19,10 @@ install: compile
 	@cp -r build/Release/GPGTools.prefPane ~/Library/PreferencePanes >> build.log 2>&1
 
 dmg: update compile
-	@./Dependencies/GPGTools_Core/scripts/create_dmg.sh $(pwd)
+	@./Dependencies/GPGTools_Core/scripts/create_dmg.sh
+
+test: compile
+	@./Dependencies/GPGTools_Core/scripts/create_dmg.sh auto
 
 clean:
 	xcodebuild -project GPGTools_Preferences.xcodeproj -target GPGTools -configuration Release clean > /dev/null
