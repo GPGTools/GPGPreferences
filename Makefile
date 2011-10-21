@@ -10,14 +10,13 @@ update: update-core update-libmac update-me
 
 compile:
 	@echo "  * Building...(can take some minutes)";
-	@xcodebuild -project GPGTools_Preferences.xcodeproj -target GPGTools -configuration Release build
-	@rm build.log
+	@xcodebuild -project GPGPreferences.xcodeproj -target GPGPreferences -configuration Release build
 
 install: compile
 	@echo "  * Installing...";
 	@mkdir -p ~/Library/PreferencePanes >> build.log 2>&1
-	@rm -rf ~/Library/PreferencePanes/GPGTools.prefPane >> build.log 2>&1
-	@cp -r build/Release/GPGTools.prefPane ~/Library/PreferencePanes >> build.log 2>&1
+	@rm -rf ~/Library/PreferencePanes/GPGPreferences.prefPane >> build.log 2>&1
+	@cp -r build/Release/GPGPreferences.prefPane ~/Library/PreferencePanes >> build.log 2>&1
 
 dmg: update compile
 	@./Dependencies/GPGTools_Core/scripts/create_dmg.sh
@@ -26,12 +25,13 @@ test: compile
 	@./Dependencies/GPGTools_Core/scripts/create_dmg.sh auto
 
 clean:
-	xcodebuild -project GPGTools_Preferences.xcodeproj -target GPGTools -configuration Release clean > /dev/null
-	xcodebuild -project GPGTools_Preferences.xcodeproj -target GPGTools -configuration Debug clean > /dev/null
+	xcodebuild -project GPGPreferences.xcodeproj -target GPGPreferences -configuration Release clean > /dev/null
+	xcodebuild -project GPGPreferences.xcodeproj -target GPGPreferences -configuration Debug clean > /dev/null
+	@rm -f build.log
 
-check-all-warnings: clean-GPGTools_Preferences
+check-all-warnings: clean
 	make | grep "warning: "
 
-check-warnings: clean-GPGTools_Preferences
+check-warnings: clean
 	make | grep "warning: "|grep -v "#warning"
 

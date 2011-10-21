@@ -51,7 +51,7 @@
 }
 
 /*
- * The NSBundle for GPGTools.prefPane.
+ * The NSBundle for GPGPreferences.prefPane.
  */
 - (NSBundle *)myBundle {
 	if (!myBundle) {
