@@ -1,3 +1,7 @@
+PROJECT = GPGPreferences
+TARGET = GPGPreferences
+CONFIG = Release
+
 include Dependencies/GPGTools_Core/make/default
 
 all: compile
