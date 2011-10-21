@@ -1,3 +1,5 @@
+include Dependencies/GPGTools_Core/make/default
+
 all: compile
 
 update-core:
@@ -24,18 +26,7 @@ dmg: update compile
 test: compile
 	@./Dependencies/GPGTools_Core/scripts/create_dmg.sh auto
 
-deploy: compile
-	@./Dependencies/GPGTools_Core/scripts/create_dmg.sh auto
-	@./Dependencies/GPGTools_Core/scripts/upload.sh	
-
 clean:
 	xcodebuild -project GPGPreferences.xcodeproj -target GPGPreferences -configuration Release clean > /dev/null
 	xcodebuild -project GPGPreferences.xcodeproj -target GPGPreferences -configuration Debug clean > /dev/null
 	@rm -f build.log
-
-check-all-warnings: clean
-	make | grep "warning: "
-
-check-warnings: clean
-	make | grep "warning: "|grep -v "#warning"
-
