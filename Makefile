@@ -11,6 +11,7 @@ update: update-core update-libmac update-me
 compile:
 	@echo "  * Building...(can take some minutes)";
 	@xcodebuild -project GPGTools_Preferences.xcodeproj -target GPGTools -configuration Release build
+	@rm build.log
 
 install: compile
 	@echo "  * Installing...";
