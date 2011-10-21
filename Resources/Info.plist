@@ -7,7 +7,7 @@
 	<key>CFBundleDevelopmentRegion</key>
 	<string>English</string>
 	<key>CFBundleDisplayName</key>
-	<string>GPGTools</string>
+	<string>GPGPreferences</string>
 	<key>CFBundleExecutable</key>
 	<string>${EXECUTABLE_NAME}</string>
 	<key>CFBundleIconFile</key>
@@ -29,7 +29,7 @@
 	<key>NSPrefPaneIconFile</key>
 	<string>Icon.icns</string>
 	<key>NSPrefPaneIconLabel</key>
-	<string>GPGTools</string>
+	<string>GPGPreferences</string>
 	<key>NSPrincipalClass</key>
 	<string>GPGToolsPref</string>
 </dict>
