@@ -138,6 +138,13 @@
 }
 
 /*
+ * Returns the bundle version.
+ */
+- (NSString *)bundleVersion {
+	return [self.myBundle objectForInfoDictionaryKey:@"CFBundleVersion"];
+}
+
+/*
  * Array of readable descriptions of the secret keys.
  */
 - (NSArray *)secretKeyDescriptions {

@@ -15,8 +15,9 @@
 	NSArray *secretKeys;
 }
 @property (readonly) NSBundle *myBundle;
-@property (readonly) NSArray *secretKeys;
-@property (readonly) NSArray *keyservers;
+@property (readonly) NSArray *secretKeys, *keyservers;
+@property (readonly) NSAttributedString *credits;
+@property (readonly) NSString *bundleVersion;
 @property NSUInteger indexOfSelectedSecretKey;
 
 /* Remove GPGMail plug-in. */
@@ -34,6 +35,5 @@
 /* Open Donate */
 - (IBAction)openDonate:(id)pId;
 
-- (NSAttributedString *)credits;
 
 @end
