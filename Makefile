@@ -24,9 +24,6 @@ install: compile
 	@rm -rf ~/Library/PreferencePanes/GPGPreferences.prefPane >> build.log 2>&1
 	@cp -r build/Release/GPGPreferences.prefPane ~/Library/PreferencePanes >> build.log 2>&1
 
-dmg: update compile
-	@./Dependencies/GPGTools_Core/scripts/create_dmg.sh
-
 test: compile
 	@./Dependencies/GPGTools_Core/scripts/create_dmg.sh auto
 
