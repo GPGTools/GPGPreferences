@@ -1032,12 +1032,11 @@ TWFpbCBhZnRlciBhbiBPUyB1cGRhdGUuA</string>
 								<real value="600" key="NSNoSelectionPlaceholder"/>
 								<real value="600" key="NSNotApplicablePlaceholder"/>
 								<real value="600" key="NSNullPlaceholder"/>
-								<string key="NSValueTransformerName">DefaultDurationTransformer</string>
 							</dictionary>
 							<int key="NSNibBindingConnectorVersion">2</int>
 						</object>
 					</object>
-					<int key="connectionID">598</int>
+					<int key="connectionID">599</int>
 				</object>
 				<object class="IBConnectionRecord">
 					<object class="IBBindingConnection" key="connection">
@@ -1646,7 +1645,7 @@ TWFpbCBhZnRlciBhbiBPUyB1cGRhdGUuA</string>
 			<nil key="activeLocalization"/>
 			<dictionary class="NSMutableDictionary" key="localizations"/>
 			<nil key="sourceID"/>
-			<int key="maxID">598</int>
+			<int key="maxID">599</int>
 		</object>
 		<object class="IBClassDescriber" key="IBDocument.Classes">
 			<array class="NSMutableArray" key="referencedPartialClassDescriptions">
