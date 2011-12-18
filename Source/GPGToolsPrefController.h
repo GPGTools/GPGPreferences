@@ -15,7 +15,7 @@
 	NSArray *secretKeys;
 }
 @property (readonly) NSBundle *myBundle;
-@property (readonly) NSArray *secretKeys, *keyservers;
+@property (readonly) NSArray *secretKeys;
 @property (readonly) NSAttributedString *credits;
 @property (readonly) NSString *bundleVersion;
 @property NSUInteger indexOfSelectedSecretKey;

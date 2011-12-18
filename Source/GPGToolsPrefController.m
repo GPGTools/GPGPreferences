@@ -13,21 +13,6 @@
 @implementation GPGToolsPrefController
 
 
-
-
-/*
- * Returns a list of possible keyservers.
- */
-- (NSArray *)keyservers {
-    GPGOptions *options = [GPGOptions sharedOptions];
-    
-    NSURL *keyserversPlistURL = [[NSBundle bundleForClass:[self class]] URLForResource:@"Keyservers" withExtension:@"plist"];
-    NSMutableSet *keyservers = [NSMutableSet setWithArray:[NSArray arrayWithContentsOfURL:keyserversPlistURL]];
-    [keyservers addObjectsFromArray:[options allValuesInGPGConfForKey:@"keyserver"]];
-    return [keyservers allObjects];
-}
-
-
 /*
  * Returns all secret keys.
  *

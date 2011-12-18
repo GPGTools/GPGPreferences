@@ -2,13 +2,13 @@
 <archive type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="8.00">
 	<data>
 		<int key="IBDocument.SystemTarget">1060</int>
-		<string key="IBDocument.SystemVersion">11C73</string>
-		<string key="IBDocument.InterfaceBuilderVersion">1938</string>
+		<string key="IBDocument.SystemVersion">11C74</string>
+		<string key="IBDocument.InterfaceBuilderVersion">1864</string>
 		<string key="IBDocument.AppKitVersion">1138.23</string>
 		<string key="IBDocument.HIToolboxVersion">567.00</string>
 		<object class="NSMutableDictionary" key="IBDocument.PluginVersions">
 			<string key="NS.key.0">com.apple.InterfaceBuilder.CocoaPlugin</string>
-			<string key="NS.object.0">1938</string>
+			<string key="NS.object.0">1864</string>
 		</object>
 		<array key="IBDocument.IntegratedClassDependencies">
 			<string>NSMenuItem</string>
@@ -516,13 +516,13 @@
 													<object class="NSComboTableView" key="NSTableView" id="428007809">
 														<reference key="NSNextResponder"/>
 														<int key="NSvFlags">274</int>
-														<string key="NSFrameSize">{13, 0}</string>
+														<string key="NSFrameSize">{15, 0}</string>
 														<reference key="NSSuperview"/>
 														<reference key="NSWindow"/>
 														<bool key="NSEnabled">YES</bool>
 														<array class="NSMutableArray" key="NSTableColumns">
 															<object class="NSTableColumn">
-																<double key="NSWidth">10</double>
+																<double key="NSWidth">12</double>
 																<double key="NSMinWidth">10</double>
 																<double key="NSMaxWidth">1000</double>
 																<object class="NSTableHeaderCell" key="NSHeaderCell">
@@ -573,7 +573,7 @@
 														</object>
 														<double key="NSRowHeight">19</double>
 														<string key="NSAction">tableViewAction:</string>
-														<int key="NSTvFlags">-765427712</int>
+														<int key="NSTvFlags">-767524864</int>
 														<reference key="NSDelegate" ref="680595605"/>
 														<reference key="NSDataSource" ref="680595605"/>
 														<reference key="NSTarget" ref="680595605"/>
@@ -970,6 +970,22 @@ TWFpbCBhZnRlciBhbiBPUyB1cGRhdGUuA</string>
 				</object>
 				<object class="IBConnectionRecord">
 					<object class="IBBindingConnection" key="connection">
+						<string key="label">value: UseKeychain</string>
+						<reference key="source" ref="445203048"/>
+						<reference key="destination" ref="227421186"/>
+						<object class="NSNibBindingConnector" key="connector">
+							<reference key="NSSource" ref="445203048"/>
+							<reference key="NSDestination" ref="227421186"/>
+							<string key="NSLabel">value: UseKeychain</string>
+							<string key="NSBinding">value</string>
+							<string key="NSKeyPath">UseKeychain</string>
+							<int key="NSNibBindingConnectorVersion">2</int>
+						</object>
+					</object>
+					<int key="connectionID">580</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBBindingConnection" key="connection">
 						<string key="label">content: secretKeyDescriptions</string>
 						<reference key="source" ref="863274492"/>
 						<reference key="destination" ref="53615620"/>
@@ -1003,19 +1019,19 @@ TWFpbCBhZnRlciBhbiBPUyB1cGRhdGUuA</string>
 				</object>
 				<object class="IBConnectionRecord">
 					<object class="IBBindingConnection" key="connection">
-						<string key="label">value: UseKeychain</string>
-						<reference key="source" ref="445203048"/>
-						<reference key="destination" ref="227421186"/>
+						<string key="label">value: bundleVersion</string>
+						<reference key="source" ref="174859972"/>
+						<reference key="destination" ref="53615620"/>
 						<object class="NSNibBindingConnector" key="connector">
-							<reference key="NSSource" ref="445203048"/>
-							<reference key="NSDestination" ref="227421186"/>
-							<string key="NSLabel">value: UseKeychain</string>
+							<reference key="NSSource" ref="174859972"/>
+							<reference key="NSDestination" ref="53615620"/>
+							<string key="NSLabel">value: bundleVersion</string>
 							<string key="NSBinding">value</string>
-							<string key="NSKeyPath">UseKeychain</string>
+							<string key="NSKeyPath">bundleVersion</string>
 							<int key="NSNibBindingConnectorVersion">2</int>
 						</object>
 					</object>
-					<int key="connectionID">580</int>
+					<int key="connectionID">588</int>
 				</object>
 				<object class="IBConnectionRecord">
 					<object class="IBBindingConnection" key="connection">
@@ -1042,17 +1058,17 @@ TWFpbCBhZnRlciBhbiBPUyB1cGRhdGUuA</string>
 					<object class="IBBindingConnection" key="connection">
 						<string key="label">content: keyservers</string>
 						<reference key="source" ref="705680068"/>
-						<reference key="destination" ref="53615620"/>
+						<reference key="destination" ref="227421186"/>
 						<object class="NSNibBindingConnector" key="connector" id="79628484">
 							<reference key="NSSource" ref="705680068"/>
-							<reference key="NSDestination" ref="53615620"/>
+							<reference key="NSDestination" ref="227421186"/>
 							<string key="NSLabel">content: keyservers</string>
 							<string key="NSBinding">content</string>
 							<string key="NSKeyPath">keyservers</string>
 							<int key="NSNibBindingConnectorVersion">2</int>
 						</object>
 					</object>
-					<int key="connectionID">581</int>
+					<int key="connectionID">602</int>
 				</object>
 				<object class="IBConnectionRecord">
 					<object class="IBBindingConnection" key="connection">
@@ -1069,23 +1085,7 @@ TWFpbCBhZnRlciBhbiBPUyB1cGRhdGUuA</string>
 							<int key="NSNibBindingConnectorVersion">2</int>
 						</object>
 					</object>
-					<int key="connectionID">582</int>
-				</object>
-				<object class="IBConnectionRecord">
-					<object class="IBBindingConnection" key="connection">
-						<string key="label">value: bundleVersion</string>
-						<reference key="source" ref="174859972"/>
-						<reference key="destination" ref="53615620"/>
-						<object class="NSNibBindingConnector" key="connector">
-							<reference key="NSSource" ref="174859972"/>
-							<reference key="NSDestination" ref="53615620"/>
-							<string key="NSLabel">value: bundleVersion</string>
-							<string key="NSBinding">value</string>
-							<string key="NSKeyPath">bundleVersion</string>
-							<int key="NSNibBindingConnectorVersion">2</int>
-						</object>
-					</object>
-					<int key="connectionID">588</int>
+					<int key="connectionID">603</int>
 				</object>
 			</array>
 			<object class="IBMutableOrderedSet" key="objectRecords">
@@ -1645,7 +1645,7 @@ TWFpbCBhZnRlciBhbiBPUyB1cGRhdGUuA</string>
 			<nil key="activeLocalization"/>
 			<dictionary class="NSMutableDictionary" key="localizations"/>
 			<nil key="sourceID"/>
-			<int key="maxID">599</int>
+			<int key="maxID">603</int>
 		</object>
 		<object class="IBClassDescriber" key="IBDocument.Classes">
 			<array class="NSMutableArray" key="referencedPartialClassDescriptions">
@@ -1733,10 +1733,6 @@ TWFpbCBhZnRlciBhbiBPUyB1cGRhdGUuA</string>
 		<object class="NSMutableDictionary" key="IBDocument.PluginDeclaredDependencies">
 			<string key="NS.key.0">com.apple.InterfaceBuilder.CocoaPlugin.macosx</string>
 			<integer value="1060" key="NS.object.0"/>
-		</object>
-		<object class="NSMutableDictionary" key="IBDocument.PluginDeclaredDependencyDefaults">
-			<string key="NS.key.0">com.apple.InterfaceBuilder.CocoaPlugin.macosx</string>
-			<real value="1060" key="NS.object.0"/>
 		</object>
 		<bool key="IBDocument.PluginDeclaredDependenciesTrackSystemTargetVersion">YES</bool>
 		<int key="IBDocument.defaultPropertyAccessControl">3</int>
