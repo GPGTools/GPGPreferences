@@ -8,21 +8,63 @@
 //
 
 #import "GPGToolsPrefController.h"
-#import <Libmacgpg/Libmacgpg.h>
 
 @implementation GPGToolsPrefController
 
 
+- (id)init {
+	if (!(self = [super init])) {
+		return nil;
+	}
+	secretKeysLock = [[NSLock alloc] init];
+	gpgc = [GPGController new];
+	gpgc.delegate = self;
+	return self;
+}
+- (void)dealloc {
+	[gpgc release];
+	[secretKeysLock release];
+	[super dealloc];
+}
+
+
++ (NSSet *)keyPathsForValuesAffectingValueForKey:(NSString *)key {
+	NSSet *mySet = nil;
+	NSSet *keysAffectedBySecretKeys = [NSSet setWithObjects:@"secretKeyDescriptions", @"indexOfSelectedSecretKey", nil];
+	if ([keysAffectedBySecretKeys containsObject:key]) {
+		mySet = [NSSet setWithObject:@"secretKeys"];
+	}
+	NSSet *superSet = [super keyPathsForValuesAffectingValueForKey:key];
+	return [superSet setByAddingObjectsFromSet:mySet];
+}
+
+
+
 /*
- * Returns all secret keys.
- *
- * @todo	Support for gpgController:keysDidChangedExernal:
+ * Handle external key changes.
+ */
+- (void)gpgController:(GPGController *)gpgc keysDidChanged:(NSObject<EnumerationList> *)keys external:(BOOL)external {
+	[self willChangeValueForKey:@"secretKeys"];
+	[secretKeysLock lock];
+	[secretKeys release];
+	secretKeys = nil;
+	[secretKeysLock unlock];
+	[self didChangeValueForKey:@"secretKeys"];
+}
+
+
+/*
+ * Returns all usable secret keys.
  */
 - (NSArray *)secretKeys {
+	[secretKeysLock lock];
 	if (!secretKeys) {
-		secretKeys = [[[GPGController gpgController] allSecretKeys] allObjects];
+		secretKeys = [[[[gpgc allSecretKeys] usableGPGKeys] allObjects] retain];
 	}
-	return secretKeys;
+	NSArray *value = [[secretKeys retain] autorelease];
+	NSLog(@"secretKeys: %@", value);
+	[secretKeysLock unlock];
+	return value;
 }
 
 
@@ -35,6 +77,7 @@
 	[alert beginSheetModalForWindow:[NSApp mainWindow] modalDelegate:nil didEndSelector:nil contextInfo:nil];	
 }
 
+
 /*
  * The NSBundle for GPGPreferences.prefPane.
  */
@@ -44,7 +87,6 @@
 	}
 	return myBundle;
 }
-
 
 
 /*

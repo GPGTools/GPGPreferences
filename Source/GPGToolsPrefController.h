@@ -8,14 +8,17 @@
 //
 
 #import <Cocoa/Cocoa.h>
+#import <Libmacgpg/Libmacgpg.h>
 
 
-@interface GPGToolsPrefController : NSObject {
+@interface GPGToolsPrefController : NSObject <GPGControllerDelegate> {
 	NSBundle *myBundle;
 	NSArray *secretKeys;
+	GPGController *gpgc;
+	NSLock *secretKeysLock;
 }
 @property (readonly) NSBundle *myBundle;
-@property (readonly) NSArray *secretKeys;
+@property (readonly) NSArray *secretKeys, *secretKeyDescriptions;
 @property (readonly) NSAttributedString *credits;
 @property (readonly) NSString *bundleVersion;
 @property NSUInteger indexOfSelectedSecretKey;
