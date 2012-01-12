@@ -349,15 +349,15 @@
 											<object class="NSButton" id="445203048">
 												<reference key="NSNextResponder" ref="767432390"/>
 												<int key="NSvFlags">268</int>
-												<string key="NSFrame">{{15, 100}, {241, 18}}</string>
+												<string key="NSFrame">{{15, 100}, {308, 18}}</string>
 												<reference key="NSSuperview" ref="767432390"/>
 												<reference key="NSWindow"/>
-												<reference key="NSNextKeyView" ref="236484592"/>
+												<reference key="NSNextKeyView" ref="451938746"/>
 												<bool key="NSEnabled">YES</bool>
 												<object class="NSButtonCell" key="NSCell" id="949489464">
 													<int key="NSCellFlags">-2080244224</int>
 													<int key="NSCellFlags2">0</int>
-													<string key="NSContents">Use Keychain to store passphrases</string>
+													<string key="NSContents">Use Keychain to store passphrases by default</string>
 													<reference key="NSSupport" ref="271635649"/>
 													<reference key="NSControlView" ref="445203048"/>
 													<int key="NSButtonFlags">1211912703</int>
@@ -399,7 +399,7 @@
 												<string key="NSFrame">{{268, 74}, {56, 17}}</string>
 												<reference key="NSSuperview" ref="767432390"/>
 												<reference key="NSWindow"/>
-												<reference key="NSNextKeyView" ref="806274377"/>
+												<reference key="NSNextKeyView" ref="333704446"/>
 												<bool key="NSEnabled">YES</bool>
 												<object class="NSTextFieldCell" key="NSCell" id="698217851">
 													<int key="NSCellFlags">68288064</int>
@@ -608,24 +608,28 @@
 													<reference key="NSTextColor" ref="880469835"/>
 												</object>
 											</object>
-											<object class="NSTextField" id="806274377">
+											<object class="NSButton" id="451938746">
 												<reference key="NSNextResponder" ref="767432390"/>
 												<int key="NSvFlags">268</int>
-												<string key="NSFrame">{{346, 74}, {262, 17}}</string>
+												<string key="NSFrame">{{404, 91}, {207, 32}}</string>
 												<reference key="NSSuperview" ref="767432390"/>
 												<reference key="NSWindow"/>
-												<reference key="NSNextKeyView" ref="333704446"/>
-												<string key="NSReuseIdentifierKey">_NS:3944</string>
+												<reference key="NSNextKeyView" ref="236484592"/>
+												<string key="NSReuseIdentifierKey">_NS:161</string>
 												<bool key="NSEnabled">YES</bool>
-												<object class="NSTextFieldCell" key="NSCell" id="318912199">
-													<int key="NSCellFlags">68288064</int>
-													<int key="NSCellFlags2">272630784</int>
-													<string key="NSContents">(Empty: Use 10 minutes as default value)</string>
+												<object class="NSButtonCell" key="NSCell" id="335196922">
+													<int key="NSCellFlags">67239424</int>
+													<int key="NSCellFlags2">134217728</int>
+													<string key="NSContents">Delete stored passphrases</string>
 													<reference key="NSSupport" ref="271635649"/>
-													<string key="NSCellIdentifier">_NS:3944</string>
-													<reference key="NSControlView" ref="806274377"/>
-													<reference key="NSBackgroundColor" ref="204879837"/>
-													<reference key="NSTextColor" ref="880469835"/>
+													<string key="NSCellIdentifier">_NS:161</string>
+													<reference key="NSControlView" ref="451938746"/>
+													<int key="NSButtonFlags">-2038284033</int>
+													<int key="NSButtonFlags2">129</int>
+													<string key="NSAlternateContents"/>
+													<string key="NSKeyEquivalent"/>
+													<int key="NSPeriodicDelay">200</int>
+													<int key="NSPeriodicInterval">25</int>
 												</object>
 											</object>
 										</array>
@@ -914,7 +918,7 @@ TWFpbCBhZnRlciBhbiBPUyB1cGRhdGUuA</string>
 					<reference key="NSWindow"/>
 					<reference key="NSNextKeyView" ref="970373435"/>
 				</object>
-				<string key="NSScreenRect">{{0, 0}, {1440, 878}}</string>
+				<string key="NSScreenRect">{{0, 0}, {2560, 1418}}</string>
 				<string key="NSMinSize">{224.66399999999999, 32}</string>
 				<string key="NSMaxSize">{10000000000000, 10000000000000}</string>
 				<bool key="NSWindowIsRestorable">YES</bool>
@@ -1035,27 +1039,6 @@ TWFpbCBhZnRlciBhbiBPUyB1cGRhdGUuA</string>
 				</object>
 				<object class="IBConnectionRecord">
 					<object class="IBBindingConnection" key="connection">
-						<string key="label">value: PassphraseCacheTime</string>
-						<reference key="source" ref="418540942"/>
-						<reference key="destination" ref="227421186"/>
-						<object class="NSNibBindingConnector" key="connector">
-							<reference key="NSSource" ref="418540942"/>
-							<reference key="NSDestination" ref="227421186"/>
-							<string key="NSLabel">value: PassphraseCacheTime</string>
-							<string key="NSBinding">value</string>
-							<string key="NSKeyPath">PassphraseCacheTime</string>
-							<dictionary key="NSOptions">
-								<real value="600" key="NSNoSelectionPlaceholder"/>
-								<real value="600" key="NSNotApplicablePlaceholder"/>
-								<real value="600" key="NSNullPlaceholder"/>
-							</dictionary>
-							<int key="NSNibBindingConnectorVersion">2</int>
-						</object>
-					</object>
-					<int key="connectionID">599</int>
-				</object>
-				<object class="IBConnectionRecord">
-					<object class="IBBindingConnection" key="connection">
 						<string key="label">content: keyservers</string>
 						<reference key="source" ref="705680068"/>
 						<reference key="destination" ref="227421186"/>
@@ -1086,6 +1069,34 @@ TWFpbCBhZnRlciBhbiBPUyB1cGRhdGUuA</string>
 						</object>
 					</object>
 					<int key="connectionID">603</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBActionConnection" key="connection">
+						<string key="label">deletePassphrases:</string>
+						<reference key="source" ref="53615620"/>
+						<reference key="destination" ref="451938746"/>
+					</object>
+					<int key="connectionID">606</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBBindingConnection" key="connection">
+						<string key="label">value: passphraseCacheTime</string>
+						<reference key="source" ref="418540942"/>
+						<reference key="destination" ref="53615620"/>
+						<object class="NSNibBindingConnector" key="connector">
+							<reference key="NSSource" ref="418540942"/>
+							<reference key="NSDestination" ref="53615620"/>
+							<string key="NSLabel">value: passphraseCacheTime</string>
+							<string key="NSBinding">value</string>
+							<string key="NSKeyPath">passphraseCacheTime</string>
+							<object class="NSDictionary" key="NSOptions">
+								<string key="NS.key.0">NSNullPlaceholder</string>
+								<real value="600" key="NS.object.0"/>
+							</object>
+							<int key="NSNibBindingConnectorVersion">2</int>
+						</object>
+					</object>
+					<int key="connectionID">611</int>
 				</object>
 			</array>
 			<object class="IBMutableOrderedSet" key="objectRecords">
@@ -1190,7 +1201,7 @@ TWFpbCBhZnRlciBhbiBPUyB1cGRhdGUuA</string>
 							<reference ref="333704446"/>
 							<reference ref="705680068"/>
 							<reference ref="201672854"/>
-							<reference ref="806274377"/>
+							<reference ref="451938746"/>
 						</array>
 						<reference key="parent" ref="135203895"/>
 					</object>
@@ -1553,17 +1564,17 @@ TWFpbCBhZnRlciBhbiBPUyB1cGRhdGUuA</string>
 						<reference key="parent" ref="174859972"/>
 					</object>
 					<object class="IBObjectRecord">
-						<int key="objectID">593</int>
-						<reference key="object" ref="806274377"/>
+						<int key="objectID">604</int>
+						<reference key="object" ref="451938746"/>
 						<array class="NSMutableArray" key="children">
-							<reference ref="318912199"/>
+							<reference ref="335196922"/>
 						</array>
 						<reference key="parent" ref="767432390"/>
 					</object>
 					<object class="IBObjectRecord">
-						<int key="objectID">594</int>
-						<reference key="object" ref="318912199"/>
-						<reference key="parent" ref="806274377"/>
+						<int key="objectID">605</int>
+						<reference key="object" ref="335196922"/>
+						<reference key="parent" ref="451938746"/>
 					</object>
 				</array>
 			</object>
@@ -1637,15 +1648,15 @@ TWFpbCBhZnRlciBhbiBPUyB1cGRhdGUuA</string>
 				<string key="579.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
 				<string key="586.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
 				<string key="587.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
-				<string key="593.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
-				<string key="594.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
 				<string key="6.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
+				<string key="604.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
+				<string key="605.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
 			</dictionary>
 			<dictionary class="NSMutableDictionary" key="unlocalizedProperties"/>
 			<nil key="activeLocalization"/>
 			<dictionary class="NSMutableDictionary" key="localizations"/>
 			<nil key="sourceID"/>
-			<int key="maxID">603</int>
+			<int key="maxID">611</int>
 		</object>
 		<object class="IBClassDescriber" key="IBDocument.Classes">
 			<array class="NSMutableArray" key="referencedPartialClassDescriptions">
@@ -1661,6 +1672,7 @@ TWFpbCBhZnRlciBhbiBPUyB1cGRhdGUuA</string>
 					<string key="className">GPGToolsPrefController</string>
 					<string key="superclassName">NSObject</string>
 					<dictionary class="NSMutableDictionary" key="actions">
+						<string key="deletePassphrases:">id</string>
 						<string key="gpgFix:">id</string>
 						<string key="gpgmailRemove:">id</string>
 						<string key="openContact:">id</string>
@@ -1668,6 +1680,10 @@ TWFpbCBhZnRlciBhbiBPUyB1cGRhdGUuA</string>
 						<string key="openFAQ:">id</string>
 					</dictionary>
 					<dictionary class="NSMutableDictionary" key="actionInfosByName">
+						<object class="IBActionInfo" key="deletePassphrases:">
+							<string key="name">deletePassphrases:</string>
+							<string key="candidateClassName">id</string>
+						</object>
 						<object class="IBActionInfo" key="gpgFix:">
 							<string key="name">gpgFix:</string>
 							<string key="candidateClassName">id</string>

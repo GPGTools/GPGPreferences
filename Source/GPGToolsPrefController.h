@@ -17,11 +17,13 @@
 	GPGController *gpgc;
 	NSLock *secretKeysLock;
 }
+
 @property (readonly) NSBundle *myBundle;
 @property (readonly) NSArray *secretKeys, *secretKeyDescriptions;
 @property (readonly) NSAttributedString *credits;
 @property (readonly) NSString *bundleVersion;
 @property NSUInteger indexOfSelectedSecretKey;
+@property NSInteger passphraseCacheTime;
 
 /* Remove GPGMail plug-in. */
 - (IBAction)gpgmailRemove:(id)pId;
@@ -37,6 +39,9 @@
 
 /* Open Donate */
 - (IBAction)openDonate:(id)pId;
+
+
+- (IBAction)deletePassphrases:(id)sender;
 
 
 @end

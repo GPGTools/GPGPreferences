@@ -8,6 +8,10 @@
 //
 
 #import "GPGToolsPrefController.h"
+#import <Security/Security.h>
+#import <Security/SecItem.h>
+
+#define GPG_SERVICE_NAME "GnuPG"
 
 @implementation GPGToolsPrefController
 
@@ -39,6 +43,68 @@
 }
 
 
+/*
+ * Delete stored passphrases from the Mac OS X keychain.
+ */
+- (IBAction)deletePassphrases:(id)sender {
+	@try {
+		[[GPGOptions sharedOptions] gpgAgentFlush];
+		
+		NSDictionary *query = [NSDictionary dictionaryWithObjectsAndKeys:@"genp", kSecClass, kSecMatchLimitAll, kSecMatchLimit, kCFBooleanTrue, kSecReturnRef, kCFBooleanTrue, kSecReturnAttributes, @"GnuPG", kSecAttrService, nil];
+		
+		NSArray *result = nil;
+		OSStatus status = SecItemCopyMatching((CFDictionaryRef)query, (CFTypeRef *)&result);
+		
+		NSCharacterSet *nonHexCharSet = [[NSCharacterSet characterSetWithCharactersInString:@"0123456789abcdefABCDEF"] invertedSet];
+		
+		if (status == noErr) {
+			for (NSDictionary *item in result) {
+				if (![[item objectForKey:kSecAttrService] isEqualToString:@"GnuPG"]) {
+					continue;
+				}
+				
+				NSString *fingerprint = [item objectForKey:kSecAttrAccount];
+				if ([fingerprint length] < 8 || [fingerprint length] > 40) {
+					continue;
+				}
+				if ([fingerprint rangeOfCharacterFromSet:nonHexCharSet].length > 0) {
+					continue;
+				}				
+
+				status = SecKeychainItemDelete((SecKeychainItemRef)[item objectForKey:kSecValueRef]);
+				if (status) {
+					NSLog(@"ERROR %i: %@", status, SecCopyErrorMessageString(status, nil));
+				}
+			}
+		}
+		
+		[result release];
+		
+	} @catch (NSException *exception) {
+		NSLog(@"deletePassphrases failed: %@", exception);
+	}
+}
+
+
+
+/*
+ * Get and set the PassphraseCacheTime, with a dafault value of 600.
+ */
+- (NSInteger)passphraseCacheTime {
+	GPGOptions *options = [GPGOptions sharedOptions];
+	NSNumber *value = [options valueForKey:@"PassphraseCacheTime"];
+	if (!value) {
+		[self setPassphraseCacheTime:600];
+		return 600;
+	}
+	return [value integerValue];
+}
+- (void)setPassphraseCacheTime:(NSInteger)value {
+	GPGOptions *options = [GPGOptions sharedOptions];
+	[options setValue:[NSNumber numberWithInteger:value] forKey:@"PassphraseCacheTime"];
+}
+
+
 
 /*
  * Handle external key changes.
@@ -62,7 +128,6 @@
 		secretKeys = [[[[gpgc allSecretKeys] usableGPGKeys] allObjects] retain];
 	}
 	NSArray *value = [[secretKeys retain] autorelease];
-	NSLog(@"secretKeys: %@", value);
 	[secretKeysLock unlock];
 	return value;
 }
