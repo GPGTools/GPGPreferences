@@ -30,6 +30,8 @@
 
 	gpgc = [GPGController new];
 	gpgc.delegate = self;
+	
+	options = [[GPGOptions sharedOptions] retain];
 
     self.updater = [SUUpdater updaterForBundle:[NSBundle bundleForClass:[self class]]];
 	//updater.delegate = self;
@@ -40,6 +42,7 @@
 - (void)dealloc {
 	[gpgc release];
 	[secretKeysLock release];
+	[options release];
 	self.updater = nil;
 	[super dealloc];
 }
@@ -49,6 +52,24 @@
 	return @"/Applications/Mail.app";
 }*/
 
+- (NSString *)comments {
+	return [[options valueInGPGConfForKey:@"comment"] componentsJoinedByString:@"\n"];
+}
+- (void)setComments:(NSString *)value {
+	NSArray *lines = [value componentsSeparatedByString:@"\n"];
+	NSMutableArray *filteredLines = [NSMutableArray array];
+	NSCharacterSet *whitespaceCharacterSet = [NSCharacterSet whitespaceCharacterSet];
+	NSCharacterSet *nonWhitespaceCharacterSet = [whitespaceCharacterSet invertedSet];
+	
+	[lines enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
+		if ([obj rangeOfCharacterFromSet:nonWhitespaceCharacterSet].length > 0) {
+			[filteredLines addObject:[obj stringByTrimmingCharactersInSet:whitespaceCharacterSet]];
+		}
+	}];
+	
+	
+	[options setValueInGPGConf:filteredLines forKey:@"comment"];
+}
 
 
 
@@ -68,7 +89,7 @@
  */
 - (IBAction)deletePassphrases:(id)sender {
 	@try {
-		[[GPGOptions sharedOptions] gpgAgentFlush];
+		[options gpgAgentFlush];
 		
 		NSDictionary *query = [NSDictionary dictionaryWithObjectsAndKeys:@"genp", kSecClass, kSecMatchLimitAll, kSecMatchLimit, kCFBooleanTrue, kSecReturnRef, kCFBooleanTrue, kSecReturnAttributes, @"GnuPG", kSecAttrService, nil];
 		
@@ -111,7 +132,6 @@
  * Get and set the PassphraseCacheTime, with a dafault value of 600.
  */
 - (NSInteger)passphraseCacheTime {
-	GPGOptions *options = [GPGOptions sharedOptions];
 	NSNumber *value = [options valueForKey:@"PassphraseCacheTime"];
 	if (!value) {
 		[self setPassphraseCacheTime:600];
@@ -120,7 +140,6 @@
 	return [value integerValue];
 }
 - (void)setPassphraseCacheTime:(NSInteger)value {
-	GPGOptions *options = [GPGOptions sharedOptions];
 	[options setValue:[NSNumber numberWithInteger:value] forKey:@"PassphraseCacheTime"];
 }
 
@@ -272,7 +291,6 @@
  * Index of the default key.
  */
 - (NSUInteger)indexOfSelectedSecretKey {
-	GPGOptions *options = [GPGOptions sharedOptions];
 	NSString *defaultKey = [options valueForKey:@"default-key"];
 	if ([defaultKey length] == 0) {
 		return 0;
@@ -293,7 +311,6 @@
 - (void)setIndexOfSelectedSecretKey:(NSUInteger)index {
 	NSArray *keys = self.secretKeys;
 	if (index < [keys count]) {
-		GPGOptions *options = [GPGOptions sharedOptions];
 		[options setValue:[[keys objectAtIndex:index] fingerprint] forKey:@"default-key"];
 	}
 }

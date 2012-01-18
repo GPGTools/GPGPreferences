@@ -18,6 +18,7 @@
 	GPGController *gpgc;
 	NSLock *secretKeysLock;
 	SUUpdater *updater;
+	GPGOptions *options;
 }
 
 @property (readonly, retain) SUUpdater *updater;
@@ -27,6 +28,8 @@
 @property (readonly) NSString *bundleVersion;
 @property NSUInteger indexOfSelectedSecretKey;
 @property NSInteger passphraseCacheTime;
+@property (retain) NSString *comments;
+
 
 /* Remove GPGMail plug-in. */
 - (IBAction)gpgmailRemove:(id)pId;
