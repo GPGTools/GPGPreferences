@@ -10,26 +10,46 @@
 #import "GPGToolsPrefController.h"
 #import <Security/Security.h>
 #import <Security/SecItem.h>
+#import <Sparkle/Sparkle.h>
 
 #define GPG_SERVICE_NAME "GnuPG"
 
-@implementation GPGToolsPrefController
+@interface GPGToolsPrefController()
+@property (retain) SUUpdater *updater;
+@end 
 
+
+@implementation GPGToolsPrefController
+@synthesize updater;
 
 - (id)init {
 	if (!(self = [super init])) {
 		return nil;
 	}
 	secretKeysLock = [[NSLock alloc] init];
+
 	gpgc = [GPGController new];
 	gpgc.delegate = self;
+
+    self.updater = [SUUpdater updaterForBundle:[NSBundle bundleForClass:[self class]]];
+	//updater.delegate = self;
+	//[updater resetUpdateCycle];
+
 	return self;
 }
 - (void)dealloc {
 	[gpgc release];
 	[secretKeysLock release];
+	self.updater = nil;
 	[super dealloc];
 }
+
+
+/*- (NSString *)pathToRelaunchForUpdater:(SUUpdater *)updater {
+	return @"/Applications/Mail.app";
+}*/
+
+
 
 
 + (NSSet *)keyPathsForValuesAffectingValueForKey:(NSString *)key {

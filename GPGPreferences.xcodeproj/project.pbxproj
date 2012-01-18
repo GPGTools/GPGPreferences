@@ -13,6 +13,9 @@
 		2285BA5113FCF2D700CB623B /* gpgtools-autofix.sh in Resources */ = {isa = PBXBuildFile; fileRef = 2285BA5013FCF2D700CB623B /* gpgtools-autofix.sh */; };
 		22E7F134120A149200EB0E77 /* GPGToolsPrefController.m in Sources */ = {isa = PBXBuildFile; fileRef = 22E7F132120A149200EB0E77 /* GPGToolsPrefController.m */; };
 		300799B313CB09C7008F0D9B /* Credits.rtf in Resources */ = {isa = PBXBuildFile; fileRef = 300799B113CB09C7008F0D9B /* Credits.rtf */; };
+		305723BA14C765A500E0AB51 /* Sparkle.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 305723B914C765A500E0AB51 /* Sparkle.framework */; };
+		305723BB14C765B000E0AB51 /* Sparkle.framework in Copy Frameworks */ = {isa = PBXBuildFile; fileRef = 305723B914C765A500E0AB51 /* Sparkle.framework */; };
+		305723D914C7742700E0AB51 /* dsa_pub.pem in Resources */ = {isa = PBXBuildFile; fileRef = 305723D814C7742700E0AB51 /* dsa_pub.pem */; };
 		3060E6D813C9F92E0083CF14 /* Libmacgpg.framework in Copy Frameworks */ = {isa = PBXBuildFile; fileRef = 3060E6D313C9F9150083CF14 /* Libmacgpg.framework */; };
 		30867B0114BC624D00194AA2 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 30867B0014BC624D00194AA2 /* Security.framework */; };
 		30D5314D13CA06FF0035AA8B /* GPGTools.png in Resources */ = {isa = PBXBuildFile; fileRef = 30D5314C13CA06FF0035AA8B /* GPGTools.png */; };
@@ -60,6 +63,7 @@
 			dstSubfolderSpec = 10;
 			files = (
 				3060E6D813C9F92E0083CF14 /* Libmacgpg.framework in Copy Frameworks */,
+				305723BB14C765B000E0AB51 /* Sparkle.framework in Copy Frameworks */,
 			);
 			name = "Copy Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -82,6 +86,8 @@
 		22E7F132120A149200EB0E77 /* GPGToolsPrefController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GPGToolsPrefController.m; path = Source/GPGToolsPrefController.m; sourceTree = "<group>"; };
 		22EE1F4812EE10EE0002556B /* GPGTools_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GPGTools_Prefix.pch; path = Source/GPGTools_Prefix.pch; sourceTree = "<group>"; };
 		300799B213CB09C7008F0D9B /* English */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; name = English; path = Resources/English.lproj/Credits.rtf; sourceTree = "<group>"; };
+		305723B914C765A500E0AB51 /* Sparkle.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Sparkle.framework; path = Frameworks/Sparkle.framework; sourceTree = "<group>"; };
+		305723D814C7742700E0AB51 /* dsa_pub.pem */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = dsa_pub.pem; path = Resources/dsa_pub.pem; sourceTree = "<group>"; };
 		3060E6CA13C9F9150083CF14 /* Libmacgpg.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Libmacgpg.xcodeproj; path = Dependencies/Libmacgpg/Libmacgpg.xcodeproj; sourceTree = "<group>"; };
 		30867B0014BC624D00194AA2 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		30D5314C13CA06FF0035AA8B /* GPGTools.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = GPGTools.png; path = Resources/GPGTools.png; sourceTree = "<group>"; };
@@ -103,6 +109,7 @@
 				30D5317D13CA0B130035AA8B /* Libmacgpg.framework in Frameworks */,
 				8D202CF30486D31800D8A456 /* Cocoa.framework in Frameworks */,
 				8D202CF40486D31800D8A456 /* PreferencePanes.framework in Frameworks */,
+				305723BA14C765A500E0AB51 /* Sparkle.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -141,6 +148,7 @@
 				30F048F313EB570E00A428BC /* Keyservers.plist */,
 				8D202CF70486D31800D8A456 /* Info.plist */,
 				300799B113CB09C7008F0D9B /* Credits.rtf */,
+				305723D814C7742700E0AB51 /* dsa_pub.pem */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -159,6 +167,7 @@
 		1058C7ACFEA557BF11CA2CBB /* Linked Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				305723B914C765A500E0AB51 /* Sparkle.framework */,
 				30867B0014BC624D00194AA2 /* Security.framework */,
 				1058C7ADFEA557BF11CA2CBB /* Cocoa.framework */,
 				F506C035013D953901CA16C8 /* PreferencePanes.framework */,
@@ -349,6 +358,7 @@
 				30D5314D13CA06FF0035AA8B /* GPGTools.png in Resources */,
 				300799B313CB09C7008F0D9B /* Credits.rtf in Resources */,
 				30F048F413EB570E00A428BC /* Keyservers.plist in Resources */,
+				305723D914C7742700E0AB51 /* dsa_pub.pem in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -407,7 +417,10 @@
 			buildSettings = {
 				ARCHS = "$(ARCHS_STANDARD_32_64_BIT)";
 				COPY_PHASE_STRIP = NO;
-				FRAMEWORK_SEARCH_PATHS = Dependencies/Libmacgpg/build/$BUILD_STYLE;
+				FRAMEWORK_SEARCH_PATHS = (
+					Dependencies/Libmacgpg/build/$BUILD_STYLE,
+					"\"$(SRCROOT)/Frameworks\"",
+				);
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_MODEL_TUNING = G5;
 				GCC_OPTIMIZATION_LEVEL = 0;
@@ -429,7 +442,10 @@
 			buildSettings = {
 				ARCHS = "$(ARCHS_STANDARD_32_64_BIT)";
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
-				FRAMEWORK_SEARCH_PATHS = Dependencies/Libmacgpg/build/$BUILD_STYLE;
+				FRAMEWORK_SEARCH_PATHS = (
+					Dependencies/Libmacgpg/build/$BUILD_STYLE,
+					"\"$(SRCROOT)/Frameworks\"",
+				);
 				GCC_MODEL_TUNING = G5;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = Source/GPGTools_Prefix.pch;

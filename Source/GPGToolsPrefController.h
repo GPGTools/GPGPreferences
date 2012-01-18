@@ -10,14 +10,17 @@
 #import <Cocoa/Cocoa.h>
 #import <Libmacgpg/Libmacgpg.h>
 
+@class SUUpdater;
 
 @interface GPGToolsPrefController : NSObject <GPGControllerDelegate> {
 	NSBundle *myBundle;
 	NSArray *secretKeys;
 	GPGController *gpgc;
 	NSLock *secretKeysLock;
+	SUUpdater *updater;
 }
 
+@property (readonly, retain) SUUpdater *updater;
 @property (readonly) NSBundle *myBundle;
 @property (readonly) NSArray *secretKeys, *secretKeyDescriptions;
 @property (readonly) NSAttributedString *credits;
