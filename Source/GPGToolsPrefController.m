@@ -14,6 +14,9 @@
 
 #define GPG_SERVICE_NAME "GnuPG"
 
+static NSString * const kKeyserver = @"keyserver";
+static NSString * const kAutoKeyLocate = @"auto-key-locate";
+
 @interface GPGToolsPrefController()
 @property (retain) SUUpdater *updater;
 @end 
@@ -21,6 +24,7 @@
 
 @implementation GPGToolsPrefController
 @synthesize updater;
+@synthesize options=options;
 
 - (id)init {
 	if (!(self = [super init])) {
@@ -290,15 +294,15 @@
 /*
  * Index of the default key.
  */
-- (NSUInteger)indexOfSelectedSecretKey {
+- (NSInteger)indexOfSelectedSecretKey {
 	NSString *defaultKey = [options valueForKey:@"default-key"];
 	if ([defaultKey length] == 0) {
-		return 0;
+		return -1;
 	}
 	
 	NSArray *keys = self.secretKeys;
 	
-	NSUInteger i, count = [keys count];
+	NSInteger i, count = [keys count];
 	for (i = 0; i < count; i++) {
 		GPGKey *key = [keys objectAtIndex:i];
 		if ([key.textForFilter rangeOfString:defaultKey options:NSCaseInsensitiveSearch].length > 0) {
@@ -306,13 +310,41 @@
 		}		
 	}
 	
-	return 0;
+	return -1;
 }
-- (void)setIndexOfSelectedSecretKey:(NSUInteger)index {
+- (void)setIndexOfSelectedSecretKey:(NSInteger)index {
 	NSArray *keys = self.secretKeys;
-	if (index < [keys count]) {
+	if (index < [keys count] && index >= 0) {
 		[options setValue:[[keys objectAtIndex:index] fingerprint] forKey:@"default-key"];
 	}
+    else if (index == -1) {
+		[options setValue:nil forKey:@"default-key"];
+    }
+}
+
+- (IBAction)unsetDefaultKey:(id)sender {
+    [self setIndexOfSelectedSecretKey:-1];
+}
+
+- (NSArray*)keyservers {
+    return [options keyservers];
+}
+
+- (NSString*)keyserver {
+    return [options valueForKey:kKeyserver];
+}
+
+- (void)setKeyserver:(NSString *)keyserver {
+    [options setValue:keyserver forKey:kKeyserver];
+    
+    NSArray *autoklOptions = [options valueForKey:kAutoKeyLocate];
+    if (!autoklOptions || ![autoklOptions containsObject:kKeyserver]) {
+        NSMutableArray *newOptions = [NSMutableArray array];
+        if (autoklOptions)
+            [newOptions addObjectsFromArray:autoklOptions];
+        [newOptions insertObject:kKeyserver atIndex:0];
+        [options setValue:newOptions forKey:kAutoKeyLocate];
+    }
 }
 
 @end
