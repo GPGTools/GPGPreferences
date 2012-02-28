@@ -11,7 +11,6 @@
 #import <Libmacgpg/Libmacgpg.h>
 
 @class SUUpdater;
-@class GPGWhichKeyserver;
 
 @interface GPGToolsPrefController : NSObject <GPGControllerDelegate> {
 	NSBundle *myBundle;
@@ -20,7 +19,6 @@
 	NSLock *secretKeysLock;
 	SUUpdater *updater;
 	GPGOptions *options;
-    GPGWhichKeyserver *whichKeyserver_;
 }
 
 @property (readonly, retain) SUUpdater *updater;
@@ -31,6 +29,7 @@
 @property NSInteger indexOfSelectedSecretKey;
 @property NSInteger passphraseCacheTime;
 @property (retain) NSString *comments;
+@property (readonly) GPGOptions *options;
 
 // Get a list of keyservers from GPGOptions
 @property (readonly) NSArray *keyservers;

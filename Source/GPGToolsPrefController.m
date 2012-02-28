@@ -24,6 +24,7 @@ static NSString * const kAutoKeyLocate = @"auto-key-locate";
 
 @implementation GPGToolsPrefController
 @synthesize updater;
+@synthesize options=options;
 
 - (id)init {
 	if (!(self = [super init])) {
@@ -46,7 +47,6 @@ static NSString * const kAutoKeyLocate = @"auto-key-locate";
 	[gpgc release];
 	[secretKeysLock release];
 	[options release];
-    [whichKeyserver_ release];
 	self.updater = nil;
 	[super dealloc];
 }
