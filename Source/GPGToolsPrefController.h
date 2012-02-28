@@ -11,6 +11,7 @@
 #import <Libmacgpg/Libmacgpg.h>
 
 @class SUUpdater;
+@class GPGWhichKeyserver;
 
 @interface GPGToolsPrefController : NSObject <GPGControllerDelegate> {
 	NSBundle *myBundle;
@@ -19,6 +20,7 @@
 	NSLock *secretKeysLock;
 	SUUpdater *updater;
 	GPGOptions *options;
+    GPGWhichKeyserver *whichKeyserver_;
 }
 
 @property (readonly, retain) SUUpdater *updater;
@@ -26,10 +28,15 @@
 @property (readonly) NSArray *secretKeys, *secretKeyDescriptions;
 @property (readonly) NSAttributedString *credits;
 @property (readonly) NSString *bundleVersion;
-@property NSUInteger indexOfSelectedSecretKey;
+@property NSInteger indexOfSelectedSecretKey;
 @property NSInteger passphraseCacheTime;
 @property (retain) NSString *comments;
 
+// Get a list of keyservers from GPGOptions
+@property (readonly) NSArray *keyservers;
+
+// To set keyserver and also coordinate auto-key-locate
+@property (assign) NSString *keyserver;
 
 /* Remove GPGMail plug-in. */
 - (IBAction)gpgmailRemove:(id)pId;
@@ -49,5 +56,7 @@
 
 - (IBAction)deletePassphrases:(id)sender;
 
+// Clear any assigned default-key
+- (IBAction)unsetDefaultKey:(id)sender;
 
 @end
