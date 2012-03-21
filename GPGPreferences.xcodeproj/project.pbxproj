@@ -100,6 +100,8 @@
 		4526411414FD4FD90025BD91 /* GPGIsUnselectedTransformer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GPGIsUnselectedTransformer.m; path = Source/GPGIsUnselectedTransformer.m; sourceTree = "<group>"; };
 		8D202CF70486D31800D8A456 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8D202CF80486D31800D8A456 /* GPGPreferences.prefPane */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GPGPreferences.prefPane; sourceTree = BUILT_PRODUCTS_DIR; };
+		B013777F14D359CE00D7EA36 /* it */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = it; path = it.lproj/GPGToolsPref.xib.strings; sourceTree = "<group>"; };
+		B013778014D359FE00D7EA36 /* it */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = it; path = it.lproj/GPGToolsPref.xib; sourceTree = "<group>"; };
 		F506C035013D953901CA16C8 /* PreferencePanes.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = PreferencePanes.framework; path = /System/Library/Frameworks/PreferencePanes.framework; sourceTree = "<absolute>"; };
 		F506C03C013D9D7901CA16C8 /* GPGToolsPref.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GPGToolsPref.h; path = Source/GPGToolsPref.h; sourceTree = "<group>"; };
 		F506C03D013D9D7901CA16C8 /* GPGToolsPref.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GPGToolsPref.m; path = Source/GPGToolsPref.m; sourceTree = "<group>"; };
@@ -318,6 +320,7 @@
 			hasScannedForEncodings = 1;
 			knownRegions = (
 				en,
+				it,
 			);
 			mainGroup = 089C166AFE841209C02AAC07 /* GPGMail */;
 			projectDirPath = "";
@@ -414,6 +417,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				3023814514D2D01300C242C1 /* en */,
+				B013778014D359FE00D7EA36 /* it */,
 			);
 			name = GPGToolsPref.xib;
 			sourceTree = "<group>";
@@ -438,6 +442,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				30C1E91714D2D2550081E091 /* en */,
+				B013777F14D359CE00D7EA36 /* it */,
 			);
 			name = GPGToolsPref.xib.strings;
 			sourceTree = "<group>";
