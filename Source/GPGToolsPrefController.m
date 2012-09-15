@@ -326,11 +326,15 @@ static NSString * const kAutoKeyLocate = @"auto-key-locate";
     [self setIndexOfSelectedSecretKey:-1];
 }
 
-- (NSArray*)keyservers {
+
+/*
+ * Keyserver
+ */
+- (NSArray *)keyservers {
     return [options keyservers];
 }
 
-- (NSString*)keyserver {
+- (NSString *)keyserver {
     return [options valueForKey:kKeyserver];
 }
 
@@ -346,5 +350,27 @@ static NSString * const kAutoKeyLocate = @"auto-key-locate";
         [options setValue:newOptions forKey:kAutoKeyLocate];
     }
 }
+
++ (NSSet *)keyPathsForValuesAffectingKeyservers {
+	return [NSSet setWithObject:@"options.keyservers"];
+}
++ (NSSet *)keyPathsForValuesAffectingKeyserver {
+	return [NSSet setWithObject:@"options.keyserver"];
+}
+
+- (IBAction)removeKeyserver:(id)sender {
+	NSString *oldServer = self.keyserver;
+	[self.options removeKeyserver:oldServer];
+	NSArray *servers = self.keyservers;
+	if (servers.count > 0) {
+		if (![servers containsObject:oldServer]) {
+			self.keyserver = [self.keyservers objectAtIndex:0];
+		}
+	} else {
+		self.keyserver = @"";
+	}
+}
+
+
 
 @end

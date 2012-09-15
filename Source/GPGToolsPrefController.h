@@ -58,4 +58,7 @@
 // Clear any assigned default-key
 - (IBAction)unsetDefaultKey:(id)sender;
 
+/* Remove the selected keyserver from the list */
+- (IBAction)removeKeyserver:(id)sender;
+
 @end
