@@ -1,33 +1,16 @@
 PROJECT = GPGPreferences
 TARGET = GPGPreferences
-CONFIG = Release
+PRODUCT = GPGPreferences.prefPane
 
-include Dependencies/GPGTools_Core/make/default
+include Dependencies/GPGTools_Core/newBuildSystem/Makefile.default
 
-all: compile
 
-update-core:
-	@cd Dependencies/GPGTools_Core; git pull origin master; cd -
-update-libmac:
-	@cd Dependencies/Libmacgpg; git pull origin master; cd -
-update-me:
-	@git pull
-update: update-core update-libmac update-me
+update: update-libmacgpg
 
-compile:
-	@echo "  * Building...(can take some minutes)";
-	@xcodebuild -project GPGPreferences.xcodeproj -target GPGPreferences -configuration Release build
+pkg: pkg-libmacgpg
 
-install: compile
-	@echo "  * Installing...";
-	@mkdir -p ~/Library/PreferencePanes >> build.log 2>&1
-	@rm -rf ~/Library/PreferencePanes/GPGPreferences.prefPane >> build.log 2>&1
-	@cp -r build/Release/GPGPreferences.prefPane ~/Library/PreferencePanes >> build.log 2>&1
+clean-all: clean-libmacgpg
 
-test: compile
-	@./Dependencies/GPGTools_Core/scripts/create_dmg.sh auto
+$(PRODUCT): Source/* Resources/* Resources/*/* GPGPreferences.xcodeproj
+	@xcodebuild -project $(PROJECT).xcodeproj -target $(TARGET) -configuration $(CONFIG) build $(XCCONFIG)
 
-clean:
-	xcodebuild -project GPGPreferences.xcodeproj -target GPGPreferences -configuration Release clean > /dev/null
-	xcodebuild -project GPGPreferences.xcodeproj -target GPGPreferences -configuration Debug clean > /dev/null
-	@rm -f build.log

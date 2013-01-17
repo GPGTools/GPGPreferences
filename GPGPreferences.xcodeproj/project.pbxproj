@@ -16,7 +16,6 @@
 		305723BA14C765A500E0AB51 /* Sparkle.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 305723B914C765A500E0AB51 /* Sparkle.framework */; };
 		305723BB14C765B000E0AB51 /* Sparkle.framework in Copy Frameworks */ = {isa = PBXBuildFile; fileRef = 305723B914C765A500E0AB51 /* Sparkle.framework */; };
 		305723D914C7742700E0AB51 /* dsa_pub.pem in Resources */ = {isa = PBXBuildFile; fileRef = 305723D814C7742700E0AB51 /* dsa_pub.pem */; };
-		3060E6D813C9F92E0083CF14 /* Libmacgpg.framework in Copy Frameworks */ = {isa = PBXBuildFile; fileRef = 3060E6D313C9F9150083CF14 /* Libmacgpg.framework */; };
 		30867B0114BC624D00194AA2 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 30867B0014BC624D00194AA2 /* Security.framework */; };
 		30C1E8E514D2D0FF0081E091 /* Credits.rtf in Resources */ = {isa = PBXBuildFile; fileRef = 3023814A14D2D02300C242C1 /* Credits.rtf */; };
 		30C1E8E614D2D1100081E091 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 3023814814D2D01F00C242C1 /* InfoPlist.strings */; };
@@ -34,6 +33,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		3038712416A877DC006B79F7 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 3060E6CA13C9F9150083CF14 /* Libmacgpg.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 1B46CFCC161555DF00CF9C5F;
+			remoteInfo = org.gpgtools.Libmacgpg.xpc;
+		};
 		3060E6D213C9F9150083CF14 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 3060E6CA13C9F9150083CF14 /* Libmacgpg.xcodeproj */;
@@ -64,7 +70,6 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				3060E6D813C9F92E0083CF14 /* Libmacgpg.framework in Copy Frameworks */,
 				305723BB14C765B000E0AB51 /* Sparkle.framework in Copy Frameworks */,
 			);
 			name = "Copy Frameworks";
@@ -87,7 +92,7 @@
 		22E7F132120A149200EB0E77 /* GPGToolsPrefController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GPGToolsPrefController.m; path = Source/GPGToolsPrefController.m; sourceTree = "<group>"; };
 		22EE1F4812EE10EE0002556B /* GPGTools_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GPGTools_Prefix.pch; path = Source/GPGTools_Prefix.pch; sourceTree = "<group>"; };
 		3023814514D2D01300C242C1 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/GPGToolsPref.xib; sourceTree = "<group>"; };
-		3023814714D2D01F00C242C1 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		3023814714D2D01F00C242C1 /* en */ = {isa = PBXFileReference; fileEncoding = 10; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		3023814914D2D02300C242C1 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; name = en; path = en.lproj/Credits.rtf; sourceTree = "<group>"; };
 		305723B914C765A500E0AB51 /* Sparkle.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Sparkle.framework; path = Frameworks/Sparkle.framework; sourceTree = "<group>"; };
 		305723D814C7742700E0AB51 /* dsa_pub.pem */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = dsa_pub.pem; sourceTree = "<group>"; };
@@ -226,6 +231,7 @@
 			children = (
 				3060E6D313C9F9150083CF14 /* Libmacgpg.framework */,
 				3060E6D513C9F9150083CF14 /* UnitTest.octest */,
+				3038712516A877DC006B79F7 /* org.gpgtools.Libmacgpg.xpc */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -285,12 +291,13 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 1DBD214808BA80EA00186707 /* Build configuration list for PBXNativeTarget "GPGPreferences" */;
 			buildPhases = (
-				30D5317313CA097E0035AA8B /* Headers */,
-				8D202CEC0486D31800D8A456 /* Resources */,
-				3060E6DD13C9F9590083CF14 /* Copy Frameworks */,
 				8D202CF00486D31800D8A456 /* Sources */,
 				8D202CF20486D31800D8A456 /* Frameworks */,
 				30C1E8F614D2D1A50081E091 /* Localize XIBs */,
+				8D202CEC0486D31800D8A456 /* Resources */,
+				30D5317313CA097E0035AA8B /* Headers */,
+				3060E6DD13C9F9590083CF14 /* Copy Frameworks */,
+				3038713816A881B8006B79F7 /* Fill Info.plist */,
 			);
 			buildRules = (
 			);
@@ -335,6 +342,13 @@
 /* End PBXProject section */
 
 /* Begin PBXReferenceProxy section */
+		3038712516A877DC006B79F7 /* org.gpgtools.Libmacgpg.xpc */ = {
+			isa = PBXReferenceProxy;
+			fileType = "compiled.mach-o.executable";
+			path = org.gpgtools.Libmacgpg.xpc;
+			remoteRef = 3038712416A877DC006B79F7 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
 		3060E6D313C9F9150083CF14 /* Libmacgpg.framework */ = {
 			isa = PBXReferenceProxy;
 			fileType = wrapper.framework;
@@ -372,6 +386,20 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		3038713816A881B8006B79F7 /* Fill Info.plist */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Fill Info.plist";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "source \"$SRCROOT/Makefile.config\" || exit 1\n\nPLIST=\"$BUILT_PRODUCTS_DIR/$INFOPLIST_PATH\"\n\n/usr/libexec/PlistBuddy -c \"Set CommitHash \\\"$commitHash\\\"\" -c \"Set BuildNumber \\\"$buildNumber\\\"\" -c \"Set CFBundleVersion \\\"$build_version\\\"\" -c \"Set CFBundleShortVersionString \\\"$version\\\"\" \"$PLIST\" || exit 2\n";
+		};
 		30C1E8F614D2D1A50081E091 /* Localize XIBs */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
