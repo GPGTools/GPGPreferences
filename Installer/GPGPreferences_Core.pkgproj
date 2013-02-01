@@ -365,13 +365,6 @@
 													<dict>
 														<key>BUNDLE_CAN_DOWNGRADE</key>
 														<true/>
-														<key>BUNDLE_PREINSTALL_PATH</key>
-														<dict>
-															<key>PATH</key>
-															<string>../Installer/gpgpreferences_Locator.sh</string>
-															<key>PATH_TYPE</key>
-															<integer>1</integer>
-														</dict>
 														<key>CHILDREN</key>
 														<array/>
 														<key>GID</key>
@@ -548,7 +541,12 @@
 		<key>PACKAGE_SCRIPTS</key>
 		<dict>
 			<key>POSTINSTALL_PATH</key>
-			<dict/>
+			<dict>
+				<key>PATH</key>
+				<string>../Installer/postinstall.sh</string>
+				<key>PATH_TYPE</key>
+				<integer>1</integer>
+			</dict>
 			<key>PREINSTALL_PATH</key>
 			<dict/>
 			<key>RESOURCES</key>
