@@ -7,15 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		2220F7D212F5E4860058CE0D /* check_for_gpg.sh in Resources */ = {isa = PBXBuildFile; fileRef = 2220F7CD12F5E4860058CE0D /* check_for_gpg.sh */; };
-		2220F7D312F5E4860058CE0D /* create_dmg.sh in Resources */ = {isa = PBXBuildFile; fileRef = 2220F7CE12F5E4860058CE0D /* create_dmg.sh */; };
 		222FCA0E12F150D700B55D40 /* Icon.icns in Resources */ = {isa = PBXBuildFile; fileRef = 222FCA0D12F150D700B55D40 /* Icon.icns */; };
 		2285BA5113FCF2D700CB623B /* gpgtools-autofix.sh in Resources */ = {isa = PBXBuildFile; fileRef = 2285BA5013FCF2D700CB623B /* gpgtools-autofix.sh */; };
 		22E7F134120A149200EB0E77 /* GPGToolsPrefController.m in Sources */ = {isa = PBXBuildFile; fileRef = 22E7F132120A149200EB0E77 /* GPGToolsPrefController.m */; };
 		3023814414D2D01300C242C1 /* GPGToolsPref.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3023814614D2D01300C242C1 /* GPGToolsPref.xib */; };
 		305723BA14C765A500E0AB51 /* Sparkle.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 305723B914C765A500E0AB51 /* Sparkle.framework */; };
 		305723BB14C765B000E0AB51 /* Sparkle.framework in Copy Frameworks */ = {isa = PBXBuildFile; fileRef = 305723B914C765A500E0AB51 /* Sparkle.framework */; };
-		305723D914C7742700E0AB51 /* dsa_pub.pem in Resources */ = {isa = PBXBuildFile; fileRef = 305723D814C7742700E0AB51 /* dsa_pub.pem */; };
 		30867B0114BC624D00194AA2 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 30867B0014BC624D00194AA2 /* Security.framework */; };
 		30C1E8E514D2D0FF0081E091 /* Credits.rtf in Resources */ = {isa = PBXBuildFile; fileRef = 3023814A14D2D02300C242C1 /* Credits.rtf */; };
 		30C1E8E614D2D1100081E091 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 3023814814D2D01F00C242C1 /* InfoPlist.strings */; };
@@ -39,6 +36,13 @@
 			proxyType = 2;
 			remoteGlobalIDString = 1B46CFCC161555DF00CF9C5F;
 			remoteInfo = org.gpgtools.Libmacgpg.xpc;
+		};
+		30523D47172ACCEA00CDC3C6 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 3060E6CA13C9F9150083CF14 /* Libmacgpg.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 30DF7CB816D39EAA00C8225C;
+			remoteInfo = installerHelper;
 		};
 		3060E6D213C9F9150083CF14 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -81,11 +85,6 @@
 		089C1672FE841209C02AAC07 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = /System/Library/Frameworks/Foundation.framework; sourceTree = "<absolute>"; };
 		089C167FFE841241C02AAC07 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = /System/Library/Frameworks/AppKit.framework; sourceTree = "<absolute>"; };
 		1058C7ADFEA557BF11CA2CBB /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = /System/Library/Frameworks/Cocoa.framework; sourceTree = "<absolute>"; };
-		2220F7CD12F5E4860058CE0D /* check_for_gpg.sh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; path = check_for_gpg.sh; sourceTree = "<group>"; };
-		2220F7CE12F5E4860058CE0D /* create_dmg.sh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; path = create_dmg.sh; sourceTree = "<group>"; };
-		2220F7CF12F5E4860058CE0D /* fix_gpg.sh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; path = fix_gpg.sh; sourceTree = "<group>"; };
-		2220F7D012F5E4860058CE0D /* fix_gpg_permissions.sh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; path = fix_gpg_permissions.sh; sourceTree = "<group>"; };
-		2220F7D112F5E4860058CE0D /* fix_gpgmail.sh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; path = fix_gpgmail.sh; sourceTree = "<group>"; };
 		222FCA0D12F150D700B55D40 /* Icon.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = Icon.icns; sourceTree = "<group>"; };
 		2285BA5013FCF2D700CB623B /* gpgtools-autofix.sh */ = {isa = PBXFileReference; lastKnownFileType = text.script.sh; name = "gpgtools-autofix.sh"; path = "Dependencies/GPGTools_Core/scripts/gpgtools-autofix.sh"; sourceTree = SOURCE_ROOT; };
 		22E7F131120A149200EB0E77 /* GPGToolsPrefController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GPGToolsPrefController.h; path = Source/GPGToolsPrefController.h; sourceTree = "<group>"; };
@@ -95,7 +94,6 @@
 		3023814714D2D01F00C242C1 /* en */ = {isa = PBXFileReference; fileEncoding = 10; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		3023814914D2D02300C242C1 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; name = en; path = en.lproj/Credits.rtf; sourceTree = "<group>"; };
 		305723B914C765A500E0AB51 /* Sparkle.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Sparkle.framework; path = Frameworks/Sparkle.framework; sourceTree = "<group>"; };
-		305723D814C7742700E0AB51 /* dsa_pub.pem */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = dsa_pub.pem; sourceTree = "<group>"; };
 		3060E6CA13C9F9150083CF14 /* Libmacgpg.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Libmacgpg.xcodeproj; path = Dependencies/Libmacgpg/Libmacgpg.xcodeproj; sourceTree = "<group>"; };
 		30867B0014BC624D00194AA2 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		30C1E91714D2D2550081E091 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/GPGToolsPref.xib.strings; sourceTree = "<group>"; };
@@ -158,7 +156,6 @@
 				30F048F313EB570E00A428BC /* Keyservers.plist */,
 				8D202CF70486D31800D8A456 /* Info.plist */,
 				3023814A14D2D02300C242C1 /* Credits.rtf */,
-				305723D814C7742700E0AB51 /* dsa_pub.pem */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -208,22 +205,8 @@
 			isa = PBXGroup;
 			children = (
 				3060E6CA13C9F9150083CF14 /* Libmacgpg.xcodeproj */,
-				2220F7CC12F5E4860058CE0D /* scripts */,
 			);
 			name = Dependencies;
-			sourceTree = "<group>";
-		};
-		2220F7CC12F5E4860058CE0D /* scripts */ = {
-			isa = PBXGroup;
-			children = (
-				2220F7CD12F5E4860058CE0D /* check_for_gpg.sh */,
-				2220F7CE12F5E4860058CE0D /* create_dmg.sh */,
-				2220F7CF12F5E4860058CE0D /* fix_gpg.sh */,
-				2220F7D012F5E4860058CE0D /* fix_gpg_permissions.sh */,
-				2220F7D112F5E4860058CE0D /* fix_gpgmail.sh */,
-			);
-			name = scripts;
-			path = Dependencies/GPGTools_Core/scripts;
 			sourceTree = "<group>";
 		};
 		3060E6CB13C9F9150083CF14 /* Products */ = {
@@ -232,6 +215,7 @@
 				3060E6D313C9F9150083CF14 /* Libmacgpg.framework */,
 				3060E6D513C9F9150083CF14 /* UnitTest.octest */,
 				3038712516A877DC006B79F7 /* org.gpgtools.Libmacgpg.xpc */,
+				30523D48172ACCEA00CDC3C6 /* installerHelper */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -349,6 +333,13 @@
 			remoteRef = 3038712416A877DC006B79F7 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
+		30523D48172ACCEA00CDC3C6 /* installerHelper */ = {
+			isa = PBXReferenceProxy;
+			fileType = "compiled.mach-o.executable";
+			path = installerHelper;
+			remoteRef = 30523D47172ACCEA00CDC3C6 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
 		3060E6D313C9F9150083CF14 /* Libmacgpg.framework */ = {
 			isa = PBXReferenceProxy;
 			fileType = wrapper.framework;
@@ -376,10 +367,7 @@
 				30C1E8E514D2D0FF0081E091 /* Credits.rtf in Resources */,
 				30D5314D13CA06FF0035AA8B /* GPGTools.png in Resources */,
 				222FCA0E12F150D700B55D40 /* Icon.icns in Resources */,
-				305723D914C7742700E0AB51 /* dsa_pub.pem in Resources */,
 				2285BA5113FCF2D700CB623B /* gpgtools-autofix.sh in Resources */,
-				2220F7D212F5E4860058CE0D /* check_for_gpg.sh in Resources */,
-				2220F7D312F5E4860058CE0D /* create_dmg.sh in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -38,7 +38,7 @@ static NSString * const kAutoKeyLocate = @"auto-key-locate";
 	options = [[GPGOptions sharedOptions] retain];
 
     self.updater = [SUUpdater updaterForBundle:[NSBundle bundleForClass:[self class]]];
-	//updater.delegate = self;
+	updater.delegate = self;
 	//[updater resetUpdateCycle];
 
 	return self;
@@ -51,10 +51,33 @@ static NSString * const kAutoKeyLocate = @"auto-key-locate";
 	[super dealloc];
 }
 
+- (NSString *)feedURLStringForUpdater:(SUUpdater *)updater {
+	NSString *updateSourceKey = @"UpdateSource";
+	NSBundle *bundle = [NSBundle bundleForClass:[self class]];
+	
+	NSString *feedURLKey = @"SUFeedURL";
+	NSString *appcastSource = [[GPGOptions sharedOptions] stringForKey:updateSourceKey];
+	if ([appcastSource isEqualToString:@"nightly"]) {
+		feedURLKey = @"SUFeedURL_nightly";
+	} else if ([appcastSource isEqualToString:@"prerelease"]) {
+		feedURLKey = @"SUFeedURL_prerelease";
+	} else {
+		NSString *version = [bundle objectForInfoDictionaryKey:@"CFBundleVersion"];
+		if ([version rangeOfCharacterFromSet:[NSCharacterSet characterSetWithCharactersInString:@"nN"]].length > 0) {
+			feedURLKey = @"SUFeedURL_nightly";
+		} else if ([version rangeOfCharacterFromSet:[NSCharacterSet characterSetWithCharactersInString:@"abAB"]].length > 0) {
+			feedURLKey = @"SUFeedURL_prerelease";
+		}
+	}
+	
+	NSString *appcastURL = [bundle objectForInfoDictionaryKey:feedURLKey];
+	if (!appcastURL) {
+		appcastURL = [bundle objectForInfoDictionaryKey:@"SUFeedURL"];
+	}
+	return appcastURL;
+}
 
-/*- (NSString *)pathToRelaunchForUpdater:(SUUpdater *)updater {
-	return @"/Applications/Mail.app";
-}*/
+
 
 - (NSString *)comments {
 	return [[options valueInGPGConfForKey:@"comment"] componentsJoinedByString:@"\n"];
