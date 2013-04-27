@@ -10,21 +10,15 @@
 #import "GPGToolsPrefController.h"
 #import <Security/Security.h>
 #import <Security/SecItem.h>
-#import <Sparkle/Sparkle.h>
 
 #define GPG_SERVICE_NAME "GnuPG"
 
 static NSString * const kKeyserver = @"keyserver";
 static NSString * const kAutoKeyLocate = @"auto-key-locate";
 
-@interface GPGToolsPrefController()
-@property (retain) SUUpdater *updater;
-@end 
-
 
 @implementation GPGToolsPrefController
-@synthesize updater;
-@synthesize options=options;
+@synthesize options;
 
 - (id)init {
 	if (!(self = [super init])) {
@@ -37,46 +31,14 @@ static NSString * const kAutoKeyLocate = @"auto-key-locate";
 	
 	options = [[GPGOptions sharedOptions] retain];
 
-    self.updater = [SUUpdater updaterForBundle:[NSBundle bundleForClass:[self class]]];
-	updater.delegate = self;
-	//[updater resetUpdateCycle];
-
 	return self;
 }
 - (void)dealloc {
 	[gpgc release];
 	[secretKeysLock release];
 	[options release];
-	self.updater = nil;
 	[super dealloc];
 }
-
-- (NSString *)feedURLStringForUpdater:(SUUpdater *)updater {
-	NSString *updateSourceKey = @"UpdateSource";
-	NSBundle *bundle = [NSBundle bundleForClass:[self class]];
-	
-	NSString *feedURLKey = @"SUFeedURL";
-	NSString *appcastSource = [[GPGOptions sharedOptions] stringForKey:updateSourceKey];
-	if ([appcastSource isEqualToString:@"nightly"]) {
-		feedURLKey = @"SUFeedURL_nightly";
-	} else if ([appcastSource isEqualToString:@"prerelease"]) {
-		feedURLKey = @"SUFeedURL_prerelease";
-	} else {
-		NSString *version = [bundle objectForInfoDictionaryKey:@"CFBundleVersion"];
-		if ([version rangeOfCharacterFromSet:[NSCharacterSet characterSetWithCharactersInString:@"nN"]].length > 0) {
-			feedURLKey = @"SUFeedURL_nightly";
-		} else if ([version rangeOfCharacterFromSet:[NSCharacterSet characterSetWithCharactersInString:@"abAB"]].length > 0) {
-			feedURLKey = @"SUFeedURL_prerelease";
-		}
-	}
-	
-	NSString *appcastURL = [bundle objectForInfoDictionaryKey:feedURLKey];
-	if (!appcastURL) {
-		appcastURL = [bundle objectForInfoDictionaryKey:@"SUFeedURL"];
-	}
-	return appcastURL;
-}
-
 
 
 - (NSString *)comments {

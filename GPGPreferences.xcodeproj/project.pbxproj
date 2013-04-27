@@ -11,8 +11,15 @@
 		2285BA5113FCF2D700CB623B /* gpgtools-autofix.sh in Resources */ = {isa = PBXBuildFile; fileRef = 2285BA5013FCF2D700CB623B /* gpgtools-autofix.sh */; };
 		22E7F134120A149200EB0E77 /* GPGToolsPrefController.m in Sources */ = {isa = PBXBuildFile; fileRef = 22E7F132120A149200EB0E77 /* GPGToolsPrefController.m */; };
 		3023814414D2D01300C242C1 /* GPGToolsPref.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3023814614D2D01300C242C1 /* GPGToolsPref.xib */; };
+		30523D54172AD14A00CDC3C6 /* UpdateController.h in Headers */ = {isa = PBXBuildFile; fileRef = 30523D52172AD14A00CDC3C6 /* UpdateController.h */; };
+		30523D55172AD14A00CDC3C6 /* UpdateController.m in Sources */ = {isa = PBXBuildFile; fileRef = 30523D53172AD14A00CDC3C6 /* UpdateController.m */; };
 		305723BA14C765A500E0AB51 /* Sparkle.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 305723B914C765A500E0AB51 /* Sparkle.framework */; };
 		305723BB14C765B000E0AB51 /* Sparkle.framework in Copy Frameworks */ = {isa = PBXBuildFile; fileRef = 305723B914C765A500E0AB51 /* Sparkle.framework */; };
+		305988A9172C2D5A0004BCAD /* GKA.png in Resources */ = {isa = PBXBuildFile; fileRef = 305988A5172C2D5A0004BCAD /* GKA.png */; };
+		305988AA172C2D5A0004BCAD /* GPGMail.png in Resources */ = {isa = PBXBuildFile; fileRef = 305988A6172C2D5A0004BCAD /* GPGMail.png */; };
+		305988AB172C2D5A0004BCAD /* GPGServices.icns in Resources */ = {isa = PBXBuildFile; fileRef = 305988A7172C2D5A0004BCAD /* GPGServices.icns */; };
+		305988AC172C2D5A0004BCAD /* MacGPG.png in Resources */ = {isa = PBXBuildFile; fileRef = 305988A8172C2D5A0004BCAD /* MacGPG.png */; };
+		305988AE172C2DF50004BCAD /* GPGPreferences.png in Resources */ = {isa = PBXBuildFile; fileRef = 305988AD172C2DF50004BCAD /* GPGPreferences.png */; };
 		30867B0114BC624D00194AA2 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 30867B0014BC624D00194AA2 /* Security.framework */; };
 		30C1E8E514D2D0FF0081E091 /* Credits.rtf in Resources */ = {isa = PBXBuildFile; fileRef = 3023814A14D2D02300C242C1 /* Credits.rtf */; };
 		30C1E8E614D2D1100081E091 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 3023814814D2D01F00C242C1 /* InfoPlist.strings */; };
@@ -87,25 +94,32 @@
 		1058C7ADFEA557BF11CA2CBB /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = /System/Library/Frameworks/Cocoa.framework; sourceTree = "<absolute>"; };
 		222FCA0D12F150D700B55D40 /* Icon.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = Icon.icns; sourceTree = "<group>"; };
 		2285BA5013FCF2D700CB623B /* gpgtools-autofix.sh */ = {isa = PBXFileReference; lastKnownFileType = text.script.sh; name = "gpgtools-autofix.sh"; path = "Dependencies/GPGTools_Core/scripts/gpgtools-autofix.sh"; sourceTree = SOURCE_ROOT; };
-		22E7F131120A149200EB0E77 /* GPGToolsPrefController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GPGToolsPrefController.h; path = Source/GPGToolsPrefController.h; sourceTree = "<group>"; };
-		22E7F132120A149200EB0E77 /* GPGToolsPrefController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GPGToolsPrefController.m; path = Source/GPGToolsPrefController.m; sourceTree = "<group>"; };
+		22E7F131120A149200EB0E77 /* GPGToolsPrefController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GPGToolsPrefController.h; sourceTree = "<group>"; };
+		22E7F132120A149200EB0E77 /* GPGToolsPrefController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GPGToolsPrefController.m; sourceTree = "<group>"; };
 		22EE1F4812EE10EE0002556B /* GPGTools_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GPGTools_Prefix.pch; path = Source/GPGTools_Prefix.pch; sourceTree = "<group>"; };
 		3023814514D2D01300C242C1 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/GPGToolsPref.xib; sourceTree = "<group>"; };
 		3023814714D2D01F00C242C1 /* en */ = {isa = PBXFileReference; fileEncoding = 10; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		3023814914D2D02300C242C1 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; name = en; path = en.lproj/Credits.rtf; sourceTree = "<group>"; };
+		30523D52172AD14A00CDC3C6 /* UpdateController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UpdateController.h; sourceTree = "<group>"; };
+		30523D53172AD14A00CDC3C6 /* UpdateController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UpdateController.m; sourceTree = "<group>"; };
 		305723B914C765A500E0AB51 /* Sparkle.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Sparkle.framework; path = Frameworks/Sparkle.framework; sourceTree = "<group>"; };
+		305988A5172C2D5A0004BCAD /* GKA.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = GKA.png; sourceTree = "<group>"; };
+		305988A6172C2D5A0004BCAD /* GPGMail.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = GPGMail.png; sourceTree = "<group>"; };
+		305988A7172C2D5A0004BCAD /* GPGServices.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = GPGServices.icns; sourceTree = "<group>"; };
+		305988A8172C2D5A0004BCAD /* MacGPG.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = MacGPG.png; sourceTree = "<group>"; };
+		305988AD172C2DF50004BCAD /* GPGPreferences.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = GPGPreferences.png; sourceTree = "<group>"; };
 		3060E6CA13C9F9150083CF14 /* Libmacgpg.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Libmacgpg.xcodeproj; path = Dependencies/Libmacgpg/Libmacgpg.xcodeproj; sourceTree = "<group>"; };
 		30867B0014BC624D00194AA2 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		30C1E91714D2D2550081E091 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/GPGToolsPref.xib.strings; sourceTree = "<group>"; };
 		30D5314C13CA06FF0035AA8B /* GPGTools.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = GPGTools.png; sourceTree = "<group>"; };
 		30F048F313EB570E00A428BC /* Keyservers.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Keyservers.plist; sourceTree = "<group>"; };
-		4526411314FD4FD90025BD91 /* GPGIsUnselectedTransformer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GPGIsUnselectedTransformer.h; path = Source/GPGIsUnselectedTransformer.h; sourceTree = "<group>"; };
-		4526411414FD4FD90025BD91 /* GPGIsUnselectedTransformer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GPGIsUnselectedTransformer.m; path = Source/GPGIsUnselectedTransformer.m; sourceTree = "<group>"; };
+		4526411314FD4FD90025BD91 /* GPGIsUnselectedTransformer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GPGIsUnselectedTransformer.h; sourceTree = "<group>"; };
+		4526411414FD4FD90025BD91 /* GPGIsUnselectedTransformer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GPGIsUnselectedTransformer.m; sourceTree = "<group>"; };
 		8D202CF70486D31800D8A456 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8D202CF80486D31800D8A456 /* GPGPreferences.prefPane */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GPGPreferences.prefPane; sourceTree = BUILT_PRODUCTS_DIR; };
 		F506C035013D953901CA16C8 /* PreferencePanes.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = PreferencePanes.framework; path = /System/Library/Frameworks/PreferencePanes.framework; sourceTree = "<absolute>"; };
-		F506C03C013D9D7901CA16C8 /* GPGToolsPref.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GPGToolsPref.h; path = Source/GPGToolsPref.h; sourceTree = "<group>"; };
-		F506C03D013D9D7901CA16C8 /* GPGToolsPref.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GPGToolsPref.m; path = Source/GPGToolsPref.m; sourceTree = "<group>"; };
+		F506C03C013D9D7901CA16C8 /* GPGToolsPref.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GPGToolsPref.h; sourceTree = "<group>"; };
+		F506C03D013D9D7901CA16C8 /* GPGToolsPref.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GPGToolsPref.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -169,8 +183,11 @@
 				22E7F132120A149200EB0E77 /* GPGToolsPrefController.m */,
 				4526411314FD4FD90025BD91 /* GPGIsUnselectedTransformer.h */,
 				4526411414FD4FD90025BD91 /* GPGIsUnselectedTransformer.m */,
+				30523D52172AD14A00CDC3C6 /* UpdateController.h */,
+				30523D53172AD14A00CDC3C6 /* UpdateController.m */,
 			);
 			name = Classes;
+			path = Source;
 			sourceTree = "<group>";
 		};
 		1058C7ACFEA557BF11CA2CBB /* Linked Frameworks */ = {
@@ -225,8 +242,13 @@
 			children = (
 				222FCA0D12F150D700B55D40 /* Icon.icns */,
 				30D5314C13CA06FF0035AA8B /* GPGTools.png */,
+				305988A5172C2D5A0004BCAD /* GKA.png */,
+				305988A6172C2D5A0004BCAD /* GPGMail.png */,
+				305988A7172C2D5A0004BCAD /* GPGServices.icns */,
+				305988A8172C2D5A0004BCAD /* MacGPG.png */,
+				305988AD172C2DF50004BCAD /* GPGPreferences.png */,
 			);
-			name = Images;
+			path = Images;
 			sourceTree = "<group>";
 		};
 		30D5312413C9FEEF0035AA8B /* Strings */ = {
@@ -265,6 +287,7 @@
 				30D5315E13CA09750035AA8B /* GPGToolsPref.h in Headers */,
 				30D5315F13CA09750035AA8B /* GPGToolsPrefController.h in Headers */,
 				4526411514FD4FD90025BD91 /* GPGIsUnselectedTransformer.h in Headers */,
+				30523D54172AD14A00CDC3C6 /* UpdateController.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -368,6 +391,11 @@
 				30D5314D13CA06FF0035AA8B /* GPGTools.png in Resources */,
 				222FCA0E12F150D700B55D40 /* Icon.icns in Resources */,
 				2285BA5113FCF2D700CB623B /* gpgtools-autofix.sh in Resources */,
+				305988A9172C2D5A0004BCAD /* GKA.png in Resources */,
+				305988AA172C2D5A0004BCAD /* GPGMail.png in Resources */,
+				305988AB172C2D5A0004BCAD /* GPGServices.icns in Resources */,
+				305988AC172C2D5A0004BCAD /* MacGPG.png in Resources */,
+				305988AE172C2DF50004BCAD /* GPGPreferences.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -412,6 +440,7 @@
 				8D202CF10486D31800D8A456 /* GPGToolsPref.m in Sources */,
 				22E7F134120A149200EB0E77 /* GPGToolsPrefController.m in Sources */,
 				4526411614FD4FD90025BD91 /* GPGIsUnselectedTransformer.m in Sources */,
+				30523D55172AD14A00CDC3C6 /* UpdateController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
