@@ -1,0 +1,7 @@
+//
+// Prefix header for all source files of the 'GPGPreferences' target in the 'GPGPreferences' project
+//
+
+#ifdef __OBJC__
+	#import <Cocoa/Cocoa.h>
+#endif

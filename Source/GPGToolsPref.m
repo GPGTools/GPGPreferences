@@ -12,7 +12,6 @@
 @implementation GPGToolsPref
 
 - (void) mainViewDidLoad {
-	NSLog(@"OK");
 }
 
 @end
