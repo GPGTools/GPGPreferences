@@ -1,3 +1,0 @@
-[submodule "Dependencies/Libmacgpg"]
-	path = Dependencies/Libmacgpg
-	url = https://github.com/GPGTools/Libmacgpg
