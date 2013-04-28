@@ -21,12 +21,34 @@ NSDictionary *allOptions;
 
 
 + (void)initialize {
-	NSDictionary *domains = @{@"macgpg2" : @"org.gpgtools.macgpg2.updater", @"gpgmail" : @"org.gpgtools.gpgmail", @"gpgservices" : @"org.gpgtools.gpgservices", @"gka" : @"org.gpgtools.gpgkeychainaccess", @"gpgprefs" : @"org.gpgtools.gpgpreferences"};
-	NSMutableDictionary *tempOptions = [NSMutableDictionary dictionaryWithCapacity:domains.count];
+	NSDictionary *allDomains = @{@"macgpg2" : @"org.gpgtools.macgpg2.updater", @"gpgmail" : @[@"../Containers/com.apple.mail/Data/Library/Preferences/org.gpgtools.gpgmail", @"org.gpgtools.gpgmail"], @"gpgservices" : @"org.gpgtools.gpgservices", @"gka" : @"org.gpgtools.gpgkeychainaccess", @"gpgprefs" : @"org.gpgtools.gpgpreferences"};
+	NSMutableDictionary *tempOptions = [NSMutableDictionary dictionaryWithCapacity:allDomains.count];
 
-	for (NSString *tool in domains) {
+	NSString *prefDir = [NSHomeDirectory() stringByAppendingString:@"/Library/Preferences/"];
+	NSFileManager *fileManager = [NSFileManager defaultManager];
+	
+	for (NSString *tool in allDomains) {
+		id domains = allDomains[tool]; //NSString or NSArray of NSStrings.
+		NSString *domain = nil;
+		
+		if ([domains isKindOfClass:[NSArray class]]) {
+			// Use the first plist, which exists.
+			for (NSString *aDomain in domains) {
+				NSString *path = [prefDir stringByAppendingFormat:@"%@.plist", aDomain];
+				if ([fileManager fileExistsAtPath:path]) {
+					domain = aDomain;
+					break;
+				}
+			}
+			if (!domain) {
+				domain = domains[0];
+			}
+		} else {
+			domain = domains;
+		}
+		
 		GPGOptions *options = [GPGOptions new];
-		options.standardDomain = domains[tool];
+		options.standardDomain = domain;
 		
 		tempOptions[tool] = options;
 		[options release];
