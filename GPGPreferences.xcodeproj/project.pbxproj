@@ -60,6 +60,13 @@
 			remoteGlobalIDString = 30DF7CB816D39EAA00C8225C;
 			remoteInfo = installerHelper;
 		};
+		3059F166172D415D00160FF2 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 3056D0BC172D311000CFC0FA /* Libmacgpg.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 8DC2EF4F0486A6940098B216;
+			remoteInfo = Libmacgpg;
+		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -275,6 +282,7 @@
 			buildRules = (
 			);
 			dependencies = (
+				3059F167172D415D00160FF2 /* PBXTargetDependency */,
 			);
 			name = GPGPreferences;
 			productName = GPGPreferences;
@@ -406,6 +414,14 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		3059F167172D415D00160FF2 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = Libmacgpg;
+			targetProxy = 3059F166172D415D00160FF2 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		3056D0AF172D306600CFC0FA /* GPGToolsPref.xib */ = {
