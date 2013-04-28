@@ -161,15 +161,6 @@ static NSString * const kAutoKeyLocate = @"auto-key-locate";
 }
 
 
-/*
- * Displays a simple sheet.
- */
-- (void)simpleSheetWithTitle:(NSString *)title informativeText:(NSString *)informativeText {
-	NSAlert *alert = [NSAlert alertWithMessageText:title defaultButton:nil alternateButton:nil otherButton:nil informativeTextWithFormat:@"%@", informativeText];
-	[alert setIcon:[[NSImage alloc] initWithContentsOfFile:[self.myBundle pathForImageResource:@"GPGTools"]]];
-	[alert beginSheetModalForWindow:[NSApp mainWindow] modalDelegate:nil didEndSelector:nil contextInfo:nil];	
-}
-
 
 /*
  * The NSBundle for GPGPreferences.prefPane.
@@ -179,50 +170,6 @@ static NSString * const kAutoKeyLocate = @"auto-key-locate";
 		myBundle = [NSBundle bundleForClass:[self class]];
 	}
 	return myBundle;
-}
-
-
-/*
- * Remove GPGMail plug-in.
- *
- * @todo	Is there a method that returns the bundle path?
- */
-- (IBAction)gpgmailRemove:(id)sender {
-	NSFileManager *fileManager = [NSFileManager defaultManager];
-	NSString *path;
-	
-	
-	path = [NSHomeDirectory() stringByAppendingPathComponent:@"Library/Mail/Bundles/GPGMail.mailbundle"];	
-	NSLog(@"Removing '%@'...", path);
-	[fileManager removeItemAtPath: path error:NULL];
-	
-	path = [NSHomeDirectory() stringByAppendingPathComponent:@"Library/Preferences/org.gpgmail.plist"];	
-	NSLog(@"Removing '%@'...", path);
-	[fileManager removeItemAtPath: path error:NULL];
-	
-	[self simpleSheetWithTitle:@"GPGMail removed" informativeText:@"GPGMail removed."];
-}
-
-
-/*
- * Fix GPGTools.
- *
- * @todo	Do not use shell script, implement it using objective-c instead
- */
-- (IBAction)gpgFix:(id)sender {
-	NSString *path = [self.myBundle pathForResource:@"gpgtools-autofix" ofType:@"sh"];	
-	NSLog(@"Starting '%@'...", path);
-	NSTask *task=[[NSTask alloc] init];
-	NSPipe *pipe = [NSPipe pipe];
-	NSFileHandle *file = [pipe fileHandleForReading];
-	[task setStandardOutput:pipe];
-	[task setLaunchPath:path];
-	[task launch];
-	[task waitUntilExit];
-	NSData *data = [file readDataToEndOfFile];
-	NSString *result = [[NSString alloc] initWithData: data encoding: NSUTF8StringEncoding];
-
-	[self simpleSheetWithTitle:@"GPGTools fix result:" informativeText:result];
 }
 
 /*
