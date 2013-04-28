@@ -28,7 +28,6 @@
 		3056D0D0172D319400CFC0FA /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3056D0CF172D319400CFC0FA /* Security.framework */; };
 		3056D0D2172D31B500CFC0FA /* Sparkle.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3056D0D1172D31B500CFC0FA /* Sparkle.framework */; };
 		3056D0D4172D321E00CFC0FA /* Sparkle.framework in Copy Frameworks */ = {isa = PBXBuildFile; fileRef = 3056D0D1172D31B500CFC0FA /* Sparkle.framework */; };
-		3056D0DC172D33BF00CFC0FA /* gpgtools-autofix.sh in Resources */ = {isa = PBXBuildFile; fileRef = 3056D0DB172D33BF00CFC0FA /* gpgtools-autofix.sh */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -115,7 +114,6 @@
 		3056D0CD172D312200CFC0FA /* GPGPreferences-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "GPGPreferences-Prefix.pch"; sourceTree = "<group>"; };
 		3056D0CF172D319400CFC0FA /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		3056D0D1172D31B500CFC0FA /* Sparkle.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Sparkle.framework; path = Frameworks/Sparkle.framework; sourceTree = "<group>"; };
-		3056D0DB172D33BF00CFC0FA /* gpgtools-autofix.sh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; name = "gpgtools-autofix.sh"; path = "../../GPGTools_Core/scripts/gpgtools-autofix.sh"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -207,7 +205,6 @@
 				3056D09A172D303200CFC0FA /* XIBs */,
 				3056D09B172D303900CFC0FA /* Strings */,
 				3056D09C172D304100CFC0FA /* Images */,
-				3056D0DB172D33BF00CFC0FA /* gpgtools-autofix.sh */,
 				3056D09D172D304E00CFC0FA /* Info.plist */,
 				3056D09E172D304E00CFC0FA /* Keyservers.plist */,
 				3056D0B8172D307400CFC0FA /* Credits.rtf */,
@@ -368,7 +365,6 @@
 				3056D0B1172D306600CFC0FA /* GPGToolsPref.xib in Resources */,
 				3056D0B7172D307100CFC0FA /* InfoPlist.strings in Resources */,
 				3056D0BA172D307400CFC0FA /* Credits.rtf in Resources */,
-				3056D0DC172D33BF00CFC0FA /* gpgtools-autofix.sh in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
