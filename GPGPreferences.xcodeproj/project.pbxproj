@@ -495,22 +495,26 @@
 			buildSettings = {
 				ARCHS = "$(ARCHS_STANDARD_32_64_BIT)";
 				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
 				FRAMEWORK_SEARCH_PATHS = (
 					Dependencies/Libmacgpg/build/$BUILD_STYLE,
 					"\"$(SRCROOT)/Frameworks\"",
 				);
 				GCC_DYNAMIC_NO_PIC = NO;
-				GCC_MODEL_TUNING = G5;
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = Source/GPGTools_Prefix.pch;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				INFOPLIST_FILE = Resources/Info.plist;
 				INSTALL_PATH = "$(HOME)/Library/PreferencePanes";
 				PRODUCT_NAME = GPGPreferences;
+				SKIP_INSTALL = YES;
 				VALID_ARCHS = "i386 x86_64";
 				WRAPPER_EXTENSION = prefPane;
-				ZERO_LINK = YES;
 			};
 			name = Debug;
 		};
@@ -523,13 +527,13 @@
 					Dependencies/Libmacgpg/build/$BUILD_STYLE,
 					"\"$(SRCROOT)/Frameworks\"",
 				);
-				GCC_MODEL_TUNING = G5;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = Source/GPGTools_Prefix.pch;
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				INFOPLIST_FILE = Resources/Info.plist;
 				INSTALL_PATH = "$(HOME)/Library/PreferencePanes";
 				PRODUCT_NAME = GPGPreferences;
+				SKIP_INSTALL = YES;
 				VALID_ARCHS = "i386 x86_64";
 				WRAPPER_EXTENSION = prefPane;
 			};

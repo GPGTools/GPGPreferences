@@ -116,7 +116,8 @@ NSDictionary *allOptions;
 		id value = [options valueInStandardDefaultsForKey:@"SUEnableAutomaticChecks"];
 		 
 		if ([value respondsToSelector:@selector(boolValue)] && [value boolValue]) {
-			return [options valueInStandardDefaultsForKey:@"SUScheduledCheckInterval"];
+			value = [options valueInStandardDefaultsForKey:@"SUScheduledCheckInterval"];
+			return value ? value : @86400;
 		}
 		
 		return @0;
