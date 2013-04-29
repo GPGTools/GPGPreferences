@@ -14,6 +14,7 @@
 	SUUpdater *updater;
 }
 
-
+- (NSString *)pathToTool:(NSString *)tool;
+- (BOOL)isToolInstalled:(NSString *)tool;
 
 @end

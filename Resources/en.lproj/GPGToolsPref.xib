@@ -2256,78 +2256,6 @@ AAEAAQAAAT0AAwAAAAEAAgAAAVIAAwAAAAEAAQAAAVMAAwAAAAIAAQABAAAAAA</bytes>
 			<object class="NSUserDefaultsController" id="929434295">
 				<bool key="NSSharedInstance">YES</bool>
 			</object>
-			<object class="NSTabViewItem" id="156796222">
-				<object class="NSView" key="NSView" id="318663737">
-					<nil key="NSNextResponder"/>
-					<int key="NSvFlags">256</int>
-					<array class="NSMutableArray" key="NSSubviews">
-						<object class="NSTextField" id="891583990">
-							<reference key="NSNextResponder" ref="318663737"/>
-							<int key="NSvFlags">268</int>
-							<string key="NSFrame">{{14, 245}, {198, 17}}</string>
-							<reference key="NSSuperview" ref="318663737"/>
-							<reference key="NSNextKeyView" ref="218760849"/>
-							<bool key="NSEnabled">YES</bool>
-							<object class="NSTextFieldCell" key="NSCell" id="182443406">
-								<int key="NSCellFlags">68157504</int>
-								<int key="NSCellFlags2">272630784</int>
-								<string key="NSContents">Fix the GPGTools installation</string>
-								<reference key="NSSupport" ref="701901755"/>
-								<reference key="NSControlView" ref="891583990"/>
-								<reference key="NSBackgroundColor" ref="204879837"/>
-								<reference key="NSTextColor" ref="880469835"/>
-							</object>
-							<bool key="NSAllowsLogicalLayoutDirection">NO</bool>
-						</object>
-						<object class="NSButton" id="965070456">
-							<reference key="NSNextResponder" ref="318663737"/>
-							<int key="NSvFlags">268</int>
-							<string key="NSFrame">{{11, 167}, {130, 32}}</string>
-							<reference key="NSSuperview" ref="318663737"/>
-							<bool key="NSEnabled">YES</bool>
-							<object class="NSButtonCell" key="NSCell" id="759779844">
-								<int key="NSCellFlags">-2080374784</int>
-								<int key="NSCellFlags2">134217728</int>
-								<string key="NSContents">Fix GPGTools</string>
-								<reference key="NSSupport" ref="987440459"/>
-								<reference key="NSControlView" ref="965070456"/>
-								<int key="NSButtonFlags">-2038022144</int>
-								<int key="NSButtonFlags2">129</int>
-								<reference key="NSAlternateImage" ref="987440459"/>
-								<string key="NSAlternateContents"/>
-								<string key="NSKeyEquivalent"/>
-								<int key="NSPeriodicDelay">400</int>
-								<int key="NSPeriodicInterval">75</int>
-							</object>
-							<bool key="NSAllowsLogicalLayoutDirection">NO</bool>
-						</object>
-						<object class="NSTextField" id="218760849">
-							<reference key="NSNextResponder" ref="318663737"/>
-							<int key="NSvFlags">268</int>
-							<string key="NSFrame">{{14, 203}, {571, 34}}</string>
-							<reference key="NSSuperview" ref="318663737"/>
-							<reference key="NSNextKeyView" ref="965070456"/>
-							<bool key="NSEnabled">YES</bool>
-							<object class="NSTextFieldCell" key="NSCell" id="598628243">
-								<int key="NSCellFlags">-2079326144</int>
-								<int key="NSCellFlags2">272630784</int>
-								<string type="base64-UTF8" key="NSContents">SWYgeW91IGhhdmUgaXNzdWVzIHdpdGggeW91ciBHUEdUb29scyBpbnN0YWxsYXRpb24gdGhpcyBtaWdo
-dCBoZWxwIHRvIHNvbHZlIHlvdXIgcHJvYmxlbXMuClRoaXMgaW5jbHVkZXMgaXNzdWVzIHdpdGggR1BH
-TWFpbCBhZnRlciBhbiBPUyB1cGRhdGUuA</string>
-								<reference key="NSSupport" ref="271635649"/>
-								<reference key="NSControlView" ref="218760849"/>
-								<reference key="NSBackgroundColor" ref="204879837"/>
-								<reference key="NSTextColor" ref="880469835"/>
-							</object>
-							<bool key="NSAllowsLogicalLayoutDirection">NO</bool>
-						</object>
-					</array>
-					<string key="NSFrame">{{10, 33}, {636, 265}}</string>
-					<reference key="NSNextKeyView" ref="891583990"/>
-				</object>
-				<string key="NSLabel">First aid</string>
-				<reference key="NSColor" ref="204879837"/>
-			</object>
 		</array>
 		<object class="IBObjectContainer" key="IBDocument.Objects">
 			<array class="NSMutableArray" key="connectionRecords">
@@ -2386,14 +2314,6 @@ TWFpbCBhZnRlciBhbiBPUyB1cGRhdGUuA</string>
 						<reference key="destination" ref="644804681"/>
 					</object>
 					<int key="connectionID">692</int>
-				</object>
-				<object class="IBConnectionRecord">
-					<object class="IBActionConnection" key="connection">
-						<string key="label">gpgFix:</string>
-						<reference key="source" ref="53615620"/>
-						<reference key="destination" ref="965070456"/>
-					</object>
-					<int key="connectionID">633</int>
 				</object>
 				<object class="IBConnectionRecord">
 					<object class="IBBindingConnection" key="connection">
@@ -2583,6 +2503,22 @@ TWFpbCBhZnRlciBhbiBPUyB1cGRhdGUuA</string>
 				</object>
 				<object class="IBConnectionRecord">
 					<object class="IBBindingConnection" key="connection">
+						<string key="label">enabled: gka.Installed</string>
+						<reference key="source" ref="1004455529"/>
+						<reference key="destination" ref="289195632"/>
+						<object class="NSNibBindingConnector" key="connector">
+							<reference key="NSSource" ref="1004455529"/>
+							<reference key="NSDestination" ref="289195632"/>
+							<string key="NSLabel">enabled: gka.Installed</string>
+							<string key="NSBinding">enabled</string>
+							<string key="NSKeyPath">gka.Installed</string>
+							<int key="NSNibBindingConnectorVersion">2</int>
+						</object>
+					</object>
+					<int key="connectionID">953</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBBindingConnection" key="connection">
 						<string key="label">selectedTag: gka.UpdateType</string>
 						<reference key="source" ref="243207299"/>
 						<reference key="destination" ref="289195632"/>
@@ -2596,6 +2532,22 @@ TWFpbCBhZnRlciBhbiBPUyB1cGRhdGUuA</string>
 						</object>
 					</object>
 					<int key="connectionID">840</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBBindingConnection" key="connection">
+						<string key="label">enabled: gka.Installed</string>
+						<reference key="source" ref="243207299"/>
+						<reference key="destination" ref="289195632"/>
+						<object class="NSNibBindingConnector" key="connector">
+							<reference key="NSSource" ref="243207299"/>
+							<reference key="NSDestination" ref="289195632"/>
+							<string key="NSLabel">enabled: gka.Installed</string>
+							<string key="NSBinding">enabled</string>
+							<string key="NSKeyPath">gka.Installed</string>
+							<int key="NSNibBindingConnectorVersion">2</int>
+						</object>
+					</object>
+					<int key="connectionID">954</int>
 				</object>
 				<object class="IBConnectionRecord">
 					<object class="IBBindingConnection" key="connection">
@@ -2615,6 +2567,22 @@ TWFpbCBhZnRlciBhbiBPUyB1cGRhdGUuA</string>
 				</object>
 				<object class="IBConnectionRecord">
 					<object class="IBBindingConnection" key="connection">
+						<string key="label">enabled: gka.Installed</string>
+						<reference key="source" ref="236151560"/>
+						<reference key="destination" ref="289195632"/>
+						<object class="NSNibBindingConnector" key="connector">
+							<reference key="NSSource" ref="236151560"/>
+							<reference key="NSDestination" ref="289195632"/>
+							<string key="NSLabel">enabled: gka.Installed</string>
+							<string key="NSBinding">enabled</string>
+							<string key="NSKeyPath">gka.Installed</string>
+							<int key="NSNibBindingConnectorVersion">2</int>
+						</object>
+					</object>
+					<int key="connectionID">955</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBBindingConnection" key="connection">
 						<string key="label">selectedTag: gpgmail.CheckInterval</string>
 						<reference key="source" ref="335468165"/>
 						<reference key="destination" ref="289195632"/>
@@ -2628,6 +2596,22 @@ TWFpbCBhZnRlciBhbiBPUyB1cGRhdGUuA</string>
 						</object>
 					</object>
 					<int key="connectionID">921</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBBindingConnection" key="connection">
+						<string key="label">enabled: gpgmail.Installed</string>
+						<reference key="source" ref="335468165"/>
+						<reference key="destination" ref="289195632"/>
+						<object class="NSNibBindingConnector" key="connector">
+							<reference key="NSSource" ref="335468165"/>
+							<reference key="NSDestination" ref="289195632"/>
+							<string key="NSLabel">enabled: gpgmail.Installed</string>
+							<string key="NSBinding">enabled</string>
+							<string key="NSKeyPath">gpgmail.Installed</string>
+							<int key="NSNibBindingConnectorVersion">2</int>
+						</object>
+					</object>
+					<int key="connectionID">948</int>
 				</object>
 				<object class="IBConnectionRecord">
 					<object class="IBBindingConnection" key="connection">
@@ -2647,6 +2631,22 @@ TWFpbCBhZnRlciBhbiBPUyB1cGRhdGUuA</string>
 				</object>
 				<object class="IBConnectionRecord">
 					<object class="IBBindingConnection" key="connection">
+						<string key="label">enabled: gpgmail.Installed</string>
+						<reference key="source" ref="581055849"/>
+						<reference key="destination" ref="289195632"/>
+						<object class="NSNibBindingConnector" key="connector">
+							<reference key="NSSource" ref="581055849"/>
+							<reference key="NSDestination" ref="289195632"/>
+							<string key="NSLabel">enabled: gpgmail.Installed</string>
+							<string key="NSBinding">enabled</string>
+							<string key="NSKeyPath">gpgmail.Installed</string>
+							<int key="NSNibBindingConnectorVersion">2</int>
+						</object>
+					</object>
+					<int key="connectionID">949</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBBindingConnection" key="connection">
 						<string key="label">value: gpgmail.SUAutomaticallyUpdate</string>
 						<reference key="source" ref="106980959"/>
 						<reference key="destination" ref="289195632"/>
@@ -2660,6 +2660,22 @@ TWFpbCBhZnRlciBhbiBPUyB1cGRhdGUuA</string>
 						</object>
 					</object>
 					<int key="connectionID">925</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBBindingConnection" key="connection">
+						<string key="label">enabled: gpgmail.Installed</string>
+						<reference key="source" ref="106980959"/>
+						<reference key="destination" ref="289195632"/>
+						<object class="NSNibBindingConnector" key="connector">
+							<reference key="NSSource" ref="106980959"/>
+							<reference key="NSDestination" ref="289195632"/>
+							<string key="NSLabel">enabled: gpgmail.Installed</string>
+							<string key="NSBinding">enabled</string>
+							<string key="NSKeyPath">gpgmail.Installed</string>
+							<int key="NSNibBindingConnectorVersion">2</int>
+						</object>
+					</object>
+					<int key="connectionID">951</int>
 				</object>
 				<object class="IBConnectionRecord">
 					<object class="IBBindingConnection" key="connection">
@@ -2679,6 +2695,22 @@ TWFpbCBhZnRlciBhbiBPUyB1cGRhdGUuA</string>
 				</object>
 				<object class="IBConnectionRecord">
 					<object class="IBBindingConnection" key="connection">
+						<string key="label">enabled: gpgservices.Installed</string>
+						<reference key="source" ref="711795211"/>
+						<reference key="destination" ref="289195632"/>
+						<object class="NSNibBindingConnector" key="connector">
+							<reference key="NSSource" ref="711795211"/>
+							<reference key="NSDestination" ref="289195632"/>
+							<string key="NSLabel">enabled: gpgservices.Installed</string>
+							<string key="NSBinding">enabled</string>
+							<string key="NSKeyPath">gpgservices.Installed</string>
+							<int key="NSNibBindingConnectorVersion">2</int>
+						</object>
+					</object>
+					<int key="connectionID">957</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBBindingConnection" key="connection">
 						<string key="label">selectedTag: gpgservices.UpdateType</string>
 						<reference key="source" ref="1017921578"/>
 						<reference key="destination" ref="289195632"/>
@@ -2692,6 +2724,22 @@ TWFpbCBhZnRlciBhbiBPUyB1cGRhdGUuA</string>
 						</object>
 					</object>
 					<int key="connectionID">941</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBBindingConnection" key="connection">
+						<string key="label">enabled: gpgservices.Installed</string>
+						<reference key="source" ref="1017921578"/>
+						<reference key="destination" ref="289195632"/>
+						<object class="NSNibBindingConnector" key="connector">
+							<reference key="NSSource" ref="1017921578"/>
+							<reference key="NSDestination" ref="289195632"/>
+							<string key="NSLabel">enabled: gpgservices.Installed</string>
+							<string key="NSBinding">enabled</string>
+							<string key="NSKeyPath">gpgservices.Installed</string>
+							<int key="NSNibBindingConnectorVersion">2</int>
+						</object>
+					</object>
+					<int key="connectionID">958</int>
 				</object>
 				<object class="IBConnectionRecord">
 					<object class="IBBindingConnection" key="connection">
@@ -2711,6 +2759,22 @@ TWFpbCBhZnRlciBhbiBPUyB1cGRhdGUuA</string>
 				</object>
 				<object class="IBConnectionRecord">
 					<object class="IBBindingConnection" key="connection">
+						<string key="label">enabled: gpgservices.Installed</string>
+						<reference key="source" ref="554382059"/>
+						<reference key="destination" ref="289195632"/>
+						<object class="NSNibBindingConnector" key="connector">
+							<reference key="NSSource" ref="554382059"/>
+							<reference key="NSDestination" ref="289195632"/>
+							<string key="NSLabel">enabled: gpgservices.Installed</string>
+							<string key="NSBinding">enabled</string>
+							<string key="NSKeyPath">gpgservices.Installed</string>
+							<int key="NSNibBindingConnectorVersion">2</int>
+						</object>
+					</object>
+					<int key="connectionID">959</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBBindingConnection" key="connection">
 						<string key="label">selectedTag: macgpg2.CheckInterval</string>
 						<reference key="source" ref="28673684"/>
 						<reference key="destination" ref="289195632"/>
@@ -2724,6 +2788,22 @@ TWFpbCBhZnRlciBhbiBPUyB1cGRhdGUuA</string>
 						</object>
 					</object>
 					<int key="connectionID">939</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBBindingConnection" key="connection">
+						<string key="label">enabled: macgpg2.Installed</string>
+						<reference key="source" ref="28673684"/>
+						<reference key="destination" ref="289195632"/>
+						<object class="NSNibBindingConnector" key="connector">
+							<reference key="NSSource" ref="28673684"/>
+							<reference key="NSDestination" ref="289195632"/>
+							<string key="NSLabel">enabled: macgpg2.Installed</string>
+							<string key="NSBinding">enabled</string>
+							<string key="NSKeyPath">macgpg2.Installed</string>
+							<int key="NSNibBindingConnectorVersion">2</int>
+						</object>
+					</object>
+					<int key="connectionID">961</int>
 				</object>
 				<object class="IBConnectionRecord">
 					<object class="IBBindingConnection" key="connection">
@@ -2743,6 +2823,22 @@ TWFpbCBhZnRlciBhbiBPUyB1cGRhdGUuA</string>
 				</object>
 				<object class="IBConnectionRecord">
 					<object class="IBBindingConnection" key="connection">
+						<string key="label">enabled: macgpg2.Installed</string>
+						<reference key="source" ref="170866051"/>
+						<reference key="destination" ref="289195632"/>
+						<object class="NSNibBindingConnector" key="connector">
+							<reference key="NSSource" ref="170866051"/>
+							<reference key="NSDestination" ref="289195632"/>
+							<string key="NSLabel">enabled: macgpg2.Installed</string>
+							<string key="NSBinding">enabled</string>
+							<string key="NSKeyPath">macgpg2.Installed</string>
+							<int key="NSNibBindingConnectorVersion">2</int>
+						</object>
+					</object>
+					<int key="connectionID">962</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBBindingConnection" key="connection">
 						<string key="label">value: macgpg2.SUAutomaticallyUpdate</string>
 						<reference key="source" ref="516138201"/>
 						<reference key="destination" ref="289195632"/>
@@ -2756,6 +2852,22 @@ TWFpbCBhZnRlciBhbiBPUyB1cGRhdGUuA</string>
 						</object>
 					</object>
 					<int key="connectionID">929</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBBindingConnection" key="connection">
+						<string key="label">enabled: macgpg2.Installed</string>
+						<reference key="source" ref="516138201"/>
+						<reference key="destination" ref="289195632"/>
+						<object class="NSNibBindingConnector" key="connector">
+							<reference key="NSSource" ref="516138201"/>
+							<reference key="NSDestination" ref="289195632"/>
+							<string key="NSLabel">enabled: macgpg2.Installed</string>
+							<string key="NSBinding">enabled</string>
+							<string key="NSKeyPath">macgpg2.Installed</string>
+							<int key="NSNibBindingConnectorVersion">2</int>
+						</object>
+					</object>
+					<int key="connectionID">963</int>
 				</object>
 				<object class="IBConnectionRecord">
 					<object class="IBBindingConnection" key="connection">
@@ -2775,6 +2887,22 @@ TWFpbCBhZnRlciBhbiBPUyB1cGRhdGUuA</string>
 				</object>
 				<object class="IBConnectionRecord">
 					<object class="IBBindingConnection" key="connection">
+						<string key="label">enabled: macgpg2.Installed</string>
+						<reference key="source" ref="981863516"/>
+						<reference key="destination" ref="289195632"/>
+						<object class="NSNibBindingConnector" key="connector">
+							<reference key="NSSource" ref="981863516"/>
+							<reference key="NSDestination" ref="289195632"/>
+							<string key="NSLabel">enabled: macgpg2.Installed</string>
+							<string key="NSBinding">enabled</string>
+							<string key="NSKeyPath">macgpg2.Installed</string>
+							<int key="NSNibBindingConnectorVersion">2</int>
+						</object>
+					</object>
+					<int key="connectionID">964</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBBindingConnection" key="connection">
 						<string key="label">selectedTag: gpgprefs.UpdateType</string>
 						<reference key="source" ref="708356786"/>
 						<reference key="destination" ref="289195632"/>
@@ -2791,6 +2919,22 @@ TWFpbCBhZnRlciBhbiBPUyB1cGRhdGUuA</string>
 				</object>
 				<object class="IBConnectionRecord">
 					<object class="IBBindingConnection" key="connection">
+						<string key="label">enabled: macgpg2.Installed</string>
+						<reference key="source" ref="708356786"/>
+						<reference key="destination" ref="289195632"/>
+						<object class="NSNibBindingConnector" key="connector">
+							<reference key="NSSource" ref="708356786"/>
+							<reference key="NSDestination" ref="289195632"/>
+							<string key="NSLabel">enabled: macgpg2.Installed</string>
+							<string key="NSBinding">enabled</string>
+							<string key="NSKeyPath">macgpg2.Installed</string>
+							<int key="NSNibBindingConnectorVersion">2</int>
+						</object>
+					</object>
+					<int key="connectionID">965</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBBindingConnection" key="connection">
 						<string key="label">value: gpgprefs.SUAutomaticallyUpdate</string>
 						<reference key="source" ref="725778083"/>
 						<reference key="destination" ref="289195632"/>
@@ -2804,6 +2948,22 @@ TWFpbCBhZnRlciBhbiBPUyB1cGRhdGUuA</string>
 						</object>
 					</object>
 					<int key="connectionID">931</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBBindingConnection" key="connection">
+						<string key="label">enabled: macgpg2.Installed</string>
+						<reference key="source" ref="725778083"/>
+						<reference key="destination" ref="289195632"/>
+						<object class="NSNibBindingConnector" key="connector">
+							<reference key="NSSource" ref="725778083"/>
+							<reference key="NSDestination" ref="289195632"/>
+							<string key="NSLabel">enabled: macgpg2.Installed</string>
+							<string key="NSBinding">enabled</string>
+							<string key="NSKeyPath">macgpg2.Installed</string>
+							<int key="NSNibBindingConnectorVersion">2</int>
+						</object>
+					</object>
+					<int key="connectionID">966</int>
 				</object>
 			</array>
 			<object class="IBMutableOrderedSet" key="objectRecords">
@@ -3271,63 +3431,6 @@ TWFpbCBhZnRlciBhbiBPUyB1cGRhdGUuA</string>
 						<reference key="object" ref="289195632"/>
 						<reference key="parent" ref="0"/>
 						<string key="objectName">UpdateController</string>
-					</object>
-					<object class="IBObjectRecord">
-						<int key="objectID">616</int>
-						<reference key="object" ref="156796222"/>
-						<array class="NSMutableArray" key="children">
-							<reference ref="318663737"/>
-						</array>
-						<reference key="parent" ref="0"/>
-					</object>
-					<object class="IBObjectRecord">
-						<int key="objectID">617</int>
-						<reference key="object" ref="318663737"/>
-						<array class="NSMutableArray" key="children">
-							<reference ref="218760849"/>
-							<reference ref="965070456"/>
-							<reference ref="891583990"/>
-						</array>
-						<reference key="parent" ref="156796222"/>
-					</object>
-					<object class="IBObjectRecord">
-						<int key="objectID">629</int>
-						<reference key="object" ref="218760849"/>
-						<array class="NSMutableArray" key="children">
-							<reference ref="598628243"/>
-						</array>
-						<reference key="parent" ref="318663737"/>
-					</object>
-					<object class="IBObjectRecord">
-						<int key="objectID">628</int>
-						<reference key="object" ref="965070456"/>
-						<array class="NSMutableArray" key="children">
-							<reference ref="759779844"/>
-						</array>
-						<reference key="parent" ref="318663737"/>
-					</object>
-					<object class="IBObjectRecord">
-						<int key="objectID">627</int>
-						<reference key="object" ref="891583990"/>
-						<array class="NSMutableArray" key="children">
-							<reference ref="182443406"/>
-						</array>
-						<reference key="parent" ref="318663737"/>
-					</object>
-					<object class="IBObjectRecord">
-						<int key="objectID">632</int>
-						<reference key="object" ref="182443406"/>
-						<reference key="parent" ref="891583990"/>
-					</object>
-					<object class="IBObjectRecord">
-						<int key="objectID">631</int>
-						<reference key="object" ref="759779844"/>
-						<reference key="parent" ref="965070456"/>
-					</object>
-					<object class="IBObjectRecord">
-						<int key="objectID">630</int>
-						<reference key="object" ref="598628243"/>
-						<reference key="parent" ref="218760849"/>
 					</object>
 					<object class="IBObjectRecord">
 						<int key="objectID">731</int>
@@ -4099,14 +4202,6 @@ TWFpbCBhZnRlciBhbiBPUyB1cGRhdGUuA</string>
 				<string key="6.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
 				<string key="604.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
 				<string key="605.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
-				<string key="616.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
-				<string key="617.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
-				<string key="627.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
-				<string key="628.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
-				<string key="629.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
-				<string key="630.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
-				<string key="631.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
-				<string key="632.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
 				<string key="678.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
 				<string key="679.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
 				<string key="681.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
@@ -4223,7 +4318,7 @@ TWFpbCBhZnRlciBhbiBPUyB1cGRhdGUuA</string>
 			<nil key="activeLocalization"/>
 			<dictionary class="NSMutableDictionary" key="localizations"/>
 			<nil key="sourceID"/>
-			<int key="maxID">943</int>
+			<int key="maxID">966</int>
 		</object>
 		<object class="IBClassDescriber" key="IBDocument.Classes">
 			<array class="NSMutableArray" key="referencedPartialClassDescriptions">
@@ -4309,6 +4404,27 @@ TWFpbCBhZnRlciBhbiBPUyB1cGRhdGUuA</string>
 					<object class="IBClassDescriptionSource" key="sourceIdentifier">
 						<string key="majorKey">IBProjectSource</string>
 						<string key="minorKey">./Classes/NSPreferencePane.h</string>
+					</object>
+				</object>
+				<object class="IBPartialClassDescription">
+					<string key="className">NSTextView</string>
+					<dictionary class="NSMutableDictionary" key="actions">
+						<string key="orderFrontSharingServicePicker:">id</string>
+						<string key="toggleQuickLookPreviewPanel:">id</string>
+					</dictionary>
+					<dictionary class="NSMutableDictionary" key="actionInfosByName">
+						<object class="IBActionInfo" key="orderFrontSharingServicePicker:">
+							<string key="name">orderFrontSharingServicePicker:</string>
+							<string key="candidateClassName">id</string>
+						</object>
+						<object class="IBActionInfo" key="toggleQuickLookPreviewPanel:">
+							<string key="name">toggleQuickLookPreviewPanel:</string>
+							<string key="candidateClassName">id</string>
+						</object>
+					</dictionary>
+					<object class="IBClassDescriptionSource" key="sourceIdentifier">
+						<string key="majorKey">IBProjectSource</string>
+						<string key="minorKey">./Classes/NSTextView.h</string>
 					</object>
 				</object>
 				<object class="IBPartialClassDescription">
