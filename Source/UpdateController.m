@@ -16,7 +16,7 @@
 
 @implementation UpdateController
 @synthesize updater;
-NSDictionary *tools; // tools[tool][key]. key is an of: options, path, infoPlist.
+NSDictionary *tools; // tools[tool][key]. key is an of: options, path, infoPlist, canSendActions.
 
 
 
@@ -26,7 +26,7 @@ NSDictionary *tools; // tools[tool][key]. key is an of: options, path, infoPlist
 #define PKEY @"path"
 #define IKEY @"identifier"
 	NSDictionary *toolInfos = @{
-							 @"macgpg2" :		@{DKEY : @"org.gpgtools.macgpg2.updater", PKEY : @"/usr/local/MacGPG2/libexec/MacGPG2_Updater.app"},
+		@"macgpg2" :		@{DKEY : @"org.gpgtools.macgpg2.updater", PKEY : @"/usr/local/MacGPG2/libexec/MacGPG2_Updater.app"},
 		@"gpgmail" :		@{DKEY : @[@"../Containers/com.apple.mail/Data/Library/Preferences/org.gpgtools.gpgmail", @"org.gpgtools.gpgmail"], PKEY : @[@"/Network/Library/Mail/Bundles/GPGMail.mailbundle", @"~/Library/Mail/Bundles/GPGMail.mailbundle", @"/Library/Mail/Bundles/GPGMail.mailbundle"]},
 		@"gpgservices" :	@{DKEY : @"org.gpgtools.gpgservices", PKEY : @[@"~/Library/Services/GPGServices.service", @"/Library/Services/GPGServices.service"]},
 		@"gka" :			@{DKEY : @"org.gpgtools.gpgkeychainaccess", IKEY : @"org.gpgtools.gpgkeychainaccess"},
@@ -42,6 +42,7 @@ NSDictionary *tools; // tools[tool][key]. key is an of: options, path, infoPlist
 	for (NSString *tool in toolInfos) {
 		NSMutableDictionary *toolDict = [NSMutableDictionary dictionary];
 		NSDictionary *toolInfo = toolInfos[tool];
+		
 		
 		// GPGOptions for every tool.
 		id domains = toolInfo[DKEY]; //NSString or NSArray of NSStrings.
@@ -69,6 +70,7 @@ NSDictionary *tools; // tools[tool][key]. key is an of: options, path, infoPlist
 		toolDict[@"options"] = options;
 		[options release];
 		
+		
 		// Paths to the tools.
 		id paths = toolInfo[PKEY];
 		if (!paths) {
@@ -86,6 +88,12 @@ NSDictionary *tools; // tools[tool][key]. key is an of: options, path, infoPlist
 			}
 		}
 		
+		
+		if ([tool isEqualToString:@"gpgprefs"]) {
+			toolDict[@"canSendActions"] = @YES;
+		}
+		
+		// Set the dict for the tool.
 		tempTools[tool] = toolDict;
 	}
 	
@@ -118,7 +126,7 @@ NSDictionary *tools; // tools[tool][key]. key is an of: options, path, infoPlist
 	if (!tool) {
 		return [super valueForKeyPath:keyPath];
 	}
-	
+
 	
 	if ([key isEqualToString:@"CheckInterval"]) {
 		id value = [options valueInStandardDefaultsForKey:@"SUEnableAutomaticChecks"];
@@ -152,9 +160,11 @@ NSDictionary *tools; // tools[tool][key]. key is an of: options, path, infoPlist
 		
 		return @0;
 	} else if ([key isEqualToString:@"Installed"]) {
-		return @([self isToolInstalled:tool]);
+		return @(!!tools[tool][@"path"]);
 	} else if ([key isEqualToString:@"Path"]) {
-		return [self pathToTool:tool];
+		return tools[tool][@"path"];
+	} else if ([key isEqualToString:@"CanSendActions"]) {
+		return tools[tool][@"canSendActions"];
 	}
 	
 	return [options valueInStandardDefaultsForKey:key];
@@ -203,14 +213,13 @@ NSDictionary *tools; // tools[tool][key]. key is an of: options, path, infoPlist
 
 
 
-- (NSString *)pathToTool:(NSString *)tool {
-	return tools[tool][@"path"];
-}
 
-- (BOOL)isToolInstalled:(NSString *)tool {
-	return !!tools[tool][@"path"];
+// Actions
+- (void)checkForUpdatesForTool:(NSString *)tool{
+	if ([tool isEqualToString:@"gpgprefs"]) {
+		[updater checkForUpdates:self];
+	}
 }
-
 
 
 
@@ -228,7 +237,7 @@ NSDictionary *tools; // tools[tool][key]. key is an of: options, path, infoPlist
 - (id)valueForKey:(NSString *)key {
 	if (tools[key]) {
 		//Prevent valueForUndefinedKey.
-		return nil;
+		return key;
 	}
 	return [super valueForKey:key];
 }
@@ -262,7 +271,6 @@ NSDictionary *tools; // tools[tool][key]. key is an of: options, path, infoPlist
 	}
 	return appcastURL;
 }
-
 
 
 @end
