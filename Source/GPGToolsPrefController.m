@@ -172,29 +172,6 @@ static NSString * const kAutoKeyLocate = @"auto-key-locate";
 	return myBundle;
 }
 
-/*
- * Open FAQ.
- *
- */
-- (IBAction)openFAQ:(id)sender {
-    [[NSWorkspace sharedWorkspace] openURL:[NSURL URLWithString:@"http://gpgtools.org/faq.html"]];
-}
-
-/*
- * Open Contact.
- *
- */
-- (IBAction)openContact:(id)sender {
-    [[NSWorkspace sharedWorkspace] openURL:[NSURL URLWithString:@"http://gpgtools.org/about.html"]];
-}
-
-/*
- * Open Donate.
- *
- */
-- (IBAction)openDonate:(id)sender {
-    [[NSWorkspace sharedWorkspace] openURL:[NSURL URLWithString:@"http://gpgtools.org/donate.html"]];
-}
 
 
 /*
@@ -202,13 +179,6 @@ static NSString * const kAutoKeyLocate = @"auto-key-locate";
  */
 - (NSAttributedString *)credits {
 	return [[[NSAttributedString alloc] initWithPath:[self.myBundle pathForResource:@"Credits" ofType:@"rtf"] documentAttributes:nil] autorelease];
-}
-
-/*
- * Returns the bundle version.
- */
-- (NSString *)bundleVersion {
-	return [self.myBundle objectForInfoDictionaryKey:@"CFBundleVersion"];
 }
 
 /*
@@ -301,6 +271,46 @@ static NSString * const kAutoKeyLocate = @"auto-key-locate";
 	} else {
 		self.keyserver = @"";
 	}
+}
+
+
+#pragma mark Button Links
+
+- (IBAction)openContact:(id)sender {
+    [[NSWorkspace sharedWorkspace] openURL:[NSURL URLWithString:@"http://gpgtools.org/about.html"]];
+}
+
+- (IBAction)openDonate:(id)sender {
+    [[NSWorkspace sharedWorkspace] openURL:[NSURL URLWithString:@"http://gpgtools.org/donate.html"]];
+}
+
+- (IBAction)openKnowledgeBase:(id)sender {
+    [[NSWorkspace sharedWorkspace] openURL:[NSURL URLWithString:@"http://support.gpgtools.org/kb"]];
+}
+
+
+
+
+#pragma mark Version infos
+
+- (NSString *)versionDescription {
+	return [NSString stringWithFormat:[self.myBundle localizedStringForKey:@"VERSION: %@" value:nil table:nil], [self version]];
+}
+
+- (NSString *)buildNumberDescription {
+    return [NSString stringWithFormat:[self.myBundle localizedStringForKey:@"BUILD: %@" value:nil table:nil], [self bundleBuildNumber]];
+}
+
+- (NSString *)version {
+	return [self.myBundle objectForInfoDictionaryKey:@"CFBundleShortVersionString"];
+}
+
+- (NSNumber *)bundleBuildNumber {
+	return [self.myBundle objectForInfoDictionaryKey:@"BuildNumber"];
+}
+
+- (NSString *)bundleVersion {
+	return [self.myBundle objectForInfoDictionaryKey:@"CFBundleVersion"];
 }
 
 

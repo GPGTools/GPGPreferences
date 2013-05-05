@@ -22,11 +22,11 @@
 @property (readonly) NSBundle *myBundle;
 @property (readonly) NSArray *secretKeys, *secretKeyDescriptions;
 @property (readonly) NSAttributedString *credits;
-@property (readonly) NSString *bundleVersion;
 @property NSInteger indexOfSelectedSecretKey;
 @property NSInteger passphraseCacheTime;
 @property (retain) NSString *comments;
 @property (readonly) GPGOptions *options;
+@property (readonly) NSString *bundleVersion, *bundleBuildNumber, *version, *buildNumberDescription, *versionDescription;
 
 // Get a list of keyservers from GPGOptions
 @property (readonly) NSArray *keyservers;
@@ -34,14 +34,8 @@
 // To set keyserver and also coordinate auto-key-locate
 @property (assign) NSString *keyserver;
 
-/* Remove GPGMail plug-in. */
-- (IBAction)gpgmailRemove:(id)pId;
-
-/* Fix GPGTools. */
-- (IBAction)gpgFix:(id)pId;
-
 /* Open FAQ */
-- (IBAction)openFAQ:(id)pId;
+- (IBAction)openKnowledgeBase:(id)pId;
 
 /* Open Contact */
 - (IBAction)openContact:(id)pId;

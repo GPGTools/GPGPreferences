@@ -28,6 +28,7 @@
 		3056D0D2172D31B500CFC0FA /* Sparkle.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3056D0D1172D31B500CFC0FA /* Sparkle.framework */; };
 		3056D0D4172D321E00CFC0FA /* Sparkle.framework in Copy Frameworks */ = {isa = PBXBuildFile; fileRef = 3056D0D1172D31B500CFC0FA /* Sparkle.framework */; };
 		30B455FF172D7BB500A04D4A /* Libmacgpg.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 30B455FE172D7BB500A04D4A /* Libmacgpg.framework */; };
+		30B9743817367D46006865DC /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 30B9743717367D46006865DC /* Localizable.strings */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -76,6 +77,7 @@
 		3056D0CF172D319400CFC0FA /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		3056D0D1172D31B500CFC0FA /* Sparkle.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Sparkle.framework; path = Frameworks/Sparkle.framework; sourceTree = "<group>"; };
 		30B455FE172D7BB500A04D4A /* Libmacgpg.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Libmacgpg.framework; path = /Library/Frameworks/Libmacgpg.framework; sourceTree = "<absolute>"; };
+		30B9743717367D46006865DC /* Localizable.strings */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -187,6 +189,7 @@
 			children = (
 				3056D0B5172D307100CFC0FA /* InfoPlist.strings */,
 				3056D0B2172D306900CFC0FA /* GPGToolsPref.xib.strings */,
+				30B9743717367D46006865DC /* Localizable.strings */,
 			);
 			name = Strings;
 			sourceTree = "<group>";
@@ -270,6 +273,7 @@
 				3056D0B1172D306600CFC0FA /* GPGToolsPref.xib in Resources */,
 				3056D0B7172D307100CFC0FA /* InfoPlist.strings in Resources */,
 				3056D0BA172D307400CFC0FA /* Credits.rtf in Resources */,
+				30B9743817367D46006865DC /* Localizable.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
