@@ -172,7 +172,8 @@ NSDictionary *tools; // tools[tool][key]. key is an of: options, path, infoPlist
 
 - (void)setValue:(id)value forKeyPath:(NSString *)keyPath {
 	NSString *key = nil;
-	GPGOptions *options = [self optionsAndKey:&key forKeyPath:keyPath];
+	NSString *tool = [self toolAndKey:&key forKeyPath:keyPath];
+	GPGOptions *options = tools[tool][@"options"];
 	
 	if (!options) {
 		[super setValue:value forKeyPath:keyPath];

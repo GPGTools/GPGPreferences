@@ -27,6 +27,8 @@
 @property (retain) NSString *comments;
 @property (readonly) GPGOptions *options;
 @property (readonly) NSString *bundleVersion, *bundleBuildNumber, *version, *buildNumberDescription, *versionDescription;
+@property BOOL autoKeyRetrive;
+
 
 // Get a list of keyservers from GPGOptions
 @property (readonly) NSArray *keyservers;
