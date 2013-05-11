@@ -322,15 +322,11 @@ static NSString * const kAutoKeyLocate = @"auto-key-locate";
 }
 
 - (NSString *)buildNumberDescription {
-    return [NSString stringWithFormat:[self.myBundle localizedStringForKey:@"BUILD: %@" value:nil table:nil], [self bundleBuildNumber]];
+    return [NSString stringWithFormat:[self.myBundle localizedStringForKey:@"BUILD: %@" value:nil table:nil], [self bundleVersion]];
 }
 
 - (NSString *)version {
 	return [self.myBundle objectForInfoDictionaryKey:@"CFBundleShortVersionString"];
-}
-
-- (NSNumber *)bundleBuildNumber {
-	return [self.myBundle objectForInfoDictionaryKey:@"BuildNumber"];
 }
 
 - (NSString *)bundleVersion {

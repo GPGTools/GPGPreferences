@@ -26,7 +26,7 @@
 @property NSInteger passphraseCacheTime;
 @property (retain) NSString *comments;
 @property (readonly) GPGOptions *options;
-@property (readonly) NSString *bundleVersion, *bundleBuildNumber, *version, *buildNumberDescription, *versionDescription;
+@property (readonly) NSString *bundleVersion, *version, *buildNumberDescription, *versionDescription;
 @property BOOL autoKeyRetrive;
 
 

@@ -165,10 +165,25 @@ NSDictionary *tools; // tools[tool][key]. key is an of: options, path, infoPlist
 		return tools[tool][@"path"];
 	} else if ([key isEqualToString:@"CanSendActions"]) {
 		return tools[tool][@"canSendActions"];
+	} else if ([key isEqualToString:@"buildNumberDescription"]) {
+		NSDictionary *plist = tools[tool][@"infoPlist"];
+		if (!plist) {
+			return nil;
+		}
+		
+		return [NSString stringWithFormat:[[NSBundle bundleForClass:[self class]] localizedStringForKey:@"BUILD: %@" value:nil table:nil], plist[@"CFBundleVersion"]];
+	} else if ([key isEqualToString:@"versionDescription"]) {
+		NSDictionary *plist = tools[tool][@"infoPlist"];
+		if (!plist) {
+			return nil;
+		}
+
+		return [NSString stringWithFormat:[[NSBundle bundleForClass:[self class]] localizedStringForKey:@"VERSION: %@" value:nil table:nil], plist[@"CFBundleShortVersionString"]];
 	}
 	
 	return [options valueInStandardDefaultsForKey:key];
 }
+
 
 - (void)setValue:(id)value forKeyPath:(NSString *)keyPath {
 	NSString *key = nil;
