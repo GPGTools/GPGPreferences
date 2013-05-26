@@ -11,12 +11,13 @@
 
 @interface UpdateController()
 @property (retain) SUUpdater *updater;
+@property (assign) NSBundle *bundle;
 @end
 
 
 @implementation UpdateController
 @synthesize updater;
-NSDictionary *tools; // tools[tool][key]. key is an of: options, path, infoPlist, canSendActions.
+NSMutableDictionary *tools; // tools[tool][key]. key is an of: options, path, infoPlist, canSendActions.
 
 
 
@@ -33,7 +34,7 @@ NSDictionary *tools; // tools[tool][key]. key is an of: options, path, infoPlist
 		@"gpgprefs" :		@{DKEY : @"org.gpgtools.gpgpreferences", PKEY : @[@"~/Library/PreferencePanes/GPGPreferences.prefPane", @"/Library/PreferencePanes/GPGPreferences.prefPane"]}
 		};
 	
-	NSMutableDictionary *tempTools = [NSMutableDictionary dictionaryWithCapacity:toolInfos.count];
+	tools = [NSMutableDictionary dictionaryWithCapacity:toolInfos.count];
 	
 	
 	NSString *prefDir = [NSHomeDirectory() stringByAppendingString:@"/Library/Preferences/"];
@@ -74,7 +75,8 @@ NSDictionary *tools; // tools[tool][key]. key is an of: options, path, infoPlist
 		// Paths to the tools.
 		id paths = toolInfo[PKEY];
 		if (!paths) {
-			paths = @[[[NSWorkspace sharedWorkspace] absolutePathForAppBundleWithIdentifier:toolInfo[IKEY]]];
+			NSString *path = [[NSWorkspace sharedWorkspace] absolutePathForAppBundleWithIdentifier:toolInfo[IKEY]];
+			paths = path ? @[path] : @[];
 		} else if (![paths isKindOfClass:[NSArray class]]) {
 			paths = @[paths];
 		}
@@ -94,17 +96,16 @@ NSDictionary *tools; // tools[tool][key]. key is an of: options, path, infoPlist
 		}
 		
 		// Set the dict for the tool.
-		tempTools[tool] = toolDict;
+		tools[tool] = toolDict;
 	}
-	
-	tools = [tempTools copy];
 }
 
 - (id)init {
 	if (!(self = [super init])) {
 		return nil;
 	}
-	self.updater = [SUUpdater updaterForBundle:[NSBundle bundleForClass:[self class]]];
+	self.bundle = [NSBundle bundleForClass:[self class]];
+	self.updater = [SUUpdater updaterForBundle:self.bundle];
 	updater.delegate = self;
 	
 	return self;
@@ -171,15 +172,35 @@ NSDictionary *tools; // tools[tool][key]. key is an of: options, path, infoPlist
 			return nil;
 		}
 		
-		return [NSString stringWithFormat:[[NSBundle bundleForClass:[self class]] localizedStringForKey:@"BUILD: %@" value:nil table:nil], plist[@"CFBundleVersion"]];
+		return [NSString stringWithFormat:[self.bundle localizedStringForKey:@"BUILD: %@" value:nil table:nil], plist[@"CFBundleVersion"]];
 	} else if ([key isEqualToString:@"versionDescription"]) {
 		NSDictionary *plist = tools[tool][@"infoPlist"];
 		if (!plist) {
 			return nil;
 		}
 
-		return [NSString stringWithFormat:[[NSBundle bundleForClass:[self class]] localizedStringForKey:@"VERSION: %@" value:nil table:nil], plist[@"CFBundleShortVersionString"]];
+		return [NSString stringWithFormat:[self.bundle localizedStringForKey:@"VERSION: %@" value:nil table:nil], plist[@"CFBundleShortVersionString"]];
+	} else if ([key isEqualToString:@"image"]) {
+		NSImage *image = nil;
+		if (tools[tool][@"path"]) {
+			image = tools[tool][@"image"];
+			if (!image) {
+				image = [self.bundle imageForResource:tool];
+				tools[tool][@"image"] = image;
+			}
+		} else {
+			image = tools[tool][@"image-gray"];
+			if (!image) {
+				image = [self.bundle imageForResource:[tool stringByAppendingString:@"-gray"]];
+				tools[tool][@"image-gray"] = image;
+			}
+		}
+		return image;
+	} else if ([key isEqualToString:@"text-color"]) {
+		return tools[tool][@"path"] ? [NSColor blackColor] : [NSColor grayColor];
 	}
+	
+	
 	
 	return [options valueInStandardDefaultsForKey:key];
 }
@@ -260,11 +281,10 @@ NSDictionary *tools; // tools[tool][key]. key is an of: options, path, infoPlist
 
 
 
-
 // For own Sparkle.
 - (NSString *)feedURLStringForUpdater:(SUUpdater *)updater {
 	NSString *updateSourceKey = @"UpdateSource";
-	NSBundle *bundle = [NSBundle bundleForClass:[self class]];
+	NSBundle *bundle = self.bundle;
 	
 	NSString *feedURLKey = @"SUFeedURL";
 	NSString *appcastSource = [[GPGOptions sharedOptions] stringForKey:updateSourceKey];

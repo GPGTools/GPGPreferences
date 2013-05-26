@@ -13,7 +13,7 @@
 @interface UpdateController : NSObject {
 	SUUpdater *updater;
 }
-
+@property (assign, readonly) NSBundle *bundle;
 
 - (void)checkForUpdatesForTool:(NSString *)tool;
 
