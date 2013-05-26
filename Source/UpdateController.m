@@ -34,7 +34,7 @@ NSMutableDictionary *tools; // tools[tool][key]. key is an of: options, path, in
 		@"gpgprefs" :		@{DKEY : @"org.gpgtools.gpgpreferences", PKEY : @[@"~/Library/PreferencePanes/GPGPreferences.prefPane", @"/Library/PreferencePanes/GPGPreferences.prefPane"]}
 		};
 	
-	tools = [NSMutableDictionary dictionaryWithCapacity:toolInfos.count];
+	tools = [[NSMutableDictionary alloc] initWithCapacity:toolInfos.count];
 	
 	
 	NSString *prefDir = [NSHomeDirectory() stringByAppendingString:@"/Library/Preferences/"];
