@@ -7,9 +7,16 @@
 //
 
 #import "GPGToolsPref.h"
-
+#import <Libmacgpg/Libmacgpg.h>
 
 @implementation GPGToolsPref
+
+- (NSString *)mainNibName {
+	if (![GPGController class]) {
+		return @"WarningView";
+	}
+	return [super mainNibName];
+}
 
 - (void) mainViewDidLoad {
 }
