@@ -13,7 +13,7 @@
 	<key>CFBundleIconFile</key>
 	<string>GPGTools.icns</string>
 	<key>CFBundleIdentifier</key>
-	<string>org.gpgtools.${PRODUCT_NAME:identifier}</string>
+	<string>org.gpgtools.gpgpreferences</string>
 	<key>CFBundleInfoDictionaryVersion</key>
 	<string>6.0</string>
 	<key>CFBundleName</key>

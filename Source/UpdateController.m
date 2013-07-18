@@ -17,7 +17,13 @@
 
 @implementation UpdateController
 @synthesize updater;
-NSMutableDictionary *tools; // tools[tool][key]. key is an of: options, path, infoPlist, canSendActions.
+NSMutableDictionary *tools;
+/* tools[tool][key]. key is an of: 
+ @"options"			GPGOptions*
+ @"path"			NSString*
+ @"infoPlist"		NSDictionary*
+ @"canSendActions"	NSNumber*
+ */
 
 
 
@@ -117,6 +123,16 @@ NSMutableDictionary *tools; // tools[tool][key]. key is an of: options, path, in
 }
 
 
+- (id)defaultsValueForKey:(NSString *)key forTool:(NSString *)tool {
+	NSDictionary *toolDict = tools[tool];
+	id value = [toolDict[@"options"] valueInStandardDefaultsForKey:key];
+
+	if (!value) {
+		value = toolDict[@"infoPlist"][key];
+	}
+	return value;
+}
+
 
 // Getter and setter.
 - (id)valueForKeyPath:(NSString *)keyPath {
@@ -130,10 +146,10 @@ NSMutableDictionary *tools; // tools[tool][key]. key is an of: options, path, in
 
 	
 	if ([key isEqualToString:@"CheckInterval"]) {
-		id value = [options valueInStandardDefaultsForKey:@"SUEnableAutomaticChecks"];
-		 
+		id value = [self defaultsValueForKey:@"SUEnableAutomaticChecks" forTool:tool];
+		
 		if ([value respondsToSelector:@selector(boolValue)] && [value boolValue]) {
-			value = [options valueInStandardDefaultsForKey:@"SUScheduledCheckInterval"];
+			value = [self defaultsValueForKey:@"SUScheduledCheckInterval" forTool:tool];
 			return value ? value : @86400;
 		}
 		
