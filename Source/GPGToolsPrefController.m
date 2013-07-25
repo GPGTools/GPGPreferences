@@ -25,16 +25,14 @@ static NSString * const kAutoKeyLocate = @"auto-key-locate";
 		return nil;
 	}
 	secretKeysLock = [[NSLock alloc] init];
-
-	gpgc = [GPGController new];
-	gpgc.delegate = self;
 	
 	options = [[GPGOptions sharedOptions] retain];
+	[[NSDistributedNotificationCenter defaultCenter] addObserver:self selector:@selector(keysDidChange:) name:GPGKeyManagerKeysDidChangeNotification object:nil];
+	[[GPGKeyManager sharedInstance] loadAllKeys];
 
 	return self;
 }
 - (void)dealloc {
-	[gpgc release];
 	[secretKeysLock release];
 	[options release];
 	[super dealloc];
@@ -137,7 +135,7 @@ static NSString * const kAutoKeyLocate = @"auto-key-locate";
 /*
  * Handle external key changes.
  */
-- (void)gpgController:(GPGController *)gpgc keysDidChanged:(NSObject<EnumerationList> *)keys external:(BOOL)external {
+- (void)keysDidChange:(NSNotification *)notification {
 	[self willChangeValueForKey:@"secretKeys"];
 	[secretKeysLock lock];
 	[secretKeys release];
@@ -152,10 +150,14 @@ static NSString * const kAutoKeyLocate = @"auto-key-locate";
  */
 - (NSArray *)secretKeys {
 	[secretKeysLock lock];
+		
 	if (!secretKeys) {
-		secretKeys = [[[[gpgc allSecretKeys] usableGPGKeys] allObjects] retain];
+		secretKeys = [[[[GPGKeyManager sharedInstance].allKeys objectsPassingTest:^BOOL(GPGKey *key, BOOL *stop) {
+			return key.secret && key.validity < GPGValidityInvalid;
+		}] allObjects] retain];
 	}
 	NSArray *value = [[secretKeys retain] autorelease];
+	
 	[secretKeysLock unlock];
 	return value;
 }
@@ -188,7 +190,7 @@ static NSString * const kAutoKeyLocate = @"auto-key-locate";
 	NSArray *keys = self.secretKeys;
 	NSMutableArray *decriptions = [NSMutableArray arrayWithCapacity:[keys count]];
 	for (GPGKey *key in keys) {
-		[decriptions addObject:[NSString stringWithFormat:@"%@ – %@", key.userID, key.shortKeyID]];
+		[decriptions addObject:[NSString stringWithFormat:@"%@ – %@", key.userIDDescription, key.keyID.shortKeyID]];
 	}
 	return decriptions;
 }

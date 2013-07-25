@@ -35,6 +35,44 @@
 		30FDA7FF1784644100B58E01 /* WarningView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 30FDA7FE1784644100B58E01 /* WarningView.xib */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		301AE8D417A1997F00CD277F /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 301AE8CC17A1997F00CD277F /* Libmacgpg.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 8DC2EF5B0486A6940098B216;
+			remoteInfo = Libmacgpg;
+		};
+		301AE8D617A1997F00CD277F /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 301AE8CC17A1997F00CD277F /* Libmacgpg.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 30C8B38E139503A800F49AA1;
+			remoteInfo = UnitTest;
+		};
+		301AE8D817A1997F00CD277F /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 301AE8CC17A1997F00CD277F /* Libmacgpg.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 1B46CFCC161555DF00CF9C5F;
+			remoteInfo = org.gpgtools.Libmacgpg.xpc;
+		};
+		301AE8DA17A1997F00CD277F /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 301AE8CC17A1997F00CD277F /* Libmacgpg.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 30DF7CB816D39EAA00C8225C;
+			remoteInfo = installerHelper;
+		};
+		301AE8DC17A1997F00CD277F /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 301AE8CC17A1997F00CD277F /* Libmacgpg.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 1BD78B9F1726B2820005F251;
+			remoteInfo = LeakFinder;
+		};
+/* End PBXContainerItemProxy section */
+
 /* Begin PBXCopyFilesBuildPhase section */
 		3056D0D3172D320800CFC0FA /* Copy Frameworks */ = {
 			isa = PBXCopyFilesBuildPhase;
@@ -56,6 +94,7 @@
 		3016A630175230CC00701881 /* gpgmail-gray.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "gpgmail-gray.png"; path = "Images/gpgmail-gray.png"; sourceTree = "<group>"; };
 		3016A632175230CC00701881 /* gpgservices-gray.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "gpgservices-gray.png"; path = "Images/gpgservices-gray.png"; sourceTree = "<group>"; };
 		3016A633175230CC00701881 /* macgpg2-gray.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "macgpg2-gray.png"; path = "Images/macgpg2-gray.png"; sourceTree = "<group>"; };
+		301AE8CC17A1997F00CD277F /* Libmacgpg.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Libmacgpg.xcodeproj; path = ../Libmacgpg/Libmacgpg.xcodeproj; sourceTree = "<group>"; };
 		3056D051172D2EEA00CFC0FA /* GPGPreferences.prefPane */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GPGPreferences.prefPane; sourceTree = BUILT_PRODUCTS_DIR; };
 		3056D054172D2EEA00CFC0FA /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 		3056D056172D2EEA00CFC0FA /* PreferencePanes.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = PreferencePanes.framework; path = System/Library/Frameworks/PreferencePanes.framework; sourceTree = SDKROOT; };
@@ -104,9 +143,22 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		301AE8CD17A1997F00CD277F /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				301AE8D517A1997F00CD277F /* Libmacgpg.framework */,
+				301AE8D717A1997F00CD277F /* UnitTest.octest */,
+				301AE8D917A1997F00CD277F /* org.gpgtools.Libmacgpg.xpc */,
+				301AE8DB17A1997F00CD277F /* installerHelper */,
+				301AE8DD17A1997F00CD277F /* LeakFinder.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
 		3056D046172D2EEA00CFC0FA = {
 			isa = PBXGroup;
 			children = (
+				301AE8CC17A1997F00CD277F /* Libmacgpg.xcodeproj */,
 				3056D072172D2F8500CFC0FA /* Classes */,
 				3056D073172D2FAF00CFC0FA /* Other Sources */,
 				3056D074172D2FC300CFC0FA /* Resources */,
@@ -261,12 +313,56 @@
 			mainGroup = 3056D046172D2EEA00CFC0FA;
 			productRefGroup = 3056D052172D2EEA00CFC0FA /* Products */;
 			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = 301AE8CD17A1997F00CD277F /* Products */;
+					ProjectRef = 301AE8CC17A1997F00CD277F /* Libmacgpg.xcodeproj */;
+				},
+			);
 			projectRoot = "";
 			targets = (
 				3056D050172D2EEA00CFC0FA /* GPGPreferences */,
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		301AE8D517A1997F00CD277F /* Libmacgpg.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = Libmacgpg.framework;
+			remoteRef = 301AE8D417A1997F00CD277F /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		301AE8D717A1997F00CD277F /* UnitTest.octest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = UnitTest.octest;
+			remoteRef = 301AE8D617A1997F00CD277F /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		301AE8D917A1997F00CD277F /* org.gpgtools.Libmacgpg.xpc */ = {
+			isa = PBXReferenceProxy;
+			fileType = "compiled.mach-o.executable";
+			path = org.gpgtools.Libmacgpg.xpc;
+			remoteRef = 301AE8D817A1997F00CD277F /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		301AE8DB17A1997F00CD277F /* installerHelper */ = {
+			isa = PBXReferenceProxy;
+			fileType = "compiled.mach-o.executable";
+			path = installerHelper;
+			remoteRef = 301AE8DA17A1997F00CD277F /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		301AE8DD17A1997F00CD277F /* LeakFinder.app */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.application;
+			path = LeakFinder.app;
+			remoteRef = 301AE8DC17A1997F00CD277F /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		3056D04E172D2EEA00CFC0FA /* Resources */ = {
@@ -437,7 +533,7 @@
 				GCC_PREFIX_HEADER = "Source/GPGPreferences-Prefix.pch";
 				INFOPLIST_FILE = Resources/info.plist;
 				INSTALL_PATH = "$(HOME)/Library/PreferencePanes";
-				LD_RUNPATH_SEARCH_PATHS = "@loader_path/../Frameworks /Library/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "@loader_path/../Frameworks /Library/Frameworks $(HOME)/Library/Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 10.6;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = prefPane;
@@ -458,7 +554,7 @@
 				GCC_PREFIX_HEADER = "Source/GPGPreferences-Prefix.pch";
 				INFOPLIST_FILE = Resources/info.plist;
 				INSTALL_PATH = "$(HOME)/Library/PreferencePanes";
-				LD_RUNPATH_SEARCH_PATHS = "@loader_path/../Frameworks /Library/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "@loader_path/../Frameworks /Library/Frameworks $(HOME)/Library/Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 10.6;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = prefPane;

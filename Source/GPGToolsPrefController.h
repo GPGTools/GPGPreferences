@@ -11,10 +11,9 @@
 #import <Libmacgpg/Libmacgpg.h>
 
 
-@interface GPGToolsPrefController : NSObject <GPGControllerDelegate> {
+@interface GPGToolsPrefController : NSObject {
 	NSBundle *myBundle;
 	NSArray *secretKeys;
-	GPGController *gpgc;
 	NSLock *secretKeysLock;
 	GPGOptions *options;
 }
