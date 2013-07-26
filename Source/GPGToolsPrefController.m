@@ -302,12 +302,12 @@ static NSString * const kAutoKeyLocate = @"auto-key-locate";
 
 #pragma mark Button Links
 
-- (IBAction)openContact:(id)sender {
-    [[NSWorkspace sharedWorkspace] openURL:[NSURL URLWithString:@"http://gpgtools.org/about.html"]];
+- (IBAction)openSupport:(id)sender {
+    [[NSWorkspace sharedWorkspace] openURL:[NSURL URLWithString:@"http://support.gpgtools.org/"]];
 }
 
 - (IBAction)openDonate:(id)sender {
-    [[NSWorkspace sharedWorkspace] openURL:[NSURL URLWithString:@"http://gpgtools.org/donate.html"]];
+    [[NSWorkspace sharedWorkspace] openURL:[NSURL URLWithString:@"https://gpgtools.org/donate"]];
 }
 
 - (IBAction)openKnowledgeBase:(id)sender {

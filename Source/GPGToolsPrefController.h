@@ -39,7 +39,7 @@
 - (IBAction)openKnowledgeBase:(id)pId;
 
 /* Open Contact */
-- (IBAction)openContact:(id)pId;
+- (IBAction)openSupport:(id)pId;
 
 /* Open Donate */
 - (IBAction)openDonate:(id)pId;
