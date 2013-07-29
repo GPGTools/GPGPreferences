@@ -201,13 +201,15 @@ NSMutableDictionary *tools;
 		if (tools[tool][@"path"]) {
 			image = tools[tool][@"image"];
 			if (!image) {
-				image = [self.bundle imageForResource:tool];
+				image = [[NSImage alloc] initByReferencingFile:[self.bundle pathForImageResource:tool]];
+				//image = [self.bundle imageForResource:tool]; /* DO NOT USE imageForResource: on 10.6 */
 				tools[tool][@"image"] = image;
 			}
 		} else {
 			image = tools[tool][@"image-gray"];
 			if (!image) {
-				image = [self.bundle imageForResource:[tool stringByAppendingString:@"-gray"]];
+				image = [[NSImage alloc] initByReferencingFile:[self.bundle pathForImageResource:[tool stringByAppendingString:@"-gray"]]];
+				//image = [self.bundle imageForResource:[tool stringByAppendingString:@"-gray"]]; /* DO NOT USE imageForResource: on 10.6 */
 				tools[tool][@"image-gray"] = image;
 			}
 		}
