@@ -15,7 +15,8 @@
 + (void)initialize {
 #ifndef DEBUG
     // Check the validity of the code signature.
-    if([[NSBundle bundleForClass:[self class]] ob_codeSignState] != OBCodeSignStateSignatureValid) {
+    OBCodeSignState codeSignState = [NSBundle bundleForClass:[self class].ob_codeSignState;
+    if(codeSignState != OBCodeSignStateSignatureValid && codeSignState != OBCodeSignStateUnsigned) {
         NSRunAlertPanel(@"Someone tampered with your installation of GPGPreferences!", @"To keep you safe, GPGPreferences will not be loaded!\n\nPlease download and install the latest version of GPG Suite from https://gpgtools.org to be sure you have an original version from us!", @"", nil, nil, nil);
         exit(1);
     }
