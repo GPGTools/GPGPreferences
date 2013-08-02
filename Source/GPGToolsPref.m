@@ -11,24 +11,19 @@
 
 @implementation GPGToolsPref
 
-+ (void)initialize {
-#ifdef CODE_SIGN_CHECK
-    // Check the validity of the code signature.
-    if([[NSBundle bundleForClass:[self class]] isValidSigned]) {
-        NSRunAlertPanel(@"Someone tampered with your installation of GPGPreferences!", @"To keep you safe, GPGPreferences will not be loaded!\n\nPlease download and install the latest version of GPG Suite from https://gpgtools.org to be sure you have an original version from us!", @"", nil, nil, nil);
-        exit(1);
-    }
-#endif
-}
-
 - (NSString *)mainNibName {
 	if (![GPGController class]) {
 		return @"WarningView";
 	}
+#ifdef CODE_SIGN_CHECK
+	/* Check the validity of the code signature. */
+    if (![NSBundle bundleForClass:[self class]].isValidSigned) {
+		NSRunAlertPanel(@"Someone tampered with your installation of GPGPreferences!",
+						@"To keep you safe, GPGPreferences will not be loaded!\n\nPlease download and install the latest version of GPG Suite from https://gpgtools.org to be sure you have an original version from us!", nil, nil, nil);
+        exit(1);
+    }
+#endif
 	return [super mainNibName];
-}
-
-- (void) mainViewDidLoad {
 }
 
 @end

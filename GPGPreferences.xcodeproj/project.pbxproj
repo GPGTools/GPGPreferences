@@ -556,6 +556,7 @@
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Source/GPGPreferences-Prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = "CODE_SIGN_CHECK=$(CODE_SIGN)";
 				INFOPLIST_FILE = Resources/info.plist;
 				INSTALL_PATH = "$(HOME)/Library/PreferencePanes";
 				LD_RUNPATH_SEARCH_PATHS = "@loader_path/../Frameworks /Library/Frameworks $(HOME)/Library/Frameworks";
