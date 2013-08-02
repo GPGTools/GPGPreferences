@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		1B4942F217A7FFB300E189CF /* NSBundle+Sandbox.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B4942F117A7FFB300E189CF /* NSBundle+Sandbox.m */; };
 		3016A62C17522E0F00701881 /* gpgservices.png in Resources */ = {isa = PBXBuildFile; fileRef = 3016A62B17522E0F00701881 /* gpgservices.png */; };
 		3016A62E1752300E00701881 /* GPGTools.iconset in Resources */ = {isa = PBXBuildFile; fileRef = 3016A62D1752300E00701881 /* GPGTools.iconset */; };
 		3016A634175230CC00701881 /* gka-gray.png in Resources */ = {isa = PBXBuildFile; fileRef = 3016A62F175230CC00701881 /* gka-gray.png */; };
@@ -90,8 +89,6 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		1B4942F017A7FFB300E189CF /* NSBundle+Sandbox.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSBundle+Sandbox.h"; sourceTree = "<group>"; };
-		1B4942F117A7FFB300E189CF /* NSBundle+Sandbox.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSBundle+Sandbox.m"; sourceTree = "<group>"; };
 		3016A62B17522E0F00701881 /* gpgservices.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = gpgservices.png; path = Images/gpgservices.png; sourceTree = "<group>"; };
 		3016A62D1752300E00701881 /* GPGTools.iconset */ = {isa = PBXFileReference; lastKnownFileType = folder.iconset; name = GPGTools.iconset; path = Images/GPGTools.iconset; sourceTree = "<group>"; };
 		3016A62F175230CC00701881 /* gka-gray.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "gka-gray.png"; path = "Images/gka-gray.png"; sourceTree = "<group>"; };
@@ -206,8 +203,6 @@
 		3056D072172D2F8500CFC0FA /* Classes */ = {
 			isa = PBXGroup;
 			children = (
-				1B4942F017A7FFB300E189CF /* NSBundle+Sandbox.h */,
-				1B4942F117A7FFB300E189CF /* NSBundle+Sandbox.m */,
 				3056D088172D301D00CFC0FA /* GPGIsUnselectedTransformer.h */,
 				3056D089172D301D00CFC0FA /* GPGIsUnselectedTransformer.m */,
 				3056D08B172D301D00CFC0FA /* GPGToolsPref.h */,
@@ -426,7 +421,6 @@
 				3056D095172D301D00CFC0FA /* GPGToolsPref.m in Sources */,
 				3056D097172D301D00CFC0FA /* GPGToolsPrefController.m in Sources */,
 				3056D099172D301D00CFC0FA /* UpdateController.m in Sources */,
-				1B4942F217A7FFB300E189CF /* NSBundle+Sandbox.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
