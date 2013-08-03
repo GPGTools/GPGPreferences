@@ -16,7 +16,7 @@
 
 
 @implementation UpdateController
-@synthesize updater;
+@synthesize updater, bundle;
 NSMutableDictionary *tools;
 /* tools[tool][key]. key is an of: 
  @"options"			GPGOptions*
