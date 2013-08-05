@@ -43,6 +43,7 @@ if [[ "$existingInstallationAt" != "" ]]; then
 	echo "[$package] Removing existing installation of the bundle..."
 	rm -rf "$existingInstallationAt/$bundle" || exit 1
 fi
+rm -rf "$sysdir/GPGTools.prefPane" "$HOME$sysdir/GPGTools.prefPane" "$sysdir/GnuPG.prefPane" "$HOME$sysdir/GnuPG.prefPane"
 ################################################################################
 
 # Proper installation ##########################################################
