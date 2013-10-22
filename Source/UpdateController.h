@@ -12,6 +12,7 @@
 
 @interface UpdateController : NSObject {
 	SUUpdater *updater;
+	NSBundle *bundle;
 }
 @property (assign, readonly) NSBundle *bundle;
 

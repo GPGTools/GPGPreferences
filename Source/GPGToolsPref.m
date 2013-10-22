@@ -26,4 +26,8 @@
 	return [super mainNibName];
 }
 
+- (void)willUnselect {
+	[self.mainView.window makeFirstResponder:nil];
+}
+
 @end
