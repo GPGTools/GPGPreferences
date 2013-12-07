@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		300DD0F21853AEE60057B05F /* How to get the source code in Resources */ = {isa = PBXBuildFile; fileRef = 300DD0F11853AEE60057B05F /* How to get the source code */; };
 		3016A62C17522E0F00701881 /* gpgservices.png in Resources */ = {isa = PBXBuildFile; fileRef = 3016A62B17522E0F00701881 /* gpgservices.png */; };
 		3016A62E1752300E00701881 /* GPGTools.iconset in Resources */ = {isa = PBXBuildFile; fileRef = 3016A62D1752300E00701881 /* GPGTools.iconset */; };
 		3016A634175230CC00701881 /* gka-gray.png in Resources */ = {isa = PBXBuildFile; fileRef = 3016A62F175230CC00701881 /* gka-gray.png */; };
@@ -89,6 +90,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		300DD0F11853AEE60057B05F /* How to get the source code */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = "How to get the source code"; path = "../../GPGTools_Core/resources/How to get the source code"; sourceTree = "<group>"; };
 		3016A62B17522E0F00701881 /* gpgservices.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = gpgservices.png; path = Images/gpgservices.png; sourceTree = "<group>"; };
 		3016A62D1752300E00701881 /* GPGTools.iconset */ = {isa = PBXFileReference; lastKnownFileType = folder.iconset; name = GPGTools.iconset; path = Images/GPGTools.iconset; sourceTree = "<group>"; };
 		3016A62F175230CC00701881 /* gka-gray.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "gka-gray.png"; path = "Images/gka-gray.png"; sourceTree = "<group>"; };
@@ -234,6 +236,7 @@
 				3056D09D172D304E00CFC0FA /* Info.plist */,
 				3056D09E172D304E00CFC0FA /* Keyservers.plist */,
 				3056D0B8172D307400CFC0FA /* Credits.rtf */,
+				300DD0F11853AEE60057B05F /* How to get the source code */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -376,6 +379,7 @@
 				30FDA7FF1784644100B58E01 /* WarningView.xib in Resources */,
 				3056D0A8172D305E00CFC0FA /* gka.png in Resources */,
 				3056D0A9172D305E00CFC0FA /* gpgmail.png in Resources */,
+				300DD0F21853AEE60057B05F /* How to get the source code in Resources */,
 				3056D0AA172D305E00CFC0FA /* gpgprefs.png in Resources */,
 				3056D0AE172D305E00CFC0FA /* macgpg2.png in Resources */,
 				3056D0B1172D306600CFC0FA /* GPGToolsPref.xib in Resources */,
