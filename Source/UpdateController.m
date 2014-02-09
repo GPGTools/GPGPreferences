@@ -182,7 +182,7 @@ NSMutableDictionary *tools;
 		} else if ([value isEqualTo:@"prerelease"]) {
 			return [NSNumber numberWithInteger:1];
 		} else if ([value isEqualTo:@"nightly"]) {
-			return [NSNumber numberWithInteger:3];
+			return [NSNumber numberWithInteger:2];
 		}
 		
 		NSDictionary *plist = [[tools objectForKey:tool] objectForKey:@"infoPlist"];
