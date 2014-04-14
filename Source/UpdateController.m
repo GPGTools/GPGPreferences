@@ -117,7 +117,7 @@ NSMutableDictionary *tools;
 		}
 		
 		
-		if ([tool isEqualToString:@"gpgprefs"]) {
+		if ([tool isEqualToString:@"gpgprefs"] || [tool isEqualToString:@"macgpg2"]) {
 			[toolDict setObject:[NSNumber numberWithBool:YES] forKey:@"canSendActions"];
 		}
 		
@@ -293,6 +293,9 @@ NSMutableDictionary *tools;
 - (void)checkForUpdatesForTool:(NSString *)tool{
 	if ([tool isEqualToString:@"gpgprefs"]) {
 		[updater checkForUpdates:self];
+	} else if ([tool isEqualToString:@"macgpg2"]) {
+		NSTask *task = [NSTask launchedTaskWithLaunchPath:@"/usr/local/MacGPG2/libexec/MacGPG2_Updater.app/Contents/MacOS/MacGPG2_Updater" arguments:@[@"checkNow"]];
+		NSLog(@"%@", task);
 	}
 }
 
