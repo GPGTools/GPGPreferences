@@ -117,7 +117,7 @@ NSMutableDictionary *tools;
 		}
 		
 		
-		if ([tool isEqualToString:@"gpgprefs"] || [tool isEqualToString:@"macgpg2"]) {
+		if ([tool isEqualToString:@"gpgprefs"] || [tool isEqualToString:@"macgpg2"]|| [tool isEqualToString:@"gka"]) {
 			[toolDict setObject:[NSNumber numberWithBool:YES] forKey:@"canSendActions"];
 		}
 		
@@ -296,6 +296,9 @@ NSMutableDictionary *tools;
 	} else if ([tool isEqualToString:@"macgpg2"]) {
 		NSTask *task = [NSTask launchedTaskWithLaunchPath:@"/usr/local/MacGPG2/libexec/MacGPG2_Updater.app/Contents/MacOS/MacGPG2_Updater" arguments:@[@"checkNow"]];
 		NSLog(@"%@", task);
+	} else if ([tool isEqualToString:@"gka"]) {
+		NSAppleScript *script = [[NSAppleScript alloc] initWithSource:@"tell application \"GPG Keychain Access\" to check for updates"];
+		[script executeAndReturnError:nil];
 	}
 }
 
