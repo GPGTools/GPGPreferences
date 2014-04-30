@@ -297,7 +297,7 @@ NSMutableDictionary *tools;
 		NSTask *task = [NSTask launchedTaskWithLaunchPath:@"/usr/local/MacGPG2/libexec/MacGPG2_Updater.app/Contents/MacOS/MacGPG2_Updater" arguments:@[@"checkNow"]];
 		NSLog(@"%@", task);
 	} else if ([tool isEqualToString:@"gka"]) {
-		NSAppleScript *script = [[NSAppleScript alloc] initWithSource:@"tell application \"GPG Keychain Access\" to check for updates"];
+		NSAppleScript *script = [[NSAppleScript alloc] initWithSource:@"tell application \"GPG Keychain Access\"\ncheck for updates\nactivate\nend tell"];
 		[script executeAndReturnError:nil];
 	}
 }
