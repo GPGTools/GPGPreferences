@@ -108,7 +108,8 @@ NSMutableDictionary *tools;
 		}
 		
 		for (NSString *path in paths) {
-			NSString *plistPath = [[path stringByExpandingTildeInPath] stringByAppendingPathComponent:@"Contents/Info.plist"];
+			path = [path stringByExpandingTildeInPath];
+			NSString *plistPath = [path stringByAppendingPathComponent:@"Contents/Info.plist"];
 			if ([fileManager fileExistsAtPath:plistPath]) {
 				[toolDict setObject:path forKey:@"path"];
 				[toolDict setObject:[NSDictionary dictionaryWithContentsOfFile:plistPath] forKey:@"infoPlist"];
@@ -117,7 +118,7 @@ NSMutableDictionary *tools;
 		}
 		
 		
-		if ([tool isEqualToString:@"gpgprefs"] || [tool isEqualToString:@"macgpg2"]|| [tool isEqualToString:@"gka"]) {
+		if ([tool isEqualToString:@"gpgprefs"] || [tool isEqualToString:@"macgpg2"] || [tool isEqualToString:@"gka"] || [tool isEqualToString:@"gpgservices"]) {
 			[toolDict setObject:[NSNumber numberWithBool:YES] forKey:@"canSendActions"];
 		}
 		
@@ -294,10 +295,14 @@ NSMutableDictionary *tools;
 	if ([tool isEqualToString:@"gpgprefs"]) {
 		[updater checkForUpdates:self];
 	} else if ([tool isEqualToString:@"macgpg2"]) {
-		NSTask *task = [NSTask launchedTaskWithLaunchPath:@"/usr/local/MacGPG2/libexec/MacGPG2_Updater.app/Contents/MacOS/MacGPG2_Updater" arguments:@[@"checkNow"]];
-		NSLog(@"%@", task);
+		[NSTask launchedTaskWithLaunchPath:@"/usr/local/MacGPG2/libexec/MacGPG2_Updater.app/Contents/MacOS/MacGPG2_Updater" arguments:@[@"checkNow"]];
 	} else if ([tool isEqualToString:@"gka"]) {
 		NSAppleScript *script = [[NSAppleScript alloc] initWithSource:@"tell application \"GPG Keychain Access\"\ncheck for updates\nactivate\nend tell"];
+		[script executeAndReturnError:nil];
+	} else if ([tool isEqualToString:@"gpgservices"]) {
+		NSString *path = [[tools objectForKey:tool] objectForKey:PKEY];
+		NSString *scriptText = [NSString stringWithFormat:@"tell application \"%@\"\ncheck for updates\nactivate\nend tell", path];
+		NSAppleScript *script = [[NSAppleScript alloc] initWithSource:scriptText];
 		[script executeAndReturnError:nil];
 	}
 }
