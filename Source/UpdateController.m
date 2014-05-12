@@ -117,10 +117,10 @@ NSMutableDictionary *tools;
 			}
 		}
 		
-		
-		if ([tool isEqualToString:@"gpgprefs"] || [tool isEqualToString:@"macgpg2"] || [tool isEqualToString:@"gka"] || [tool isEqualToString:@"gpgservices"]) {
+		[toolDict setObject:[NSNumber numberWithBool:YES] forKey:@"canSendActions"];
+		/*if ([tool isEqualToString:@"gpgprefs"] || [tool isEqualToString:@"macgpg2"] || [tool isEqualToString:@"gka"] || [tool isEqualToString:@"gpgservices"]) {
 			[toolDict setObject:[NSNumber numberWithBool:YES] forKey:@"canSendActions"];
-		}
+		}*/
 		
 		// Set the dict for the tool.
 		[tools setObject:toolDict forKey:tool];
@@ -296,6 +296,8 @@ NSMutableDictionary *tools;
 		[updater checkForUpdates:self];
 	} else if ([tool isEqualToString:@"macgpg2"]) {
 		[NSTask launchedTaskWithLaunchPath:@"/usr/local/MacGPG2/libexec/MacGPG2_Updater.app/Contents/MacOS/MacGPG2_Updater" arguments:@[@"checkNow"]];
+	} else if ([tool isEqualToString:@"gpgmail"]) {
+		[NSTask launchedTaskWithLaunchPath:@"/Library/Application Support/GPGTools/GPGMail_Updater.app/Contents/MacOS/GPGMail_Updater" arguments:@[@"checkNow"]];
 	} else if ([tool isEqualToString:@"gka"]) {
 		NSAppleScript *script = [[NSAppleScript alloc] initWithSource:@"tell application \"GPG Keychain Access\"\ncheck for updates\nactivate\nend tell"];
 		[script executeAndReturnError:nil];
