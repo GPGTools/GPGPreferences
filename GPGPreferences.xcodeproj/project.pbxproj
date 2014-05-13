@@ -120,7 +120,7 @@
 		3056D0A7172D305E00CFC0FA /* macgpg2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = macgpg2.png; path = Images/macgpg2.png; sourceTree = "<group>"; };
 		3056D0B0172D306600CFC0FA /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/GPGToolsPref.xib; sourceTree = "<group>"; };
 		3056D0B3172D306900CFC0FA /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/GPGToolsPref.xib.strings; sourceTree = "<group>"; };
-		3056D0B6172D307100CFC0FA /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		3056D0B6172D307100CFC0FA /* en */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		3056D0B9172D307400CFC0FA /* en */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; name = en; path = en.lproj/Credits.rtf; sourceTree = "<group>"; };
 		3056D0CD172D312200CFC0FA /* GPGPreferences-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "GPGPreferences-Prefix.pch"; sourceTree = "<group>"; };
 		3056D0CF172D319400CFC0FA /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
