@@ -26,16 +26,11 @@ static NSString * const kAutoKeyLocate = @"auto-key-locate";
 	}
 	secretKeysLock = [[NSLock alloc] init];
 	
-	options = [[GPGOptions sharedOptions] retain];
+	options = [GPGOptions sharedOptions];
 	[[NSDistributedNotificationCenter defaultCenter] addObserver:self selector:@selector(keysDidChange:) name:GPGKeyManagerKeysDidChangeNotification object:nil];
 	[[GPGKeyManager sharedInstance] loadAllKeys];
 
 	return self;
-}
-- (void)dealloc {
-	[secretKeysLock release];
-	[options release];
-	[super dealloc];
 }
 
 
@@ -81,7 +76,11 @@ static NSString * const kAutoKeyLocate = @"auto-key-locate";
 		NSDictionary *query = [NSDictionary dictionaryWithObjectsAndKeys:@"genp", kSecClass, kSecMatchLimitAll, kSecMatchLimit, kCFBooleanTrue, kSecReturnRef, kCFBooleanTrue, kSecReturnAttributes, @"GnuPG", kSecAttrService, nil];
 		
 		NSArray *result = nil;
-		OSStatus status = SecItemCopyMatching((CFDictionaryRef)query, (CFTypeRef *)&result);
+		CFTypeRef cfResult = nil;
+		OSStatus status = SecItemCopyMatching((__bridge CFDictionaryRef)query, &cfResult);
+		if (cfResult) {
+			result = CFBridgingRelease(cfResult);
+		}
 		
 		NSCharacterSet *nonHexCharSet = [[NSCharacterSet characterSetWithCharactersInString:@"0123456789abcdefABCDEF"] invertedSet];
 		
@@ -99,14 +98,13 @@ static NSString * const kAutoKeyLocate = @"auto-key-locate";
 					continue;
 				}				
 
-				status = SecKeychainItemDelete((SecKeychainItemRef)[item objectForKey:kSecValueRef]);
+				status = SecKeychainItemDelete((__bridge SecKeychainItemRef)[item objectForKey:kSecValueRef]);
 				if (status) {
 					NSLog(@"ERROR %i: %@", status, SecCopyErrorMessageString(status, nil));
 				}
 			}
 		}
 		
-		[result release];
 		
 	} @catch (NSException *exception) {
 		NSLog(@"deletePassphrases failed: %@", exception);
@@ -138,7 +136,6 @@ static NSString * const kAutoKeyLocate = @"auto-key-locate";
 - (void)keysDidChange:(NSNotification *)notification {
 	[self willChangeValueForKey:@"secretKeys"];
 	[secretKeysLock lock];
-	[secretKeys release];
 	secretKeys = nil;
 	[secretKeysLock unlock];
 	[self didChangeValueForKey:@"secretKeys"];
@@ -152,11 +149,11 @@ static NSString * const kAutoKeyLocate = @"auto-key-locate";
 	[secretKeysLock lock];
 		
 	if (!secretKeys) {
-		secretKeys = [[[[GPGKeyManager sharedInstance].allKeys objectsPassingTest:^BOOL(GPGKey *key, BOOL *stop) {
+		secretKeys = [[[GPGKeyManager sharedInstance].allKeys objectsPassingTest:^BOOL(GPGKey *key, BOOL *stop) {
 			return key.secret && key.validity < GPGValidityInvalid;
-		}] allObjects] retain];
+		}] allObjects];
 	}
-	NSArray *value = [[secretKeys retain] autorelease];
+	NSArray *value = secretKeys;
 	
 	[secretKeysLock unlock];
 	return value;
@@ -180,7 +177,7 @@ static NSString * const kAutoKeyLocate = @"auto-key-locate";
  * Give the credits from Credits.rtf.
  */
 - (NSAttributedString *)credits {
-	return [[[NSAttributedString alloc] initWithPath:[self.myBundle pathForResource:@"Credits" ofType:@"rtf"] documentAttributes:nil] autorelease];
+	return [[NSAttributedString alloc] initWithPath:[self.myBundle pathForResource:@"Credits" ofType:@"rtf"] documentAttributes:nil];
 }
 
 /*

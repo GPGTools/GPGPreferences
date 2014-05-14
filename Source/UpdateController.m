@@ -10,15 +10,15 @@
 #import "UpdateController.h"
 
 @interface UpdateController()
-@property (retain) SUUpdater *updater;
-@property (assign) NSBundle *bundle;
+@property (strong) SUUpdater *updater;
+@property (unsafe_unretained) NSBundle *bundle;
 @end
 
 
 @implementation UpdateController
 @synthesize updater, bundle;
 NSMutableDictionary *tools;
-/* tools[tool][key]. key is an of: 
+/* tools[tool][key]. key is one of the following:
  @"options"			GPGOptions*
  @"path"			NSString*
  @"infoPlist"		NSDictionary*
@@ -32,36 +32,16 @@ NSMutableDictionary *tools;
 #define DKEY @"domain"
 #define PKEY @"path"
 #define IKEY @"identifier"
-	NSDictionary *toolInfos = [NSDictionary dictionaryWithObjectsAndKeys:
-		[NSDictionary dictionaryWithObjectsAndKeys:@"org.gpgtools.macgpg2.updater", DKEY, @"/usr/local/MacGPG2/libexec/MacGPG2_Updater.app", PKEY, nil],
-		@"macgpg2",
-		
-		[NSDictionary dictionaryWithObjectsAndKeys:[NSArray arrayWithObjects:@"../Containers/com.apple.mail/Data/Library/Preferences/org.gpgtools.gpgmail", @"org.gpgtools.gpgmail", nil], DKEY, [NSArray arrayWithObjects:@"/Network/Library/Mail/Bundles/GPGMail.mailbundle", @"~/Library/Mail/Bundles/GPGMail.mailbundle", @"/Library/Mail/Bundles/GPGMail.mailbundle", nil], PKEY, nil],
-		@"gpgmail",
-		
-		[NSDictionary dictionaryWithObjectsAndKeys:@"org.gpgtools.gpgservices", DKEY, [NSArray arrayWithObjects:@"~/Library/Services/GPGServices.service", @"/Library/Services/GPGServices.service", nil], PKEY, nil],
-		@"gpgservices",
-		
-		[NSDictionary dictionaryWithObjectsAndKeys:@"org.gpgtools.gpgkeychainaccess", DKEY, @"org.gpgtools.gpgkeychainaccess", IKEY, nil],
-		@"gka",
-		
-		[NSDictionary dictionaryWithObjectsAndKeys:@"org.gpgtools.gpgpreferences", DKEY, [NSArray arrayWithObjects:@"~/Library/PreferencePanes/GPGPreferences.prefPane", @"/Library/PreferencePanes/GPGPreferences.prefPane", nil], PKEY, nil],
-		@"gpgprefs",
-		nil];
-//  
-//  
-//  
-//  
-//  @{
-//		@"macgpg2" :		@{DKEY : @"org.gpgtools.macgpg2.updater", PKEY : @"/usr/local/MacGPG2/libexec/MacGPG2_Updater.app"},
-//		@"gpgmail" :		@{DKEY : @[@"../Containers/com.apple.mail/Data/Library/Preferences/org.gpgtools.gpgmail", @"org.gpgtools.gpgmail"], PKEY : @[@"/Network/Library/Mail/Bundles/GPGMail.mailbundle", @"~/Library/Mail/Bundles/GPGMail.mailbundle", @"/Library/Mail/Bundles/GPGMail.mailbundle"]},
-//		@"gpgservices" :	@{DKEY : @"org.gpgtools.gpgservices", PKEY : @[@"~/Library/Services/GPGServices.service", @"/Library/Services/GPGServices.service"]},
-//		@"gka" :			@{DKEY : @"org.gpgtools.gpgkeychainaccess", IKEY : @"org.gpgtools.gpgkeychainaccess"},
-//		@"gpgprefs" :		@{DKEY : @"org.gpgtools.gpgpreferences", PKEY : @[@"~/Library/PreferencePanes/GPGPreferences.prefPane", @"/Library/PreferencePanes/GPGPreferences.prefPane"]}
-//		};
+	
+	NSDictionary *toolInfos = @{
+		@"macgpg2":		@{DKEY: @"org.gpgtools.macgpg2.updater",	PKEY: @"/usr/local/MacGPG2/libexec/MacGPG2_Updater.app"},
+		@"gpgservices":	@{DKEY: @"org.gpgtools.gpgservices",		PKEY: @[@"~/Library/Services/GPGServices.service", @"/Library/Services/GPGServices.service"]},
+		@"gka":			@{DKEY: @"org.gpgtools.gpgkeychainaccess",	IKEY: @"org.gpgtools.gpgkeychainaccess"},
+		@"gpgprefs":	@{DKEY: @"org.gpgtools.gpgpreferences",		PKEY: @[@"~/Library/PreferencePanes/GPGPreferences.prefPane", @"/Library/PreferencePanes/GPGPreferences.prefPane"]},
+		@"gpgmail":		@{DKEY: @[@"../Containers/com.apple.mail/Data/Library/Preferences/org.gpgtools.gpgmail", @"org.gpgtools.gpgmail"], PKEY: @[@"/Network/Library/Mail/Bundles/GPGMail.mailbundle", @"~/Library/Mail/Bundles/GPGMail.mailbundle", @"/Library/Mail/Bundles/GPGMail.mailbundle"]}
+	};
 	
 	tools = [[NSMutableDictionary alloc] initWithCapacity:[toolInfos count]];
-	
 	
 	NSString *prefDir = [NSHomeDirectory() stringByAppendingString:@"/Library/Preferences/"];
 	NSFileManager *fileManager = [NSFileManager defaultManager];
@@ -95,7 +75,6 @@ NSMutableDictionary *tools;
 		options.standardDomain = domain;
 		
 		[toolDict setObject:options forKey:@"options"];
-		[options release];
 		
 		
 		// Paths to the tools.
@@ -107,7 +86,7 @@ NSMutableDictionary *tools;
 			paths = [NSArray arrayWithObject:paths];
 		}
 		
-		for (NSString *path in paths) {
+		for (__strong NSString *path in paths) {
 			path = [path stringByExpandingTildeInPath];
 			NSString *plistPath = [path stringByAppendingPathComponent:@"Contents/Info.plist"];
 			if ([fileManager fileExistsAtPath:plistPath]) {
@@ -138,10 +117,6 @@ NSMutableDictionary *tools;
 	return self;
 }
 
-- (void)dealloc {
-	self.updater = nil;
-	[super dealloc];
-}
 
 
 - (id)defaultsValueForKey:(NSString *)key forTool:(NSString *)tool {

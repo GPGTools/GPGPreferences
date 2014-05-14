@@ -23,7 +23,7 @@
 @property (readonly) NSAttributedString *credits;
 @property NSInteger indexOfSelectedSecretKey;
 @property NSInteger passphraseCacheTime;
-@property (retain) NSString *comments;
+@property (strong) NSString *comments;
 @property (readonly) GPGOptions *options;
 @property (readonly) NSString *bundleVersion, *version, *buildNumberDescription, *versionDescription;
 @property BOOL autoKeyRetrive;

@@ -10,11 +10,7 @@
 #import <Sparkle/Sparkle.h>
 
 
-@interface UpdateController : NSObject {
-	SUUpdater *updater;
-	NSBundle *bundle;
-}
-@property (assign, readonly) NSBundle *bundle;
+@interface UpdateController : NSObject
 
 - (void)checkForUpdatesForTool:(NSString *)tool;
 
