@@ -17,5 +17,6 @@
 @property (assign, readonly) NSBundle *bundle;
 
 - (void)checkForUpdatesForTool:(NSString *)tool;
+- (IBAction)copyVersionInfo:(NSButton *)sender;
 
 @end

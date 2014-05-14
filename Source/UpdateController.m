@@ -143,7 +143,7 @@ NSMutableDictionary *tools;
 	[super dealloc];
 }
 
-
+// Getter and setter.
 - (id)defaultsValueForKey:(NSString *)key forTool:(NSString *)tool {
 	NSDictionary *toolDict = [tools objectForKey:tool];
 	id value = [[toolDict objectForKey:@"options"] valueInStandardDefaultsForKey:key];
@@ -154,8 +154,6 @@ NSMutableDictionary *tools;
 	return value;
 }
 
-
-// Getter and setter.
 - (id)valueForKeyPath:(NSString *)keyPath {
 	NSString *key = nil;
 	NSString *tool = [self toolAndKey:&key forKeyPath:keyPath];
@@ -203,20 +201,33 @@ NSMutableDictionary *tools;
 		return [[tools objectForKey:tool] objectForKey:@"path"];
 	} else if ([key isEqualToString:@"CanSendActions"]) {
 		return [[tools objectForKey:tool] objectForKey:@"canSendActions"];
-	} else if ([key isEqualToString:@"buildNumberDescription"]) {
-		NSDictionary *plist = [[tools objectForKey:tool] objectForKey:@"infoPlist"];
-		if (!plist) {
-			return nil;
-		}
-		
-		return [NSString stringWithFormat:[self.bundle localizedStringForKey:@"BUILD: %@" value:nil table:nil], [plist objectForKey:@"CFBundleVersion"]];
 	} else if ([key isEqualToString:@"versionDescription"]) {
 		NSDictionary *plist = [[tools objectForKey:tool] objectForKey:@"infoPlist"];
 		if (!plist) {
 			return nil;
 		}
+		
+		NSString *version = [NSString stringWithFormat:[self.bundle localizedStringForKey:@"VERSION: %@" value:nil table:nil], [plist objectForKey:@"CFBundleShortVersionString"]];
+		NSString *build = [NSString stringWithFormat:[self.bundle localizedStringForKey:@"BUILD: %@" value:nil table:nil], [plist objectForKey:@"CFBundleVersion"]];
+		
+		NSString *string = [NSString stringWithFormat:@"%@\t%@", version, build];
+		
+		
+		NSMutableParagraphStyle *paragraphStyle = [[NSMutableParagraphStyle alloc] init];
+		[paragraphStyle setTabStops:@[[[NSTextTab alloc] initWithType:NSLeftTabStopType location:150]]];
+		
+		NSDictionary *attributes = @{NSFontAttributeName: [NSFont systemFontOfSize:[NSFont smallSystemFontSize]], NSParagraphStyleAttributeName: paragraphStyle};
+		
+		
+		NSMutableAttributedString *attributedString = [[NSMutableAttributedString alloc] initWithString:string attributes:attributes];
+		
+		NSUInteger stringLength = attributedString.length;
+		NSUInteger buildLength = build.length;
+		
+		[attributedString addAttribute:NSForegroundColorAttributeName value:[NSColor grayColor] range:NSMakeRange(stringLength - buildLength, buildLength)];
+		
 
-		return [NSString stringWithFormat:[self.bundle localizedStringForKey:@"VERSION: %@" value:nil table:nil], [plist objectForKey:@"CFBundleShortVersionString"]];
+		return attributedString;
 	} else if ([key isEqualToString:@"image"]) {
 		NSImage *image = nil;
 		if ([[tools objectForKey:tool] objectForKey:@"path"]) {
@@ -243,7 +254,6 @@ NSMutableDictionary *tools;
 	
 	return [options valueInStandardDefaultsForKey:key];
 }
-
 
 - (void)setValue:(id)value forKeyPath:(NSString *)keyPath {
 	NSString *key = nil;
@@ -287,6 +297,24 @@ NSMutableDictionary *tools;
 	}
 }
 
+- (NSString *)toolAndKey:(NSString **)key forKeyPath:(NSString *)keyPath {
+	NSRange range = [keyPath rangeOfString:@"."];
+	if (range.length == 0) {
+		return nil;
+	}
+	*key = [keyPath substringFromIndex:range.location + 1];
+	
+	return [keyPath substringToIndex:range.location];
+}
+
+- (id)valueForKey:(NSString *)key {
+	if ([tools objectForKey:key]) {
+		//Prevent valueForUndefinedKey.
+		return key;
+	}
+	return [super valueForKey:key];
+}
+
 
 
 
@@ -309,26 +337,12 @@ NSMutableDictionary *tools;
 	}
 }
 
-
-
-// Helper and other methods.
-- (NSString *)toolAndKey:(NSString **)key forKeyPath:(NSString *)keyPath {
-	NSRange range = [keyPath rangeOfString:@"."];
-	if (range.length == 0) {
-		return nil;
-	}
-	*key = [keyPath substringFromIndex:range.location + 1];
-	
-	return [keyPath substringToIndex:range.location];
+- (IBAction)copyVersionInfo:(NSButton *)sender {
+	NSPasteboard *pasteboard = [NSPasteboard generalPasteboard];
+	[pasteboard clearContents];
+	[pasteboard writeObjects:@[sender.title]];
 }
 
-- (id)valueForKey:(NSString *)key {
-	if ([tools objectForKey:key]) {
-		//Prevent valueForUndefinedKey.
-		return key;
-	}
-	return [super valueForKey:key];
-}
 
 
 
