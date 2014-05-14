@@ -13,5 +13,6 @@
 @interface UpdateController : NSObject
 
 - (void)checkForUpdatesForTool:(NSString *)tool;
+- (IBAction)copyVersionInfo:(NSButton *)sender;
 
 @end
