@@ -313,9 +313,24 @@ NSMutableDictionary *tools;
 }
 
 - (IBAction)copyVersionInfo:(NSButton *)sender {
+	NSMutableString *infoString = [NSMutableString string];
+	
+	[infoString appendFormat:@"Mac OS X %@\n", [[NSProcessInfo processInfo] operatingSystemVersionString]];
+	
+	for (NSString *tool in tools) {
+		NSDictionary *toolInfo = [tools objectForKey:tool];
+		NSDictionary *plist = toolInfo[@"infoPlist"];
+		if (!plist) {
+			[infoString appendFormat:@"%@: -\n", tool];
+		} else {
+			[infoString appendFormat:@"%@: %@, %@\n", tool, plist[@"CFBundleShortVersionString"], plist[@"CFBundleVersion"]];
+		}
+	}
+	
+	
 	NSPasteboard *pasteboard = [NSPasteboard generalPasteboard];
 	[pasteboard clearContents];
-	[pasteboard writeObjects:@[sender.title]];
+	[pasteboard writeObjects:@[infoString]];
 }
 
 
@@ -349,3 +364,12 @@ NSMutableDictionary *tools;
 
 
 @end
+
+
+
+
+
+
+
+
+
