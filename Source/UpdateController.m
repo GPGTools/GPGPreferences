@@ -323,7 +323,7 @@ NSMutableDictionary *tools;
 		if (!plist) {
 			[infoString appendFormat:@"%@: -\n", tool];
 		} else {
-			[infoString appendFormat:@"%@: %@, %@\n", tool, plist[@"CFBundleShortVersionString"], plist[@"CFBundleVersion"]];
+			[infoString appendFormat:@"%@: %@, %@\n", plist[@"CFBundleDisplayName"], plist[@"CFBundleShortVersionString"], plist[@"CFBundleVersion"]];
 		}
 	}
 	
