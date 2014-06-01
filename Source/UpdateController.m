@@ -32,13 +32,14 @@ NSMutableDictionary *tools;
 #define DKEY @"domain"
 #define PKEY @"path"
 #define IKEY @"identifier"
+#define NKEY @"toolname"
 	
 	NSDictionary *toolInfos = @{
-		@"macgpg2":		@{DKEY: @"org.gpgtools.macgpg2.updater",	PKEY: @"/usr/local/MacGPG2/libexec/MacGPG2_Updater.app"},
-		@"gpgservices":	@{DKEY: @"org.gpgtools.gpgservices",		PKEY: @[@"~/Library/Services/GPGServices.service", @"/Library/Services/GPGServices.service"]},
-		@"gka":			@{DKEY: @"org.gpgtools.gpgkeychainaccess",	IKEY: @"org.gpgtools.gpgkeychainaccess"},
-		@"gpgprefs":	@{DKEY: @"org.gpgtools.gpgpreferences",		PKEY: @[@"~/Library/PreferencePanes/GPGPreferences.prefPane", @"/Library/PreferencePanes/GPGPreferences.prefPane"]},
-		@"gpgmail":		@{DKEY: @[@"../Containers/com.apple.mail/Data/Library/Preferences/org.gpgtools.gpgmail", @"org.gpgtools.gpgmail"], PKEY: @[@"/Network/Library/Mail/Bundles/GPGMail.mailbundle", @"~/Library/Mail/Bundles/GPGMail.mailbundle", @"/Library/Mail/Bundles/GPGMail.mailbundle"]}
+		@"macgpg2":		@{NKEY: @"MacGPG2",				DKEY: @"org.gpgtools.macgpg2.updater",		PKEY: @"/usr/local/MacGPG2/libexec/MacGPG2_Updater.app"},
+		@"gpgservices":	@{NKEY: @"GPGServices",			DKEY: @"org.gpgtools.gpgservices",			PKEY: @[@"~/Library/Services/GPGServices.service", @"/Library/Services/GPGServices.service"]},
+		@"gka":			@{NKEY: @"GPG Keychain Access",	DKEY: @"org.gpgtools.gpgkeychainaccess",	IKEY: @"org.gpgtools.gpgkeychainaccess"},
+		@"gpgprefs":	@{NKEY: @"GPGPreferences",		DKEY: @"org.gpgtools.gpgpreferences",		PKEY: @[@"~/Library/PreferencePanes/GPGPreferences.prefPane", @"/Library/PreferencePanes/GPGPreferences.prefPane"]},
+		@"gpgmail":		@{NKEY: @"GPGMail",				DKEY: @[@"../Containers/com.apple.mail/Data/Library/Preferences/org.gpgtools.gpgmail", @"org.gpgtools.gpgmail"], PKEY: @[@"/Network/Library/Mail/Bundles/GPGMail.mailbundle", @"~/Library/Mail/Bundles/GPGMail.mailbundle", @"/Library/Mail/Bundles/GPGMail.mailbundle"]}
 	};
 	
 	tools = [[NSMutableDictionary alloc] initWithCapacity:[toolInfos count]];
@@ -49,6 +50,9 @@ NSMutableDictionary *tools;
 	for (NSString *tool in toolInfos) {
 		NSMutableDictionary *toolDict = [NSMutableDictionary dictionary];
 		NSDictionary *toolInfo = [toolInfos objectForKey:tool];
+		
+		// Readable name of the tool.
+		toolDict[NKEY] = toolInfo[NKEY];
 		
 		
 		// GPGOptions for every tool.
@@ -320,10 +324,12 @@ NSMutableDictionary *tools;
 	for (NSString *tool in tools) {
 		NSDictionary *toolInfo = [tools objectForKey:tool];
 		NSDictionary *plist = toolInfo[@"infoPlist"];
+		NSString *name = toolInfo[NKEY];
+		
 		if (!plist) {
-			[infoString appendFormat:@"%@: -\n", tool];
+			[infoString appendFormat:@"%@: -\n", name];
 		} else {
-			[infoString appendFormat:@"%@: %@, %@\n", plist[@"CFBundleDisplayName"], plist[@"CFBundleShortVersionString"], plist[@"CFBundleVersion"]];
+			[infoString appendFormat:@"%@: %@, %@\n", name, plist[@"CFBundleShortVersionString"], plist[@"CFBundleVersion"]];
 		}
 	}
 	
