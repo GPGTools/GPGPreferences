@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="5053" systemVersion="13C64" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none">
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="5056" systemVersion="13D65" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none">
     <dependencies>
         <deployment version="1060" defaultVersion="1060" identifier="macosx"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="5053"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="5056"/>
     </dependencies>
     <objects>
         <customObject id="-2" userLabel="File's Owner" customClass="NSPreferencePane">
@@ -693,15 +693,16 @@
                                                 <font key="font" metaFont="system"/>
                                             </buttonCell>
                                             <connections>
+                                                <binding destination="718" name="enabled" keyPath="macgpg2.Installed" id="5zC-FI-RUR"/>
+                                                <binding destination="718" name="hidden" keyPath="macgpg2.CanSendActions" previousBinding="5zC-FI-RUR" id="Gjs-cs-B9A">
+                                                    <dictionary key="options">
+                                                        <string key="NSValueTransformerName">NSNegateBoolean</string>
+                                                    </dictionary>
+                                                </binding>
                                                 <binding destination="718" name="argument" keyPath="macgpg2" id="1017">
                                                     <dictionary key="options">
                                                         <bool key="NSConditionallySetsEnabled" value="NO"/>
                                                         <string key="NSSelectorName">checkForUpdatesForTool:</string>
-                                                    </dictionary>
-                                                </binding>
-                                                <binding destination="718" name="hidden" keyPath="macgpg2.CanSendActions" id="1037">
-                                                    <dictionary key="options">
-                                                        <string key="NSValueTransformerName">NSNegateBoolean</string>
                                                     </dictionary>
                                                 </binding>
                                                 <binding destination="718" name="target" keyPath="self" previousBinding="1017" id="1018">
@@ -748,13 +749,14 @@
                                                 <font key="font" metaFont="system"/>
                                             </buttonCell>
                                             <connections>
+                                                <binding destination="718" name="enabled" keyPath="gka.Installed" id="cKw-Gl-gqK"/>
                                                 <binding destination="718" name="argument" keyPath="gka" id="1010">
                                                     <dictionary key="options">
                                                         <bool key="NSConditionallySetsEnabled" value="NO"/>
                                                         <string key="NSSelectorName">checkForUpdatesForTool:</string>
                                                     </dictionary>
                                                 </binding>
-                                                <binding destination="718" name="hidden" keyPath="gka.CanSendActions" id="1039">
+                                                <binding destination="718" name="hidden" keyPath="gka.CanSendActions" previousBinding="cKw-Gl-gqK" id="CjS-gx-Yji">
                                                     <dictionary key="options">
                                                         <string key="NSValueTransformerName">NSNegateBoolean</string>
                                                     </dictionary>
@@ -775,13 +777,14 @@
                                                 <font key="font" metaFont="system"/>
                                             </buttonCell>
                                             <connections>
+                                                <binding destination="718" name="enabled" keyPath="gpgmail.Installed" id="YRe-ag-yRl"/>
                                                 <binding destination="718" name="argument" keyPath="gpgmail" id="1006">
                                                     <dictionary key="options">
                                                         <bool key="NSConditionallySetsEnabled" value="NO"/>
                                                         <string key="NSSelectorName">checkForUpdatesForTool:</string>
                                                     </dictionary>
                                                 </binding>
-                                                <binding destination="718" name="hidden" keyPath="gpgmail.CanSendActions" id="1040">
+                                                <binding destination="718" name="hidden" keyPath="gpgmail.CanSendActions" previousBinding="YRe-ag-yRl" id="9Wl-YV-Ict">
                                                     <dictionary key="options">
                                                         <string key="NSValueTransformerName">NSNegateBoolean</string>
                                                     </dictionary>
