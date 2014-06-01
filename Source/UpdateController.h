@@ -14,5 +14,6 @@
 
 - (void)checkForUpdatesForTool:(NSString *)tool;
 - (IBAction)copyVersionInfo:(NSButton *)sender;
+- (IBAction)openDownloadSite:(id)sender;
 
 @end

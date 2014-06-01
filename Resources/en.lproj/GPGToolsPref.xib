@@ -272,6 +272,54 @@
                                     <rect key="frame" x="10" y="33" width="636" height="326"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
+                                        <button verticalHuggingPriority="750" id="9YE-gZ-iyy" userLabel="Install GPGMail">
+                                            <rect key="frame" x="459" y="270" width="109" height="32"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                            <buttonCell key="cell" type="push" title="Install" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="4Cp-Wb-NaM">
+                                                <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                                <font key="font" metaFont="system"/>
+                                            </buttonCell>
+                                            <connections>
+                                                <action selector="openDownloadSite:" target="718" id="Z6a-pq-KVi"/>
+                                                <binding destination="718" name="hidden" keyPath="gpgmail.Installed" id="8OA-uh-7yO"/>
+                                            </connections>
+                                        </button>
+                                        <button verticalHuggingPriority="750" id="lsG-by-AS0" userLabel="Install GKA">
+                                            <rect key="frame" x="459" y="208" width="109" height="32"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                            <buttonCell key="cell" type="push" title="Install" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="QqN-O6-gs8">
+                                                <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                                <font key="font" metaFont="system"/>
+                                            </buttonCell>
+                                            <connections>
+                                                <action selector="openDownloadSite:" target="718" id="QB2-HF-itW"/>
+                                                <binding destination="718" name="hidden" keyPath="gka.Installed" id="Xm1-Pb-Z9j"/>
+                                            </connections>
+                                        </button>
+                                        <button verticalHuggingPriority="750" id="3Eb-xv-gyu" userLabel="Install GPGServices">
+                                            <rect key="frame" x="459" y="146" width="109" height="32"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                            <buttonCell key="cell" type="push" title="Install" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="uw0-jD-Utf">
+                                                <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                                <font key="font" metaFont="system"/>
+                                            </buttonCell>
+                                            <connections>
+                                                <action selector="openDownloadSite:" target="718" id="9hr-xG-8nb"/>
+                                                <binding destination="718" name="hidden" keyPath="gpgservices.Installed" id="sBc-00-iMr"/>
+                                            </connections>
+                                        </button>
+                                        <button verticalHuggingPriority="750" id="K98-2X-i8G" userLabel="Install MacGPG2">
+                                            <rect key="frame" x="459" y="84" width="109" height="32"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                            <buttonCell key="cell" type="push" title="Install" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="GZ3-w2-WmW">
+                                                <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                                <font key="font" metaFont="system"/>
+                                            </buttonCell>
+                                            <connections>
+                                                <action selector="openDownloadSite:" target="718" id="O4a-r5-v18"/>
+                                                <binding destination="718" name="hidden" keyPath="macgpg2.Installed" id="53X-79-7IM"/>
+                                            </connections>
+                                        </button>
                                         <imageView id="753">
                                             <rect key="frame" x="17" y="275" width="48" height="48"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
@@ -658,7 +706,7 @@
                                                 <binding destination="718" name="value" keyPath="gpgprefs.SUAutomaticallyUpdate" id="931"/>
                                             </connections>
                                         </button>
-                                        <button verticalHuggingPriority="750" id="967">
+                                        <button verticalHuggingPriority="750" id="967" userLabel="Check now GPGPref">
                                             <rect key="frame" x="459" y="20" width="109" height="32"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                             <buttonCell key="cell" type="push" title="Check now" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="968">
@@ -672,11 +720,6 @@
                                                         <string key="NSSelectorName">checkForUpdatesForTool:</string>
                                                     </dictionary>
                                                 </binding>
-                                                <binding destination="718" name="hidden" keyPath="gpgprefs.CanSendActions" id="1036">
-                                                    <dictionary key="options">
-                                                        <string key="NSValueTransformerName">NSNegateBoolean</string>
-                                                    </dictionary>
-                                                </binding>
                                                 <binding destination="718" name="target" keyPath="self" previousBinding="982" id="983">
                                                     <dictionary key="options">
                                                         <bool key="NSConditionallySetsEnabled" value="NO"/>
@@ -685,7 +728,7 @@
                                                 </binding>
                                             </connections>
                                         </button>
-                                        <button verticalHuggingPriority="750" id="986">
+                                        <button verticalHuggingPriority="750" id="986" userLabel="Check now MacGPG2">
                                             <rect key="frame" x="459" y="84" width="109" height="32"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                             <buttonCell key="cell" type="push" title="Check now" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="987">
@@ -693,8 +736,7 @@
                                                 <font key="font" metaFont="system"/>
                                             </buttonCell>
                                             <connections>
-                                                <binding destination="718" name="enabled" keyPath="macgpg2.Installed" id="5zC-FI-RUR"/>
-                                                <binding destination="718" name="hidden" keyPath="macgpg2.CanSendActions" previousBinding="5zC-FI-RUR" id="Gjs-cs-B9A">
+                                                <binding destination="718" name="hidden" keyPath="macgpg2.Installed" id="yDr-Wc-88W">
                                                     <dictionary key="options">
                                                         <string key="NSValueTransformerName">NSNegateBoolean</string>
                                                     </dictionary>
@@ -713,7 +755,7 @@
                                                 </binding>
                                             </connections>
                                         </button>
-                                        <button verticalHuggingPriority="750" id="991">
+                                        <button verticalHuggingPriority="750" id="991" userLabel="Check now GPGServices">
                                             <rect key="frame" x="459" y="146" width="109" height="32"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                             <buttonCell key="cell" type="push" title="Check now" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="992">
@@ -727,12 +769,11 @@
                                                         <string key="NSSelectorName">checkForUpdatesForTool:</string>
                                                     </dictionary>
                                                 </binding>
-                                                <binding destination="718" name="hidden" keyPath="gpgservices.CanSendActions" previousBinding="1hv-bQ-8Xk" id="i7J-Nn-i03">
+                                                <binding destination="718" name="hidden" keyPath="gpgservices.Installed" id="Jpv-Zb-IJm">
                                                     <dictionary key="options">
                                                         <string key="NSValueTransformerName">NSNegateBoolean</string>
                                                     </dictionary>
                                                 </binding>
-                                                <binding destination="718" name="enabled" keyPath="gpgservices.Installed" id="1hv-bQ-8Xk"/>
                                                 <binding destination="718" name="target" keyPath="self" previousBinding="1014" id="1015">
                                                     <dictionary key="options">
                                                         <bool key="NSConditionallySetsEnabled" value="NO"/>
@@ -741,7 +782,7 @@
                                                 </binding>
                                             </connections>
                                         </button>
-                                        <button verticalHuggingPriority="750" id="996">
+                                        <button verticalHuggingPriority="750" id="996" userLabel="Check now GKA">
                                             <rect key="frame" x="459" y="208" width="109" height="32"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                             <buttonCell key="cell" type="push" title="Check now" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="997">
@@ -749,14 +790,13 @@
                                                 <font key="font" metaFont="system"/>
                                             </buttonCell>
                                             <connections>
-                                                <binding destination="718" name="enabled" keyPath="gka.Installed" id="cKw-Gl-gqK"/>
                                                 <binding destination="718" name="argument" keyPath="gka" id="1010">
                                                     <dictionary key="options">
                                                         <bool key="NSConditionallySetsEnabled" value="NO"/>
                                                         <string key="NSSelectorName">checkForUpdatesForTool:</string>
                                                     </dictionary>
                                                 </binding>
-                                                <binding destination="718" name="hidden" keyPath="gka.CanSendActions" previousBinding="cKw-Gl-gqK" id="CjS-gx-Yji">
+                                                <binding destination="718" name="hidden" keyPath="gka.Installed" id="eiI-Nd-hS5">
                                                     <dictionary key="options">
                                                         <string key="NSValueTransformerName">NSNegateBoolean</string>
                                                     </dictionary>
@@ -769,7 +809,7 @@
                                                 </binding>
                                             </connections>
                                         </button>
-                                        <button verticalHuggingPriority="750" id="1001">
+                                        <button verticalHuggingPriority="750" id="1001" userLabel="Check now GPGMail">
                                             <rect key="frame" x="459" y="270" width="109" height="32"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                             <buttonCell key="cell" type="push" title="Check now" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="1002">
@@ -777,14 +817,13 @@
                                                 <font key="font" metaFont="system"/>
                                             </buttonCell>
                                             <connections>
-                                                <binding destination="718" name="enabled" keyPath="gpgmail.Installed" id="YRe-ag-yRl"/>
                                                 <binding destination="718" name="argument" keyPath="gpgmail" id="1006">
                                                     <dictionary key="options">
                                                         <bool key="NSConditionallySetsEnabled" value="NO"/>
                                                         <string key="NSSelectorName">checkForUpdatesForTool:</string>
                                                     </dictionary>
                                                 </binding>
-                                                <binding destination="718" name="hidden" keyPath="gpgmail.CanSendActions" previousBinding="YRe-ag-yRl" id="9Wl-YV-Ict">
+                                                <binding destination="718" name="hidden" keyPath="gpgmail.Installed" id="osT-R7-WhA">
                                                     <dictionary key="options">
                                                         <string key="NSValueTransformerName">NSNegateBoolean</string>
                                                     </dictionary>
