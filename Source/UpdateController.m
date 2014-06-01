@@ -318,8 +318,11 @@ NSMutableDictionary *tools;
 
 - (IBAction)copyVersionInfo:(NSButton *)sender {
 	NSMutableString *infoString = [NSMutableString string];
+	NSDictionary *systemPlist = [NSDictionary dictionaryWithContentsOfFile:@"/System/Library/CoreServices/SystemVersion.plist"];
 	
-	[infoString appendFormat:@"Mac OS X %@\n", [[NSProcessInfo processInfo] operatingSystemVersionString]];
+	
+	[infoString appendFormat:@"Mac OS X: %@ (%@)\n", systemPlist[@"ProductVersion"], systemPlist[@"ProductBuildVersion"]];
+	
 	
 	for (NSString *tool in tools) {
 		NSDictionary *toolInfo = [tools objectForKey:tool];
