@@ -22,7 +22,6 @@ NSMutableDictionary *tools;
  @"options"			GPGOptions*
  @"path"			NSString*
  @"infoPlist"		NSDictionary*
- @"canSendActions"	NSNumber*
  */
 
 
@@ -102,10 +101,6 @@ NSMutableDictionary *tools;
 			}
 		}
 		
-		[toolDict setObject:[NSNumber numberWithBool:YES] forKey:@"canSendActions"];
-		/*if ([tool isEqualToString:@"gpgprefs"] || [tool isEqualToString:@"macgpg2"] || [tool isEqualToString:@"gka"] || [tool isEqualToString:@"gpgservices"]) {
-			[toolDict setObject:[NSNumber numberWithBool:YES] forKey:@"canSendActions"];
-		}*/
 		
 		// Set the dict for the tool.
 		[tools setObject:toolDict forKey:tool];
@@ -184,8 +179,6 @@ NSMutableDictionary *tools;
 		return [NSNumber numberWithBool:!![[tools objectForKey:tool] objectForKey:@"path"]];
 	} else if ([key isEqualToString:@"Path"]) {
 		return [[tools objectForKey:tool] objectForKey:@"path"];
-	} else if ([key isEqualToString:@"CanSendActions"]) {
-		return [[tools objectForKey:tool] objectForKey:@"canSendActions"];
 	} else if ([key isEqualToString:@"versionDescription"]) {
 		NSDictionary *plist = [[tools objectForKey:tool] objectForKey:@"infoPlist"];
 		if (!plist) {
@@ -320,6 +313,10 @@ NSMutableDictionary *tools;
 		NSAppleScript *script = [[NSAppleScript alloc] initWithSource:scriptText];
 		[script executeAndReturnError:nil];
 	}
+}
+
+- (IBAction)openDownloadSite:(id)sender {
+	[[NSWorkspace sharedWorkspace] openURL:[NSURL URLWithString:@"https://gpgtools.org/#gpgsuite"]];
 }
 
 - (IBAction)copyVersionInfo:(NSButton *)sender {
