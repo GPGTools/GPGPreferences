@@ -342,33 +342,6 @@ NSMutableDictionary *tools;
 
 
 
-// For own Sparkle.
-- (NSString *)feedURLStringForUpdater:(SUUpdater *)updater {
-	NSString *updateSourceKey = @"UpdateSource";
-	
-	NSString *feedURLKey = @"SUFeedURL";
-	NSString *appcastSource = [[GPGOptions sharedOptions] stringForKey:updateSourceKey];
-	if ([appcastSource isEqualToString:@"nightly"]) {
-		feedURLKey = @"SUFeedURL_nightly";
-	} else if ([appcastSource isEqualToString:@"prerelease"]) {
-		feedURLKey = @"SUFeedURL_prerelease";
-	} else if (![appcastSource isEqualToString:@"stable"]) {
-		NSString *version = [self.bundle objectForInfoDictionaryKey:@"CFBundleVersion"];
-		if ([version rangeOfCharacterFromSet:[NSCharacterSet characterSetWithCharactersInString:@"nN"]].length > 0) {
-			feedURLKey = @"SUFeedURL_nightly";
-		} else if ([version rangeOfCharacterFromSet:[NSCharacterSet characterSetWithCharactersInString:@"abAB"]].length > 0) {
-			feedURLKey = @"SUFeedURL_prerelease";
-		}
-	}
-	
-	NSString *appcastURL = [self.bundle objectForInfoDictionaryKey:feedURLKey];
-	if (!appcastURL) {
-		appcastURL = [self.bundle objectForInfoDictionaryKey:@"SUFeedURL"];
-	}
-	return appcastURL;
-}
-
-
 @end
 
 

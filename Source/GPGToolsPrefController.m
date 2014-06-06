@@ -27,6 +27,7 @@ static NSString * const kAutoKeyLocate = @"auto-key-locate";
 	secretKeysLock = [[NSLock alloc] init];
 	
 	options = [GPGOptions sharedOptions];
+	options.standardDomain = @"org.gpgtools.gpgpreferences";
 	[[NSDistributedNotificationCenter defaultCenter] addObserver:self selector:@selector(keysDidChange:) name:GPGKeyManagerKeysDidChangeNotification object:nil];
 	[[GPGKeyManager sharedInstance] loadAllKeys];
 
