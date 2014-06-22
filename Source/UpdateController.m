@@ -10,8 +10,8 @@
 #import "UpdateController.h"
 
 @interface UpdateController()
-@property (retain) SUUpdater *updater;
-@property (assign) NSBundle *bundle;
+@property (strong) id /*SUUpdater **/updater;
+@property (unsafe_unretained) NSBundle *bundle;
 @end
 
 
@@ -112,11 +112,28 @@ NSMutableDictionary *tools;
 		return nil;
 	}
 	self.bundle = [NSBundle bundleForClass:[self class]];
-	self.updater = [SUUpdater updaterForBundle:self.bundle];
-	updater.delegate = self;
+	
+	Class sparkleClass = NSClassFromString(@"SUUpdater");
+	
+	if (!sparkleClass) {
+		NSString *sparklePath = [self.bundle.bundlePath stringByAppendingPathComponent:@"Contents/Frameworks/Sparkle.framework"];
+		NSBundle *sparkleBundle = [NSBundle bundleWithPath:sparklePath];
+		NSError *error = nil;
+		
+		if (![sparkleBundle loadAndReturnError:&error]) {
+			NSLog(@"Unable to laod Sparkle: %@", error);
+		}
+		sparkleClass = NSClassFromString(@"SUUpdater");
+	}
+	
+	self.updater = [sparkleClass updaterForBundle:self.bundle];
+	[updater setDelegate:self];
+
 	
 	return self;
 }
+	 
+	 
 
 - (void)dealloc {
 	self.updater = nil;
