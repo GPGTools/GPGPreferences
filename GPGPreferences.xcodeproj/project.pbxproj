@@ -30,7 +30,6 @@
 		3056D0B7172D307100CFC0FA /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 3056D0B5172D307100CFC0FA /* InfoPlist.strings */; };
 		3056D0BA172D307400CFC0FA /* Credits.rtf in Resources */ = {isa = PBXBuildFile; fileRef = 3056D0B8172D307400CFC0FA /* Credits.rtf */; };
 		3056D0D0172D319400CFC0FA /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3056D0CF172D319400CFC0FA /* Security.framework */; };
-		3056D0D2172D31B500CFC0FA /* Sparkle.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3056D0D1172D31B500CFC0FA /* Sparkle.framework */; };
 		3056D0D4172D321E00CFC0FA /* Sparkle.framework in Copy Frameworks */ = {isa = PBXBuildFile; fileRef = 3056D0D1172D31B500CFC0FA /* Sparkle.framework */; };
 		30B455FF172D7BB500A04D4A /* Libmacgpg.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 30B455FE172D7BB500A04D4A /* Libmacgpg.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		30B7416917A2EFC100E1D157 /* GPGTools+Text.png in Resources */ = {isa = PBXBuildFile; fileRef = 30B7416817A2EFC100E1D157 /* GPGTools+Text.png */; };
@@ -140,7 +139,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				30B455FF172D7BB500A04D4A /* Libmacgpg.framework in Frameworks */,
-				3056D0D2172D31B500CFC0FA /* Sparkle.framework in Frameworks */,
 				3056D0D0172D319400CFC0FA /* Security.framework in Frameworks */,
 				3056D055172D2EEA00CFC0FA /* Cocoa.framework in Frameworks */,
 				3056D057172D2EEA00CFC0FA /* PreferencePanes.framework in Frameworks */,
@@ -542,6 +540,7 @@
 					/Library/Frameworks,
 					"$(HOME)/Library/Frameworks",
 					"\"$(SRCROOT)/Dependencies/Libmacgpg/build/$(CONFIGURATION)\"",
+					"$(PROJECT_DIR)/Frameworks",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Source/GPGPreferences-Prefix.pch";
@@ -565,6 +564,7 @@
 					/Library/Frameworks,
 					"$(HOME)/Library/Frameworks",
 					"\"$(SRCROOT)/Dependencies/Libmacgpg/build/$(CONFIGURATION)\"",
+					"$(PROJECT_DIR)/Frameworks",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Source/GPGPreferences-Prefix.pch";
