@@ -52,9 +52,8 @@ NSMutableDictionary *tools;
 		NSDictionary *toolInfo = [toolInfos objectForKey:tool];
 		
 		// Readable name of the tool.
-		toolDict[NKEY] = toolInfo[NKEY];
-		
-		
+        [toolDict setValue:[toolInfo objectForKey:NKEY] forKey:NKEY];
+        
 		// GPGOptions for every tool.
 		id domains = [toolInfo objectForKey:DKEY]; //NSString or NSArray of NSStrings.
 		NSString *domain = nil;
@@ -341,18 +340,18 @@ NSMutableDictionary *tools;
 	NSDictionary *systemPlist = [NSDictionary dictionaryWithContentsOfFile:@"/System/Library/CoreServices/SystemVersion.plist"];
 	
 	
-	[infoString appendFormat:@"Mac OS X: %@ (%@)\n", systemPlist[@"ProductVersion"], systemPlist[@"ProductBuildVersion"]];
+	[infoString appendFormat:@"Mac OS X: %@ (%@)\n", [systemPlist objectForKey:@"ProductVersion"] , systemPlist[@"ProductBuildVersion"]];
 	
 	
 	for (NSString *tool in tools) {
 		NSDictionary *toolInfo = [tools objectForKey:tool];
-		NSDictionary *plist = toolInfo[@"infoPlist"];
-		NSString *name = toolInfo[NKEY];
+		NSDictionary *plist = [toolInfo objectForKey:@"infoPlist"];
+		NSString *name = [toolInfo objectForKey:NKEY];
 		
 		if (!plist) {
 			[infoString appendFormat:@"%@: -\n", name];
 		} else {
-			[infoString appendFormat:@"%@: %@, %@\n", name, plist[@"CFBundleShortVersionString"], plist[@"CFBundleVersion"]];
+			[infoString appendFormat:@"%@: %@, %@\n", name, [plist objectForKey:@"CFBundleShortVersionString"], plist[@"CFBundleVersion"]];
 		}
 	}
 	
