@@ -340,7 +340,7 @@ NSMutableDictionary *tools;
 	NSDictionary *systemPlist = [NSDictionary dictionaryWithContentsOfFile:@"/System/Library/CoreServices/SystemVersion.plist"];
 	
 	
-	[infoString appendFormat:@"Mac OS X: %@ (%@)\n", [systemPlist objectForKey:@"ProductVersion"] , systemPlist[@"ProductBuildVersion"]];
+	[infoString appendFormat:@"Mac OS X: %@ (%@)\n", [systemPlist objectForKey:@"ProductVersion"] , [systemPlist objectForKey:@"ProductBuildVersion"]];
 	
 	
 	for (NSString *tool in tools) {
@@ -351,7 +351,7 @@ NSMutableDictionary *tools;
 		if (!plist) {
 			[infoString appendFormat:@"%@: -\n", name];
 		} else {
-			[infoString appendFormat:@"%@: %@, %@\n", name, [plist objectForKey:@"CFBundleShortVersionString"], plist[@"CFBundleVersion"]];
+			[infoString appendFormat:@"%@: %@, %@\n", name, [plist objectForKey:@"CFBundleShortVersionString"], [plist objectForKey:@"CFBundleVersion"]];
 		}
 	}
 	
