@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3006E02019D1C7D300D819D3 /* Sparkle.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3056D0D1172D31B500CFC0FA /* Sparkle.framework */; };
 		300DD0F21853AEE60057B05F /* How to get the source code in Resources */ = {isa = PBXBuildFile; fileRef = 300DD0F11853AEE60057B05F /* How to get the source code */; };
 		3016A62C17522E0F00701881 /* gpgservices.png in Resources */ = {isa = PBXBuildFile; fileRef = 3016A62B17522E0F00701881 /* gpgservices.png */; };
 		3016A62E1752300E00701881 /* GPGTools.iconset in Resources */ = {isa = PBXBuildFile; fileRef = 3016A62D1752300E00701881 /* GPGTools.iconset */; };
@@ -139,6 +140,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				30B455FF172D7BB500A04D4A /* Libmacgpg.framework in Frameworks */,
+				3006E02019D1C7D300D819D3 /* Sparkle.framework in Frameworks */,
 				3056D0D0172D319400CFC0FA /* Security.framework in Frameworks */,
 				3056D055172D2EEA00CFC0FA /* Cocoa.framework in Frameworks */,
 				3056D057172D2EEA00CFC0FA /* PreferencePanes.framework in Frameworks */,
