@@ -36,7 +36,7 @@ NSMutableDictionary *tools;
 	NSDictionary *toolInfos = @{
 		@"macgpg2":		@{NKEY: @"MacGPG2",				DKEY: @"org.gpgtools.macgpg2.updater",		PKEY: @"/usr/local/MacGPG2/libexec/MacGPG2_Updater.app"},
 		@"gpgservices":	@{NKEY: @"GPGServices",			DKEY: @"org.gpgtools.gpgservices",			PKEY: @[@"~/Library/Services/GPGServices.service", @"/Library/Services/GPGServices.service"]},
-		@"gka":			@{NKEY: @"GPG Keychain Access",	DKEY: @"org.gpgtools.gpgkeychainaccess",	IKEY: @"org.gpgtools.gpgkeychainaccess"},
+		@"gka":			@{NKEY: @"GPG Keychain",	DKEY: @"org.gpgtools.gpgkeychain",	IKEY: @"org.gpgtools.gpgkeychain"},
 		@"gpgprefs":	@{NKEY: @"GPGPreferences",		DKEY: @"org.gpgtools.gpgpreferences",		PKEY: @[@"~/Library/PreferencePanes/GPGPreferences.prefPane", @"/Library/PreferencePanes/GPGPreferences.prefPane"]},
 		@"gpgmail":		@{NKEY: @"GPGMail",				DKEY: @[@"../Containers/com.apple.mail/Data/Library/Preferences/org.gpgtools.gpgmail", @"org.gpgtools.gpgmail"], PKEY: @[@"/Network/Library/Mail/Bundles/GPGMail.mailbundle", @"~/Library/Mail/Bundles/GPGMail.mailbundle", @"/Library/Mail/Bundles/GPGMail.mailbundle"]}
 	};
@@ -308,7 +308,7 @@ NSMutableDictionary *tools;
 	} else if ([tool isEqualToString:@"gpgmail"]) {
 		[NSTask launchedTaskWithLaunchPath:@"/Library/Application Support/GPGTools/GPGMail_Updater.app/Contents/MacOS/GPGMail_Updater" arguments:@[@"checkNow"]];
 	} else if ([tool isEqualToString:@"gka"]) {
-		NSAppleScript *script = [[NSAppleScript alloc] initWithSource:@"tell application \"GPG Keychain Access\"\ncheck for updates\nactivate\nend tell"];
+		NSAppleScript *script = [[NSAppleScript alloc] initWithSource:@"tell application \"GPG Keychain\"\ncheck for updates\nactivate\nend tell"];
 		[script executeAndReturnError:nil];
 	} else if ([tool isEqualToString:@"gpgservices"]) {
 		NSString *path = [[tools objectForKey:tool] objectForKey:PKEY];
