@@ -358,7 +358,7 @@
                                             <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" image="gpgprefs" id="762"/>
                                         </imageView>
                                         <textField verticalHuggingPriority="750" id="763">
-                                            <rect key="frame" x="70" y="306" width="56" height="17"/>
+                                            <rect key="frame" x="70" y="306" width="212" height="17"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                             <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="GPGMail" id="764">
                                                 <font key="font" metaFont="system"/>
@@ -370,7 +370,7 @@
                                             </connections>
                                         </textField>
                                         <textField verticalHuggingPriority="750" id="765">
-                                            <rect key="frame" x="70" y="244" width="138" height="17"/>
+                                            <rect key="frame" x="70" y="244" width="212" height="17"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                             <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="GPG Keychain" id="766">
                                                 <font key="font" metaFont="system"/>
@@ -382,7 +382,7 @@
                                             </connections>
                                         </textField>
                                         <textField verticalHuggingPriority="750" id="767">
-                                            <rect key="frame" x="70" y="182" width="81" height="17"/>
+                                            <rect key="frame" x="70" y="182" width="212" height="17"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                             <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="GPGServices" id="768">
                                                 <font key="font" metaFont="system"/>
@@ -394,7 +394,7 @@
                                             </connections>
                                         </textField>
                                         <textField verticalHuggingPriority="750" id="769">
-                                            <rect key="frame" x="70" y="120" width="64" height="17"/>
+                                            <rect key="frame" x="70" y="120" width="212" height="17"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                             <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="MacGPG2" id="770">
                                                 <font key="font" metaFont="system"/>
@@ -406,7 +406,7 @@
                                             </connections>
                                         </textField>
                                         <textField verticalHuggingPriority="750" id="771">
-                                            <rect key="frame" x="70" y="58" width="103" height="17"/>
+                                            <rect key="frame" x="70" y="58" width="212" height="17"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                             <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="GPGPreferences" id="772">
                                                 <font key="font" metaFont="system"/>
