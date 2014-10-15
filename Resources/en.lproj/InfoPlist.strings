@@ -1,5 +1,5 @@
 ﻿/* Localized versions of Info.plist keys */
 
-NSHumanReadableCopyright = "Copyright © 2011, GPGTools Project Team.";
+NSHumanReadableCopyright = "Copyright © 2014, GPGTools.";
 CFBundleName = "GPGPreferences";
 NSPrefPaneIconLabel = "GPGPreferences";
