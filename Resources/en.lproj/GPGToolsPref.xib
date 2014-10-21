@@ -940,17 +940,6 @@ GPGTools - it's worth protecting what you love</string>
                                                 <action selector="openKnowledgeBase:" target="243" id="1047"/>
                                             </connections>
                                         </button>
-                                        <button verticalHuggingPriority="750" id="541">
-                                            <rect key="frame" x="295" y="84" width="142" height="32"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                            <buttonCell key="cell" type="push" title="Donate" bezelStyle="rounded" alignment="center" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="552">
-                                                <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                                                <font key="font" metaFont="system"/>
-                                            </buttonCell>
-                                            <connections>
-                                                <action selector="openDonate:" target="243" id="556"/>
-                                            </connections>
-                                        </button>
                                         <button verticalHuggingPriority="750" id="542">
                                             <rect key="frame" x="153" y="84" width="142" height="32"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
