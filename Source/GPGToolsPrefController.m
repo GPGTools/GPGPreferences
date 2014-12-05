@@ -16,6 +16,7 @@
 static NSString * const kKeyserver = @"keyserver";
 static NSString * const kAutoKeyLocate = @"auto-key-locate";
 
+static NSUInteger const kDefaultPassphraseCacheTime = 600;
 
 @implementation GPGToolsPrefController
 @synthesize options;
@@ -59,7 +60,12 @@ static NSString * const kAutoKeyLocate = @"auto-key-locate";
 	[options setValueInGPGConf:filteredLines forKey:@"comment"];
 }
 
-
+- (void)setNilValueForKey:(NSString *)key {
+    if([key isEqualToString:@"passphraseCacheTime"]) {
+        [self setPassphraseCacheTime:kDefaultPassphraseCacheTime];
+        return;
+    }
+}
 
 + (NSSet *)keyPathsForValuesAffectingValueForKey:(NSString *)key {
 	NSSet *mySet = nil;
@@ -122,8 +128,8 @@ static NSString * const kAutoKeyLocate = @"auto-key-locate";
 - (NSInteger)passphraseCacheTime {
 	NSNumber *value = [options valueForKey:@"PassphraseCacheTime"];
 	if (!value) {
-		[self setPassphraseCacheTime:600];
-		return 600;
+		[self setPassphraseCacheTime:kDefaultPassphraseCacheTime];
+		return kDefaultPassphraseCacheTime;
 	}
 	return [value integerValue];
 }
