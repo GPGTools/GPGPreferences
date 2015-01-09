@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="6254" systemVersion="13F34" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none">
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="6254" systemVersion="14B25" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none">
     <dependencies>
         <deployment version="1060" identifier="macosx"/>
         <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="6254"/>
@@ -75,13 +75,13 @@
                                                 </menu>
                                             </popUpButtonCell>
                                             <connections>
+                                                <binding destination="243" name="selectedIndex" keyPath="indexOfSelectedSecretKey" previousBinding="yE2-jx-Sue" id="rV1-oI-zAl"/>
                                                 <binding destination="243" name="content" keyPath="secretKeyDescriptions" id="yE2-jx-Sue">
                                                     <dictionary key="options">
                                                         <bool key="NSInsertsNullPlaceholder" value="YES"/>
                                                         <string key="NSNullPlaceholder">Select a key...</string>
                                                     </dictionary>
                                                 </binding>
-                                                <binding destination="243" name="selectedIndex" keyPath="indexOfSelectedSecretKey" previousBinding="yE2-jx-Sue" id="rV1-oI-zAl"/>
                                             </connections>
                                         </popUpButton>
                                         <button id="561">
@@ -934,7 +934,7 @@ GPGTools - it's worth protecting what you love</string>
                                             <font key="titleFont" metaFont="system"/>
                                         </box>
                                         <button verticalHuggingPriority="750" id="540">
-                                            <rect key="frame" x="9" y="84" width="142" height="32"/>
+                                            <rect key="frame" x="11" y="100" width="142" height="32"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                             <buttonCell key="cell" type="push" title="Knowledge Base" bezelStyle="rounded" alignment="center" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="553">
                                                 <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
@@ -944,15 +944,6 @@ GPGTools - it's worth protecting what you love</string>
                                                 <action selector="openKnowledgeBase:" target="243" id="1047"/>
                                             </connections>
                                         </button>
-                                        <textField verticalHuggingPriority="750" id="543">
-                                            <rect key="frame" x="14" y="120" width="417" height="17"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                            <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" state="on" title="In case you run into trouble or need help, please visit our" id="550">
-                                                <font key="font" metaFont="system"/>
-                                                <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
-                                                <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
-                                            </textFieldCell>
-                                        </textField>
                                         <textField verticalHuggingPriority="750" id="1041">
                                             <rect key="frame" x="14" y="26" width="247" height="14"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -978,7 +969,7 @@ GPGTools - it's worth protecting what you love</string>
                                             </connections>
                                         </textField>
                                         <button verticalHuggingPriority="750" id="542">
-                                            <rect key="frame" x="157" y="84" width="142" height="32"/>
+                                            <rect key="frame" x="164" y="100" width="142" height="32"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                             <buttonCell key="cell" type="push" title="Support" bezelStyle="rounded" alignment="center" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="551">
                                                 <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
@@ -1003,7 +994,7 @@ GPGTools - it's worth protecting what you love</string>
     </objects>
     <resources>
         <image name="GPGTools+Text" width="512" height="640"/>
-        <image name="NSRemoveTemplate" width="8" height="8"/>
+        <image name="NSRemoveTemplate" width="11" height="11"/>
         <image name="gka" width="512" height="512"/>
         <image name="gpgmail" width="512" height="512"/>
         <image name="gpgprefs" width="512" height="512"/>
