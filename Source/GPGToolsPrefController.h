@@ -11,11 +11,14 @@
 #import <Libmacgpg/Libmacgpg.h>
 
 
-@interface GPGToolsPrefController : NSObject {
+@interface GPGToolsPrefController : NSObject <GPGControllerDelegate> {
+	IBOutlet NSProgressIndicator *spinner;
 	NSBundle *myBundle;
 	NSArray *secretKeys;
 	NSLock *secretKeysLock;
 	GPGOptions *options;
+	NSString *keyserverToCheck;
+	GPGController *gpgc;
 }
 
 @property (readonly) NSBundle *myBundle;
@@ -27,6 +30,7 @@
 @property (readonly) GPGOptions *options;
 @property (readonly) NSString *bundleVersion, *version, *buildNumberDescription, *versionDescription;
 @property BOOL autoKeyRetrive;
+@property (readonly) BOOL testingServer;
 
 
 // Get a list of keyservers from GPGOptions
@@ -34,6 +38,9 @@
 
 // To set keyserver and also coordinate auto-key-locate
 @property (assign) NSString *keyserver;
+
+// Test the keyserver, and set it as default.
+- (IBAction)testKeyserver:(id)sender;
 
 /* Open FAQ */
 - (IBAction)openKnowledgeBase:(id)pId;

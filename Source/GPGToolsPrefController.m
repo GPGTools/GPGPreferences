@@ -18,8 +18,14 @@ static NSString * const kAutoKeyLocate = @"auto-key-locate";
 
 static NSUInteger const kDefaultPassphraseCacheTime = 600;
 
+@interface GPGToolsPrefController ()
+@property (readwrite) BOOL testingServer;
+@end
+
+
+
 @implementation GPGToolsPrefController
-@synthesize options;
+@synthesize options, testingServer;
 
 - (id)init {
 	if (!(self = [super init])) {
@@ -272,10 +278,63 @@ static NSUInteger const kDefaultPassphraseCacheTime = 600;
 }
 
 - (NSString *)keyserver {
-    return [options valueForKey:kKeyserver];
+    return keyserverToCheck ? [[keyserverToCheck retain] autorelease] : [options valueForKey:kKeyserver];
+}
+- (void)setKeyserver:(NSString *)value {
+	if (value != keyserverToCheck) {
+		NSString *oldValue = keyserverToCheck;
+		keyserverToCheck = [value retain];
+		[oldValue release];
+	}
 }
 
-- (void)setKeyserver:(NSString *)keyserver {
+- (IBAction)testKeyserver:(id)sender {
+	if (self.testingServer) {
+		[gpgc cancel];
+	}
+	
+	// We can't use options.keyserver anymore, since setting this value
+	// will update gpg.conf which doesn't make sense if the keyserver can't be used.
+	gpgc = [GPGController gpgController];
+	gpgc.keyserver = keyserverToCheck;
+	gpgc.async = YES;
+	gpgc.delegate = self;
+	gpgc.keyserverTimeout = 3;
+	gpgc.timeout = 3;
+	[spinner startAnimation:nil];
+	self.testingServer = YES;
+	
+	[gpgc testKeyserver];
+}
+
+
+
+
+- (void)gpgController:(GPGController *)gc operationDidFinishWithReturnValue:(id)value {
+	// Result of the keyserer test.
+	self.testingServer = NO;
+	
+	if (![value boolValue]) {
+		[self.options removeKeyserver:gc.keyserver];
+		
+		dispatch_async(dispatch_get_main_queue(), ^{
+			NSRunAlertPanel([self.myBundle localizedStringForKey:@"BadKeyserver_Title" value:nil table:nil], @"%@", nil,
+							nil, nil, [self.myBundle localizedStringForKey:@"BadKeyserver_Msg" value:nil table:nil]);
+		});
+		
+	}
+	else {
+		// The server passed the check.
+		// Set it as default keyserver.
+		options.keyserver = gc.keyserver;
+	}
+}
+
+
+
+
+
+- (void)setKeyserver2:(NSString *)keyserver {
     [options setValue:keyserver forKey:kKeyserver];
     
     NSArray *autoklOptions = [options valueForKey:kAutoKeyLocate];

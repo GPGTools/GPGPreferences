@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="6254" systemVersion="14B25" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none">
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="5056" systemVersion="13E28" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none">
     <dependencies>
-        <deployment version="1060" identifier="macosx"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="6254"/>
+        <deployment version="1060" defaultVersion="1060" identifier="macosx"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="5056"/>
     </dependencies>
     <objects>
         <customObject id="-2" userLabel="File's Owner" customClass="NSPreferencePane">
@@ -30,6 +30,7 @@
                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                             <subviews>
                                 <ruleEditor verticalHuggingPriority="750" nestingMode="compound" canRemoveAllRows="YES" rowHeight="25" id="140">
+                                    <rect key="frame" x="0.0" y="0.0" width="628" height="51"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 </ruleEditor>
                             </subviews>
@@ -53,6 +54,17 @@
                                     <rect key="frame" x="10" y="33" width="636" height="326"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
+                                        <progressIndicator horizontalHuggingPriority="750" verticalHuggingPriority="750" maxValue="100" bezeled="NO" indeterminate="YES" controlSize="small" style="spinning" id="yH5-BR-TTA">
+                                            <rect key="frame" x="574" y="192" width="16" height="16"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMinY="YES"/>
+                                            <connections>
+                                                <binding destination="243" name="hidden" keyPath="testingServer" id="8Fl-hq-feu">
+                                                    <dictionary key="options">
+                                                        <string key="NSValueTransformerName">NSNegateBoolean</string>
+                                                    </dictionary>
+                                                </binding>
+                                            </connections>
+                                        </progressIndicator>
                                         <textField verticalHuggingPriority="750" id="559">
                                             <rect key="frame" x="14" y="279" width="81" height="17"/>
                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
@@ -63,7 +75,7 @@
                                             </textFieldCell>
                                         </textField>
                                         <popUpButton verticalHuggingPriority="750" id="560">
-                                            <rect key="frame" x="97" y="273" width="499" height="26"/>
+                                            <rect key="frame" x="97" y="273" width="478" height="26"/>
                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                                             <popUpButtonCell key="cell" type="push" title="Item 1" bezelStyle="rounded" alignment="left" lineBreakMode="truncatingTail" state="on" borderStyle="borderAndBezel" imageScaling="proportionallyDown" inset="2" selectedItem="578" id="576">
                                                 <behavior key="behavior" lightByBackground="YES" lightByGray="YES"/>
@@ -143,14 +155,15 @@
                                             </textFieldCell>
                                         </textField>
                                         <comboBox verticalHuggingPriority="750" id="566">
-                                            <rect key="frame" x="93" y="186" width="500" height="26"/>
+                                            <rect key="frame" x="93" y="186" width="476" height="26"/>
                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
-                                            <comboBoxCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" borderStyle="bezel" drawsBackground="YES" completes="NO" numberOfVisibleItems="5" id="569">
+                                            <comboBoxCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" borderStyle="bezel" drawsBackground="YES" usesSingleLineMode="YES" completes="NO" numberOfVisibleItems="5" id="569">
                                                 <font key="font" metaFont="system"/>
                                                 <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                                                 <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                             </comboBoxCell>
                                             <connections>
+                                                <action selector="testKeyserver:" target="243" id="Iav-Wi-Ydp"/>
                                                 <binding destination="243" name="value" keyPath="keyserver" previousBinding="687" id="689"/>
                                                 <binding destination="243" name="content" keyPath="keyservers" id="687"/>
                                             </connections>
@@ -987,14 +1000,18 @@ GPGTools - it's worth protecting what you love</string>
                 </subviews>
             </view>
         </window>
-        <customObject id="243" userLabel="GPGTools Pref Controller" customClass="GPGToolsPrefController"/>
+        <customObject id="243" userLabel="GPGTools Pref Controller" customClass="GPGToolsPrefController">
+            <connections>
+                <outlet property="spinner" destination="yH5-BR-TTA" id="21C-Rf-p9c"/>
+            </connections>
+        </customObject>
         <customObject id="718" userLabel="UpdateController" customClass="UpdateController"/>
         <userDefaultsController id="681"/>
         <userDefaultsController representsSharedInstance="YES" id="yOL-kx-BFK"/>
     </objects>
     <resources>
         <image name="GPGTools+Text" width="512" height="640"/>
-        <image name="NSRemoveTemplate" width="11" height="11"/>
+        <image name="NSRemoveTemplate" width="8" height="8"/>
         <image name="gka" width="512" height="512"/>
         <image name="gpgmail" width="512" height="512"/>
         <image name="gpgprefs" width="512" height="512"/>
