@@ -7,3 +7,13 @@
 /* Bad keyserver */
 BadKeyserver_Title = "Bad Keyserver";
 BadKeyserver_Msg = "The Keyserver you have entered is not working.\nPlease check the Keyserver address. It should look something like: hkp://some.key.server.org\n\nThe Keyserver could also be offline. In that case, please use another Keyserver.";
+
+
+UpdateCheckFailed_Title = "Update check failed!";
+UpdateCheckFailed_Msg = "Please reinstall GPG Suite from https://gpgtools.org.";
+
+
+NoUpdatesGM106_Title = "No Updates!";
+NoUpdatesGM106_Msg = "There are no Updates for GPGMail on Mac OS X 10.6";
+
+
