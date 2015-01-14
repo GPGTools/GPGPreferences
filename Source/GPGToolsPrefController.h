@@ -19,6 +19,7 @@
 	GPGOptions *options;
 	NSString *keyserverToCheck;
 	GPGController *gpgc;
+	BOOL testingServer;
 }
 
 @property (readonly) NSBundle *myBundle;
