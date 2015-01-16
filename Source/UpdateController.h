@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import <Sparkle/Sparkle.h>
-
+#import "GPGToolsPref.h"
 
 @interface UpdateController : NSObject {
 	SUUpdater *updater;

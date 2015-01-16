@@ -14,8 +14,6 @@
 #define GPG_SERVICE_NAME "GnuPG"
 
 static NSString * const kKeyserver = @"keyserver";
-static NSString * const kAutoKeyLocate = @"auto-key-locate";
-
 static NSUInteger const kDefaultPassphraseCacheTime = 600;
 
 @interface GPGToolsPrefController ()
@@ -307,9 +305,6 @@ static NSUInteger const kDefaultPassphraseCacheTime = 600;
 	[gpgc testKeyserver];
 }
 
-
-
-
 - (void)gpgController:(GPGController *)gc operationDidFinishWithReturnValue:(id)value {
 	// Result of the keyserer test.
 	self.testingServer = NO;
@@ -318,8 +313,7 @@ static NSUInteger const kDefaultPassphraseCacheTime = 600;
 		[self.options removeKeyserver:gc.keyserver];
 		
 		dispatch_async(dispatch_get_main_queue(), ^{
-			NSRunAlertPanel([self.myBundle localizedStringForKey:@"BadKeyserver_Title" value:nil table:nil], @"%@", nil,
-							nil, nil, [self.myBundle localizedStringForKey:@"BadKeyserver_Msg" value:nil table:nil]);
+			WarningPanel(localized(@"BadKeyserver_Title"), localized(@"BadKeyserver_Msg"));
 		});
 		
 	}
@@ -330,22 +324,6 @@ static NSUInteger const kDefaultPassphraseCacheTime = 600;
 	}
 }
 
-
-
-
-
-- (void)setKeyserver2:(NSString *)keyserver {
-    [options setValue:keyserver forKey:kKeyserver];
-    
-    NSArray *autoklOptions = [options valueForKey:kAutoKeyLocate];
-    if (!autoklOptions || ![autoklOptions containsObject:kKeyserver]) {
-        NSMutableArray *newOptions = [NSMutableArray array];
-        if (autoklOptions)
-            [newOptions addObjectsFromArray:autoklOptions];
-        [newOptions insertObject:kKeyserver atIndex:0];
-        [options setValue:newOptions forKey:kAutoKeyLocate];
-    }
-}
 
 + (NSSet *)keyPathsForValuesAffectingKeyservers {
 	return [NSSet setWithObject:@"options.keyservers"];

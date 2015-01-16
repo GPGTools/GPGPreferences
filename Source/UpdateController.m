@@ -25,8 +25,6 @@ NSMutableDictionary *tools;
  */
 
 
-#define localized(string) [self.bundle localizedStringForKey:string value:nil table:nil]
-
 
 // Init, alloc etc.
 + (void)initialize {
@@ -313,11 +311,11 @@ NSMutableDictionary *tools;
 				[NSTask launchedTaskWithLaunchPath:@"/Library/Application Support/GPGTools/GPGMail_Updater.app/Contents/MacOS/GPGMail_Updater" arguments:@[@"checkNow"]];
 			}
 			@catch (NSException *exception) {
-				NSRunAlertPanel(localized(@"UpdateCheckFailed_Title"), @"%@", nil, nil, nil, localized(@"UpdateCheckFailed_Msg"));
+				WarningPanel(localized(@"UpdateCheckFailed_Title"), localized(@"UpdateCheckFailed_Msg"));
 			}
 		} else {
 			/* Mac OS X 10.6 */
-			NSRunAlertPanel(localized(@"NoUpdatesGM106_Title"), @"%@", nil, nil, nil, localized(@"NoUpdatesGM106_Msg"));
+			WarningPanel(localized(@"NoUpdatesGM106_Title"), localized(@"NoUpdatesGM106_Msg"));
 		}
 	} else if ([tool isEqualToString:@"gka"]) {
 		NSAppleScript *script = [[NSAppleScript alloc] initWithSource:@"tell application \"GPG Keychain\"\ncheck for updates\nactivate\nend tell"];

@@ -9,7 +9,7 @@
 
 #import <Cocoa/Cocoa.h>
 #import <Libmacgpg/Libmacgpg.h>
-
+#import "GPGToolsPref.h"
 
 @interface GPGToolsPrefController : NSObject <GPGControllerDelegate> {
 	IBOutlet NSProgressIndicator *spinner;
