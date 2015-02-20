@@ -10,11 +10,11 @@ The latest releases of GPGPreferences can be found on our [official website](htt
 
 For the latest news and updates check our [Twitter](https://twitter.com/gpgtools).
 
-Visit our [support page](http://support.gpgtools.org) if you have questions or need help setting up your system and using GPGPreferences.
+Visit our [support page](https://gpgtools.tenderapp.com) if you have questions or need help setting up your system and using GPGPreferences.
 
 Prerequisites
 -------------
-In order to use GPGPreferences you need to have GnuPG installed. You can either build your own version, use one from homebrew or find a packaged version for OS X at gpgtools.org
+In order to use GPGPreferences you need to have GnuPG installed. You can either build your own version, use one from [homebrew](http://brew.sh) or find a packaged version for OS X at [gpgtools.org](https://gpgtools.org)
 
 Build
 -----
