@@ -12,36 +12,37 @@ For the latest news and updates check our [Twitter](https://twitter.com/gpgtools
 
 Visit our [support page](http://support.gpgtools.org) if you have questions or need help setting up your system and using GPGPreferences.
 
+Prerequisites
+-------------
+In order to use GPGPreferences you need to have GnuPG installed. You can either build your own version, use one from homebrew or find a packaged version for OS X at gpgtools.org
 
 Build
 -----
 
-### Clone the repository
+#### Clone the repository
 ```bash
 git clone https://github.com/GPGTools/GPGPreferences.git
 cd GPGPreferences
 ```
 
-### Build
+#### Grab Dependencies
+In order to communicate with GnuPG we use our own Objective-C framework called Libmacgpg. It's necessary to clone the Libmacgpg repository first, before building GPGPreferences.
+
+```bash
+cd Dependencies
+git clone --recursive https://github.com/GPGTools/Libmacgpg.git
+cd ..
+```
+
+#### Build
 ```bash
 make
 ```
 
-### Install
-To copy GPGPreferences into the PreferencePanes folder.
-```bash
-make install
-```
+#### Install
+Copy Libmacgpg.framework from Dependencies/Libmacgpg/build/Release/ to ~/Library/Frameworks.
 
-### More build commands
-```bash
-make help
-```
-
-Don't forget to install [MacGPG2](https://github.com/GPGTools/MacGPG2)
-and [Libmacgpg](https://github.com/GPGTools/Libmacgpg).  
-Enjoy your custom GPGPreferences.
-
+After that copy the GPGPreferences.prefPane file from build/Release/GPGPreferences.prefPane to ~/Library/PreferencePanes/, re-start System Preferences and enjoy.
 
 System Requirements
 -------------------
