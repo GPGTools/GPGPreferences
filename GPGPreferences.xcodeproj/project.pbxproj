@@ -304,7 +304,7 @@
 				3056D04E172D2EEA00CFC0FA /* Resources */,
 				3056D0D3172D320800CFC0FA /* Copy Frameworks */,
 				3056D0DA172D330100CFC0FA /* Fill Info.plist */,
-				1B49BC681A978529000440E9 /* ShellScript */,
+				1B49BC681A978529000440E9 /* Copy "How to get the source code" into Resources */,
 			);
 			buildRules = (
 			);
@@ -415,18 +415,20 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		1B49BC681A978529000440E9 /* ShellScript */ = {
+		1B49BC681A978529000440E9 /* Copy "How to get the source code" into Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
+			name = "Copy \"How to get the source code\" into Resources";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "HOWTO_PATH=\"./Dependencies/GPGTools_Core/resources/How to get the source code\"\n[[ -f \"$HOWTO_PATH\" ]] || exit 0\n\ncp -R \"$HOWTO_PATH\" \"$BUILT_PRODUCTS_DIR/GPGPreferences.prefPane/Contents/Resources/\"";
+			shellScript = "HOWTO_PATH=\"./Dependencies/GPGTools_Core/resources/How to get the source code\"\n[[ -f \"$HOWTO_PATH\" ]] || exit 0\n\ncp \"$HOWTO_PATH\" \"$BUILT_PRODUCTS_DIR/$UNLOCALIZED_RESOURCES_FOLDER_PATH/\"";
+			showEnvVarsInLog = 0;
 		};
 		3056D0DA172D330100CFC0FA /* Fill Info.plist */ = {
 			isa = PBXShellScriptBuildPhase;
