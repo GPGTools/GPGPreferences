@@ -1,6 +1,6 @@
 PROJECT = GPGPreferences
 TARGET = GPGPreferences
-PRODUCT = GPGPreferences.prefPane/MacOS/GPGPreferences
+PRODUCT = GPGPreferences.prefPane/Contents/MacOS/GPGPreferences
 VPATH = build/Release
 LIBMACGPG_BUILD_PATH = ./Dependencies/Libmacgpg/build
 all: $(PRODUCT)
