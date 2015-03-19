@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="5056" systemVersion="13E28" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none">
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="6254" systemVersion="13E28" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none">
     <dependencies>
-        <deployment version="1060" defaultVersion="1060" identifier="macosx"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="5056"/>
+        <deployment version="1060" identifier="macosx"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="6254"/>
     </dependencies>
     <objects>
         <customObject id="-2" userLabel="File's Owner" customClass="NSPreferencePane">
@@ -30,7 +30,6 @@
                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                             <subviews>
                                 <ruleEditor verticalHuggingPriority="750" nestingMode="compound" canRemoveAllRows="YES" rowHeight="25" id="140">
-                                    <rect key="frame" x="0.0" y="0.0" width="628" height="51"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 </ruleEditor>
                             </subviews>
@@ -443,7 +442,6 @@
                                                             <modifierMask key="keyEquivalentModifierMask"/>
                                                         </menuItem>
                                                         <menuItem title="Weekly" tag="604800" id="777"/>
-                                                        <menuItem title="Monthly" tag="2629800" id="778"/>
                                                         <menuItem title="Never" id="779"/>
                                                     </items>
                                                 </menu>
@@ -502,7 +500,6 @@
                                                             <modifierMask key="keyEquivalentModifierMask"/>
                                                         </menuItem>
                                                         <menuItem title="Weekly" tag="604800" id="861"/>
-                                                        <menuItem title="Monthly" tag="2629800" id="860"/>
                                                         <menuItem title="Never" id="859"/>
                                                     </items>
                                                 </menu>
@@ -561,7 +558,6 @@
                                                             <modifierMask key="keyEquivalentModifierMask"/>
                                                         </menuItem>
                                                         <menuItem title="Weekly" tag="604800" id="879"/>
-                                                        <menuItem title="Monthly" tag="2629800" id="878"/>
                                                         <menuItem title="Never" id="877"/>
                                                     </items>
                                                 </menu>
@@ -620,7 +616,6 @@
                                                             <modifierMask key="keyEquivalentModifierMask"/>
                                                         </menuItem>
                                                         <menuItem title="Weekly" tag="604800" id="897"/>
-                                                        <menuItem title="Monthly" tag="2629800" id="896"/>
                                                         <menuItem title="Never" id="895"/>
                                                     </items>
                                                 </menu>
@@ -670,16 +665,15 @@
                                         <popUpButton verticalHuggingPriority="750" id="902">
                                             <rect key="frame" x="72" y="24" width="100" height="26"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                            <popUpButtonCell key="cell" type="push" title="Daily" bezelStyle="rounded" alignment="left" lineBreakMode="truncatingTail" state="on" borderStyle="borderAndBezel" tag="86400" imageScaling="proportionallyDown" inset="2" selectedItem="916" id="911">
+                                            <popUpButtonCell key="cell" type="push" title="Weekly" bezelStyle="rounded" alignment="left" lineBreakMode="truncatingTail" state="on" borderStyle="borderAndBezel" tag="604800" imageScaling="proportionallyDown" inset="2" selectedItem="915" id="911">
                                                 <behavior key="behavior" lightByBackground="YES" lightByGray="YES"/>
                                                 <font key="font" metaFont="menu"/>
                                                 <menu key="menu" title="OtherViews" id="912">
                                                     <items>
-                                                        <menuItem title="Daily" state="on" tag="86400" id="916">
+                                                        <menuItem title="Daily" tag="86400" id="916">
                                                             <modifierMask key="keyEquivalentModifierMask"/>
                                                         </menuItem>
-                                                        <menuItem title="Weekly" tag="604800" id="915"/>
-                                                        <menuItem title="Monthly" tag="2629800" id="914"/>
+                                                        <menuItem title="Weekly" state="on" tag="604800" id="915"/>
                                                         <menuItem title="Never" id="913"/>
                                                     </items>
                                                 </menu>

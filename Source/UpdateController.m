@@ -152,7 +152,13 @@ NSMutableDictionary *tools;
 		
 		if ([value respondsToSelector:@selector(boolValue)] && [value boolValue]) {
 			value = [self defaultsValueForKey:@"SUScheduledCheckInterval" forTool:tool];
-			return value ? value : [NSNumber numberWithInteger:86400];
+			NSInteger number = value ? [value integerValue] : 86400;
+			if (number != 0 && number != 86400 && number != 604800) {
+				// Only allow Never, Daily and Weekly.
+				value = [NSNumber numberWithInteger:86400];
+				[options setValueInStandardDefaults:value forKey:@"SUScheduledCheckInterval"];
+			}
+			return value;
 		}
 		
 		return [NSNumber numberWithInteger:0];
