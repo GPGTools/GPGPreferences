@@ -32,13 +32,33 @@ NSMutableDictionary *tools;
 #define PKEY @"path"
 #define IKEY @"identifier"
 #define NKEY @"toolname"
+#define LKEY @"plist"
 	
 	NSDictionary *toolInfos = @{
-		@"macgpg2":		@{NKEY: @"MacGPG2",				DKEY: @"org.gpgtools.macgpg2.updater",		PKEY: @"/usr/local/MacGPG2/libexec/MacGPG2_Updater.app"},
-		@"gpgservices":	@{NKEY: @"GPGServices",			DKEY: @"org.gpgtools.gpgservices",			PKEY: @[@"~/Library/Services/GPGServices.service", @"/Library/Services/GPGServices.service"]},
-		@"gka":			@{NKEY: @"GPG Keychain",	DKEY: @"org.gpgtools.gpgkeychain",	IKEY: @"org.gpgtools.gpgkeychain"},
-		@"gpgprefs":	@{NKEY: @"GPGPreferences",		DKEY: @"org.gpgtools.gpgpreferences",		PKEY: @[@"~/Library/PreferencePanes/GPGPreferences.prefPane", @"/Library/PreferencePanes/GPGPreferences.prefPane"]},
-		@"gpgmail":		@{NKEY: @"GPGMail",				DKEY: @[@"../Containers/com.apple.mail/Data/Library/Preferences/org.gpgtools.gpgmail", @"org.gpgtools.gpgmail"], PKEY: @[@"/Network/Library/Mail/Bundles/GPGMail.mailbundle", @"~/Library/Mail/Bundles/GPGMail.mailbundle", @"/Library/Mail/Bundles/GPGMail.mailbundle"]}
+		@"macgpg2":		@{NKEY: @"MacGPG2",
+						  DKEY: @"org.gpgtools.macgpg2.updater",
+						  PKEY: @"/usr/local/MacGPG2/libexec/MacGPG2_Updater.app"},
+		
+		@"gpgservices":	@{NKEY: @"GPGServices",
+						  DKEY: @"org.gpgtools.gpgservices",
+						  PKEY: @[@"~/Library/Services/GPGServices.service", @"/Library/Services/GPGServices.service"]},
+		
+		@"gka":			@{NKEY: @"GPG Keychain",
+						  DKEY: @"org.gpgtools.gpgkeychain",
+						  IKEY: @"org.gpgtools.gpgkeychain"},
+		
+		@"gpgprefs":	@{NKEY: @"GPGPreferences",
+						  DKEY: @"org.gpgtools.gpgpreferences",
+						  PKEY: @[@"~/Library/PreferencePanes/GPGPreferences.prefPane", @"/Library/PreferencePanes/GPGPreferences.prefPane"]},
+		
+		@"gpgmail":		@{NKEY: @"GPGMail",
+						  DKEY: @[@"../Containers/com.apple.mail/Data/Library/Preferences/org.gpgtools.gpgmail", @"org.gpgtools.gpgmail"],
+						  PKEY: @[@"/Network/Library/Mail/Bundles/GPGMail.mailbundle", @"~/Library/Mail/Bundles/GPGMail.mailbundle", @"/Library/Mail/Bundles/GPGMail.mailbundle"]},
+		
+		@"libmacgpg":	@{NKEY: @"Libmacgpg",
+						  DKEY: @"org.gpgtools.libmacgpg",
+						  PKEY: @[@"~/Library/Frameworks/Libmacgpg.framework", @"/Library/Frameworks/Libmacgpg.framework"],
+						  LKEY: @"Resources/Info.plist"}
 	};
 	
 	tools = [[NSMutableDictionary alloc] initWithCapacity:[toolInfos count]];
@@ -92,7 +112,11 @@ NSMutableDictionary *tools;
 		
 		for (NSString *path in paths) {
 			path = [path stringByExpandingTildeInPath];
-			NSString *plistPath = [path stringByAppendingPathComponent:@"Contents/Info.plist"];
+			NSString *plistPath = [toolInfo objectForKey:LKEY];
+			if (!plistPath) {
+				plistPath = @"Contents/Info.plist";
+			}
+			plistPath = [path stringByAppendingPathComponent:plistPath];
 			if ([fileManager fileExistsAtPath:plistPath]) {
 				[toolDict setObject:path forKey:@"path"];
 				[toolDict setObject:[NSDictionary dictionaryWithContentsOfFile:plistPath] forKey:@"infoPlist"];
@@ -346,7 +370,9 @@ NSMutableDictionary *tools;
 	[infoString appendFormat:@"Mac OS X: %@ (%@)\n", [systemPlist objectForKey:@"ProductVersion"] , [systemPlist objectForKey:@"ProductBuildVersion"]];
 	
 	
-	for (NSString *tool in tools) {
+	NSArray *toolKeys = @[@"libmacgpg", @"gpgmail", @"gka", @"gpgservices", @"macgpg2", @"gpgprefs"];
+	
+	for (NSString *tool in toolKeys) {
 		NSDictionary *toolInfo = [tools objectForKey:tool];
 		NSDictionary *plist = [toolInfo objectForKey:@"infoPlist"];
 		NSString *name = [toolInfo objectForKey:NKEY];
