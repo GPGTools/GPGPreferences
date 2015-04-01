@@ -14,6 +14,17 @@
 @property (assign) NSBundle *bundle;
 @end
 
+@interface NSString (PadWithTabs)
+- (NSString *)stringByPaddingToTab:(NSUInteger)tab;
+@end
+@implementation NSString (PadWithTabs)
+- (NSString *)stringByPaddingToTab:(NSUInteger)tab {
+	NSUInteger length = self.length;
+	return [self stringByPaddingToLength:length + tab - (length / 4) withString:@"\t" startingAtIndex:0];
+}
+@end
+
+
 
 @implementation UpdateController
 @synthesize updater, bundle;
@@ -367,7 +378,7 @@ NSMutableDictionary *tools;
 	NSDictionary *systemPlist = [NSDictionary dictionaryWithContentsOfFile:@"/System/Library/CoreServices/SystemVersion.plist"];
 	
 	
-	[infoString appendFormat:@"Mac OS X: %@ (%@)\n", [systemPlist objectForKey:@"ProductVersion"] , [systemPlist objectForKey:@"ProductBuildVersion"]];
+	[infoString appendFormat:@"Mac OS X\t\t%@\t\t\t\t(%@)\n", [systemPlist objectForKey:@"ProductVersion"] , [systemPlist objectForKey:@"ProductBuildVersion"]];
 	
 	
 	NSArray *toolKeys = @[@"libmacgpg", @"gpgmail", @"gka", @"gpgservices", @"macgpg2", @"gpgprefs"];
@@ -376,11 +387,20 @@ NSMutableDictionary *tools;
 		NSDictionary *toolInfo = [tools objectForKey:tool];
 		NSDictionary *plist = [toolInfo objectForKey:@"infoPlist"];
 		NSString *name = [toolInfo objectForKey:NKEY];
-		
+
 		if (!plist) {
-			[infoString appendFormat:@"%@: -\n", name];
+			[infoString appendFormat:@"%@\t-\n", name];
 		} else {
-			[infoString appendFormat:@"%@: %@, %@\n", name, [plist objectForKey:@"CFBundleShortVersionString"], [plist objectForKey:@"CFBundleVersion"]];
+			NSArray *parts = [[plist objectForKey:@"CFBundleShortVersionString"] componentsSeparatedByString:@" "];
+			[infoString appendFormat:@"%@%@%@",
+			 [name stringByPaddingToTab:4],
+			 [[parts objectAtIndex:0] stringByPaddingToTab:3],
+			 [[plist objectForKey:@"CFBundleVersion"] stringByPaddingToTab:1]];
+
+			if (parts.count > 1) {
+				[infoString appendFormat:@"\t%@", [parts objectAtIndex:1]];
+			}
+			[infoString appendString:@"\n"];
 		}
 	}
 	
@@ -394,8 +414,6 @@ NSMutableDictionary *tools;
 
 
 @end
-
-
 
 
 
