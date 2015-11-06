@@ -189,7 +189,7 @@ NSMutableDictionary *tools;
 	if ([key isEqualToString:@"CheckInterval"]) {
 		id value = [self defaultsValueForKey:@"SUEnableAutomaticChecks" forTool:tool];
 		
-		if ([value respondsToSelector:@selector(boolValue)] && [value boolValue]) {
+		if (value == nil || ([value respondsToSelector:@selector(boolValue)] && [value boolValue])) {
 			value = [self defaultsValueForKey:@"SUScheduledCheckInterval" forTool:tool];
 			NSInteger number = value ? [value integerValue] : 86400;
 			if (number != 0 && number != 86400 && number != 604800) {
