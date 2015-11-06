@@ -69,7 +69,11 @@ NSMutableDictionary *tools;
 		@"libmacgpg":	@{NKEY: @"Libmacgpg",
 						  DKEY: @"org.gpgtools.libmacgpg",
 						  PKEY: @[@"~/Library/Frameworks/Libmacgpg.framework", @"/Library/Frameworks/Libmacgpg.framework"],
-						  LKEY: @"Resources/Info.plist"}
+						  LKEY: @"Resources/Info.plist"},
+		
+		@"pinentry":	@{NKEY: @"Pinentry",
+						  DKEY: @"org.gpgtools.pinentry-mac",
+						  PKEY: @[@"/usr/local/MacGPG2/libexec/pinentry-mac.app"]}
 	};
 	
 	tools = [[NSMutableDictionary alloc] initWithCapacity:[toolInfos count]];
@@ -381,7 +385,7 @@ NSMutableDictionary *tools;
 	[infoString appendFormat:@"Mac OS X\t\t%@\t\t\t\t(%@)\n", [systemPlist objectForKey:@"ProductVersion"] , [systemPlist objectForKey:@"ProductBuildVersion"]];
 	
 	
-	NSArray *toolKeys = @[@"libmacgpg", @"gpgmail", @"gka", @"gpgservices", @"macgpg2", @"gpgprefs"];
+	NSArray *toolKeys = @[@"libmacgpg", @"gpgmail", @"gka", @"gpgservices", @"macgpg2", @"gpgprefs", @"pinentry"];
 	
 	for (NSString *tool in toolKeys) {
 		NSDictionary *toolInfo = [tools objectForKey:tool];
