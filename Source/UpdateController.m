@@ -228,29 +228,37 @@ NSMutableDictionary *tools;
 	} else if ([key isEqualToString:@"Path"]) {
 		return [[tools objectForKey:tool] objectForKey:@"path"];
 	} else if ([key isEqualToString:@"versionDescription"]) {
+		NSString *name = [[tools objectForKey:tool] objectForKey:NKEY];
+
+		NSMutableAttributedString *attributedString = [[NSMutableAttributedString alloc] initWithString:name attributes:@{NSFontAttributeName: [NSFont systemFontOfSize:[NSFont systemFontSize]]}];
+		
 		NSDictionary *plist = [[tools objectForKey:tool] objectForKey:@"infoPlist"];
 		if (!plist) {
-			return nil;
+			return attributedString;
 		}
 		
-		NSString *version = [NSString stringWithFormat:[self.bundle localizedStringForKey:@"VERSION: %@" value:nil table:nil], [plist objectForKey:@"CFBundleShortVersionString"]];
-		NSString *build = [NSString stringWithFormat:[self.bundle localizedStringForKey:@"BUILD: %@" value:nil table:nil], [plist objectForKey:@"CFBundleVersion"]];
+		NSString *version = plist[@"CFBundleShortVersionString"];
+		NSString *build = plist[@"CFBundleVersion"];
 		
-		NSString *string = [NSString stringWithFormat:@"%@\t%@", version, build];
+		NSString *string = [NSString stringWithFormat:@"   %@ %@", version, build];
 		
 		
 		NSMutableParagraphStyle *paragraphStyle = [[NSMutableParagraphStyle alloc] init];
-		[paragraphStyle setTabStops:@[[[NSTextTab alloc] initWithType:NSLeftTabStopType location:150]]];
+		//[paragraphStyle setTabStops:@[[[NSTextTab alloc] initWithType:NSLeftTabStopType location:150]]];
 		
 		NSDictionary *attributes = @{NSFontAttributeName: [NSFont systemFontOfSize:[NSFont smallSystemFontSize]], NSParagraphStyleAttributeName: paragraphStyle};
 		
 		
-		NSMutableAttributedString *attributedString = [[NSMutableAttributedString alloc] initWithString:string attributes:attributes];
+		NSAttributedString *versionString =[[[NSAttributedString alloc] initWithString:string attributes:attributes] autorelease];
+		
+		[attributedString appendAttributedString:versionString];
+		
 		
 		NSUInteger stringLength = attributedString.length;
 		NSUInteger buildLength = build.length;
 		
 		[attributedString addAttribute:NSForegroundColorAttributeName value:[NSColor grayColor] range:NSMakeRange(stringLength - buildLength, buildLength)];
+		
 		
 
 		return attributedString;

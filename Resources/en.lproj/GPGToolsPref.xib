@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="6254" systemVersion="13E28" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none">
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="6751" systemVersion="13F34" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none">
     <dependencies>
         <deployment version="1060" identifier="macosx"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="6254"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="6751"/>
     </dependencies>
     <objects>
         <customObject id="-2" userLabel="File's Owner" customClass="NSPreferencePane">
@@ -53,28 +53,17 @@
                                     <rect key="frame" x="10" y="33" width="636" height="326"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
-                                        <progressIndicator horizontalHuggingPriority="750" verticalHuggingPriority="750" maxValue="100" bezeled="NO" indeterminate="YES" controlSize="small" style="spinning" id="yH5-BR-TTA">
-                                            <rect key="frame" x="574" y="192" width="16" height="16"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMinY="YES"/>
-                                            <connections>
-                                                <binding destination="243" name="hidden" keyPath="testingServer" id="8Fl-hq-feu">
-                                                    <dictionary key="options">
-                                                        <string key="NSValueTransformerName">NSNegateBoolean</string>
-                                                    </dictionary>
-                                                </binding>
-                                            </connections>
-                                        </progressIndicator>
-                                        <textField verticalHuggingPriority="750" id="559">
-                                            <rect key="frame" x="14" y="279" width="81" height="17"/>
+                                        <textField toolTip="This key is used as your default key in GPGServices." verticalHuggingPriority="750" id="559">
+                                            <rect key="frame" x="15" y="306" width="606" height="17"/>
                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
-                                            <textFieldCell key="cell" sendsActionOnEndEditing="YES" alignment="left" title="Default Key:" id="579">
-                                                <font key="font" metaFont="system"/>
+                                            <textFieldCell key="cell" sendsActionOnEndEditing="YES" alignment="left" title="Default Key" id="579">
+                                                <font key="font" metaFont="systemBold"/>
                                                 <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                                                 <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                             </textFieldCell>
                                         </textField>
-                                        <popUpButton verticalHuggingPriority="750" id="560">
-                                            <rect key="frame" x="97" y="273" width="478" height="26"/>
+                                        <popUpButton toolTip="This key is used as your default key in GPGServices." verticalHuggingPriority="750" id="560">
+                                            <rect key="frame" x="15" y="274" width="607" height="26"/>
                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                                             <popUpButtonCell key="cell" type="push" title="Item 1" bezelStyle="rounded" alignment="left" lineBreakMode="truncatingTail" state="on" borderStyle="borderAndBezel" imageScaling="proportionallyDown" inset="2" selectedItem="578" id="576">
                                                 <behavior key="behavior" lightByBackground="YES" lightByGray="YES"/>
@@ -86,37 +75,39 @@
                                                 </menu>
                                             </popUpButtonCell>
                                             <connections>
-                                                <binding destination="243" name="selectedIndex" keyPath="indexOfSelectedSecretKey" previousBinding="yE2-jx-Sue" id="rV1-oI-zAl"/>
-                                                <binding destination="243" name="content" keyPath="secretKeyDescriptions" id="yE2-jx-Sue">
+                                                <binding destination="243" name="enabled" keyPath="haveSecretKeys" id="e59-ti-iHG"/>
+                                                <binding destination="243" name="selectedIndex" keyPath="indexOfSelectedSecretKey" previousBinding="vRf-iC-NSj" id="NbV-Jh-zMV"/>
+                                                <binding destination="243" name="content" keyPath="secretKeyDescriptions" id="vRf-iC-NSj">
                                                     <dictionary key="options">
-                                                        <bool key="NSInsertsNullPlaceholder" value="YES"/>
                                                         <string key="NSNullPlaceholder">Select a key...</string>
                                                     </dictionary>
                                                 </binding>
+                                                <outlet property="nextKeyView" destination="561" id="5tv-lf-j0s"/>
                                             </connections>
                                         </popUpButton>
                                         <button id="561">
-                                            <rect key="frame" x="15" y="246" width="389" height="18"/>
+                                            <rect key="frame" x="15" y="216" width="389" height="18"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                            <buttonCell key="cell" type="check" title="Store passphrases in OS X Keychain by default" bezelStyle="regularSquare" imagePosition="left" alignment="left" state="on" inset="2" id="575">
+                                            <buttonCell key="cell" type="check" title="Store password in OS X Keychain by default" bezelStyle="regularSquare" imagePosition="left" alignment="left" state="on" inset="2" id="575">
                                                 <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                                                 <font key="font" metaFont="system"/>
                                             </buttonCell>
                                             <connections>
                                                 <binding destination="243" name="value" keyPath="options.UseKeychain" id="675"/>
+                                                <outlet property="nextKeyView" destination="604" id="ZMB-nh-jwH"/>
                                             </connections>
                                         </button>
                                         <textField verticalHuggingPriority="750" id="562">
-                                            <rect key="frame" x="14" y="220" width="181" height="17"/>
+                                            <rect key="frame" x="15" y="190" width="168" height="17"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                            <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Remember passphrases for:" id="574">
+                                            <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Remember passwords for:" id="574">
                                                 <font key="font" metaFont="system"/>
                                                 <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                                                 <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                             </textFieldCell>
                                         </textField>
                                         <textField verticalHuggingPriority="750" id="563">
-                                            <rect key="frame" x="268" y="220" width="56" height="17"/>
+                                            <rect key="frame" x="258" y="190" width="56" height="17"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                             <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="seconds" id="573">
                                                 <font key="font" metaFont="system"/>
@@ -125,7 +116,7 @@
                                             </textFieldCell>
                                         </textField>
                                         <textField verticalHuggingPriority="750" id="564">
-                                            <rect key="frame" x="200" y="218" width="63" height="22"/>
+                                            <rect key="frame" x="189" y="188" width="63" height="22"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                             <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" drawsBackground="YES" id="571">
                                                 <numberFormatter key="formatter" formatterBehavior="default10_4" positiveFormat="#" negativeFormat="#" localizesFormat="NO" usesGroupingSeparator="NO" paddingCharacter="*" groupingSize="0" minimumIntegerDigits="0" maximumIntegerDigits="42" decimalSeparator="." groupingSeparator="," currencyDecimalSeparator="." plusSign="+" minusSign="-" notANumberSymbol="NaN" perMillSymbol="‰" percentSymbol="%" exponentSymbol="E" positivePrefix="" positiveSuffix="" negativePrefix="-" negativeSuffix="" id="572">
@@ -142,21 +133,31 @@
                                                         <real key="NSNullPlaceholder" value="600"/>
                                                     </dictionary>
                                                 </binding>
+                                                <outlet property="nextKeyView" destination="566" id="hND-dB-f8z"/>
                                             </connections>
                                         </textField>
                                         <textField verticalHuggingPriority="750" id="565">
-                                            <rect key="frame" x="14" y="192" width="73" height="17"/>
+                                            <rect key="frame" x="15" y="154" width="606" height="17"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                            <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Key server:" id="570">
-                                                <font key="font" metaFont="system"/>
+                                            <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Key server" id="570">
+                                                <font key="font" metaFont="systemBold"/>
+                                                <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                                                <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                            </textFieldCell>
+                                        </textField>
+                                        <textField verticalHuggingPriority="750" id="ni6-qs-e6D">
+                                            <rect key="frame" x="15" y="243" width="607" height="17"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                            <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Password" id="yaL-Pm-Uv7">
+                                                <font key="font" metaFont="systemBold"/>
                                                 <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                                                 <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                             </textFieldCell>
                                         </textField>
                                         <comboBox verticalHuggingPriority="750" id="566">
-                                            <rect key="frame" x="93" y="186" width="476" height="26"/>
+                                            <rect key="frame" x="17" y="123" width="605" height="26"/>
                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
-                                            <comboBoxCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" borderStyle="bezel" drawsBackground="YES" usesSingleLineMode="YES" completes="NO" numberOfVisibleItems="5" id="569">
+                                            <comboBoxCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" borderStyle="bezel" drawsBackground="YES" usesSingleLineMode="YES" completes="NO" numberOfVisibleItems="10" id="569">
                                                 <font key="font" metaFont="system"/>
                                                 <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                                                 <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
@@ -165,57 +166,11 @@
                                                 <action selector="testKeyserver:" target="243" id="Iav-Wi-Ydp"/>
                                                 <binding destination="243" name="value" keyPath="keyserver" previousBinding="687" id="689"/>
                                                 <binding destination="243" name="content" keyPath="keyservers" id="687"/>
+                                                <outlet property="nextKeyView" destination="1048" id="wOJ-we-xfb"/>
                                             </connections>
                                         </comboBox>
-                                        <textField verticalHuggingPriority="750" id="567">
-                                            <rect key="frame" x="14" y="306" width="113" height="17"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                            <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="General Options" id="568">
-                                                <font key="font" metaFont="systemBold"/>
-                                                <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
-                                                <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
-                                            </textFieldCell>
-                                        </textField>
-                                        <button verticalHuggingPriority="750" id="604">
-                                            <rect key="frame" x="404" y="237" width="207" height="32"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMinY="YES"/>
-                                            <buttonCell key="cell" type="push" title="Delete stored passphrases" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="605">
-                                                <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                                                <font key="font" metaFont="system"/>
-                                            </buttonCell>
-                                            <connections>
-                                                <action selector="deletePassphrases:" target="243" id="606"/>
-                                            </connections>
-                                        </button>
-                                        <button hidden="YES" id="678">
-                                            <rect key="frame" x="601" y="274" width="18" height="24"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMinY="YES"/>
-                                            <buttonCell key="cell" type="smallSquare" bezelStyle="smallSquare" image="NSRemoveTemplate" imagePosition="overlaps" alignment="center" state="on" inset="2" id="679">
-                                                <behavior key="behavior" pushIn="YES" changeContents="YES" lightByContents="YES"/>
-                                                <font key="font" metaFont="system"/>
-                                            </buttonCell>
-                                            <connections>
-                                                <action selector="unsetDefaultKey:" target="243" id="680"/>
-                                                <binding destination="243" name="hidden" keyPath="indexOfSelectedSecretKey" id="686">
-                                                    <dictionary key="options">
-                                                        <string key="NSValueTransformerName">GPGIsUnselectedTransformer</string>
-                                                    </dictionary>
-                                                </binding>
-                                            </connections>
-                                        </button>
-                                        <button id="690">
-                                            <rect key="frame" x="598" y="188" width="21" height="21"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMinY="YES"/>
-                                            <buttonCell key="cell" type="square" bezelStyle="shadowlessSquare" image="NSRemoveTemplate" imagePosition="only" alignment="center" borderStyle="border" id="691">
-                                                <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                                                <font key="font" metaFont="system" size="10"/>
-                                            </buttonCell>
-                                            <connections>
-                                                <action selector="removeKeyserver:" target="243" id="692"/>
-                                            </connections>
-                                        </button>
                                         <scrollView autohidesScrollers="YES" horizontalLineScroll="10" horizontalPageScroll="10" verticalLineScroll="10" verticalPageScroll="10" hasHorizontalScroller="NO" usesPredominantAxisScrolling="NO" id="731">
-                                            <rect key="frame" x="17" y="109" width="602" height="46"/>
+                                            <rect key="frame" x="17" y="17" width="602" height="46"/>
                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                                             <clipView key="contentView" id="HrM-bC-5lf">
                                                 <rect key="frame" x="1" y="1" width="600" height="44"/>
@@ -248,29 +203,21 @@
                                                 <rect key="frame" x="586" y="1" width="15" height="44"/>
                                                 <autoresizingMask key="autoresizingMask"/>
                                             </scroller>
+                                            <connections>
+                                                <outlet property="nextKeyView" destination="188" id="rko-61-kEM"/>
+                                            </connections>
                                         </scrollView>
                                         <textField verticalHuggingPriority="750" id="732">
-                                            <rect key="frame" x="14" y="163" width="77" height="17"/>
+                                            <rect key="frame" x="15" y="71" width="606" height="17"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                            <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Comments:" id="735">
-                                                <font key="font" metaFont="system"/>
+                                            <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Comment" id="735">
+                                                <font key="font" metaFont="systemBold"/>
                                                 <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                                                 <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                             </textFieldCell>
                                         </textField>
-                                        <button id="733">
-                                            <rect key="frame" x="421" y="162" width="200" height="18"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                            <buttonCell key="cell" type="check" title="Display version in messages" bezelStyle="regularSquare" imagePosition="left" alignment="left" state="on" inset="2" id="734">
-                                                <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
-                                                <font key="font" metaFont="system"/>
-                                            </buttonCell>
-                                            <connections>
-                                                <binding destination="243" name="value" keyPath="options.emit-version" id="739"/>
-                                            </connections>
-                                        </button>
                                         <button id="1048">
-                                            <rect key="frame" x="15" y="85" width="418" height="18"/>
+                                            <rect key="frame" x="15" y="103" width="244" height="18"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                             <buttonCell key="cell" type="check" title="Auto-retrieve keys for verification" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="1049">
                                                 <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
@@ -278,6 +225,30 @@
                                             </buttonCell>
                                             <connections>
                                                 <binding destination="243" name="value" keyPath="autoKeyRetrive" id="1051"/>
+                                                <outlet property="nextKeyView" destination="736" id="4UL-HD-9qi"/>
+                                            </connections>
+                                        </button>
+                                        <progressIndicator horizontalHuggingPriority="750" verticalHuggingPriority="750" maxValue="100" bezeled="NO" indeterminate="YES" controlSize="small" style="spinning" id="yH5-BR-TTA">
+                                            <rect key="frame" x="581" y="128" width="16" height="16"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMinY="YES"/>
+                                            <connections>
+                                                <binding destination="243" name="hidden" keyPath="testingServer" id="8Fl-hq-feu">
+                                                    <dictionary key="options">
+                                                        <string key="NSValueTransformerName">NSNegateBoolean</string>
+                                                    </dictionary>
+                                                </binding>
+                                            </connections>
+                                        </progressIndicator>
+                                        <button verticalHuggingPriority="750" id="604">
+                                            <rect key="frame" x="418" y="207" width="207" height="32"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMinY="YES"/>
+                                            <buttonCell key="cell" type="push" title="Delete stored passwords" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="605">
+                                                <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                                <font key="font" metaFont="system"/>
+                                            </buttonCell>
+                                            <connections>
+                                                <action selector="deletePassphrases:" target="243" id="606"/>
+                                                <outlet property="nextKeyView" destination="564" id="qPW-uF-IGe"/>
                                             </connections>
                                         </button>
                                     </subviews>
@@ -288,54 +259,6 @@
                                     <rect key="frame" x="10" y="33" width="636" height="326"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
-                                        <button verticalHuggingPriority="750" id="9YE-gZ-iyy" userLabel="Install GPGMail">
-                                            <rect key="frame" x="459" y="270" width="109" height="32"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                            <buttonCell key="cell" type="push" title="Install" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="4Cp-Wb-NaM">
-                                                <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                                                <font key="font" metaFont="system"/>
-                                            </buttonCell>
-                                            <connections>
-                                                <action selector="openDownloadSite:" target="718" id="Z6a-pq-KVi"/>
-                                                <binding destination="718" name="hidden" keyPath="gpgmail.Installed" id="8OA-uh-7yO"/>
-                                            </connections>
-                                        </button>
-                                        <button verticalHuggingPriority="750" id="lsG-by-AS0" userLabel="Install GKA">
-                                            <rect key="frame" x="459" y="208" width="109" height="32"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                            <buttonCell key="cell" type="push" title="Install" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="QqN-O6-gs8">
-                                                <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                                                <font key="font" metaFont="system"/>
-                                            </buttonCell>
-                                            <connections>
-                                                <action selector="openDownloadSite:" target="718" id="QB2-HF-itW"/>
-                                                <binding destination="718" name="hidden" keyPath="gka.Installed" id="Xm1-Pb-Z9j"/>
-                                            </connections>
-                                        </button>
-                                        <button verticalHuggingPriority="750" id="3Eb-xv-gyu" userLabel="Install GPGServices">
-                                            <rect key="frame" x="459" y="146" width="109" height="32"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                            <buttonCell key="cell" type="push" title="Install" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="uw0-jD-Utf">
-                                                <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                                                <font key="font" metaFont="system"/>
-                                            </buttonCell>
-                                            <connections>
-                                                <action selector="openDownloadSite:" target="718" id="9hr-xG-8nb"/>
-                                                <binding destination="718" name="hidden" keyPath="gpgservices.Installed" id="sBc-00-iMr"/>
-                                            </connections>
-                                        </button>
-                                        <button verticalHuggingPriority="750" id="K98-2X-i8G" userLabel="Install MacGPG2">
-                                            <rect key="frame" x="459" y="84" width="109" height="32"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                            <buttonCell key="cell" type="push" title="Install" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="GZ3-w2-WmW">
-                                                <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                                                <font key="font" metaFont="system"/>
-                                            </buttonCell>
-                                            <connections>
-                                                <action selector="openDownloadSite:" target="718" id="O4a-r5-v18"/>
-                                                <binding destination="718" name="hidden" keyPath="macgpg2.Installed" id="53X-79-7IM"/>
-                                            </connections>
-                                        </button>
                                         <imageView id="753">
                                             <rect key="frame" x="17" y="275" width="48" height="48"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
@@ -373,63 +296,6 @@
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                             <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" image="gpgprefs" id="762"/>
                                         </imageView>
-                                        <textField verticalHuggingPriority="750" id="763">
-                                            <rect key="frame" x="70" y="306" width="212" height="17"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                            <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="GPGMail" id="764">
-                                                <font key="font" metaFont="system"/>
-                                                <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
-                                                <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
-                                            </textFieldCell>
-                                            <connections>
-                                                <binding destination="718" name="textColor" keyPath="gpgmail.text-color" id="1154"/>
-                                            </connections>
-                                        </textField>
-                                        <textField verticalHuggingPriority="750" id="765">
-                                            <rect key="frame" x="70" y="244" width="212" height="17"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                            <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="GPG Keychain" id="766">
-                                                <font key="font" metaFont="system"/>
-                                                <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
-                                                <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
-                                            </textFieldCell>
-                                            <connections>
-                                                <binding destination="718" name="textColor" keyPath="gka.text-color" id="1155"/>
-                                            </connections>
-                                        </textField>
-                                        <textField verticalHuggingPriority="750" id="767">
-                                            <rect key="frame" x="70" y="182" width="212" height="17"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                            <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="GPGServices" id="768">
-                                                <font key="font" metaFont="system"/>
-                                                <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
-                                                <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
-                                            </textFieldCell>
-                                            <connections>
-                                                <binding destination="718" name="textColor" keyPath="gpgservices.text-color" id="1156"/>
-                                            </connections>
-                                        </textField>
-                                        <textField verticalHuggingPriority="750" id="769">
-                                            <rect key="frame" x="70" y="120" width="212" height="17"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                            <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="MacGPG2" id="770">
-                                                <font key="font" metaFont="system"/>
-                                                <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
-                                                <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
-                                            </textFieldCell>
-                                            <connections>
-                                                <binding destination="718" name="textColor" keyPath="macgpg2.text-color" id="1157"/>
-                                            </connections>
-                                        </textField>
-                                        <textField verticalHuggingPriority="750" id="771">
-                                            <rect key="frame" x="70" y="58" width="212" height="17"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                            <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="GPGPreferences" id="772">
-                                                <font key="font" metaFont="system"/>
-                                                <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
-                                                <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
-                                            </textFieldCell>
-                                        </textField>
                                         <popUpButton verticalHuggingPriority="750" id="773">
                                             <rect key="frame" x="72" y="212" width="100" height="26"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
@@ -476,18 +342,6 @@
                                                 <binding destination="718" name="selectedTag" keyPath="gka.UpdateType" id="840"/>
                                             </connections>
                                         </popUpButton>
-                                        <button id="841">
-                                            <rect key="frame" x="285" y="216" width="174" height="18"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                            <buttonCell key="cell" type="check" title="Download automatically" bezelStyle="regularSquare" imagePosition="left" inset="2" id="842">
-                                                <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
-                                                <font key="font" metaFont="system"/>
-                                            </buttonCell>
-                                            <connections>
-                                                <binding destination="718" name="enabled" keyPath="gka.Installed" id="955"/>
-                                                <binding destination="718" name="value" keyPath="gka.SUAutomaticallyUpdate" id="843"/>
-                                            </connections>
-                                        </button>
                                         <popUpButton verticalHuggingPriority="750" id="848">
                                             <rect key="frame" x="72" y="274" width="100" height="26"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
@@ -534,18 +388,6 @@
                                                 <binding destination="718" name="selectedTag" keyPath="gpgmail.UpdateType" id="923"/>
                                             </connections>
                                         </popUpButton>
-                                        <button id="850">
-                                            <rect key="frame" x="285" y="278" width="174" height="18"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                            <buttonCell key="cell" type="check" title="Download automatically" bezelStyle="regularSquare" imagePosition="left" inset="2" id="851">
-                                                <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
-                                                <font key="font" metaFont="system"/>
-                                            </buttonCell>
-                                            <connections>
-                                                <binding destination="718" name="enabled" keyPath="gpgmail.Installed" id="951"/>
-                                                <binding destination="718" name="value" keyPath="gpgmail.SUAutomaticallyUpdate" id="925"/>
-                                            </connections>
-                                        </button>
                                         <popUpButton verticalHuggingPriority="750" id="866">
                                             <rect key="frame" x="72" y="150" width="100" height="26"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
@@ -592,18 +434,6 @@
                                                 <binding destination="718" name="selectedTag" keyPath="gpgservices.UpdateType" id="941"/>
                                             </connections>
                                         </popUpButton>
-                                        <button id="868">
-                                            <rect key="frame" x="285" y="154" width="174" height="18"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                            <buttonCell key="cell" type="check" title="Download automatically" bezelStyle="regularSquare" imagePosition="left" inset="2" id="869">
-                                                <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
-                                                <font key="font" metaFont="system"/>
-                                            </buttonCell>
-                                            <connections>
-                                                <binding destination="718" name="enabled" keyPath="gpgservices.Installed" id="959"/>
-                                                <binding destination="718" name="value" keyPath="gpgservices.SUAutomaticallyUpdate" id="927"/>
-                                            </connections>
-                                        </button>
                                         <popUpButton verticalHuggingPriority="750" id="884">
                                             <rect key="frame" x="72" y="88" width="100" height="26"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
@@ -650,18 +480,6 @@
                                                 <binding destination="718" name="selectedTag" keyPath="macgpg2.UpdateType" id="937"/>
                                             </connections>
                                         </popUpButton>
-                                        <button id="886">
-                                            <rect key="frame" x="285" y="92" width="174" height="18"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                            <buttonCell key="cell" type="check" title="Download automatically" bezelStyle="regularSquare" imagePosition="left" inset="2" id="887">
-                                                <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
-                                                <font key="font" metaFont="system"/>
-                                            </buttonCell>
-                                            <connections>
-                                                <binding destination="718" name="enabled" keyPath="macgpg2.Installed" id="963"/>
-                                                <binding destination="718" name="value" keyPath="macgpg2.SUAutomaticallyUpdate" id="929"/>
-                                            </connections>
-                                        </button>
                                         <popUpButton verticalHuggingPriority="750" id="902">
                                             <rect key="frame" x="72" y="24" width="100" height="26"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
@@ -706,19 +524,116 @@
                                                 <binding destination="718" name="selectedTag" keyPath="gpgprefs.UpdateType" id="933"/>
                                             </connections>
                                         </popUpButton>
-                                        <button id="904">
-                                            <rect key="frame" x="285" y="28" width="174" height="18"/>
+                                        <button id="aac-sO-qhc" customClass="NSButton_LinkCursor">
+                                            <rect key="frame" x="74" y="58" width="474" height="14"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                            <buttonCell key="cell" type="check" title="Download automatically" bezelStyle="regularSquare" imagePosition="left" inset="2" id="905">
-                                                <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                                            <buttonCell key="cell" type="bevel" title="Version: xxxxxx (00000000), Build: 0000n" bezelStyle="regularSquare" alignment="left" controlSize="small" imageScaling="proportionallyDown" inset="2" id="yNx-IK-OLs">
+                                                <behavior key="behavior" lightByContents="YES"/>
+                                                <font key="font" metaFont="smallSystem"/>
+                                            </buttonCell>
+                                            <connections>
+                                                <action selector="copyVersionInfo:" target="718" id="Nod-xM-ehK"/>
+                                                <binding destination="718" name="title" keyPath="gpgprefs.versionDescription" id="aMu-Lc-SBu"/>
+                                            </connections>
+                                        </button>
+                                        <button id="ZUg-bA-OnB" customClass="NSButton_LinkCursor">
+                                            <rect key="frame" x="74" y="120" width="474" height="14"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                            <buttonCell key="cell" type="bevel" title="Version: xxxxxx (00000000), Build: 0000n" bezelStyle="regularSquare" alignment="left" controlSize="small" imageScaling="proportionallyDown" inset="2" id="Rji-Jx-Srf">
+                                                <behavior key="behavior" lightByContents="YES"/>
+                                                <font key="font" metaFont="smallSystem"/>
+                                            </buttonCell>
+                                            <connections>
+                                                <action selector="copyVersionInfo:" target="718" id="kUi-YS-IPw"/>
+                                                <binding destination="718" name="title" keyPath="macgpg2.versionDescription" id="7Sk-Tw-59l"/>
+                                            </connections>
+                                        </button>
+                                        <button id="man-ln-VmC" customClass="NSButton_LinkCursor">
+                                            <rect key="frame" x="74" y="182" width="474" height="14"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                            <buttonCell key="cell" type="bevel" title="Version: xxxxxx (00000000), Build: 0000n" bezelStyle="regularSquare" alignment="left" controlSize="small" imageScaling="proportionallyDown" inset="2" id="B0J-tW-eaL">
+                                                <behavior key="behavior" lightByContents="YES"/>
+                                                <font key="font" metaFont="smallSystem"/>
+                                            </buttonCell>
+                                            <connections>
+                                                <action selector="copyVersionInfo:" target="718" id="lRh-SF-GMY"/>
+                                                <binding destination="718" name="title" keyPath="gpgservices.versionDescription" id="dib-71-hzA"/>
+                                            </connections>
+                                        </button>
+                                        <button id="QPv-I0-t9o" customClass="NSButton_LinkCursor">
+                                            <rect key="frame" x="74" y="244" width="474" height="14"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                            <buttonCell key="cell" type="bevel" title="Version: xxxxxx (00000000), Build: 0000n" bezelStyle="regularSquare" alignment="left" controlSize="small" imageScaling="proportionallyDown" inset="2" id="ttQ-kV-IjU">
+                                                <behavior key="behavior" lightByContents="YES"/>
+                                                <font key="font" metaFont="smallSystem"/>
+                                            </buttonCell>
+                                            <connections>
+                                                <action selector="copyVersionInfo:" target="718" id="oBM-2T-nt1"/>
+                                                <binding destination="718" name="title" keyPath="gka.versionDescription" id="tYD-T6-hcF"/>
+                                            </connections>
+                                        </button>
+                                        <button id="ItE-Hx-gXM" customClass="NSButton_LinkCursor">
+                                            <rect key="frame" x="74" y="306" width="474" height="14"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                            <buttonCell key="cell" type="bevel" title="Version: xxxxxx (00000000), Build: 0000n" bezelStyle="regularSquare" alignment="left" controlSize="small" imageScaling="proportionallyDown" inset="2" id="eZI-W4-Bl5">
+                                                <behavior key="behavior" lightByContents="YES"/>
+                                                <font key="font" metaFont="smallSystem"/>
+                                            </buttonCell>
+                                            <connections>
+                                                <action selector="copyVersionInfo:" target="718" id="mEn-qZ-ncm"/>
+                                                <binding destination="718" name="title" keyPath="gpgmail.versionDescription" id="9ux-ch-EbG"/>
+                                            </connections>
+                                        </button>
+                                        <button verticalHuggingPriority="750" id="9YE-gZ-iyy" userLabel="Install GPGMail">
+                                            <rect key="frame" x="282" y="270" width="109" height="32"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                            <buttonCell key="cell" type="push" title="Install" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="4Cp-Wb-NaM">
+                                                <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                                 <font key="font" metaFont="system"/>
                                             </buttonCell>
                                             <connections>
-                                                <binding destination="718" name="value" keyPath="gpgprefs.SUAutomaticallyUpdate" id="931"/>
+                                                <action selector="openDownloadSite:" target="718" id="Z6a-pq-KVi"/>
+                                                <binding destination="718" name="hidden" keyPath="gpgmail.Installed" id="8OA-uh-7yO"/>
+                                            </connections>
+                                        </button>
+                                        <button verticalHuggingPriority="750" id="lsG-by-AS0" userLabel="Install GKA">
+                                            <rect key="frame" x="282" y="208" width="109" height="32"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                            <buttonCell key="cell" type="push" title="Install" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="QqN-O6-gs8">
+                                                <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                                <font key="font" metaFont="system"/>
+                                            </buttonCell>
+                                            <connections>
+                                                <action selector="openDownloadSite:" target="718" id="QB2-HF-itW"/>
+                                                <binding destination="718" name="hidden" keyPath="gka.Installed" id="Xm1-Pb-Z9j"/>
+                                            </connections>
+                                        </button>
+                                        <button verticalHuggingPriority="750" id="3Eb-xv-gyu" userLabel="Install GPGServices">
+                                            <rect key="frame" x="282" y="146" width="109" height="32"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                            <buttonCell key="cell" type="push" title="Install" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="uw0-jD-Utf">
+                                                <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                                <font key="font" metaFont="system"/>
+                                            </buttonCell>
+                                            <connections>
+                                                <action selector="openDownloadSite:" target="718" id="9hr-xG-8nb"/>
+                                                <binding destination="718" name="hidden" keyPath="gpgservices.Installed" id="sBc-00-iMr"/>
+                                            </connections>
+                                        </button>
+                                        <button verticalHuggingPriority="750" id="K98-2X-i8G" userLabel="Install MacGPG2">
+                                            <rect key="frame" x="282" y="84" width="109" height="32"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                            <buttonCell key="cell" type="push" title="Install" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="GZ3-w2-WmW">
+                                                <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                                <font key="font" metaFont="system"/>
+                                            </buttonCell>
+                                            <connections>
+                                                <action selector="openDownloadSite:" target="718" id="O4a-r5-v18"/>
+                                                <binding destination="718" name="hidden" keyPath="macgpg2.Installed" id="53X-79-7IM"/>
                                             </connections>
                                         </button>
                                         <button verticalHuggingPriority="750" id="967" userLabel="Check now GPGPref">
-                                            <rect key="frame" x="459" y="20" width="109" height="32"/>
+                                            <rect key="frame" x="282" y="20" width="109" height="32"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                             <buttonCell key="cell" type="push" title="Check now" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="968">
                                                 <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
@@ -740,7 +655,7 @@
                                             </connections>
                                         </button>
                                         <button verticalHuggingPriority="750" id="986" userLabel="Check now MacGPG2">
-                                            <rect key="frame" x="459" y="84" width="109" height="32"/>
+                                            <rect key="frame" x="282" y="84" width="109" height="32"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                             <buttonCell key="cell" type="push" title="Check now" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="987">
                                                 <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
@@ -767,7 +682,7 @@
                                             </connections>
                                         </button>
                                         <button verticalHuggingPriority="750" id="991" userLabel="Check now GPGServices">
-                                            <rect key="frame" x="459" y="146" width="109" height="32"/>
+                                            <rect key="frame" x="282" y="146" width="109" height="32"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                             <buttonCell key="cell" type="push" title="Check now" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="992">
                                                 <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
@@ -794,7 +709,7 @@
                                             </connections>
                                         </button>
                                         <button verticalHuggingPriority="750" id="996" userLabel="Check now GKA">
-                                            <rect key="frame" x="459" y="208" width="109" height="32"/>
+                                            <rect key="frame" x="282" y="208" width="109" height="32"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                             <buttonCell key="cell" type="push" title="Check now" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="997">
                                                 <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
@@ -821,7 +736,7 @@
                                             </connections>
                                         </button>
                                         <button verticalHuggingPriority="750" id="1001" userLabel="Check now GPGMail">
-                                            <rect key="frame" x="459" y="270" width="109" height="32"/>
+                                            <rect key="frame" x="282" y="270" width="109" height="32"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                             <buttonCell key="cell" type="push" title="Check now" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="1002">
                                                 <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
@@ -847,66 +762,6 @@
                                                 </binding>
                                             </connections>
                                         </button>
-                                        <button id="aac-sO-qhc" customClass="NSButton_LinkCursor">
-                                            <rect key="frame" x="285" y="58" width="263" height="14"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                            <buttonCell key="cell" type="bevel" title="Version: xxxxxx (00000000), Build: 0000n" bezelStyle="regularSquare" alignment="left" controlSize="small" imageScaling="proportionallyDown" inset="2" id="yNx-IK-OLs">
-                                                <behavior key="behavior" lightByContents="YES"/>
-                                                <font key="font" metaFont="smallSystem"/>
-                                            </buttonCell>
-                                            <connections>
-                                                <action selector="copyVersionInfo:" target="718" id="Nod-xM-ehK"/>
-                                                <binding destination="718" name="title" keyPath="gpgprefs.versionDescription" id="aMu-Lc-SBu"/>
-                                            </connections>
-                                        </button>
-                                        <button id="ZUg-bA-OnB" customClass="NSButton_LinkCursor">
-                                            <rect key="frame" x="285" y="120" width="263" height="14"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                            <buttonCell key="cell" type="bevel" title="Version: xxxxxx (00000000), Build: 0000n" bezelStyle="regularSquare" alignment="left" controlSize="small" imageScaling="proportionallyDown" inset="2" id="Rji-Jx-Srf">
-                                                <behavior key="behavior" lightByContents="YES"/>
-                                                <font key="font" metaFont="smallSystem"/>
-                                            </buttonCell>
-                                            <connections>
-                                                <action selector="copyVersionInfo:" target="718" id="kUi-YS-IPw"/>
-                                                <binding destination="718" name="title" keyPath="macgpg2.versionDescription" id="7Sk-Tw-59l"/>
-                                            </connections>
-                                        </button>
-                                        <button id="man-ln-VmC" customClass="NSButton_LinkCursor">
-                                            <rect key="frame" x="285" y="182" width="263" height="14"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                            <buttonCell key="cell" type="bevel" title="Version: xxxxxx (00000000), Build: 0000n" bezelStyle="regularSquare" alignment="left" controlSize="small" imageScaling="proportionallyDown" inset="2" id="B0J-tW-eaL">
-                                                <behavior key="behavior" lightByContents="YES"/>
-                                                <font key="font" metaFont="smallSystem"/>
-                                            </buttonCell>
-                                            <connections>
-                                                <action selector="copyVersionInfo:" target="718" id="lRh-SF-GMY"/>
-                                                <binding destination="718" name="title" keyPath="gpgservices.versionDescription" id="dib-71-hzA"/>
-                                            </connections>
-                                        </button>
-                                        <button id="QPv-I0-t9o" customClass="NSButton_LinkCursor">
-                                            <rect key="frame" x="285" y="244" width="263" height="14"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                            <buttonCell key="cell" type="bevel" title="Version: xxxxxx (00000000), Build: 0000n" bezelStyle="regularSquare" alignment="left" controlSize="small" imageScaling="proportionallyDown" inset="2" id="ttQ-kV-IjU">
-                                                <behavior key="behavior" lightByContents="YES"/>
-                                                <font key="font" metaFont="smallSystem"/>
-                                            </buttonCell>
-                                            <connections>
-                                                <action selector="copyVersionInfo:" target="718" id="oBM-2T-nt1"/>
-                                                <binding destination="718" name="title" keyPath="gka.versionDescription" id="tYD-T6-hcF"/>
-                                            </connections>
-                                        </button>
-                                        <button id="ItE-Hx-gXM" customClass="NSButton_LinkCursor">
-                                            <rect key="frame" x="285" y="306" width="263" height="14"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                            <buttonCell key="cell" type="bevel" title="Version: xxxxxx (00000000), Build: 0000n" bezelStyle="regularSquare" alignment="left" controlSize="small" imageScaling="proportionallyDown" inset="2" id="eZI-W4-Bl5">
-                                                <behavior key="behavior" lightByContents="YES"/>
-                                                <font key="font" metaFont="smallSystem"/>
-                                            </buttonCell>
-                                            <connections>
-                                                <action selector="copyVersionInfo:" target="718" id="mEn-qZ-ncm"/>
-                                                <binding destination="718" name="title" keyPath="gpgmail.versionDescription" id="9ux-ch-EbG"/>
-                                            </connections>
-                                        </button>
                                     </subviews>
                                 </view>
                             </tabViewItem>
@@ -920,19 +775,6 @@
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                             <imageCell key="cell" refusesFirstResponder="YES" alignment="left" animates="YES" imageScaling="proportionallyDown" image="GPGTools+Text" id="511"/>
                                         </imageView>
-                                        <textField verticalHuggingPriority="750" id="508">
-                                            <rect key="frame" x="156" y="163" width="466" height="136"/>
-                                            <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
-                                            <textFieldCell key="cell" sendsActionOnEndEditing="YES" id="510">
-                                                <font key="font" metaFont="system"/>
-                                                <string key="title">GPG Suite is a software collection, bringing encryption/decryption and signing of e-mails and files, to you on your mac.
-The main goal is to bring OpenPGP - in the form of an easy installer package based on MacGPG - to Mac OS X.
-
-GPGTools - it's worth protecting what you love</string>
-                                                <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
-                                                <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
-                                            </textFieldCell>
-                                        </textField>
                                         <box verticalHuggingPriority="750" title="Box" boxType="separator" titlePosition="noTitle" id="509">
                                             <rect key="frame" x="-3" y="146" width="642" height="5"/>
                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
@@ -986,13 +828,29 @@ GPGTools - it's worth protecting what you love</string>
                                                 <action selector="openSupport:" target="243" id="rSI-sS-T1a"/>
                                             </connections>
                                         </button>
+                                        <textField verticalHuggingPriority="750" id="508">
+                                            <rect key="frame" x="156" y="163" width="451" height="136"/>
+                                            <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
+                                            <textFieldCell key="cell" sendsActionOnEndEditing="YES" id="510">
+                                                <font key="font" metaFont="system"/>
+                                                <string key="title">GPG Suite is a software collection, allowing to encrypt / decrypt and sign / verify emails and files. Our goal is to provide an easy to use OpenPGP solution on OS X.
+
+GPGTools - it's worth protecting what you love</string>
+                                                <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                                                <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                            </textFieldCell>
+                                        </textField>
                                     </subviews>
                                 </view>
                             </tabViewItem>
                         </tabViewItems>
+                        <connections>
+                            <outlet property="nextKeyView" destination="560" id="Ntu-1L-pi4"/>
+                        </connections>
                     </tabView>
                 </subviews>
             </view>
+            <point key="canvasLocation" x="147" y="147"/>
         </window>
         <customObject id="243" userLabel="GPGTools Pref Controller" customClass="GPGToolsPrefController">
             <connections>
@@ -1005,7 +863,6 @@ GPGTools - it's worth protecting what you love</string>
     </objects>
     <resources>
         <image name="GPGTools+Text" width="512" height="640"/>
-        <image name="NSRemoveTemplate" width="8" height="8"/>
         <image name="gka" width="512" height="512"/>
         <image name="gpgmail" width="512" height="512"/>
         <image name="gpgprefs" width="512" height="512"/>

@@ -220,12 +220,24 @@ static NSUInteger const kDefaultPassphraseCacheTime = 600;
 	return [[[NSAttributedString alloc] initWithPath:[self.myBundle pathForResource:@"Credits" ofType:@"rtf"] documentAttributes:nil] autorelease];
 }
 
+
+/*
+ * Does the user have at least one secret key?
+ */
+- (BOOL)haveSecretKeys {
+	return self.secretKeys.count > 0;
+}
+
 /*
  * Array of readable descriptions of the secret keys.
  */
 - (NSArray *)secretKeyDescriptions {
 	NSArray *keys = self.secretKeys;
-	NSMutableArray *decriptions = [NSMutableArray arrayWithCapacity:[keys count]];
+	if (keys.count == 0) {
+		return @[@"No key found. Please create your first key with GPG Keychain."];
+	}
+
+	NSMutableArray *decriptions = [NSMutableArray array];
 	for (GPGKey *key in keys) {
 		[decriptions addObject:[NSString stringWithFormat:@"%@ – %@", key.userIDDescription, key.keyID.shortKeyID]];
 	}
@@ -236,35 +248,49 @@ static NSUInteger const kDefaultPassphraseCacheTime = 600;
  * Index of the default key.
  */
 - (NSInteger)indexOfSelectedSecretKey {
-	NSString *defaultKey = [options valueForKey:@"default-key"];
-	if ([defaultKey length] == 0) {
-		return -1;
-	}
-	
 	NSArray *keys = self.secretKeys;
-	
-	NSInteger i, count = [keys count];
-	for (i = 0; i < count; i++) {
-		GPGKey *key = [keys objectAtIndex:i];
-		if ([key.textForFilter rangeOfString:defaultKey options:NSCaseInsensitiveSearch].length > 0) {
-			return i;
-		}		
+
+	if (keys.count == 0) {
+		return 0;
 	}
 	
-	return -1;
+	NSString *defaultKey = [options valueForKey:@"default-key"];
+	NSInteger i, count = keys.count;
+	if (defaultKey.length > 0) {
+		for (i = 0; i < count; i++) {
+			GPGKey *key = keys[i];
+			if ([key.textForFilter rangeOfString:defaultKey options:NSCaseInsensitiveSearch].length > 0) {
+				return i;
+			}
+		}
+	}
+	
+	// No (valid) default key set.
+	// Set the newest key as default.
+	GPGKey *newestKey = nil;
+	NSInteger index = 0;
+	for (i = 0; i < count; i++) {
+		GPGKey *key = keys[i];
+		if (key.validity < GPGValidityInvalid) {
+			if (newestKey == nil || [newestKey.creationDate isLessThan:key.creationDate]) {
+				newestKey = key;
+				index = i;
+			}
+		}
+	}
+	if (!newestKey) {
+		newestKey = keys[0];
+	}
+	
+	[options setValue:newestKey.fingerprint forKey:@"default-key"];
+	
+	return index;
 }
 - (void)setIndexOfSelectedSecretKey:(NSInteger)index {
 	NSArray *keys = self.secretKeys;
-	if (index < [keys count] && index >= 0) {
-		[options setValue:[[keys objectAtIndex:index] fingerprint] forKey:@"default-key"];
+	if (index < keys.count && index >= 0) {
+		[options setValue:[keys[index] fingerprint] forKey:@"default-key"];
 	}
-    else if (index == -1) {
-		[options setValue:nil forKey:@"default-key"];
-    }
-}
-
-- (IBAction)unsetDefaultKey:(id)sender {
-    [self setIndexOfSelectedSecretKey:-1];
 }
 
 
@@ -373,7 +399,7 @@ static NSUInteger const kDefaultPassphraseCacheTime = 600;
 #pragma mark Button Links
 
 - (IBAction)openSupport:(id)sender {
-    [[NSWorkspace sharedWorkspace] openURL:[NSURL URLWithString:@"http://support.gpgtools.org/"]];
+    [[NSWorkspace sharedWorkspace] openURL:[NSURL URLWithString:@"https://gpgtools.tenderapp.com/"]];
 }
 
 - (IBAction)openDonate:(id)sender {
@@ -381,7 +407,7 @@ static NSUInteger const kDefaultPassphraseCacheTime = 600;
 }
 
 - (IBAction)openKnowledgeBase:(id)sender {
-    [[NSWorkspace sharedWorkspace] openURL:[NSURL URLWithString:@"http://support.gpgtools.org/kb"]];
+    [[NSWorkspace sharedWorkspace] openURL:[NSURL URLWithString:@"https://gpgtools.tenderapp.com/kb"]];
 }
 
 
