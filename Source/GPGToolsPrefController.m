@@ -21,6 +21,16 @@ static NSUInteger const kDefaultPassphraseCacheTime = 600;
 @end
 
 
+@implementation NSArray (For106)
+
+- (id)objectAtIndexedSubscript:(NSUInteger)idx {
+	return [self objectAtIndex:idx];
+}
+
+@end
+
+
+
 
 @implementation GPGToolsPrefController
 @synthesize options, testingServer;
