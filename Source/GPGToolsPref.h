@@ -8,12 +8,12 @@
 
 #import <PreferencePanes/PreferencePanes.h>
 
-extern NSBundle *gpgPreferencesBundle;
+@class GPGToolsPref;
+extern GPGToolsPref *gpgToolsPrefPane;
 
-void WarningPanel(NSString *title, NSString *msg);
-
-#define localized(string) [gpgPreferencesBundle localizedStringForKey:string value:nil table:nil]
+#define localized(string) [gpgToolsPrefPane.bundle localizedStringForKey:string value:nil table:nil]
 
 
 @interface GPGToolsPref : NSPreferencePane
+- (void)panelWithTitle:(NSString *)title message:(NSString *)msg;
 @end

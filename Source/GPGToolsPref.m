@@ -9,18 +9,26 @@
 #import "GPGToolsPref.h"
 #import <Libmacgpg/Libmacgpg.h>
 
-NSBundle *gpgPreferencesBundle;
+GPGToolsPref *gpgToolsPrefPane = nil;
 
 @implementation GPGToolsPref
+
+- (instancetype)initWithBundle:(NSBundle *)bundle {
+	self = [super initWithBundle:bundle];
+	if (self == nil) {
+		return nil;
+	}
+	gpgToolsPrefPane = [self retain];
+	return self;
+}
 
 - (NSString *)mainNibName {
 	if (![GPGController class]) {
 		return @"WarningView";
 	}
-	gpgPreferencesBundle = [NSBundle bundleForClass:[self class]];
 #ifdef CODE_SIGN_CHECK
 	/* Check the validity of the code signature. */
-    if (!gpgPreferencesBundle.isValidSigned) {
+    if (!self.bundle.isValidSigned) {
 		NSRunAlertPanel(@"Someone tampered with your installation of GPGPreferences!",
 						@"To keep you safe, GPGPreferences will not be loaded!\n\nPlease download and install the latest version of GPG Suite from https://gpgtools.org to be sure you have an original version from us!", nil, nil, nil);
         exit(1);
@@ -33,20 +41,29 @@ NSBundle *gpgPreferencesBundle;
 	[self.mainView.window makeFirstResponder:nil];
 }
 
-@end
 
-
-void WarningPanel(NSString *title, NSString *msg) {
+- (void)panelWithTitle:(NSString *)title message:(NSString *)msg {
 	NSAlert *alert = [[NSAlert alloc] init];
 	alert.messageText = title;
 	alert.informativeText = msg;
 	
-	NSImage *image = [NSImage imageNamed:@"gpgprefs"];
+	NSImage *image = [NSImage imageNamed:@"GPGTools"];
 	if (!image) {
-		image = [[NSImage alloc] initByReferencingFile:[gpgPreferencesBundle pathForImageResource:@"gpgprefs"]];
-		[image setName:@"gpgprefs"];
+		image = [[NSImage alloc] initByReferencingFile:[self.bundle pathForImageResource:@"GPGTools"]];
+		[image setName:@"GPGTools"];
 	}
 	alert.icon = image;
-	[alert runModal];
+	
+	
+	if (NSAppKitVersionNumber >= NSAppKitVersionNumber10_9) {
+		[alert beginSheetModalForWindow:self.mainView.window completionHandler:^(NSModalResponse returnCode) {}];
+	} else {
+		[alert runModal];
+	}
 }
+
+
+@end
+
+
 

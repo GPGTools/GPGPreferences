@@ -1,10 +1,10 @@
 //
-//  UpdateButton.m
+//  GPGToolsPrefController.m
 //  GPGTools
 //
 //  Created by Alexander Willner on 04.08.10.
 //  Edited by Roman Zechmeister 11.07.2011
-//  Copyright 2010 GPGTools Project Team. All rights reserved.
+//  Copyright 2016 GPGTools Project Team. All rights reserved.
 //
 
 #import "GPGToolsPrefController.h"
@@ -86,6 +86,7 @@ static NSUInteger const kDefaultPassphraseCacheTime = 600;
  * Delete stored passphrases from the Mac OS X keychain.
  */
 - (IBAction)deletePassphrases:(id)sender {
+	BOOL success = YES;
 	@try {
 		[options gpgAgentFlush];
 		
@@ -94,11 +95,13 @@ static NSUInteger const kDefaultPassphraseCacheTime = 600;
         // SecKeychainFindGenericPassword method, which is not quite as handy, since it requires us to know
         // the accountName (which is the fingerprint of the key in our case).
         NSString *serviceName = @"GnuPG";
-        if(floor(NSAppKitVersionNumber) > NSAppKitVersionNumber10_6) {
+		OSStatus status;
+		
+        if (floor(NSAppKitVersionNumber) > NSAppKitVersionNumber10_6) {
             NSDictionary *query = [NSDictionary dictionaryWithObjectsAndKeys:kSecClassGenericPassword, kSecClass, kSecMatchLimitAll, kSecMatchLimit, kCFBooleanTrue, kSecReturnRef, kCFBooleanTrue, kSecReturnAttributes, serviceName, kSecAttrService, nil];
 
             NSArray *result = nil;
-            OSStatus status = SecItemCopyMatching((CFDictionaryRef)query, (CFTypeRef *)&result);
+            status = SecItemCopyMatching((CFDictionaryRef)query, (CFTypeRef *)&result);
 
             NSCharacterSet *nonHexCharSet = [[NSCharacterSet characterSetWithCharactersInString:@"0123456789abcdefABCDEF"] invertedSet];
 
@@ -117,36 +120,48 @@ static NSUInteger const kDefaultPassphraseCacheTime = 600;
                     }
 
                     status = SecKeychainItemDelete((SecKeychainItemRef)[item objectForKey:kSecValueRef]);
-                    if (status) {
-                        NSLog(@"ERROR %i: %@", (int)status, SecCopyErrorMessageString(status, nil));
-                    }
+					
+					if (status != noErr) {
+						success = NO;
+						NSLog(@"Failed to delete keychain item: %@", SecCopyErrorMessageString(status, nil));
+					}
                 }
             }
-
             [result release];
-        }
-        else {
+			
+        } else {
             SecKeychainItemRef keychainItem;
 
             NSSet *keys = [[GPGKeyManager sharedInstance] allKeysAndSubkeys];
-            for(GPGKey *key in keys) {
-                if(!key.secret)
+            for (GPGKey *key in keys) {
+				if (!key.secret) {
                     continue;
+				}
 
                 NSString *accountName = [key fingerprint];
-                OSStatus status = SecKeychainFindGenericPassword(NULL, [serviceName length], [serviceName UTF8String], [accountName length], [accountName UTF8String], NULL, NULL, &keychainItem);
-                if(status == errSecSuccess) {
+                status = SecKeychainFindGenericPassword(NULL, (UInt32)[serviceName length], [serviceName UTF8String], (UInt32)[accountName length], [accountName UTF8String], NULL, NULL, &keychainItem);
+                if (status == errSecSuccess) {
                     // Try to delete the keychain item.
                     status = SecKeychainItemDelete(keychainItem);
                     CFRelease(keychainItem);
-                    keychainItem = NULL;
-                    if(status != errSecSuccess)
-                        NSLog(@"Failed to delete keychain item: %@", SecCopyErrorMessageString(status, NULL));
+					
+					if (status != noErr) {
+						success = NO;
+						NSLog(@"Failed to delete old keychain item: %@", SecCopyErrorMessageString(status, nil));
+					}
                 }
             }
         }
+		
 	} @catch (NSException *exception) {
+		success = NO;
 		NSLog(@"deletePassphrases failed: %@", exception);
+	}
+	
+	if (success) {
+		[gpgToolsPrefPane panelWithTitle:localized(@"PassowrdsDeleted_Title") message:localized(@"PassowrdsDeleted_Msg")];
+	} else {
+		[gpgToolsPrefPane panelWithTitle:localized(@"PassowrdsDeletFailed_Title") message:localized(@"PassowrdsDeletFailed_Msg")];
 	}
 }
 
@@ -339,7 +354,7 @@ static NSUInteger const kDefaultPassphraseCacheTime = 600;
 		[self.options removeKeyserver:gc.keyserver];
 		
 		dispatch_async(dispatch_get_main_queue(), ^{
-			WarningPanel(localized(@"BadKeyserver_Title"), localized(@"BadKeyserver_Msg"));
+			[gpgToolsPrefPane panelWithTitle:localized(@"BadKeyserver_Title") message:localized(@"BadKeyserver_Msg")];
 		});
 		
 	}
@@ -357,20 +372,6 @@ static NSUInteger const kDefaultPassphraseCacheTime = 600;
 + (NSSet *)keyPathsForValuesAffectingKeyserver {
 	return [NSSet setWithObject:@"options.keyserver"];
 }
-
-- (IBAction)removeKeyserver:(id)sender {
-	NSString *oldServer = self.keyserver;
-	[self.options removeKeyserver:oldServer];
-	NSArray *servers = self.keyservers;
-	if (servers.count > 0) {
-		if (![servers containsObject:oldServer]) {
-			self.keyserver = [self.keyservers objectAtIndex:0];
-		}
-	} else {
-		self.keyserver = @"";
-	}
-}
-
 
 
 - (BOOL)autoKeyRetrive {
@@ -400,10 +401,6 @@ static NSUInteger const kDefaultPassphraseCacheTime = 600;
 
 - (IBAction)openSupport:(id)sender {
     [[NSWorkspace sharedWorkspace] openURL:[NSURL URLWithString:@"https://gpgtools.tenderapp.com/"]];
-}
-
-- (IBAction)openDonate:(id)sender {
-    [[NSWorkspace sharedWorkspace] openURL:[NSURL URLWithString:@"https://gpgtools.org/donate"]];
 }
 
 - (IBAction)openKnowledgeBase:(id)sender {

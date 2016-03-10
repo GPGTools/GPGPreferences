@@ -5,7 +5,7 @@
         <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="6751"/>
     </dependencies>
     <objects>
-        <customObject id="-2" userLabel="File's Owner" customClass="NSPreferencePane">
+        <customObject id="-2" userLabel="File's Owner" customClass="GPGToolsPref">
             <connections>
                 <outlet property="_window" destination="12" id="26"/>
             </connections>
@@ -320,15 +320,15 @@
                                         <popUpButton verticalHuggingPriority="750" id="780">
                                             <rect key="frame" x="174" y="212" width="109" height="26"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                            <popUpButtonCell key="cell" type="push" title="Pre-Release" bezelStyle="rounded" alignment="left" lineBreakMode="truncatingTail" state="on" borderStyle="borderAndBezel" tag="1" imageScaling="proportionallyDown" inset="2" selectedItem="784" id="781">
+                                            <popUpButtonCell key="cell" type="push" title="Nightly" bezelStyle="rounded" alignment="left" lineBreakMode="truncatingTail" state="on" borderStyle="borderAndBezel" tag="2" imageScaling="proportionallyDown" inset="2" selectedItem="783" id="781">
                                                 <behavior key="behavior" lightByBackground="YES" lightByGray="YES"/>
                                                 <font key="font" metaFont="menu"/>
                                                 <menu key="menu" title="OtherViews" id="782">
                                                     <items>
-                                                        <menuItem title="Nightly" tag="2" id="783">
+                                                        <menuItem title="Nightly" state="on" tag="2" id="783">
                                                             <modifierMask key="keyEquivalentModifierMask"/>
                                                         </menuItem>
-                                                        <menuItem title="Pre-Release" state="on" tag="1" id="784">
+                                                        <menuItem title="Pre-Release" tag="1" id="784">
                                                             <modifierMask key="keyEquivalentModifierMask"/>
                                                         </menuItem>
                                                         <menuItem title="Stable" id="785">
@@ -854,6 +854,7 @@ GPGTools - it's worth protecting what you love</string>
         </window>
         <customObject id="243" userLabel="GPGTools Pref Controller" customClass="GPGToolsPrefController">
             <connections>
+                <outlet property="prefPane" destination="-2" id="jov-N0-dQq"/>
                 <outlet property="spinner" destination="yH5-BR-TTA" id="21C-Rf-p9c"/>
             </connections>
         </customObject>

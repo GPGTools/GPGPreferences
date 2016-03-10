@@ -364,11 +364,11 @@ NSMutableDictionary *tools;
 				[NSTask launchedTaskWithLaunchPath:@"/Library/Application Support/GPGTools/GPGMail_Updater.app/Contents/MacOS/GPGMail_Updater" arguments:@[@"checkNow"]];
 			}
 			@catch (NSException *exception) {
-				WarningPanel(localized(@"UpdateCheckFailed_Title"), localized(@"UpdateCheckFailed_Msg"));
+				[gpgToolsPrefPane panelWithTitle:localized(@"UpdateCheckFailed_Title") message:localized(@"UpdateCheckFailed_Msg")];
 			}
 		} else {
 			/* Mac OS X 10.6 */
-			WarningPanel(localized(@"NoUpdatesGM106_Title"), localized(@"NoUpdatesGM106_Msg"));
+			[gpgToolsPrefPane panelWithTitle:localized(@"NoUpdatesGM106_Title") message:localized(@"NoUpdatesGM106_Msg")];
 		}
 	} else if ([tool isEqualToString:@"gka"]) {
 		NSAppleScript *script = [[NSAppleScript alloc] initWithSource:@"tell application \"GPG Keychain\"\ncheck for updates\nactivate\nend tell"];

@@ -1,10 +1,10 @@
 //
-//  UpdateButton.h
+//  GPGToolsPrefController.h
 //  GPGTools
 //
 //  Created by Alexander Willner on 04.08.10.
 //  Edited by Roman Zechmeister 11.07.2011
-//  Copyright 2010 GPGTools Project Team. All rights reserved.
+//  Copyright 2016 GPGTools Project Team. All rights reserved.
 //
 
 #import <Cocoa/Cocoa.h>
@@ -20,6 +20,7 @@
 	NSString *keyserverToCheck;
 	GPGController *gpgc;
 	BOOL testingServer;
+	IBOutlet GPGToolsPref *prefPane;
 }
 
 @property (readonly) NSBundle *myBundle;
@@ -49,16 +50,7 @@
 /* Open Contact */
 - (IBAction)openSupport:(id)pId;
 
-/* Open Donate */
-- (IBAction)openDonate:(id)pId;
-
 
 - (IBAction)deletePassphrases:(id)sender;
-
-// Clear any assigned default-key
-- (IBAction)unsetDefaultKey:(id)sender;
-
-/* Remove the selected keyserver from the list */
-- (IBAction)removeKeyserver:(id)sender;
 
 @end
