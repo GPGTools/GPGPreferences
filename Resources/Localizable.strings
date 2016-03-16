@@ -22,3 +22,34 @@ PassowrdsDeleted_Msg = "All OpenPGP passwords were successfully deleted from OS 
 
 PassowrdsDeletFailed_Title = "Delete passwords failed!";
 PassowrdsDeletFailed_Msg = "Not all stored passwords could be deleted. Please open Console.app and look for any related errors. Open a new discussion and report this issue at /n/nhttps://gpgtools.tenderapp.com/discussion/new";
+
+
+Support_AttachLogInfo_Title = "Attaching debug information";
+Support_AttachLogInfo_Msg = "Thanks for attaching debug info to your report. During the creation it could be, that pinentry asks for the password of your OpenPGP key. Please enter that information. That way we can verify if decryption and signing is correctly working on your system.";
+
+Support_BugDescriptionTooShort_Title = "Description too short";
+Support_BugDescriptionTooShort_Msg = "Please add more details to the description field. The more detail you can provide, the faster we will be able to find a good solution to your request. If applicable, please add precise steps that will help reproduce the issue.";
+
+Support_ExpectedBahaviorTooShort_Title = "Expected behavior too short";
+Support_ExpectedBahaviorTooShort_Msg = "Please add more details to the expected behavior field. The more detail you can provide, the faster we will be able to find a solution and answer your request.";
+
+Support_SubjectTooShort_Title = "Subject too short";
+Support_SubjectTooShort_Msg = "Please add a more descriptive subject.";
+
+Support_MailInvalid_Title = "Email invalid";
+Support_MailInvalid_Msg = "Please use a valid Email address.";
+
+Support_NameTooShort_Title = "Name too short";
+Support_NameTooShort_Msg = "Please enter a longer name.";
+
+Support_NoComponentSelected_Title = "No component selected";
+Support_NoComponentSelected_Msg = "Please select a component.";
+
+Support_ReportFailed_Title = "Sending report failed";
+Support_ReportFailed_Msg = "We were unable to send your report. Please create your report on our support platform instead. The “Ok” button will open your browser and take you there.";
+
+Support_PublicReportSucceeded_Title = "Report sent";
+Support_PublicReportSucceeded_Msg = "Thanks for taking the time to send this report. A public discussion has been created. Please allow a few days for us to respond. You will receive updates via Email.\n\nWe will now open your discussion in your browser. Consider creating a bookmark.";
+
+Support_PrivateReportSucceeded_Title = "Report sent";
+Support_PrivateReportSucceeded_Msg = "Thanks for taking the time to send this report. A private discussion has been created. Please allow a few days for us to respond. You will receive updates via Email.\n\nWe will now open your discussion in your browser. Consider creating a bookmark.";

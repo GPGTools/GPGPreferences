@@ -172,9 +172,9 @@ static NSUInteger const kDefaultPassphraseCacheTime = 600;
 	}
 	
 	if (success) {
-		[gpgToolsPrefPane panelWithTitle:localized(@"PassowrdsDeleted_Title") message:localized(@"PassowrdsDeleted_Msg")];
+		localizedAlert(@"PassowrdsDeleted");
 	} else {
-		[gpgToolsPrefPane panelWithTitle:localized(@"PassowrdsDeletFailed_Title") message:localized(@"PassowrdsDeletFailed_Msg")];
+		localizedAlert(@"PassowrdsDeletFailed");
 	}
 }
 
@@ -367,7 +367,7 @@ static NSUInteger const kDefaultPassphraseCacheTime = 600;
 		[self.options removeKeyserver:gc.keyserver];
 		
 		dispatch_async(dispatch_get_main_queue(), ^{
-			[gpgToolsPrefPane panelWithTitle:localized(@"BadKeyserver_Title") message:localized(@"BadKeyserver_Msg")];
+			localizedAlert(@"BadKeyserver");
 		});
 		
 	}

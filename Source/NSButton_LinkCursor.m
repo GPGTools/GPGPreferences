@@ -2,8 +2,8 @@
 //  NSButton_LinkCursor.m
 //  GPGPreferences
 //
-//  Created by Roman on 14.05.14.
-//  Copyright (c) 2014 GPGTools. All rights reserved.
+//  Created by Mento on 14.05.14.
+//  Copyright (c) 2016 GPGTools. All rights reserved.
 //
 
 #import "NSButton_LinkCursor.h"

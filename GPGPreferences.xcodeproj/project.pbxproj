@@ -8,12 +8,15 @@
 
 /* Begin PBXBuildFile section */
 		3006E02019D1C7D300D819D3 /* Sparkle.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3056D0D1172D31B500CFC0FA /* Sparkle.framework */; };
+		3013BD2D1C96D0C6005744E5 /* GPGReportController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3013BD2C1C96D0C6005744E5 /* GPGReportController.m */; };
+		3013BD381C974A31005744E5 /* GPGWhiteView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3013BD371C974A31005744E5 /* GPGWhiteView.m */; };
 		3016A62C17522E0F00701881 /* gpgservices.png in Resources */ = {isa = PBXBuildFile; fileRef = 3016A62B17522E0F00701881 /* gpgservices.png */; };
 		3016A62E1752300E00701881 /* GPGTools.iconset in Resources */ = {isa = PBXBuildFile; fileRef = 3016A62D1752300E00701881 /* GPGTools.iconset */; };
 		3016A634175230CC00701881 /* gka-gray.png in Resources */ = {isa = PBXBuildFile; fileRef = 3016A62F175230CC00701881 /* gka-gray.png */; };
 		3016A635175230CC00701881 /* gpgmail-gray.png in Resources */ = {isa = PBXBuildFile; fileRef = 3016A630175230CC00701881 /* gpgmail-gray.png */; };
 		3016A637175230CC00701881 /* gpgservices-gray.png in Resources */ = {isa = PBXBuildFile; fileRef = 3016A632175230CC00701881 /* gpgservices-gray.png */; };
 		3016A638175230CC00701881 /* macgpg2-gray.png in Resources */ = {isa = PBXBuildFile; fileRef = 3016A633175230CC00701881 /* macgpg2-gray.png */; };
+		3032EC931C63939900A4DFDB /* GPGDebugCollector.m in Sources */ = {isa = PBXBuildFile; fileRef = 3032EC921C63939900A4DFDB /* GPGDebugCollector.m */; };
 		304031061923AC4500955DBC /* NSButton_LinkCursor.m in Sources */ = {isa = PBXBuildFile; fileRef = 304031051923AC4500955DBC /* NSButton_LinkCursor.m */; };
 		3056D055172D2EEA00CFC0FA /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3056D054172D2EEA00CFC0FA /* Cocoa.framework */; };
 		3056D057172D2EEA00CFC0FA /* PreferencePanes.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3056D056172D2EEA00CFC0FA /* PreferencePanes.framework */; };
@@ -96,6 +99,10 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		3013BD2B1C96D0C6005744E5 /* GPGReportController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GPGReportController.h; sourceTree = "<group>"; };
+		3013BD2C1C96D0C6005744E5 /* GPGReportController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GPGReportController.m; sourceTree = "<group>"; };
+		3013BD361C974A31005744E5 /* GPGWhiteView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GPGWhiteView.h; sourceTree = "<group>"; };
+		3013BD371C974A31005744E5 /* GPGWhiteView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GPGWhiteView.m; sourceTree = "<group>"; };
 		3016A62B17522E0F00701881 /* gpgservices.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = gpgservices.png; path = Images/gpgservices.png; sourceTree = "<group>"; };
 		3016A62D1752300E00701881 /* GPGTools.iconset */ = {isa = PBXFileReference; lastKnownFileType = folder.iconset; name = GPGTools.iconset; path = Images/GPGTools.iconset; sourceTree = "<group>"; };
 		3016A62F175230CC00701881 /* gka-gray.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "gka-gray.png"; path = "Images/gka-gray.png"; sourceTree = "<group>"; };
@@ -103,6 +110,8 @@
 		3016A632175230CC00701881 /* gpgservices-gray.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "gpgservices-gray.png"; path = "Images/gpgservices-gray.png"; sourceTree = "<group>"; };
 		3016A633175230CC00701881 /* macgpg2-gray.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "macgpg2-gray.png"; path = "Images/macgpg2-gray.png"; sourceTree = "<group>"; };
 		301AE8CC17A1997F00CD277F /* Libmacgpg.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Libmacgpg.xcodeproj; path = Dependencies/Libmacgpg/Libmacgpg.xcodeproj; sourceTree = "<group>"; };
+		3032EC911C63939900A4DFDB /* GPGDebugCollector.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GPGDebugCollector.h; sourceTree = "<group>"; };
+		3032EC921C63939900A4DFDB /* GPGDebugCollector.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GPGDebugCollector.m; sourceTree = "<group>"; };
 		304031041923AC4500955DBC /* NSButton_LinkCursor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NSButton_LinkCursor.h; sourceTree = "<group>"; };
 		304031051923AC4500955DBC /* NSButton_LinkCursor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NSButton_LinkCursor.m; sourceTree = "<group>"; };
 		3056D051172D2EEA00CFC0FA /* GPGPreferences.prefPane */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GPGPreferences.prefPane; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -220,6 +229,12 @@
 				3056D090172D301D00CFC0FA /* UpdateController.m */,
 				304031041923AC4500955DBC /* NSButton_LinkCursor.h */,
 				304031051923AC4500955DBC /* NSButton_LinkCursor.m */,
+				3013BD2B1C96D0C6005744E5 /* GPGReportController.h */,
+				3013BD2C1C96D0C6005744E5 /* GPGReportController.m */,
+				3032EC911C63939900A4DFDB /* GPGDebugCollector.h */,
+				3032EC921C63939900A4DFDB /* GPGDebugCollector.m */,
+				3013BD361C974A31005744E5 /* GPGWhiteView.h */,
+				3013BD371C974A31005744E5 /* GPGWhiteView.m */,
 			);
 			name = Classes;
 			path = Source;
@@ -440,6 +455,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3013BD2D1C96D0C6005744E5 /* GPGReportController.m in Sources */,
+				3032EC931C63939900A4DFDB /* GPGDebugCollector.m in Sources */,
+				3013BD381C974A31005744E5 /* GPGWhiteView.m in Sources */,
 				3056D092172D301D00CFC0FA /* GPGIsUnselectedTransformer.m in Sources */,
 				304031061923AC4500955DBC /* NSButton_LinkCursor.m in Sources */,
 				3056D095172D301D00CFC0FA /* GPGToolsPref.m in Sources */,

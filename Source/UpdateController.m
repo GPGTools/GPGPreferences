@@ -364,11 +364,11 @@ NSMutableDictionary *tools;
 				[NSTask launchedTaskWithLaunchPath:@"/Library/Application Support/GPGTools/GPGMail_Updater.app/Contents/MacOS/GPGMail_Updater" arguments:@[@"checkNow"]];
 			}
 			@catch (NSException *exception) {
-				[gpgToolsPrefPane panelWithTitle:localized(@"UpdateCheckFailed_Title") message:localized(@"UpdateCheckFailed_Msg")];
+				localizedAlert(@"UpdateCheckFailed");
 			}
 		} else {
 			/* Mac OS X 10.6 */
-			[gpgToolsPrefPane panelWithTitle:localized(@"NoUpdatesGM106_Title") message:localized(@"NoUpdatesGM106_Msg")];
+			localizedAlert(@"NoUpdatesGM106");
 		}
 	} else if ([tool isEqualToString:@"gka"]) {
 		NSAppleScript *script = [[NSAppleScript alloc] initWithSource:@"tell application \"GPG Keychain\"\ncheck for updates\nactivate\nend tell"];
@@ -422,6 +422,39 @@ NSMutableDictionary *tools;
 	[pasteboard writeObjects:@[infoString]];
 }
 
+- (NSString *)versionInfo {
+	NSMutableString *infoString = [NSMutableString string];
+	NSDictionary *systemPlist = [NSDictionary dictionaryWithContentsOfFile:@"/System/Library/CoreServices/SystemVersion.plist"];
+	
+	
+	[infoString appendFormat:@"Mac OS X\t\t%@\t\t\t\t(%@)\n", [systemPlist objectForKey:@"ProductVersion"] , [systemPlist objectForKey:@"ProductBuildVersion"]];
+	
+	
+	NSArray *toolKeys = @[@"libmacgpg", @"gpgmail", @"gka", @"gpgservices", @"macgpg2", @"gpgprefs", @"pinentry"];
+	
+	for (NSString *tool in toolKeys) {
+		NSDictionary *toolInfo = [tools objectForKey:tool];
+		NSDictionary *plist = [toolInfo objectForKey:@"infoPlist"];
+		NSString *name = [toolInfo objectForKey:NKEY];
+		
+		if (!plist) {
+			[infoString appendFormat:@"%@\t-\n", name];
+		} else {
+			NSArray *parts = [[plist objectForKey:@"CFBundleShortVersionString"] componentsSeparatedByString:@" "];
+			[infoString appendFormat:@"%@%@%@",
+			 [name stringByPaddingToTab:4],
+			 [[parts objectAtIndex:0] stringByPaddingToTab:3],
+			 [[plist objectForKey:@"CFBundleVersion"] stringByPaddingToTab:1]];
+			
+			if (parts.count > 1) {
+				[infoString appendFormat:@"\t%@", [parts objectAtIndex:1]];
+			}
+			[infoString appendString:@"\n"];
+		}
+	}
+	
+	return infoString;
+}
 
 
 
