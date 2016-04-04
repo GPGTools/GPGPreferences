@@ -28,11 +28,11 @@ GPGToolsPref *gpgPrefPane = nil;
 	}
 #ifdef CODE_SIGN_CHECK
 	/* Check the validity of the code signature. */
-    if (!self.bundle.isValidSigned) {
+	if (!self.bundle.isValidSigned) {
 		NSRunAlertPanel(@"Someone tampered with your installation of GPGPreferences!",
 						@"To keep you safe, GPGPreferences will not be loaded!\n\nPlease download and install the latest version of GPG Suite from https://gpgtools.org to be sure you have an original version from us!", nil, nil, nil);
-        exit(1);
-    }
+		exit(1);
+	}
 #endif
 	return [super mainNibName];
 }
@@ -61,32 +61,40 @@ GPGToolsPref *gpgPrefPane = nil;
 
 // Alerts
 
-- (void)localizedAlert:(NSString *)string, ... {
+- (void)showAlert:(NSString *)string, ... {
 	va_list args;
 	va_start(args, string);
-	[self localizedAlert:string arguments:args completionHandler:nil];
+	[self showAlert:string arguments:args completionHandler:nil];
 	va_end(args);
 }
 
-- (void)localizedAlert:(NSString *)string
-	 completionHandler:(void (^)(NSModalResponse returnCode))handler {
+- (void)showAlert:(NSString *)string
+completionHandler:(void (^)(NSModalResponse returnCode))handler {
 	
-	[self localizedAlert:string arguments:nil completionHandler:handler];
+	[self showAlert:string arguments:nil completionHandler:handler];
 }
 
-- (void)localizedAlert:(NSString *)string
-			parameters:(NSArray *)parameters
-	 completionHandler:(void (^)(NSModalResponse returnCode))handler {
+
+
+- (NSAlert *)alert:(NSString *)string
+		parameters:(NSArray *)parameters {
 	
 	NSMutableData *data = [NSMutableData dataWithLength:(sizeof(id) * parameters.count)];
 	[parameters getObjects:(__unsafe_unretained id *)data.mutableBytes range:NSMakeRange(0, parameters.count)];
 	
-	[self localizedAlert:string arguments:data.mutableBytes completionHandler:handler];
+	return [self alert:string arguments:data.mutableBytes];
 }
 
-- (void)localizedAlert:(NSString *)string
-			 arguments:(va_list)arguments
-			  completionHandler:(void (^)(NSModalResponse returnCode))handler {
+- (void)showAlert:(NSString *)string
+	   parameters:(NSArray *)parameters
+completionHandler:(void (^)(NSModalResponse returnCode))handler {
+	
+	[self displayAlert:[self alert:string parameters:parameters] completionHandler:handler];
+}
+
+
+- (NSAlert *)alert:(NSString *)string
+		 arguments:(va_list)arguments {
 	
 	NSString *title = [self localizedString:[string stringByAppendingString:@"_Title"]];
 	NSString *messageFormat = [self localizedString:[string stringByAppendingString:@"_Msg"]];
@@ -97,7 +105,6 @@ GPGToolsPref *gpgPrefPane = nil;
 	} else {
 		message = [[[NSString alloc] initWithFormat:messageFormat arguments:arguments] autorelease];
 	}
-	
 	
 	NSMutableArray *buttons = nil;
 	NSString *button;
@@ -114,18 +121,29 @@ GPGToolsPref *gpgPrefPane = nil;
 		}
 	}
 	
+	NSString *template = [string stringByAppendingString:@"_Checkbox"];
+	NSString *checkbox = [self localizedString:template];
+	if ([checkbox isEqualToString:template]) {
+		checkbox = nil;
+	}
+
+	return [self alertWithTitle:title message:message buttons:buttons checkbox:checkbox];
+}
+
+- (void)showAlert:(NSString *)string
+		arguments:(va_list)arguments
+completionHandler:(void (^)(NSModalResponse returnCode))handler {
 	
-	[self alertWithTitle:title message:message buttons:buttons completionHandler:handler];
+	[self displayAlert:[self alert:string arguments:arguments] completionHandler:handler];
 }
 
 
-
-- (void)alertWithTitle:(NSString *)title
-			   message:(NSString *)msg
-			   buttons:(NSArray *)buttons
-			  completionHandler:(void (^)(NSModalResponse returnCode))handler {
+- (NSAlert *)alertWithTitle:(NSString *)title
+					message:(NSString *)msg
+					buttons:(NSArray *)buttons
+				   checkbox:(NSString *)checkbox {
 	
-	NSAlert *alert = [[NSAlert alloc] init];
+	NSAlert *alert = [[[NSAlert alloc] init] autorelease];
 	alert.messageText = title;
 	alert.informativeText = msg;
 	
@@ -138,27 +156,59 @@ GPGToolsPref *gpgPrefPane = nil;
 	for (NSString *button in buttons) {
 		[alert addButtonWithTitle:button];
 	}
+	if (checkbox) {
+		alert.showsSuppressionButton = YES;
+		alert.suppressionButton.title = checkbox;
+	}
 	
+	return alert;
+}
+
+- (void)showAlertWithTitle:(NSString *)title
+				   message:(NSString *)msg
+				   buttons:(NSArray *)buttons
+				  checkbox:(NSString *)checkbox
+		 completionHandler:(void (^)(NSModalResponse returnCode))handler {
 	
-	if (NSAppKitVersionNumber >= NSAppKitVersionNumber10_9 ) {
+	[self displayAlert:[self alertWithTitle:title message:msg buttons:buttons checkbox:checkbox] completionHandler:handler];
+}
+
+
+
+
+
+- (void)displayAlert:(NSAlert *)alert
+   completionHandler:(void (^)(NSModalResponse returnCode))handler {
+	
+	if (NSAppKitVersionNumber >= NSAppKitVersionNumber10_9) {
 		[alert beginSheetModalForWindow:self.mainView.window completionHandler:^(NSModalResponse returnCode) {
 			if (handler) {
+				if (alert.showsSuppressionButton && alert.suppressionButton.state == NSOnState) {
+					returnCode |= 0x800;
+				}
 				handler(returnCode);
 			}
 		}];
 	} else {
+		NSDictionary *context = nil;
 		if (handler) {
 			// We need to copy the callback, because blocks are stored on the stack!
-			handler = [handler copy];
+			handler = [[handler copy] autorelease];
+			context = @{@"handler": handler, @"alert": alert};
 		}
-		[alert beginSheetModalForWindow:self.mainView.window modalDelegate:self didEndSelector:@selector(alertDidEnd:returnCode:completionHandler:) contextInfo:handler];
+		[alert beginSheetModalForWindow:self.mainView.window modalDelegate:self didEndSelector:@selector(alertDidEnd:returnCode:completionHandler:) contextInfo:context];
 	}
 }
 
-- (void)alertDidEnd:(NSAlert *)alert returnCode:(NSInteger)returnCode completionHandler:(void (^)(NSModalResponse returnCode))handler {
-	if (handler) {
+
+- (void)alertDidEnd:(NSAlert *)alert returnCode:(NSInteger)returnCode completionHandler:(NSDictionary *)context {
+	if (context) {
+		void (^handler)(NSModalResponse returnCode) = context[@"handler"];
+		NSAlert *alert = context[@"alert"];
+		if (alert.showsSuppressionButton && alert.suppressionButton.state == NSOnState) {
+			returnCode |= 0x800;
+		}
 		handler(returnCode);
-		[handler release];
 	}
 }
 

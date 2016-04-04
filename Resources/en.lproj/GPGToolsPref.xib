@@ -822,7 +822,7 @@ servers. If found, the key is downloaded and added to your keyring.</string>
                                                 <outlet property="nextKeyView" destination="j6Q-iu-ygb" id="rOv-XJ-42k"/>
                                             </connections>
                                         </textField>
-                                        <button id="Tqr-cf-yu3">
+                                        <button toolTip="The debug information will be encrypted, so only GPGTools team can read it." id="Tqr-cf-yu3">
                                             <rect key="frame" x="15" y="11" width="170" height="18"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                             <buttonCell key="cell" type="check" title="Add debug information" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="ITf-VV-Ist">
@@ -1032,13 +1032,7 @@ servers. If found, the key is downloaded and added to your keyring.</string>
                                                 <font key="font" metaFont="system"/>
                                             </buttonCell>
                                             <connections>
-                                                <binding destination="hlC-rl-bAu" name="enabled" keyPath="attachDebugLog" id="n5i-x1-Gd2">
-                                                    <dictionary key="options">
-                                                        <string key="NSValueTransformerName">NSNegateBoolean</string>
-                                                    </dictionary>
-                                                </binding>
-                                                <binding destination="hlC-rl-bAu" name="value" keyPath="privateDiscussion" id="BL1-uZ-0y0"/>
-                                                <binding destination="hlC-rl-bAu" name="enabled2" keyPath="uiEnabled" previousBinding="n5i-x1-Gd2" id="Q3Y-zw-i3J">
+                                                <binding destination="hlC-rl-bAu" name="enabled" keyPath="uiEnabled" id="C3e-N2-NK3">
                                                     <dictionary key="options">
                                                         <integer key="NSMultipleValuesPlaceholder" value="-1"/>
                                                         <integer key="NSNoSelectionPlaceholder" value="-1"/>
@@ -1046,6 +1040,7 @@ servers. If found, the key is downloaded and added to your keyring.</string>
                                                         <integer key="NSNullPlaceholder" value="-1"/>
                                                     </dictionary>
                                                 </binding>
+                                                <binding destination="hlC-rl-bAu" name="value" keyPath="privateDiscussion" id="BL1-uZ-0y0"/>
                                                 <outlet property="nextKeyView" destination="W8g-0k-cCU" id="kbZ-LF-gxR"/>
                                             </connections>
                                         </button>

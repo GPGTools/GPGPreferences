@@ -15,7 +15,7 @@
 @implementation GPGReportController
 @synthesize username=_username, email=_email, subject=_subject, attachDebugLog=_attachDebugLog,
 bugDescription=_bugDescription, expectedBahavior=_expectedBahavior, additionalInfo=_additionalInfo,
-affectedComponent=_affectedComponent;
+affectedComponent=_affectedComponent, privateDiscussion=_privateDiscussion;
 
 
 
@@ -39,15 +39,17 @@ affectedComponent=_affectedComponent;
 		NSArray *components = @[@"GPGMail", @"GPG Keychain", @"MacGPG2", @"GPGServices", @"GPGPreferences"];
 		NSString *component = components[self.affectedComponent - 1];
 		
-		[message appendFormat:@"**Affected Component**  \n%@\n\n", component];
+		subject = [NSString stringWithFormat:@"%@: %@", component, subject];
 	}
-	NSString *versionInfo = self.updateController.versionInfo;
 	[message appendFormat:@"**Problem**  \n%@\n\n", bugDescription];
 	[message appendFormat:@"**Expected**  \n%@\n\n", expectedBahavior];
 	if (additionalInfo.length > 0) {
 		[message appendFormat:@"**Additional info**  \n%@\n\n", additionalInfo];
 	}
-	[message appendFormat:@"**GPG Suite version info**  \n%@\n\n", versionInfo];
+	NSString *versionInfo = self.updateController.versionInfo;
+	
+	
+	[message appendFormat:@"**GPG Suite version info**  \n\n%@\n\n", versionInfo];
 	
 	
 	// Prepare the URL Request.
@@ -63,8 +65,6 @@ affectedComponent=_affectedComponent;
 	
 	// Attach the debug infos.
 	if (self.attachDebugLog) {
-		privateDiscussion = YES;
-		
 		GPGDebugCollector *debugCollector = [GPGDebugCollector new];
 		NSDictionary *debugInfos = [debugCollector debugInfos];
 		[debugCollector release];
@@ -89,6 +89,7 @@ affectedComponent=_affectedComponent;
 	[fieldsString appendFormat:@"%@subject%@%@\r\n--%@\r\n", dispo1, dispo2, subject, boundry];
 	[fieldsString appendFormat:@"%@message%@%@\r\n--%@\r\n", dispo1, dispo2, message, boundry];
 	[fieldsString appendFormat:@"%@private%@%@\r\n--%@--\r\n", dispo1, dispo2, privateDiscussion ? @"1" : @"0", boundry];
+	
 	
 	[postData appendData:[fieldsString dataUsingEncoding:NSUTF8StringEncoding]];
 	
@@ -123,11 +124,11 @@ affectedComponent=_affectedComponent;
 		if (href) {
 			NSString *template = privateDiscussion ? @"Support_PrivateReportSucceeded" : @"Support_PublicReportSucceeded";
 			
-			[gpgPrefPane localizedAlert:template
-							 parameters:@[href]
-					  completionHandler:^(NSModalResponse returnCode) {
-						  [[NSWorkspace sharedWorkspace] openURL:[NSURL URLWithString:href]];
-					  }];
+			[gpgPrefPane showAlert:template
+						parameters:@[href]
+				 completionHandler:^(NSModalResponse returnCode) {
+					 [[NSWorkspace sharedWorkspace] openURL:[NSURL URLWithString:href]];
+				 }];
 		} else {
 			NSString *statusCode = @"-";
 			if ([response respondsToSelector:@selector(statusCode)]) {
@@ -136,7 +137,8 @@ affectedComponent=_affectedComponent;
 			NSString *result = [[[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding] autorelease];
 			NSLog(@"Send Report Failed: '%@', Error: '%@', Response: '%@'", result, connectionError, statusCode);
 			
-			[gpgPrefPane localizedAlert:@"Support_ReportFailed" completionHandler:^(NSModalResponse returnCode) {
+			[gpgPrefPane showAlert:@"Support_ReportFailed"
+				 completionHandler:^(NSModalResponse returnCode) {
 				[[NSWorkspace sharedWorkspace] openURL:[NSURL URLWithString:@"https://gpgtools.tenderapp.com/discussion/new"]];
 			}];
 		}
@@ -182,15 +184,23 @@ affectedComponent=_affectedComponent;
 		return;
 	}
 
-	if (self.attachDebugLog) {
-		[gpgPrefPane localizedAlert:@"Support_AttachLogInfo" parameters:@[] completionHandler:^(NSModalResponse returnCode) {
+	
+	NSAlert *alert = [gpgPrefPane alert:@"Support_SendDebugInfo" arguments:nil];
+	alert.suppressionButton.state = self.attachDebugLog ? NSOnState : NSOffState;
+	
+	[gpgPrefPane displayAlert:alert completionHandler:^(NSModalResponse returnCode) {
+		BOOL sendLog = NO;
+		if (returnCode & 0x800) {
+			sendLog = YES;
+			returnCode -= 0x800;
+		}
+		
+		if (returnCode == NSAlertFirstButtonReturn || returnCode == NSAlertDefaultReturn) {
 			self.uiEnabled = NO;
+			self.attachDebugLog = sendLog;
 			[self performSelectorInBackground:@selector(sendSupportRequest) withObject:nil];
-		}];
-	} else {
-		self.uiEnabled = NO;
-		[self performSelectorInBackground:@selector(sendSupportRequest) withObject:nil];
-	}
+		}
+	}];
 }
 
 
@@ -231,16 +241,6 @@ affectedComponent=_affectedComponent;
 	return YES;
 }
 
-
-- (void)setPrivateDiscussion:(BOOL)value {
-	_privateDiscussion = value;
-}
-- (BOOL)privateDiscussion {
-	return _privateDiscussion || _attachDebugLog;
-}
-+ (NSSet *)keyPathsForValuesAffectingPrivateDiscussion {
-	return [NSSet setWithObjects:@"attachDebugLog", nil];
-}
 
 
 - (void)setUiEnabled:(BOOL)value {

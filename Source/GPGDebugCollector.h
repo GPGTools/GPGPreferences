@@ -6,5 +6,6 @@
 }
 
 - (NSDictionary *)debugInfos;
+- (NSString *)runShellCommand:(NSString *)command;
 
 @end

@@ -45,9 +45,6 @@
 		[self collectMailBundleConfig];
 	} @catch (NSException *exception) {}
 	@try {
-		[self collectLogs];
-	} @catch (NSException *exception) {}
-	@try {
 		[self collectKeyListings];
 	} @catch (NSException *exception) {}
 	@try {
@@ -64,12 +61,12 @@
 	
 	NSMutableDictionary *results = [NSMutableDictionary dictionary];
 	
-	results[@"Encrypt GPGTools"] = [self runShellCommand:[NSString stringWithFormat:@"'%@' -aer 85E38F69046B44C1EC9FB07B76D78F0500D026C4 <<<test", gpgPath]];
-	results[@"Encrypt Self"] = [self runShellCommand:[NSString stringWithFormat:@"'%@' -ae --default-recipient-self <<<test", gpgPath]];
-	results[@"Encrypt+Decrypt"] = [self runShellCommand:[NSString stringWithFormat:@"'%@' -ae --default-recipient-self <<<test | '%@' -d", gpgPath, gpgPath]];
+	results[@"Encrypt GPGTools"] = [self runShellCommand:[NSString stringWithFormat:@"'%@' --batch --no-tty -aer 85E38F69046B44C1EC9FB07B76D78F0500D026C4 <<<test", gpgPath]];
+	results[@"Encrypt Self"] = [self runShellCommand:[NSString stringWithFormat:@"'%@' --batch --no-tty -ae --default-recipient-self <<<test", gpgPath]];
+	results[@"Encrypt+Decrypt"] = [self runShellCommand:[NSString stringWithFormat:@"'%@' --batch --no-tty -ae --default-recipient-self <<<test | '%@' -d", gpgPath, gpgPath]];
 
-	results[@"Sign"] = [self runShellCommand:[NSString stringWithFormat:@"'%@' -as <<<test", gpgPath]];
-	results[@"Sign+Encrypt"] = [self runShellCommand:[NSString stringWithFormat:@"'%@' -aser 85E38F69046B44C1EC9FB07B76D78F0500D026C4 --default-recipient-self <<<test", gpgPath]];
+	results[@"Sign"] = [self runShellCommand:[NSString stringWithFormat:@"'%@' --batch --no-tty -as <<<test", gpgPath]];
+	results[@"Sign+Encrypt"] = [self runShellCommand:[NSString stringWithFormat:@"'%@' --batch --no-tty -aser 85E38F69046B44C1EC9FB07B76D78F0500D026C4 --default-recipient-self <<<test", gpgPath]];
 
 	
 	debugInfos[@"Encrypt/Sign"] = results;
@@ -88,15 +85,6 @@
 	listings[@"Secret"] = [self linesFromString:[self runCommand:@[gpgPath, @"-K"]]];
 	
 	debugInfos[@"Key Listings"] = listings;
-}
-
-// Logging from Mail.app.
-- (void)collectLogs {
-	NSMutableDictionary *logs = [NSMutableDictionary dictionary];
-	
-	logs[@"Mail"] = [self linesFromString:[self runShellCommand:@"egrep ' Mail\\[\\d+\\]: ' < /var/log/system.log"]];
-	
-	debugInfos[@"Logs"] = logs;
 }
 
 // Are Mail bundles enabled?
