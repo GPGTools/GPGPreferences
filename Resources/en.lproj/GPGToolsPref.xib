@@ -8,6 +8,7 @@
         <customObject id="-2" userLabel="File's Owner" customClass="GPGToolsPref">
             <connections>
                 <outlet property="_window" destination="12" id="26"/>
+                <outlet property="tabView" destination="188" id="LA0-Sw-ehc"/>
             </connections>
         </customObject>
         <customObject id="-1" userLabel="First Responder" customClass="FirstResponder"/>
@@ -252,7 +253,7 @@ servers. If found, the key is downloaded and added to your keyring.</string>
                                     </subviews>
                                 </view>
                             </tabViewItem>
-                            <tabViewItem label="Updates" identifier="" id="693">
+                            <tabViewItem label="Updates" identifier="updates" id="693">
                                 <view key="view" id="694">
                                     <rect key="frame" x="10" y="33" width="630" height="322"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -763,7 +764,7 @@ servers. If found, the key is downloaded and added to your keyring.</string>
                                     </subviews>
                                 </view>
                             </tabViewItem>
-                            <tabViewItem label="Send Report" identifier="" id="NHG-AV-7kF">
+                            <tabViewItem label="Send Report" identifier="report" id="NHG-AV-7kF">
                                 <view key="view" id="xfu-rM-Apz">
                                     <rect key="frame" x="10" y="33" width="630" height="322"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -1032,6 +1033,7 @@ servers. If found, the key is downloaded and added to your keyring.</string>
                                                 <font key="font" metaFont="system"/>
                                             </buttonCell>
                                             <connections>
+                                                <binding destination="hlC-rl-bAu" name="value" keyPath="privateDiscussion" id="BL1-uZ-0y0"/>
                                                 <binding destination="hlC-rl-bAu" name="enabled" keyPath="uiEnabled" id="C3e-N2-NK3">
                                                     <dictionary key="options">
                                                         <integer key="NSMultipleValuesPlaceholder" value="-1"/>
@@ -1040,14 +1042,16 @@ servers. If found, the key is downloaded and added to your keyring.</string>
                                                         <integer key="NSNullPlaceholder" value="-1"/>
                                                     </dictionary>
                                                 </binding>
-                                                <binding destination="hlC-rl-bAu" name="value" keyPath="privateDiscussion" id="BL1-uZ-0y0"/>
                                                 <outlet property="nextKeyView" destination="W8g-0k-cCU" id="kbZ-LF-gxR"/>
                                             </connections>
                                         </button>
                                     </subviews>
                                 </view>
+                                <connections>
+                                    <outlet property="initialFirstResponder" destination="L2e-0m-qsR" id="cFR-nG-pOK"/>
+                                </connections>
                             </tabViewItem>
-                            <tabViewItem label="About" identifier="" id="248">
+                            <tabViewItem label="About" identifier="about" id="248">
                                 <view key="view" id="249">
                                     <rect key="frame" x="10" y="33" width="630" height="322"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

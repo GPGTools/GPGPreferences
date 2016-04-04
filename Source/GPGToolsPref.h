@@ -16,7 +16,14 @@ extern GPGToolsPref *gpgPrefPane;
 #define localized(string) [gpgPrefPane localizedString:string]
 
 
-@interface GPGToolsPref : NSPreferencePane
+@interface GPGToolsPref : NSPreferencePane {
+	NSTabView *_tabView;
+}
+
+
+@property (strong) IBOutlet NSTabView *tabView;
+
+
 - (NSString *)localizedString:(NSString *)key;
 
 

@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>settings</key>
+	<dict>
+		<key>localizableStrings</key>
+		<array>
+			<dict>
+				<key>index</key>
+				<string>Settings</string>
+				<key>title</key>
+				<string>Settings</string>
+			</dict>
+		</array>
+	</dict>
+	<key>updates</key>
+	<dict>
+		<key>localizableStrings</key>
+		<array>
+			<dict>
+				<key>index</key>
+				<string>Updates</string>
+				<key>title</key>
+				<string>Updates</string>
+			</dict>
+		</array>
+	</dict>
+	<key>report</key>
+	<dict>
+		<key>localizableStrings</key>
+		<array>
+			<dict>
+				<key>index</key>
+				<string>Send, Report</string>
+				<key>title</key>
+				<string>Send Report</string>
+			</dict>
+		</array>
+	</dict>
+	<key>about</key>
+	<dict>
+		<key>localizableStrings</key>
+		<array>
+			<dict>
+				<key>index</key>
+				<string>About</string>
+				<key>title</key>
+				<string>About</string>
+			</dict>
+		</array>
+	</dict>
+</dict>
+</plist>

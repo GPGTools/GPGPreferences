@@ -12,6 +12,7 @@
 GPGToolsPref *gpgPrefPane = nil;
 
 @implementation GPGToolsPref
+@synthesize tabView=_tabView;
 
 - (instancetype)initWithBundle:(NSBundle *)bundle {
 	self = [super initWithBundle:bundle];
@@ -40,6 +41,20 @@ GPGToolsPref *gpgPrefPane = nil;
 - (void)willUnselect {
 	[self.mainView.window makeFirstResponder:nil];
 }
+
+
+
+- (void)revealElementForKey:(NSString *)key {
+	NSInteger index = [self.tabView indexOfTabViewItemWithIdentifier:key];
+	if (index != NSNotFound) {
+		[self.tabView selectTabViewItemAtIndex:index];
+	}
+}
+
+
+
+
+
 
 
 - (NSString *)localizedString:(NSString *)key {
