@@ -69,7 +69,11 @@ affectedComponent=_affectedComponent, privateDiscussion=_privateDiscussion;
 		NSDictionary *debugInfos = [debugCollector debugInfos];
 		[debugCollector release];
 		
-		NSData *debugData = [NSPropertyListSerialization dataWithPropertyList:debugInfos format:NSPropertyListBinaryFormat_v1_0 options:0 error:nil];
+		NSError *error = nil;
+		NSData *debugData = [NSPropertyListSerialization dataWithPropertyList:debugInfos format:NSPropertyListBinaryFormat_v1_0 options:0 error:&error];
+		if (!debugData) {
+			debugData = [[NSString stringWithFormat:@"Error generating debug info: %@", error] dataUsingEncoding:NSUTF8StringEncoding];
+		}
 		
 		[postData appendData:boundryData];
 		[postData appendData:[@"Content-Disposition: form-data; name=\"file\"; filename=\"DebugInfo.plist\"\r\n\r\n" dataUsingEncoding:NSUTF8StringEncoding]];
