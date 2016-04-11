@@ -523,66 +523,6 @@ servers. If found, the key is downloaded and added to your keyring.</string>
                                                 <binding destination="718" name="selectedTag" keyPath="gpgprefs.UpdateType" id="933"/>
                                             </connections>
                                         </popUpButton>
-                                        <button id="aac-sO-qhc" customClass="NSButton_LinkCursor">
-                                            <rect key="frame" x="74" y="54" width="474" height="14"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                            <buttonCell key="cell" type="bevel" title="Version: xxxxxx (00000000), Build: 0000n" bezelStyle="regularSquare" alignment="left" controlSize="small" imageScaling="proportionallyDown" inset="2" id="yNx-IK-OLs">
-                                                <behavior key="behavior" lightByContents="YES"/>
-                                                <font key="font" metaFont="smallSystem"/>
-                                            </buttonCell>
-                                            <connections>
-                                                <action selector="copyVersionInfo:" target="718" id="Nod-xM-ehK"/>
-                                                <binding destination="718" name="title" keyPath="gpgprefs.versionDescription" id="aMu-Lc-SBu"/>
-                                            </connections>
-                                        </button>
-                                        <button id="ZUg-bA-OnB" customClass="NSButton_LinkCursor">
-                                            <rect key="frame" x="74" y="116" width="474" height="14"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                            <buttonCell key="cell" type="bevel" title="Version: xxxxxx (00000000), Build: 0000n" bezelStyle="regularSquare" alignment="left" controlSize="small" imageScaling="proportionallyDown" inset="2" id="Rji-Jx-Srf">
-                                                <behavior key="behavior" lightByContents="YES"/>
-                                                <font key="font" metaFont="smallSystem"/>
-                                            </buttonCell>
-                                            <connections>
-                                                <action selector="copyVersionInfo:" target="718" id="kUi-YS-IPw"/>
-                                                <binding destination="718" name="title" keyPath="macgpg2.versionDescription" id="7Sk-Tw-59l"/>
-                                            </connections>
-                                        </button>
-                                        <button id="man-ln-VmC" customClass="NSButton_LinkCursor">
-                                            <rect key="frame" x="74" y="178" width="474" height="14"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                            <buttonCell key="cell" type="bevel" title="Version: xxxxxx (00000000), Build: 0000n" bezelStyle="regularSquare" alignment="left" controlSize="small" imageScaling="proportionallyDown" inset="2" id="B0J-tW-eaL">
-                                                <behavior key="behavior" lightByContents="YES"/>
-                                                <font key="font" metaFont="smallSystem"/>
-                                            </buttonCell>
-                                            <connections>
-                                                <action selector="copyVersionInfo:" target="718" id="lRh-SF-GMY"/>
-                                                <binding destination="718" name="title" keyPath="gpgservices.versionDescription" id="dib-71-hzA"/>
-                                            </connections>
-                                        </button>
-                                        <button id="QPv-I0-t9o" customClass="NSButton_LinkCursor">
-                                            <rect key="frame" x="74" y="240" width="474" height="14"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                            <buttonCell key="cell" type="bevel" title="Version: xxxxxx (00000000), Build: 0000n" bezelStyle="regularSquare" alignment="left" controlSize="small" imageScaling="proportionallyDown" inset="2" id="ttQ-kV-IjU">
-                                                <behavior key="behavior" lightByContents="YES"/>
-                                                <font key="font" metaFont="smallSystem"/>
-                                            </buttonCell>
-                                            <connections>
-                                                <action selector="copyVersionInfo:" target="718" id="oBM-2T-nt1"/>
-                                                <binding destination="718" name="title" keyPath="gka.versionDescription" id="tYD-T6-hcF"/>
-                                            </connections>
-                                        </button>
-                                        <button id="ItE-Hx-gXM" customClass="NSButton_LinkCursor">
-                                            <rect key="frame" x="74" y="302" width="474" height="14"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                            <buttonCell key="cell" type="bevel" title="Version: xxxxxx (00000000), Build: 0000n" bezelStyle="regularSquare" alignment="left" controlSize="small" imageScaling="proportionallyDown" inset="2" id="eZI-W4-Bl5">
-                                                <behavior key="behavior" lightByContents="YES"/>
-                                                <font key="font" metaFont="smallSystem"/>
-                                            </buttonCell>
-                                            <connections>
-                                                <action selector="copyVersionInfo:" target="718" id="mEn-qZ-ncm"/>
-                                                <binding destination="718" name="title" keyPath="gpgmail.versionDescription" id="9ux-ch-EbG"/>
-                                            </connections>
-                                        </button>
                                         <button verticalHuggingPriority="750" id="9YE-gZ-iyy" userLabel="Install GPGMail">
                                             <rect key="frame" x="282" y="266" width="109" height="32"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
@@ -761,6 +701,66 @@ servers. If found, the key is downloaded and added to your keyring.</string>
                                                 </binding>
                                             </connections>
                                         </button>
+                                        <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="epP-ve-L5P">
+                                            <rect key="frame" x="72" y="302" width="478" height="17"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                            <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Label" id="BA4-3L-ONH">
+                                                <font key="font" metaFont="system"/>
+                                                <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                                                <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                            </textFieldCell>
+                                            <connections>
+                                                <binding destination="718" name="value" keyPath="gpgmail.versionDescription" id="vNP-ay-Tk9"/>
+                                            </connections>
+                                        </textField>
+                                        <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="w4L-Br-IGr">
+                                            <rect key="frame" x="72" y="240" width="478" height="17"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                            <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Label" id="UwJ-ar-Lb2">
+                                                <font key="font" metaFont="system"/>
+                                                <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                                                <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                            </textFieldCell>
+                                            <connections>
+                                                <binding destination="718" name="value" keyPath="gka.versionDescription" id="R3E-Cq-GMs"/>
+                                            </connections>
+                                        </textField>
+                                        <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="Kel-NC-hi2">
+                                            <rect key="frame" x="72" y="178" width="478" height="17"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                            <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Label" id="5Ww-2h-h94">
+                                                <font key="font" metaFont="system"/>
+                                                <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                                                <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                            </textFieldCell>
+                                            <connections>
+                                                <binding destination="718" name="value" keyPath="gpgservices.versionDescription" id="1MY-pL-AEf"/>
+                                            </connections>
+                                        </textField>
+                                        <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="26O-w5-aPR">
+                                            <rect key="frame" x="72" y="116" width="478" height="17"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                            <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Label" id="nrS-t0-ICt">
+                                                <font key="font" metaFont="system"/>
+                                                <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                                                <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                            </textFieldCell>
+                                            <connections>
+                                                <binding destination="718" name="value" keyPath="macgpg2.versionDescription" id="BvE-Mj-q4r"/>
+                                            </connections>
+                                        </textField>
+                                        <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="eC2-OF-e0i">
+                                            <rect key="frame" x="72" y="52" width="478" height="17"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                            <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Label" id="i7M-aU-WKf">
+                                                <font key="font" metaFont="system"/>
+                                                <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                                                <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                            </textFieldCell>
+                                            <connections>
+                                                <binding destination="718" name="value" keyPath="gpgprefs.versionDescription" id="NSg-uO-8d6"/>
+                                            </connections>
+                                        </textField>
                                     </subviews>
                                 </view>
                             </tabViewItem>

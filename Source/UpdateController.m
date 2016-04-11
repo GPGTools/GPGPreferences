@@ -385,50 +385,11 @@ NSMutableDictionary *tools;
 	[[NSWorkspace sharedWorkspace] openURL:[NSURL URLWithString:@"https://gpgtools.org/#gpgsuite"]];
 }
 
-- (IBAction)copyVersionInfo:(NSButton *)sender {
-	NSMutableString *infoString = [NSMutableString string];
-	NSDictionary *systemPlist = [NSDictionary dictionaryWithContentsOfFile:@"/System/Library/CoreServices/SystemVersion.plist"];
-	
-	
-	[infoString appendFormat:@"Mac OS X\t\t%@\t\t\t\t(%@)\n", [systemPlist objectForKey:@"ProductVersion"] , [systemPlist objectForKey:@"ProductBuildVersion"]];
-	
-	
-	NSArray *toolKeys = @[@"libmacgpg", @"gpgmail", @"gka", @"gpgservices", @"macgpg2", @"gpgprefs", @"pinentry"];
-	
-	for (NSString *tool in toolKeys) {
-		NSDictionary *toolInfo = [tools objectForKey:tool];
-		NSDictionary *plist = [toolInfo objectForKey:@"infoPlist"];
-		NSString *name = [toolInfo objectForKey:NKEY];
-
-		if (!plist) {
-			[infoString appendFormat:@"%@\t-\n", name];
-		} else {
-			NSArray *parts = [[plist objectForKey:@"CFBundleShortVersionString"] componentsSeparatedByString:@" "];
-			[infoString appendFormat:@"%@%@%@",
-			 [name stringByPaddingToTab:4],
-			 [[parts objectAtIndex:0] stringByPaddingToTab:3],
-			 [[plist objectForKey:@"CFBundleVersion"] stringByPaddingToTab:1]];
-
-			if (parts.count > 1) {
-				[infoString appendFormat:@"\t%@", [parts objectAtIndex:1]];
-			}
-			[infoString appendString:@"\n"];
-		}
-	}
-	
-	
-	NSPasteboard *pasteboard = [NSPasteboard generalPasteboard];
-	[pasteboard clearContents];
-	[pasteboard writeObjects:@[infoString]];
-}
-
 - (NSString *)versionInfo {
 	NSMutableString *infoString = [NSMutableString string];
 	NSDictionary *systemPlist = [NSDictionary dictionaryWithContentsOfFile:@"/System/Library/CoreServices/SystemVersion.plist"];
 	
-	
 	[infoString appendFormat:@"    Mac OS X\t\t%@\t\t\t\t(%@)\n", [systemPlist objectForKey:@"ProductVersion"] , [systemPlist objectForKey:@"ProductBuildVersion"]];
-	
 	
 	NSArray *toolKeys = @[@"libmacgpg", @"gpgmail", @"gka", @"gpgservices", @"macgpg2", @"gpgprefs", @"pinentry"];
 	

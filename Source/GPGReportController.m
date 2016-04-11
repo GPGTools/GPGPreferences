@@ -41,15 +41,13 @@ affectedComponent=_affectedComponent, privateDiscussion=_privateDiscussion;
 		
 		subject = [NSString stringWithFormat:@"%@: %@", component, subject];
 	}
-	[message appendFormat:@"**Problem**  \n%@\n\n", bugDescription];
+	[message appendFormat:@"%@\n\n", bugDescription];
 	[message appendFormat:@"**Expected**  \n%@\n\n", expectedBahavior];
 	if (additionalInfo.length > 0) {
 		[message appendFormat:@"**Additional info**  \n%@\n\n", additionalInfo];
 	}
 	NSString *versionInfo = self.updateController.versionInfo;
-	
-	
-	[message appendFormat:@"**GPG Suite version info**  \n\n%@\n\n", versionInfo];
+	[message appendFormat:@"%@\n\n", versionInfo];
 	
 	
 	// Prepare the URL Request.
@@ -75,8 +73,16 @@ affectedComponent=_affectedComponent, privateDiscussion=_privateDiscussion;
 			debugData = [[NSString stringWithFormat:@"Error generating debug info: %@", error] dataUsingEncoding:NSUTF8StringEncoding];
 		}
 		
+		
+		NSDateFormatter *format = [NSDateFormatter new];
+		format.dateFormat = @"yyyy-MM-dd_HH-mm";
+		format.timeZone = [NSTimeZone timeZoneForSecondsFromGMT:0];
+		NSString *filename = [NSString stringWithFormat:@"%@_DebugInfo.plist", [format stringFromDate:[NSDate date]]];
+		
 		[postData appendData:boundryData];
-		[postData appendData:[@"Content-Disposition: form-data; name=\"file\"; filename=\"DebugInfo.plist\"\r\n\r\n" dataUsingEncoding:NSUTF8StringEncoding]];
+		[postData appendData:[@"Content-Disposition: form-data; name=\"file\"; filename=\"" dataUsingEncoding:NSUTF8StringEncoding]];
+		[postData appendData:[filename dataUsingEncoding:NSUTF8StringEncoding]];
+		[postData appendData:[@"\"\r\n\r\n" dataUsingEncoding:NSUTF8StringEncoding]];
 		[postData appendData:debugData];
 		[postData appendData:[NSData dataWithBytes:"\r\n" length:2]];
 	}
