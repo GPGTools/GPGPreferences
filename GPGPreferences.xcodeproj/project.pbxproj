@@ -32,6 +32,9 @@
 		3056D0BA172D307400CFC0FA /* Credits.rtf in Resources */ = {isa = PBXBuildFile; fileRef = 3056D0B8172D307400CFC0FA /* Credits.rtf */; };
 		3056D0D0172D319400CFC0FA /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3056D0CF172D319400CFC0FA /* Security.framework */; };
 		3056D0D4172D321E00CFC0FA /* Sparkle.framework in Copy Frameworks */ = {isa = PBXBuildFile; fileRef = 3056D0D1172D31B500CFC0FA /* Sparkle.framework */; };
+		3063FE631CBE68F900E3B255 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 3063FE621CBE68F900E3B255 /* main.m */; };
+		3063FE6B1CBE69FD00E3B255 /* gpgPrefLauncher in Resources */ = {isa = PBXBuildFile; fileRef = 3063FE601CBE68F900E3B255 /* gpgPrefLauncher */; };
+		3063FE711CBE6AEC00E3B255 /* ScriptingBridge.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3063FE701CBE6AEC00E3B255 /* ScriptingBridge.framework */; };
 		307B751A1CB2A31C00002ACF /* GPGPreferencesTerms.searchTerms in Resources */ = {isa = PBXBuildFile; fileRef = 307B75191CB2A31C00002ACF /* GPGPreferencesTerms.searchTerms */; };
 		30B455FF172D7BB500A04D4A /* Libmacgpg.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 30B455FE172D7BB500A04D4A /* Libmacgpg.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		30B7416917A2EFC100E1D157 /* GPGTools+Text.png in Resources */ = {isa = PBXBuildFile; fileRef = 30B7416817A2EFC100E1D157 /* GPGTools+Text.png */; };
@@ -82,6 +85,13 @@
 			remoteGlobalIDString = 30BE73BE1B54015C001A2137;
 			remoteInfo = UnitTests;
 		};
+		3063FE6C1CBE6A0400E3B255 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 3056D047172D2EEA00CFC0FA /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 3063FE5F1CBE68F900E3B255;
+			remoteInfo = gpgPrefLauncher;
+		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -95,6 +105,15 @@
 			);
 			name = "Copy Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3063FE5E1CBE68F900E3B255 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = /usr/share/man/man1/;
+			dstSubfolderSpec = 0;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 1;
 		};
 /* End PBXCopyFilesBuildPhase section */
 
@@ -137,6 +156,10 @@
 		3056D0CD172D312200CFC0FA /* GPGPreferences-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "GPGPreferences-Prefix.pch"; sourceTree = "<group>"; };
 		3056D0CF172D319400CFC0FA /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		3056D0D1172D31B500CFC0FA /* Sparkle.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Sparkle.framework; path = Frameworks/Sparkle.framework; sourceTree = "<group>"; };
+		3063FE601CBE68F900E3B255 /* gpgPrefLauncher */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = gpgPrefLauncher; sourceTree = BUILT_PRODUCTS_DIR; };
+		3063FE621CBE68F900E3B255 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		3063FE6F1CBE6ACD00E3B255 /* SBSystemPreferences.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SBSystemPreferences.h; sourceTree = "<group>"; };
+		3063FE701CBE6AEC00E3B255 /* ScriptingBridge.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ScriptingBridge.framework; path = System/Library/Frameworks/ScriptingBridge.framework; sourceTree = SDKROOT; };
 		307B75191CB2A31C00002ACF /* GPGPreferencesTerms.searchTerms */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = GPGPreferencesTerms.searchTerms; sourceTree = "<group>"; };
 		30B455FE172D7BB500A04D4A /* Libmacgpg.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Libmacgpg.framework; path = /Library/Frameworks/Libmacgpg.framework; sourceTree = "<absolute>"; };
 		30B7416817A2EFC100E1D157 /* GPGTools+Text.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "GPGTools+Text.png"; path = "Images/GPGTools+Text.png"; sourceTree = "<group>"; };
@@ -154,6 +177,14 @@
 				3056D0D0172D319400CFC0FA /* Security.framework in Frameworks */,
 				3056D055172D2EEA00CFC0FA /* Cocoa.framework in Frameworks */,
 				3056D057172D2EEA00CFC0FA /* PreferencePanes.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3063FE5D1CBE68F900E3B255 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3063FE711CBE6AEC00E3B255 /* ScriptingBridge.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -179,6 +210,7 @@
 				3056D072172D2F8500CFC0FA /* Classes */,
 				3056D073172D2FAF00CFC0FA /* Other Sources */,
 				3056D074172D2FC300CFC0FA /* Resources */,
+				3063FE611CBE68F900E3B255 /* gpgPrefLauncher */,
 				3056D053172D2EEA00CFC0FA /* Frameworks */,
 				3056D052172D2EEA00CFC0FA /* Products */,
 			);
@@ -188,6 +220,7 @@
 			isa = PBXGroup;
 			children = (
 				3056D051172D2EEA00CFC0FA /* GPGPreferences.prefPane */,
+				3063FE601CBE68F900E3B255 /* gpgPrefLauncher */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -195,6 +228,7 @@
 		3056D053172D2EEA00CFC0FA /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				3063FE701CBE6AEC00E3B255 /* ScriptingBridge.framework */,
 				3056D054172D2EEA00CFC0FA /* Cocoa.framework */,
 				3056D0CF172D319400CFC0FA /* Security.framework */,
 				3056D056172D2EEA00CFC0FA /* PreferencePanes.framework */,
@@ -295,6 +329,15 @@
 			name = Images;
 			sourceTree = "<group>";
 		};
+		3063FE611CBE68F900E3B255 /* gpgPrefLauncher */ = {
+			isa = PBXGroup;
+			children = (
+				3063FE6F1CBE6ACD00E3B255 /* SBSystemPreferences.h */,
+				3063FE621CBE68F900E3B255 /* main.m */,
+			);
+			path = gpgPrefLauncher;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -312,12 +355,30 @@
 			buildRules = (
 			);
 			dependencies = (
+				3063FE6D1CBE6A0400E3B255 /* PBXTargetDependency */,
 				1BEC7A4D1A976E430006FAF6 /* PBXTargetDependency */,
 			);
 			name = GPGPreferences;
 			productName = GPGPreferences;
 			productReference = 3056D051172D2EEA00CFC0FA /* GPGPreferences.prefPane */;
 			productType = "com.apple.product-type.bundle";
+		};
+		3063FE5F1CBE68F900E3B255 /* gpgPrefLauncher */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 3063FE6A1CBE68F900E3B255 /* Build configuration list for PBXNativeTarget "gpgPrefLauncher" */;
+			buildPhases = (
+				3063FE5C1CBE68F900E3B255 /* Sources */,
+				3063FE5D1CBE68F900E3B255 /* Frameworks */,
+				3063FE5E1CBE68F900E3B255 /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = gpgPrefLauncher;
+			productName = gpgPrefLauncher;
+			productReference = 3063FE601CBE68F900E3B255 /* gpgPrefLauncher */;
+			productType = "com.apple.product-type.tool";
 		};
 /* End PBXNativeTarget section */
 
@@ -327,6 +388,11 @@
 			attributes = {
 				LastUpgradeCheck = 0460;
 				ORGANIZATIONNAME = GPGTools;
+				TargetAttributes = {
+					3063FE5F1CBE68F900E3B255 = {
+						CreatedOnToolsVersion = 6.2;
+					};
+				};
 			};
 			buildConfigurationList = 3056D04A172D2EEA00CFC0FA /* Build configuration list for PBXProject "GPGPreferences" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -347,6 +413,7 @@
 			projectRoot = "";
 			targets = (
 				3056D050172D2EEA00CFC0FA /* GPGPreferences */,
+				3063FE5F1CBE68F900E3B255 /* gpgPrefLauncher */,
 			);
 		};
 /* End PBXProject section */
@@ -394,6 +461,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3063FE6B1CBE69FD00E3B255 /* gpgPrefLauncher in Resources */,
 				30FDA7FF1784644100B58E01 /* WarningView.xib in Resources */,
 				307B751A1CB2A31C00002ACF /* GPGPreferencesTerms.searchTerms in Resources */,
 				3056D0A8172D305E00CFC0FA /* gka.png in Resources */,
@@ -464,6 +532,14 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		3063FE5C1CBE68F900E3B255 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3063FE631CBE68F900E3B255 /* main.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -471,6 +547,11 @@
 			isa = PBXTargetDependency;
 			name = Libmacgpg;
 			targetProxy = 1BEC7A4C1A976E430006FAF6 /* PBXContainerItemProxy */;
+		};
+		3063FE6D1CBE6A0400E3B255 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 3063FE5F1CBE68F900E3B255 /* gpgPrefLauncher */;
+			targetProxy = 3063FE6C1CBE6A0400E3B255 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -608,6 +689,50 @@
 			};
 			name = Release;
 		};
+		3063FE641CBE68F900E3B255 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.9;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		3063FE651CBE68F900E3B255 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				COPY_PHASE_STRIP = NO;
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.9;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -628,6 +753,14 @@
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
+		};
+		3063FE6A1CBE68F900E3B255 /* Build configuration list for PBXNativeTarget "gpgPrefLauncher" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3063FE641CBE68F900E3B255 /* Debug */,
+				3063FE651CBE68F900E3B255 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
 		};
 /* End XCConfigurationList section */
 	};
