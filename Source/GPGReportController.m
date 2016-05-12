@@ -12,6 +12,17 @@
 
 
 
+@interface NSString (PadWithTabs)
+- (NSString *)stringByPaddingToTab:(NSUInteger)tab;
+@end
+@implementation NSString (PadWithTabs)
+- (NSString *)stringByPaddingToTab:(NSUInteger)tab {
+	NSUInteger length = self.length;
+	return [self stringByPaddingToLength:length + tab - (length / 4) withString:@"\t" startingAtIndex:0];
+}
+@end
+
+
 @implementation GPGReportController
 @synthesize username=_username, email=_email, subject=_subject, attachDebugLog=_attachDebugLog,
 bugDescription=_bugDescription, expectedBahavior=_expectedBahavior, additionalInfo=_additionalInfo,
@@ -46,7 +57,7 @@ affectedComponent=_affectedComponent, privateDiscussion=_privateDiscussion;
 	if (additionalInfo.length > 0) {
 		[message appendFormat:@"**Additional info**  \n%@\n\n", additionalInfo];
 	}
-	NSString *versionInfo = self.updateController.versionInfo;
+	NSString *versionInfo = self.versionInfo;
 	[message appendFormat:@"%@\n\n", versionInfo];
 	
 	
@@ -158,6 +169,7 @@ affectedComponent=_affectedComponent, privateDiscussion=_privateDiscussion;
 
 
 - (IBAction)sendSupportRequest:(id)sender {
+	NSLog(@"%@", self.versionInfo);
 	[gpgPrefPane.mainView.window endEditingFor:nil];
 	
 	NSCharacterSet *whitespaceSet = [NSCharacterSet whitespaceAndNewlineCharacterSet];
@@ -290,6 +302,97 @@ affectedComponent=_affectedComponent, privateDiscussion=_privateDiscussion;
 	return NO;
 }
 
+
+
+
+
+
+- (NSString *)versionInfo {
+#define PKEY @"path"
+#define IKEY @"identifier"
+#define NKEY @"toolname"
+#define LKEY @"plist"
+	NSFileManager *fileManager = [NSFileManager defaultManager];
+	NSMutableString *infoString = [NSMutableString string];
+	NSDictionary *systemPlist = [NSDictionary dictionaryWithContentsOfFile:@"/System/Library/CoreServices/SystemVersion.plist"];
+	NSArray *tools = @[
+					   @{NKEY: @"Libmacgpg",
+						 PKEY: @[@"~/Library/Frameworks/Libmacgpg.framework", @"/Library/Frameworks/Libmacgpg.framework"],
+						 LKEY: @"Resources/Info.plist"},
+					   
+					   @{NKEY: @"GPGMail",
+						 PKEY: @[@"/Network/Library/Mail/Bundles/GPGMail.mailbundle", @"~/Library/Mail/Bundles/GPGMail.mailbundle", @"/Library/Mail/Bundles/GPGMail.mailbundle"]},
+					   
+					   @{NKEY: @"GPG Keychain",
+						 IKEY: @"org.gpgtools.gpgkeychain"},
+					   
+					   @{NKEY: @"GPGServices",
+						 PKEY: @[@"~/Library/Services/GPGServices.service", @"/Library/Services/GPGServices.service"]},
+					   
+					   @{NKEY: @"MacGPG2",
+						 PKEY: @"/usr/local/MacGPG2",
+						 LKEY: @"share/gnupg/Version.plist"},
+					   
+					   @{NKEY: @"GPGPreferences",
+						 PKEY: @[@"~/Library/PreferencePanes/GPGPreferences.prefPane", @"/Library/PreferencePanes/GPGPreferences.prefPane"]},
+					   
+					   @{NKEY: @"Pinentry",
+						 PKEY: @[@"/usr/local/MacGPG2/libexec/pinentry-mac.app"]}
+					  ];
+	
+	
+	[infoString appendFormat:@"    Mac OS X\t\t%@\t\t\t\t(%@)\n", [systemPlist objectForKey:@"ProductVersion"] , [systemPlist objectForKey:@"ProductBuildVersion"]];
+	
+	
+	for (NSDictionary *toolInfo in tools) {
+		// Possible paths to the tool.
+		id paths = [toolInfo objectForKey:PKEY];
+		if (!paths) {
+			NSString *path = [[NSWorkspace sharedWorkspace] absolutePathForAppBundleWithIdentifier:toolInfo[IKEY]];
+			paths = path ? @[path] : @[];
+		} else if (![paths isKindOfClass:[NSArray class]]) {
+			paths = @[paths];
+		}
+		
+		// Content of Info.plist
+		NSDictionary *infoPlist = nil;
+		for (NSString *path in paths) {
+			path = [path stringByExpandingTildeInPath];
+			NSString *plistPath = toolInfo[LKEY];
+			if (!plistPath) {
+				plistPath = @"Contents/Info.plist";
+			}
+			plistPath = [path stringByAppendingPathComponent:plistPath];
+			if ([fileManager fileExistsAtPath:plistPath]) {
+				infoPlist = [NSDictionary dictionaryWithContentsOfFile:plistPath];
+				break;
+			}
+		}
+		
+		// Readable name of the tool.
+		NSString *name = toolInfo[NKEY];
+		
+		if (!infoPlist) {
+			[infoString appendFormat:@"    %@\t-\n", name];
+		} else {
+			NSArray *parts = [infoPlist[@"CFBundleShortVersionString"] componentsSeparatedByString:@" "];
+			
+			[infoString appendFormat:@"    %@%@%@",
+			 [name stringByPaddingToTab:4],
+			 [parts[0] stringByPaddingToTab:3],
+			 [infoPlist[@"CFBundleVersion"] stringByPaddingToTab:1]];
+			
+			
+			if (parts.count > 1) {
+				[infoString appendFormat:@"\t%@", parts[1]];
+			}
+			[infoString appendString:@"\n"];
+		}
+
+	}
+
+	return infoString;
+}
 
 
 

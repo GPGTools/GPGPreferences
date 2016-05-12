@@ -22,7 +22,6 @@
 		3056D092172D301D00CFC0FA /* GPGIsUnselectedTransformer.m in Sources */ = {isa = PBXBuildFile; fileRef = 3056D089172D301D00CFC0FA /* GPGIsUnselectedTransformer.m */; };
 		3056D095172D301D00CFC0FA /* GPGToolsPref.m in Sources */ = {isa = PBXBuildFile; fileRef = 3056D08C172D301D00CFC0FA /* GPGToolsPref.m */; };
 		3056D097172D301D00CFC0FA /* GPGToolsPrefController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3056D08E172D301D00CFC0FA /* GPGToolsPrefController.m */; };
-		3056D099172D301D00CFC0FA /* UpdateController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3056D090172D301D00CFC0FA /* UpdateController.m */; };
 		3056D0A8172D305E00CFC0FA /* gka.png in Resources */ = {isa = PBXBuildFile; fileRef = 3056D0A1172D305E00CFC0FA /* gka.png */; };
 		3056D0A9172D305E00CFC0FA /* gpgmail.png in Resources */ = {isa = PBXBuildFile; fileRef = 3056D0A2172D305E00CFC0FA /* gpgmail.png */; };
 		3056D0AA172D305E00CFC0FA /* gpgprefs.png in Resources */ = {isa = PBXBuildFile; fileRef = 3056D0A3172D305E00CFC0FA /* gpgprefs.png */; };
@@ -143,8 +142,6 @@
 		3056D08C172D301D00CFC0FA /* GPGToolsPref.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GPGToolsPref.m; sourceTree = "<group>"; };
 		3056D08D172D301D00CFC0FA /* GPGToolsPrefController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GPGToolsPrefController.h; sourceTree = "<group>"; };
 		3056D08E172D301D00CFC0FA /* GPGToolsPrefController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GPGToolsPrefController.m; sourceTree = "<group>"; };
-		3056D08F172D301D00CFC0FA /* UpdateController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UpdateController.h; sourceTree = "<group>"; };
-		3056D090172D301D00CFC0FA /* UpdateController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UpdateController.m; sourceTree = "<group>"; };
 		3056D09D172D304E00CFC0FA /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3056D0A1172D305E00CFC0FA /* gka.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = gka.png; path = Images/gka.png; sourceTree = "<group>"; };
 		3056D0A2172D305E00CFC0FA /* gpgmail.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = gpgmail.png; path = Images/gpgmail.png; sourceTree = "<group>"; };
@@ -252,20 +249,18 @@
 		3056D072172D2F8500CFC0FA /* Classes */ = {
 			isa = PBXGroup;
 			children = (
-				3056D088172D301D00CFC0FA /* GPGIsUnselectedTransformer.h */,
-				3056D089172D301D00CFC0FA /* GPGIsUnselectedTransformer.m */,
 				3056D08B172D301D00CFC0FA /* GPGToolsPref.h */,
 				3056D08C172D301D00CFC0FA /* GPGToolsPref.m */,
 				3056D08D172D301D00CFC0FA /* GPGToolsPrefController.h */,
 				3056D08E172D301D00CFC0FA /* GPGToolsPrefController.m */,
-				3056D08F172D301D00CFC0FA /* UpdateController.h */,
-				3056D090172D301D00CFC0FA /* UpdateController.m */,
 				3013BD2B1C96D0C6005744E5 /* GPGReportController.h */,
 				3013BD2C1C96D0C6005744E5 /* GPGReportController.m */,
 				3032EC911C63939900A4DFDB /* GPGDebugCollector.h */,
 				3032EC921C63939900A4DFDB /* GPGDebugCollector.m */,
 				3013BD361C974A31005744E5 /* GPGWhiteView.h */,
 				3013BD371C974A31005744E5 /* GPGWhiteView.m */,
+				3056D088172D301D00CFC0FA /* GPGIsUnselectedTransformer.h */,
+				3056D089172D301D00CFC0FA /* GPGIsUnselectedTransformer.m */,
 			);
 			name = Classes;
 			path = Source;
@@ -528,7 +523,6 @@
 				3056D092172D301D00CFC0FA /* GPGIsUnselectedTransformer.m in Sources */,
 				3056D095172D301D00CFC0FA /* GPGToolsPref.m in Sources */,
 				3056D097172D301D00CFC0FA /* GPGToolsPrefController.m in Sources */,
-				3056D099172D301D00CFC0FA /* UpdateController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -587,7 +581,6 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				ARCHS = "$(ARCHS_STANDARD_32_64_BIT)";
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
@@ -610,7 +603,7 @@
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				MACOSX_DEPLOYMENT_TARGET = 10.6;
+				MACOSX_DEPLOYMENT_TARGET = 10.9;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = macosx;
 			};
@@ -620,7 +613,6 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				ARCHS = "$(ARCHS_STANDARD_32_64_BIT)";
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
@@ -639,7 +631,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				LLVM_LTO = YES;
-				MACOSX_DEPLOYMENT_TARGET = 10.6;
+				MACOSX_DEPLOYMENT_TARGET = 10.9;
 				SDKROOT = macosx;
 			};
 			name = Release;
@@ -660,7 +652,6 @@
 				INFOPLIST_FILE = Resources/info.plist;
 				INSTALL_PATH = "$(HOME)/Library/PreferencePanes";
 				LD_RUNPATH_SEARCH_PATHS = "@loader_path/../Frameworks /Library/Frameworks $(HOME)/Library/Frameworks";
-				MACOSX_DEPLOYMENT_TARGET = 10.6;
 				PRODUCT_NAME = "${TARGET_NAME}";
 				WRAPPER_EXTENSION = prefPane;
 			};
@@ -683,7 +674,6 @@
 				INFOPLIST_FILE = Resources/info.plist;
 				INSTALL_PATH = "$(HOME)/Library/PreferencePanes";
 				LD_RUNPATH_SEARCH_PATHS = "@loader_path/../Frameworks /Library/Frameworks $(HOME)/Library/Frameworks";
-				MACOSX_DEPLOYMENT_TARGET = 10.6;
 				PRODUCT_NAME = "${TARGET_NAME}";
 				WRAPPER_EXTENSION = prefPane;
 			};
@@ -761,6 +751,7 @@
 				3063FE651CBE68F900E3B255 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

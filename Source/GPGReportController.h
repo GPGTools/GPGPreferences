@@ -7,7 +7,6 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "UpdateController.h"
 
 @interface GPGReportController : NSObject <NSTextViewDelegate> {
 	NSString *_username;
@@ -19,7 +18,6 @@
 	BOOL _attachDebugLog;
 	BOOL _privateDiscussion;
 	NSInteger _affectedComponent;
-	UpdateController *_updateController;
 	BOOL _uiEnabled;
 	NSProgressIndicator *_progressSpinner;
 }
@@ -33,7 +31,6 @@
 @property BOOL attachDebugLog;
 @property BOOL privateDiscussion;
 @property NSInteger affectedComponent;
-@property (assign) IBOutlet UpdateController *updateController;
 @property BOOL uiEnabled;
 @property (assign) IBOutlet NSProgressIndicator *progressSpinner;
 
