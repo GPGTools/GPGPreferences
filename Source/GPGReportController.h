@@ -20,18 +20,23 @@
 	NSInteger _affectedComponent;
 	BOOL _uiEnabled;
 	NSProgressIndicator *_progressSpinner;
+	id _textView1, _textView2, _textView3;
 }
 
-@property (strong) NSString *username;
-@property (strong) NSString *email;
-@property (strong) NSString *subject;
-@property (strong) NSAttributedString *bugDescription;
-@property (strong) NSAttributedString *expectedBahavior;
-@property (strong) NSAttributedString *additionalInfo;
-@property BOOL attachDebugLog;
-@property BOOL privateDiscussion;
-@property NSInteger affectedComponent;
-@property BOOL uiEnabled;
-@property (assign) IBOutlet NSProgressIndicator *progressSpinner;
+@property (nonatomic, strong) NSString *username;
+@property (nonatomic, strong) NSString *email;
+@property (nonatomic, strong) NSString *subject;
+@property (nonatomic, strong) NSAttributedString *bugDescription;
+@property (nonatomic, strong) NSAttributedString *expectedBahavior;
+@property (nonatomic, strong) NSAttributedString *additionalInfo;
+@property (nonatomic) BOOL attachDebugLog;
+@property (nonatomic) BOOL privateDiscussion;
+@property (nonatomic) NSInteger affectedComponent;
+@property (nonatomic) BOOL uiEnabled;
+@property (nonatomic, assign) IBOutlet NSProgressIndicator *progressSpinner;
+
+@property (nonatomic, assign) IBOutlet NSTextView *textView1;
+@property (nonatomic, assign) IBOutlet NSTextView *textView2;
+@property (nonatomic, assign) IBOutlet NSTextView *textView3;
 
 @end

@@ -396,4 +396,39 @@ affectedComponent=_affectedComponent, privateDiscussion=_privateDiscussion;
 
 
 
+#pragma mark TextView styling.
+
+- (NSFont *)textViewFont {
+	return [NSFont systemFontOfSize:[NSFont systemFontSize]];
+}
+- (void)setTextView1:(NSTextView *)value {
+	_textView1 = value;
+	if (value) {
+		[value setTextContainerInset:NSMakeSize(-2, 0)];
+	}
+}
+- (NSTextView *)textView1 {
+	return _textView1;
+}
+- (void)setTextView2:(NSTextView *)value {
+	_textView2 = value;
+	if (value) {
+		[value setTextContainerInset:NSMakeSize(-2, 0)];
+	}
+}
+- (NSTextView *)textView2 {
+	return _textView2;
+}
+- (void)setTextView3:(NSTextView *)value {
+	_textView3 = value;
+	if (value) {
+		[value setTextContainerInset:NSMakeSize(-2, 0)];
+	}
+}
+- (NSTextView *)textView3 {
+	return _textView3;
+}
+
+
+
 @end

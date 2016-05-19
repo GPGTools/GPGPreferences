@@ -316,11 +316,11 @@
                             </tabViewItem>
                             <tabViewItem label="Send Report" identifier="report" id="NHG-AV-7kF">
                                 <view key="view" id="xfu-rM-Apz">
-                                    <rect key="frame" x="10" y="33" width="608" height="377"/>
+                                    <rect key="frame" x="10" y="33" width="608" height="395"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
                                         <textField verticalHuggingPriority="750" id="L2e-0m-qsR">
-                                            <rect key="frame" x="17" y="352" width="189" height="22"/>
+                                            <rect key="frame" x="17" y="370" width="189" height="22"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                             <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" drawsBackground="YES" id="g1T-Jy-tDB">
                                                 <font key="font" metaFont="system"/>
@@ -338,7 +338,7 @@
                                             </connections>
                                         </textField>
                                         <textField verticalHuggingPriority="750" id="TJz-rG-8VN">
-                                            <rect key="frame" x="214" y="352" width="211" height="22"/>
+                                            <rect key="frame" x="214" y="370" width="211" height="22"/>
                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                                             <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" drawsBackground="YES" id="3g6-ma-jJv">
                                                 <font key="font" metaFont="system"/>
@@ -356,7 +356,7 @@
                                             </connections>
                                         </textField>
                                         <textField verticalHuggingPriority="750" id="Bki-KR-VYb">
-                                            <rect key="frame" x="17" y="322" width="580" height="22"/>
+                                            <rect key="frame" x="17" y="340" width="408" height="22"/>
                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                                             <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" drawsBackground="YES" id="Kig-JD-LKI">
                                                 <font key="font" metaFont="system"/>
@@ -374,9 +374,9 @@
                                             </connections>
                                         </textField>
                                         <button toolTip="The debug information will be encrypted, so only GPGTools team can read it." id="Tqr-cf-yu3">
-                                            <rect key="frame" x="15" y="11" width="170" height="18"/>
+                                            <rect key="frame" x="15" y="11" width="131" height="18"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            <buttonCell key="cell" type="check" title="Add debug information" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="ITf-VV-Ist">
+                                            <buttonCell key="cell" type="check" title="Attach debug log" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="ITf-VV-Ist">
                                                 <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                                                 <font key="font" metaFont="system"/>
                                             </buttonCell>
@@ -387,7 +387,7 @@
                                             </connections>
                                         </button>
                                         <button verticalHuggingPriority="750" id="W8g-0k-cCU">
-                                            <rect key="frame" x="488" y="2" width="117" height="32"/>
+                                            <rect key="frame" x="427" y="2" width="176" height="32"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxY="YES"/>
                                             <buttonCell key="cell" type="push" title="Send Report" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="FGo-Ci-zfF">
                                                 <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
@@ -400,7 +400,7 @@
                                             </connections>
                                         </button>
                                         <popUpButton verticalHuggingPriority="750" id="Wjs-EK-uPp">
-                                            <rect key="frame" x="431" y="350" width="169" height="26"/>
+                                            <rect key="frame" x="431" y="368" width="169" height="26"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMinY="YES"/>
                                             <popUpButtonCell key="cell" type="push" title="Select Component" bezelStyle="rounded" alignment="left" lineBreakMode="truncatingTail" state="on" borderStyle="borderAndBezel" imageScaling="proportionallyDown" inset="2" selectedItem="8Sd-BJ-8sG" id="qq1-nc-FMm">
                                                 <behavior key="behavior" lightByBackground="YES" lightByGray="YES"/>
@@ -427,8 +427,8 @@
                                                 <outlet property="nextKeyView" destination="Bki-KR-VYb" id="9Dz-Js-PVq"/>
                                             </connections>
                                         </popUpButton>
-                                        <scrollView horizontalLineScroll="10" horizontalPageScroll="10" verticalLineScroll="10" verticalPageScroll="10" hasHorizontalScroller="NO" usesPredominantAxisScrolling="NO" id="bfv-L7-9qK">
-                                            <rect key="frame" x="17" y="191" width="580" height="123"/>
+                                        <scrollView autohidesScrollers="YES" horizontalLineScroll="10" horizontalPageScroll="10" verticalLineScroll="10" verticalPageScroll="10" hasHorizontalScroller="NO" usesPredominantAxisScrolling="NO" id="bfv-L7-9qK">
+                                            <rect key="frame" x="17" y="191" width="580" height="129"/>
                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                             <clipView key="contentView" id="8yv-m4-YRG">
                                                 <rect key="frame" x="1" y="1" width="223" height="133"/>
@@ -438,10 +438,10 @@
                                                         <rect key="frame" x="0.0" y="0.0" width="223" height="133"/>
                                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                                        <size key="minSize" width="563" height="121"/>
+                                                        <size key="minSize" width="578" height="127"/>
                                                         <size key="maxSize" width="825" height="10000000"/>
                                                         <color key="insertionPointColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
-                                                        <size key="minSize" width="563" height="121"/>
+                                                        <size key="minSize" width="578" height="127"/>
                                                         <size key="maxSize" width="825" height="10000000"/>
                                                         <connections>
                                                             <binding destination="hlC-rl-bAu" name="attributedString" keyPath="bugDescription" id="CVn-T1-UHW">
@@ -450,6 +450,7 @@
                                                                     <string key="NSNullPlaceholder">Describe the problem. Add reproduce steps if possible.</string>
                                                                 </dictionary>
                                                             </binding>
+                                                            <binding destination="hlC-rl-bAu" name="font" keyPath="textViewFont" id="j3z-A2-K6a"/>
                                                             <binding destination="hlC-rl-bAu" name="editable" keyPath="uiEnabled" id="bEE-3O-Jbk"/>
                                                             <outlet property="delegate" destination="hlC-rl-bAu" id="aSX-Fc-FId"/>
                                                         </connections>
@@ -461,7 +462,7 @@
                                                 <rect key="frame" x="-100" y="-100" width="87" height="18"/>
                                                 <autoresizingMask key="autoresizingMask"/>
                                             </scroller>
-                                            <scroller key="verticalScroller" verticalHuggingPriority="750" doubleValue="1" horizontal="NO" id="mdd-nr-Hvu">
+                                            <scroller key="verticalScroller" hidden="YES" verticalHuggingPriority="750" doubleValue="1" horizontal="NO" id="mdd-nr-Hvu">
                                                 <rect key="frame" x="224" y="1" width="15" height="133"/>
                                                 <autoresizingMask key="autoresizingMask"/>
                                             </scroller>
@@ -469,7 +470,7 @@
                                                 <outlet property="nextKeyView" destination="VIT-xl-tp6" id="vKk-q3-biw"/>
                                             </connections>
                                         </scrollView>
-                                        <scrollView horizontalLineScroll="10" horizontalPageScroll="10" verticalLineScroll="10" verticalPageScroll="10" hasHorizontalScroller="NO" usesPredominantAxisScrolling="NO" id="rwV-jy-WlT">
+                                        <scrollView autohidesScrollers="YES" horizontalLineScroll="10" horizontalPageScroll="10" verticalLineScroll="10" verticalPageScroll="10" hasHorizontalScroller="NO" usesPredominantAxisScrolling="NO" id="rwV-jy-WlT">
                                             <rect key="frame" x="17" y="39" width="580" height="68"/>
                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                             <clipView key="contentView" id="9gh-SO-vYd">
@@ -480,18 +481,19 @@
                                                         <rect key="frame" x="0.0" y="0.0" width="223" height="133"/>
                                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                                        <size key="minSize" width="563" height="66"/>
+                                                        <size key="minSize" width="578" height="66"/>
                                                         <size key="maxSize" width="825" height="10000000"/>
                                                         <color key="insertionPointColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
-                                                        <size key="minSize" width="563" height="66"/>
+                                                        <size key="minSize" width="578" height="66"/>
                                                         <size key="maxSize" width="825" height="10000000"/>
                                                         <connections>
-                                                            <binding destination="hlC-rl-bAu" name="attributedString" keyPath="additionalInfo" id="zMW-0G-azn">
+                                                            <binding destination="hlC-rl-bAu" name="attributedString" keyPath="additionalInfo" id="mOw-yu-jQL">
                                                                 <dictionary key="options">
                                                                     <bool key="NSContinuouslyUpdatesValue" value="YES"/>
-                                                                    <string key="NSNullPlaceholder">Any additional info.</string>
+                                                                    <string key="NSNullPlaceholder">Additional info…</string>
                                                                 </dictionary>
                                                             </binding>
+                                                            <binding destination="hlC-rl-bAu" name="font" keyPath="textViewFont" id="PUp-2u-LcK"/>
                                                             <binding destination="hlC-rl-bAu" name="editable" keyPath="uiEnabled" id="Exd-Nd-G3i"/>
                                                             <outlet property="delegate" destination="hlC-rl-bAu" id="oTE-fW-x51"/>
                                                         </connections>
@@ -503,7 +505,7 @@
                                                 <rect key="frame" x="-100" y="-100" width="87" height="18"/>
                                                 <autoresizingMask key="autoresizingMask"/>
                                             </scroller>
-                                            <scroller key="verticalScroller" verticalHuggingPriority="750" doubleValue="1" horizontal="NO" id="d9C-OF-0vK">
+                                            <scroller key="verticalScroller" hidden="YES" verticalHuggingPriority="750" doubleValue="1" horizontal="NO" id="d9C-OF-0vK">
                                                 <rect key="frame" x="224" y="1" width="15" height="133"/>
                                                 <autoresizingMask key="autoresizingMask"/>
                                             </scroller>
@@ -511,7 +513,7 @@
                                                 <outlet property="nextKeyView" destination="Tqr-cf-yu3" id="vWa-Py-e2f"/>
                                             </connections>
                                         </scrollView>
-                                        <scrollView horizontalLineScroll="10" horizontalPageScroll="10" verticalLineScroll="10" verticalPageScroll="10" hasHorizontalScroller="NO" usesPredominantAxisScrolling="NO" id="p5f-cP-c3R">
+                                        <scrollView autohidesScrollers="YES" horizontalLineScroll="10" horizontalPageScroll="10" verticalLineScroll="10" verticalPageScroll="10" hasHorizontalScroller="NO" usesPredominantAxisScrolling="NO" id="p5f-cP-c3R">
                                             <rect key="frame" x="17" y="115" width="580" height="68"/>
                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                             <clipView key="contentView" id="m6j-Jf-GRI">
@@ -522,10 +524,10 @@
                                                         <rect key="frame" x="0.0" y="0.0" width="223" height="133"/>
                                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                                        <size key="minSize" width="563" height="66"/>
+                                                        <size key="minSize" width="578" height="66"/>
                                                         <size key="maxSize" width="825" height="10000000"/>
                                                         <color key="insertionPointColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
-                                                        <size key="minSize" width="563" height="66"/>
+                                                        <size key="minSize" width="578" height="66"/>
                                                         <size key="maxSize" width="825" height="10000000"/>
                                                         <connections>
                                                             <binding destination="hlC-rl-bAu" name="attributedString" keyPath="expectedBahavior" id="ajI-ym-ZZk">
@@ -534,6 +536,7 @@
                                                                     <string key="NSNullPlaceholder">What did you expect instead?</string>
                                                                 </dictionary>
                                                             </binding>
+                                                            <binding destination="hlC-rl-bAu" name="font" keyPath="textViewFont" id="VRs-tL-2YC"/>
                                                             <binding destination="hlC-rl-bAu" name="editable" keyPath="uiEnabled" id="UML-VH-amZ"/>
                                                             <outlet property="delegate" destination="hlC-rl-bAu" id="iJo-tv-WMi"/>
                                                         </connections>
@@ -545,7 +548,7 @@
                                                 <rect key="frame" x="-100" y="-100" width="87" height="18"/>
                                                 <autoresizingMask key="autoresizingMask"/>
                                             </scroller>
-                                            <scroller key="verticalScroller" verticalHuggingPriority="750" doubleValue="1" horizontal="NO" id="lpu-VP-KOw">
+                                            <scroller key="verticalScroller" hidden="YES" verticalHuggingPriority="750" doubleValue="1" horizontal="NO" id="lpu-VP-KOw">
                                                 <rect key="frame" x="224" y="1" width="15" height="133"/>
                                                 <autoresizingMask key="autoresizingMask"/>
                                             </scroller>
@@ -554,7 +557,7 @@
                                             </connections>
                                         </scrollView>
                                         <customView id="1l7-m5-kbD" customClass="GPGWhiteView">
-                                            <rect key="frame" x="120" y="197" width="374" height="92"/>
+                                            <rect key="frame" x="120" y="174" width="374" height="92"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES"/>
                                             <subviews>
                                                 <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="D4k-uZ-j2t">
@@ -576,7 +579,7 @@
                                             </connections>
                                         </customView>
                                         <button toolTip="Hide this report from the public. Only you, GPGTools team and the company hosting the support platform can access this report." id="NgS-lQ-Wdq">
-                                            <rect key="frame" x="189" y="11" width="65" height="18"/>
+                                            <rect key="frame" x="158" y="11" width="65" height="18"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <buttonCell key="cell" type="check" title="Private" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="8Ci-Ey-IBB">
                                                 <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
@@ -603,25 +606,25 @@
                             </tabViewItem>
                             <tabViewItem label="About" identifier="about" id="248">
                                 <view key="view" id="249">
-                                    <rect key="frame" x="10" y="33" width="608" height="322"/>
+                                    <rect key="frame" x="10" y="33" width="608" height="395"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
                                         <imageView id="507">
-                                            <rect key="frame" x="17" y="159" width="128" height="160"/>
+                                            <rect key="frame" x="17" y="232" width="128" height="160"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                             <imageCell key="cell" refusesFirstResponder="YES" alignment="left" animates="YES" imageScaling="proportionallyDown" image="GPGTools+Text" id="511"/>
                                         </imageView>
                                         <box verticalHuggingPriority="750" title="Box" boxType="separator" titlePosition="noTitle" id="509">
-                                            <rect key="frame" x="-3" y="142" width="614" height="5"/>
+                                            <rect key="frame" x="-3" y="215" width="614" height="5"/>
                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                                             <color key="borderColor" white="0.0" alpha="0.41999999999999998" colorSpace="calibratedWhite"/>
                                             <color key="fillColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                             <font key="titleFont" metaFont="system"/>
                                         </box>
-                                        <button verticalHuggingPriority="750" id="540">
-                                            <rect key="frame" x="11" y="96" width="142" height="32"/>
+                                        <button hidden="YES" verticalHuggingPriority="750" id="540">
+                                            <rect key="frame" x="11" y="169" width="142" height="32"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                            <buttonCell key="cell" type="push" title="Knowledge Base" bezelStyle="rounded" alignment="center" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="553">
+                                            <buttonCell key="cell" type="push" title="Knowledge Base" bezelStyle="rounded" alignment="center" enabled="NO" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="553">
                                                 <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                                 <font key="font" metaFont="system"/>
                                             </buttonCell>
@@ -653,10 +656,10 @@
                                                 <binding destination="243" name="value" keyPath="buildNumberDescription" id="1046"/>
                                             </connections>
                                         </textField>
-                                        <button verticalHuggingPriority="750" id="542">
-                                            <rect key="frame" x="164" y="96" width="142" height="32"/>
+                                        <button hidden="YES" verticalHuggingPriority="750" id="542">
+                                            <rect key="frame" x="164" y="169" width="142" height="32"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                            <buttonCell key="cell" type="push" title="Support" bezelStyle="rounded" alignment="center" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="551">
+                                            <buttonCell key="cell" type="push" title="Support" bezelStyle="rounded" alignment="center" enabled="NO" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="551">
                                                 <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                                 <font key="font" metaFont="system"/>
                                             </buttonCell>
@@ -665,7 +668,7 @@
                                             </connections>
                                         </button>
                                         <textField verticalHuggingPriority="750" id="508">
-                                            <rect key="frame" x="156" y="159" width="423" height="136"/>
+                                            <rect key="frame" x="156" y="232" width="423" height="136"/>
                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                                             <textFieldCell key="cell" sendsActionOnEndEditing="YES" id="510">
                                                 <font key="font" metaFont="system"/>
@@ -698,6 +701,9 @@ GPGTools - it's worth protecting what you love</string>
         <customObject id="hlC-rl-bAu" customClass="GPGReportController">
             <connections>
                 <outlet property="progressSpinner" destination="mKk-ex-yRE" id="z0D-Zy-AfA"/>
+                <outlet property="textView1" destination="j6Q-iu-ygb" id="jcf-Gx-eEa"/>
+                <outlet property="textView2" destination="VIT-xl-tp6" id="kSa-UQ-8a6"/>
+                <outlet property="textView3" destination="HBN-6z-ZHJ" id="665-8l-dKQ"/>
             </connections>
         </customObject>
         <userDefaultsController id="681"/>
