@@ -187,7 +187,13 @@
 					   @"$GNUPGHOME/gpg.conf",
 					   @"$GNUPGHOME/gpg-agent.conf",
 					   @"$GNUPGHOME/scdaemon.conf",
-					   @"$GNUPGHOME/dirmngr.conf"
+					   @"$GNUPGHOME/dirmngr.conf",
+					   @"~/Library/Preferences/org.gpgtools.common.plist",
+					   @"~/Library/Preferences/org.gpgtools.gpgkeychainaccess.plist",
+					   @"~/Library/Preferences/org.gpgtools.gpgmail.plist",
+					   @"/Library/Preferences/org.gpgtools.common.plist",
+					   @"/Library/Preferences/org.gpgtools.gpgkeychainaccess.plist",
+					   @"/Library/Preferences/org.gpgtools.gpgmail.plist"
 					   ];
 	for (NSString *path in files) {
 		NSString *expandedPath = [self expand:path];
@@ -195,7 +201,15 @@
 	}
 }
 
-- (NSString *)contentOfFile:(NSString *)file {
+- (id)contentOfFile:(NSString *)file {
+	
+	if ([[file substringWithRange:NSMakeRange(file.length - 6, 6)] isEqualToString:@".plist"]) {
+		NSDictionary *content = [NSDictionary dictionaryWithContentsOfFile:file];
+		if (content) {
+			return content;
+		}
+	}
+	
 	const char *path = file.UTF8String;
 	NSUInteger length = [file lengthOfBytesUsingEncoding:NSUTF8StringEncoding];
 	int fd = -1;
@@ -237,7 +251,7 @@
 }
 
 - (void)collectContentOfFile:(NSString *)file {
-	NSString *content = [self contentOfFile:file];
+	id content = [self contentOfFile:file];
 	
 	if (debugInfos[@"File Contents"] == nil) {
 		debugInfos[@"File Contents"] = [NSMutableDictionary dictionary];

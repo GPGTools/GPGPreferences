@@ -80,7 +80,12 @@ affectedComponent=_affectedComponent, privateDiscussion=_privateDiscussion;
 		
 		NSError *error = nil;
 		NSData *debugData = [NSPropertyListSerialization dataWithPropertyList:debugInfos format:NSPropertyListBinaryFormat_v1_0 options:0 error:&error];
-		if (!debugData) {
+		if (debugData.length == 0) {
+			@try {
+				debugData = [NSKeyedArchiver archivedDataWithRootObject:debugInfos];
+			} @finally {}
+		}
+		if (debugData.length == 0) {
 			debugData = [[NSString stringWithFormat:@"Error generating debug info: %@", error] dataUsingEncoding:NSUTF8StringEncoding];
 		}
 		
