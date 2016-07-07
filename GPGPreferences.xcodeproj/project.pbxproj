@@ -114,6 +114,9 @@
 		3016A632175230CC00701881 /* gpgservices-gray.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "gpgservices-gray.png"; path = "Images/gpgservices-gray.png"; sourceTree = "<group>"; };
 		3016A633175230CC00701881 /* macgpg2-gray.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "macgpg2-gray.png"; path = "Images/macgpg2-gray.png"; sourceTree = "<group>"; };
 		301AE8CC17A1997F00CD277F /* Libmacgpg.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Libmacgpg.xcodeproj; path = Dependencies/Libmacgpg/Libmacgpg.xcodeproj; sourceTree = "<group>"; };
+		301EB4E71D2E879C00A50E38 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/Localizable.strings; sourceTree = "<group>"; };
+		301EB4EC1D2E87AC00A50E38 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/GPGToolsPref.strings; sourceTree = "<group>"; };
+		301EB4ED1D2E87AF00A50E38 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/WarningView.strings; sourceTree = "<group>"; };
 		3032EC911C63939900A4DFDB /* GPGDebugCollector.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GPGDebugCollector.h; sourceTree = "<group>"; };
 		3032EC921C63939900A4DFDB /* GPGDebugCollector.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GPGDebugCollector.m; sourceTree = "<group>"; };
 		3056D051172D2EEA00CFC0FA /* GPGPreferences.prefPane */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GPGPreferences.prefPane; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -264,31 +267,15 @@
 		3056D074172D2FC300CFC0FA /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				3056D09A172D303200CFC0FA /* XIBs */,
-				3056D09B172D303900CFC0FA /* Strings */,
 				3056D09C172D304100CFC0FA /* Images */,
+				3056D0AF172D306600CFC0FA /* GPGToolsPref.xib */,
+				307257A41D2D1E1600CD2ED6 /* WarningView.xib */,
+				307257A71D2D1E8700CD2ED6 /* Localizable.strings */,
 				3056D09D172D304E00CFC0FA /* Info.plist */,
 				307B75191CB2A31C00002ACF /* GPGPreferencesTerms.searchTerms */,
 				307257AF1D2D1F2800CD2ED6 /* Credits.rtf */,
 			);
 			path = Resources;
-			sourceTree = "<group>";
-		};
-		3056D09A172D303200CFC0FA /* XIBs */ = {
-			isa = PBXGroup;
-			children = (
-				3056D0AF172D306600CFC0FA /* GPGToolsPref.xib */,
-				307257A41D2D1E1600CD2ED6 /* WarningView.xib */,
-			);
-			name = XIBs;
-			sourceTree = "<group>";
-		};
-		3056D09B172D303900CFC0FA /* Strings */ = {
-			isa = PBXGroup;
-			children = (
-				307257A71D2D1E8700CD2ED6 /* Localizable.strings */,
-			);
-			name = Strings;
 			sourceTree = "<group>";
 		};
 		3056D09C172D304100CFC0FA /* Images */ = {
@@ -381,6 +368,7 @@
 			knownRegions = (
 				en,
 				Base,
+				de,
 			);
 			mainGroup = 3056D046172D2EEA00CFC0FA;
 			productRefGroup = 3056D052172D2EEA00CFC0FA /* Products */;
@@ -555,6 +543,7 @@
 			children = (
 				307257A11D2D1DDA00CD2ED6 /* Base */,
 				307257AB1D2D1EAC00CD2ED6 /* en */,
+				301EB4EC1D2E87AC00A50E38 /* de */,
 			);
 			name = GPGToolsPref.xib;
 			sourceTree = "<group>";
@@ -564,6 +553,7 @@
 			children = (
 				307257A31D2D1E1600CD2ED6 /* Base */,
 				307257A91D2D1EA800CD2ED6 /* en */,
+				301EB4ED1D2E87AF00A50E38 /* de */,
 			);
 			name = WarningView.xib;
 			sourceTree = "<group>";
@@ -572,6 +562,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				307257A61D2D1E8700CD2ED6 /* en */,
+				301EB4E71D2E879C00A50E38 /* de */,
 			);
 			name = Localizable.strings;
 			sourceTree = "<group>";
