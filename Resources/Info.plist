@@ -44,5 +44,7 @@
 	<string>https://gpgtools.org/releases/gpgpreferences/pre-appcast.xml</string>
 	<key>NSPrefPaneSearchParameters</key>
 	<string>GPGPreferencesTerms</string>
+	<key>NSHumanReadableCopyright</key>
+	<string>Copyright © 2016, GPGTools.</string>
 </dict>
 </plist>

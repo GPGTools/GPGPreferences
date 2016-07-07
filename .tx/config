@@ -1,0 +1,20 @@
+[main]
+host = https://www.transifex.com
+ 
+[gpgpreferences.localizable]
+file_filter = Resources/<lang>.lproj/Localizable.strings
+source_lang = en
+source_file = Resources/en.lproj/Localizable.strings
+type = STRINGS
+
+[gpgpreferences.gpgoolspref]
+file_filter = Resources/<lang>.lproj/GPGToolsPref.strings
+source_lang = en
+source_file = Resources/en.lproj/GPGToolsPref.strings
+type = STRINGS
+
+[gpgpreferences.warningview]
+file_filter = Resources/<lang>.lproj/WarningView.strings
+source_lang = en
+source_file = Resources/en.lproj/WarningView.strings
+type = STRINGS

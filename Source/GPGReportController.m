@@ -346,7 +346,7 @@ affectedComponent=_affectedComponent, privateDiscussion=_privateDiscussion;
 					  ];
 	
 	
-	[infoString appendFormat:@"    Mac OS X\t\t%@\t\t\t\t(%@)\n", [systemPlist objectForKey:@"ProductVersion"] , [systemPlist objectForKey:@"ProductBuildVersion"]];
+	[infoString appendFormat:@"    Mac OS X\t\t%@\t\t(%@)\n", [systemPlist objectForKey:@"ProductVersion"] , [systemPlist objectForKey:@"ProductBuildVersion"]];
 	
 	
 	for (NSDictionary *toolInfo in tools) {

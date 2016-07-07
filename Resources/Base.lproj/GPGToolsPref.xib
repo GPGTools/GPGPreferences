@@ -167,7 +167,7 @@
                                             </connections>
                                         </textField>
                                         <textField verticalHuggingPriority="750" id="563">
-                                            <rect key="frame" x="286" y="306" width="56" height="17"/>
+                                            <rect key="frame" x="286" y="306" width="55" height="17"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                             <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="seconds" id="573">
                                                 <font key="font" metaFont="system"/>
