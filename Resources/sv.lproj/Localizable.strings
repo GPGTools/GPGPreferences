@@ -1,0 +1,57 @@
+
+
+"VERSION: %@" = "Version: %@";
+"BUILD: %@" = "Bygge: %@";
+
+
+/* Bad keyserver */
+BadKeyserver_Title = "Dålig nyckelserver";
+BadKeyserver_Msg = "The Keyserver you have entered is not working.\nPlease check the Keyserver address. It should look something like: hkp://some.key.server.org\n\nThe Keyserver could also be offline. In that case, please use another Keyserver.";
+
+
+UpdateCheckFailed_Title = "Uppdateringskontrollen misslyckades!";
+UpdateCheckFailed_Msg = "Vänligen ominstallera GPG Suite från https://gpgtools.org.";
+
+
+NoUpdatesGM106_Title = "Inga uppdateringar!";
+NoUpdatesGM106_Msg = "Det finns inga uppdateringar för GPGMail på Mac OS X 10.6";
+
+
+PassowrdsDeleted_Title = "Lösenorden raderades";
+PassowrdsDeleted_Msg = "Alla OpenPGP-lösenord raderades från OS X nyckelring och cachen.";
+
+PassowrdsDeletFailed_Title = "Delete passwords failed!";
+PassowrdsDeletFailed_Msg = "Not all stored passwords could be deleted. Please open Console.app and look for any related errors. Then let us know about this problem via the 'Send Report' tab.";
+
+Support_SendDebugInfo_Title = "Sending debug information";
+Support_SendDebugInfo_Msg = "A quick word about the option to include debug information with your report: Often this information will help, to speed up the debugging process. Your problem will be solved a lot quicker.\n\nUnless your report is a feature request, we recommended adding the debug information.\n\nIt is sent via encrypted TLS connection to our hoster. There it is encrypted with our team key and then sent to our support platform. That way the debug information will not be accessible for anybody else except our core team, even if your report is not set to private.\n\nDuring the creation of the debug information you may be asked for your OpenPGP key password, since we will test if decryption and signing are working as expected on your system.\n\nThe debug log includes meta information about your keys.";
+Support_SendDebugInfo_Button1 = "Send Report";
+Support_SendDebugInfo_Button2 = "Cancel";
+Support_SendDebugInfo_Checkbox = "Include debug information with this report";
+
+Support_BugDescriptionTooShort_Title = "Description too short";
+Support_BugDescriptionTooShort_Msg = "Please add more details to the description field. The more detail you can provide, the faster we will be able to find a good solution to your request. If applicable, please add precise steps that will help reproduce the issue.";
+
+Support_ExpectedBahaviorTooShort_Title = "Expected behavior too short";
+Support_ExpectedBahaviorTooShort_Msg = "Please add more details to the expected behavior field. The more detail you can provide, the faster we will be able to find a solution and answer your request.";
+
+Support_SubjectTooShort_Title = "Subject too short";
+Support_SubjectTooShort_Msg = "Please add a more descriptive subject.";
+
+Support_MailInvalid_Title = "Email invalid";
+Support_MailInvalid_Msg = "Please use a valid Email address.";
+
+Support_NameTooShort_Title = "Name too short";
+Support_NameTooShort_Msg = "Please enter a longer name.";
+
+Support_NoComponentSelected_Title = "No component selected";
+Support_NoComponentSelected_Msg = "Please select a component.";
+
+Support_ReportFailed_Title = "Sending report failed";
+Support_ReportFailed_Msg = "We were unable to send your report. Please create your report on our support platform instead. The “Ok” button will open your browser and take you there.";
+
+Support_PublicReportSucceeded_Title = "Report sent";
+Support_PublicReportSucceeded_Msg = "Thanks for taking the time to send this report. A public discussion has been created. Please allow a few days for us to respond. You will receive updates via Email.\n\nWe will now open your discussion in your browser. Consider creating a bookmark.";
+
+Support_PrivateReportSucceeded_Title = "Report sent";
+Support_PrivateReportSucceeded_Msg = "Thanks for taking the time to send this report. A private discussion has been created. Please allow a few days for us to respond. You will receive updates via Email.\n\nWe will now open your discussion in your browser. Consider creating a bookmark.";
