@@ -308,23 +308,17 @@ affectedComponent=_affectedComponent, privateDiscussion=_privateDiscussion;
 }
 
 
-
-
-
-
-- (NSString *)versionInfo {
+- (NSArray *)toolVersions {
 #define PKEY @"path"
 #define IKEY @"identifier"
 #define NKEY @"toolname"
 #define LKEY @"plist"
 	NSFileManager *fileManager = [NSFileManager defaultManager];
-	NSMutableString *infoString = [NSMutableString string];
 	NSDictionary *systemPlist = [NSDictionary dictionaryWithContentsOfFile:@"/System/Library/CoreServices/SystemVersion.plist"];
 	NSArray *tools = @[
-					   @{NKEY: @"Libmacgpg",
-						 PKEY: @[@"~/Library/Frameworks/Libmacgpg.framework", @"/Library/Frameworks/Libmacgpg.framework"],
-						 LKEY: @"Resources/Info.plist"},
-					   
+					   @{NKEY: @"GPG Suite",
+						 PKEY: @[@"/Library/Application Support/GPGTools/GPGSuite_Updater.app"]},
+
 					   @{NKEY: @"GPGMail",
 						 PKEY: @[@"/Network/Library/Mail/Bundles/GPGMail.mailbundle", @"~/Library/Mail/Bundles/GPGMail.mailbundle", @"/Library/Mail/Bundles/GPGMail.mailbundle"]},
 					   
@@ -341,15 +335,35 @@ affectedComponent=_affectedComponent, privateDiscussion=_privateDiscussion;
 					   @{NKEY: @"GPGPreferences",
 						 PKEY: @[@"~/Library/PreferencePanes/GPGPreferences.prefPane", @"/Library/PreferencePanes/GPGPreferences.prefPane"]},
 					   
-					   @{NKEY: @"Pinentry",
+					   @{NKEY: @"Libmacgpg",
+						 PKEY: @[@"~/Library/Frameworks/Libmacgpg.framework", @"/Library/Frameworks/Libmacgpg.framework"],
+						 LKEY: @"Resources/Info.plist"},
+					   
+					   @{NKEY: @"pinentry",
 						 PKEY: @[@"/usr/local/MacGPG2/libexec/pinentry-mac.app"]}
-					  ];
+					   ];
 	
 	
-	[infoString appendFormat:@"    Mac OS X\t\t%@\t\t(%@)\n", [systemPlist objectForKey:@"ProductVersion"] , [systemPlist objectForKey:@"ProductBuildVersion"]];
+	NSMutableArray *versions = [NSMutableArray array];
+
+	
+	NSString *osVersion = [systemPlist objectForKey:@"ProductVersion"];
+	NSString *part = [osVersion substringToIndex:5];
+	NSString *osName = @"macOS";
+	
+	if ([part isEqualToString:@"10.9."] || [part isEqualToString:@"10.10."] || [part isEqualToString:@"10.11."]) {
+		osName = @"Mac OS X";
+	}
+	
+	[versions addObject:@{@"name": osName,
+						  @"version": [systemPlist objectForKey:@"ProductVersion"],
+						  @"build": [systemPlist objectForKey:@"ProductBuildVersion"],
+						  @"commit": @""}];
+	
 	
 	
 	for (NSDictionary *toolInfo in tools) {
+	
 		// Possible paths to the tool.
 		id paths = [toolInfo objectForKey:PKEY];
 		if (!paths) {
@@ -378,26 +392,102 @@ affectedComponent=_affectedComponent, privateDiscussion=_privateDiscussion;
 		NSString *name = toolInfo[NKEY];
 		
 		if (!infoPlist) {
-			[infoString appendFormat:@"    %@\t-\n", name];
+			[versions addObject:@{@"name": name}];
 		} else {
 			NSArray *parts = [infoPlist[@"CFBundleShortVersionString"] componentsSeparatedByString:@" "];
 			
+			
+			NSString *commit = @"";
+			if (parts.count > 1) {
+				commit = parts[1];
+			}
+			
+			[versions addObject:@{@"name": name,
+								  @"version": parts[0],
+								  @"build": infoPlist[@"CFBundleVersion"],
+								  @"commit": commit
+								  }];
+			
+		}
+		
+	}
+	
+	return versions;
+}
+
+
+
+- (NSString *)versionInfo {
+	NSMutableString *infoString = [NSMutableString string];
+	NSArray *toolVersions = self.toolVersions;
+	
+	
+	for (NSDictionary *toolVersion in toolVersions) {
+		if (toolVersion[@"version"]) {
+			NSString *name = toolVersion[@"name"];
+			NSString *version = toolVersion[@"version"];
+			NSString *build = toolVersion[@"build"];
+			NSString *commit = toolVersion[@"commit"];
+			
 			[infoString appendFormat:@"    %@%@%@",
 			 [name stringByPaddingToTab:4],
-			 [parts[0] stringByPaddingToTab:3],
-			 [infoPlist[@"CFBundleVersion"] stringByPaddingToTab:1]];
+			 [version stringByPaddingToTab:3],
+			 [build stringByPaddingToTab:1]];
 			
-			
-			if (parts.count > 1) {
-				[infoString appendFormat:@"\t%@", parts[1]];
+			if (commit.length > 1) {
+				[infoString appendFormat:@"\t%@", commit];
 			}
 			[infoString appendString:@"\n"];
-		}
 
+		} else {
+			[infoString appendFormat:@"    %@\t-\n", toolVersion[@"name"]];
+		}
 	}
 
 	return infoString;
 }
+
+- (NSAttributedString *)attributedVersions {
+	NSMutableString *infoString = [NSMutableString string];
+	NSArray *toolVersions = self.toolVersions;
+	
+	
+	for (NSDictionary *toolVersion in toolVersions) {
+		NSString *name = toolVersion[@"name"];
+		NSString *version = toolVersion[@"version"];
+		if (version) {
+			NSString *build = toolVersion[@"build"];
+			NSString *commit = toolVersion[@"commit"];
+			
+			[infoString appendFormat:@"%@\t%@\t%@",
+			 name,
+			 version,
+			 build];
+			
+			if (commit.length > 1) {
+				[infoString appendFormat:@"\t%@", commit];
+			}
+			[infoString appendString:@"\n"];
+		} else {
+			[infoString appendFormat:@"%@\t-\n", name];
+		}
+	}
+	
+	
+	
+	NSMutableParagraphStyle *paragraphStyle = [[NSMutableParagraphStyle new] autorelease];
+	paragraphStyle.tabStops = @[[[[NSTextTab alloc] initWithTextAlignment:0 location:110 options:nil] autorelease],
+								[[[NSTextTab alloc] initWithTextAlignment:0 location:180 options:nil] autorelease],
+								[[[NSTextTab alloc] initWithTextAlignment:0 location:250 options:nil] autorelease]];
+	
+	
+	NSAttributedString *attributedVersions = [[[NSAttributedString alloc] initWithString:infoString attributes:@{NSParagraphStyleAttributeName:paragraphStyle}] autorelease];
+
+	
+	
+	return attributedVersions;
+}
+
 
 
 

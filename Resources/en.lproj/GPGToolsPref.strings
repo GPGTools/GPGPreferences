@@ -9,13 +9,10 @@
 "570.title" = "Key Server";
 "573.title" = "seconds";
 "575.title" = "Store in OS X Keychain";
-"578.title" = "Item 1";
 "579.title" = "Default Key";
 "605.title" = "Clear";
 "731.ibShadowedToolTip" = "The comment is added to every OpenPGP message you create. When using GPGMail it will not be visible. When using GPGServices you should see the comment.";
 "735.title" = "Comment";
-"1043.title" = "Build: ";
-"1044.title" = "Version: xxx";
 "1048.ibShadowedToolTip" = "When attempting to verify a signature for which the required public key can not be found on your system, this option will search the key servers. If found, the key is downloaded and added to your keyring.";
 "1049.title" = "Auto-retrieve keys";
 "2us-TG-ZgZ.title" = "Automatically check for updates";
@@ -42,6 +39,7 @@
 "dQU-pL-8Hd.ibShadowedIsNilPlaceholder" = "Subject";
 "dyf-aR-2b2.title" = "Remember for";
 "mOw-yu-jQL.ibShadowedIsNilPlaceholder" = "Additional info…";
+"r17-CS-TqP.title" = "Installed versions";
 "riP-tC-7Wg.ibShadowedIsNilPlaceholder" = "Name";
 "se4-Hz-hAs.ibShadowedIsNilPlaceholder" = "Email";
 "vRf-iC-NSj.ibShadowedIsNilPlaceholder" = "Select a key...";
