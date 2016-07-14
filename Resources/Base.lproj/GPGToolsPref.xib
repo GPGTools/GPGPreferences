@@ -709,7 +709,7 @@
                                             <imageCell key="cell" refusesFirstResponder="YES" alignment="left" animates="YES" imageScaling="proportionallyDown" image="GPGTools+Text" id="511"/>
                                         </imageView>
                                         <button hidden="YES" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="540">
-                                            <rect key="frame" x="155" y="209" width="142" height="32"/>
+                                            <rect key="frame" x="455" y="10" width="142" height="32"/>
                                             <buttonCell key="cell" type="push" title="Knowledge Base" bezelStyle="rounded" alignment="center" enabled="NO" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="553">
                                                 <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                                 <font key="font" metaFont="system"/>
@@ -719,7 +719,7 @@
                                             </connections>
                                         </button>
                                         <button hidden="YES" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="542">
-                                            <rect key="frame" x="11" y="209" width="142" height="32"/>
+                                            <rect key="frame" x="311" y="10" width="142" height="32"/>
                                             <buttonCell key="cell" type="push" title="Support" bezelStyle="rounded" alignment="center" enabled="NO" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="551">
                                                 <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                                 <font key="font" metaFont="system"/>
@@ -752,16 +752,22 @@
                                             </textFieldCell>
                                         </textField>
                                         <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" setsMaxLayoutWidthAtFirstLayout="YES" translatesAutoresizingMaskIntoConstraints="NO" id="508">
-                                            <rect key="frame" x="15" y="232" width="304" height="148"/>
+                                            <rect key="frame" x="15" y="329" width="406" height="51"/>
                                             <constraints>
-                                                <constraint firstAttribute="height" constant="148" id="TPX-BL-iDH"/>
-                                                <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="300" id="igN-Zy-CZb"/>
+                                                <constraint firstAttribute="height" relation="lessThanOrEqual" constant="102" id="RSz-aY-6l0"/>
+                                                <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="402" id="igN-Zy-CZb"/>
                                             </constraints>
                                             <textFieldCell key="cell" sendsActionOnEndEditing="YES" id="510">
                                                 <font key="font" metaFont="system"/>
-                                                <string key="title">GPG Suite is a software collection, allowing to encrypt / decrypt and sign / verify emails and files. Our goal is to provide an easy to use OpenPGP solution on OS X.
-
-GPGTools - it's worth protecting what you love</string>
+                                                <string key="title">GPG Suite is a software collection, allowing to encrypt / decrypt and sign / verify emails and files. Our goal is to provide an easy to use OpenPGP solution on OS X.</string>
+                                                <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                                                <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                            </textFieldCell>
+                                        </textField>
+                                        <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="59N-A0-ZKF">
+                                            <rect key="frame" x="15" y="295" width="297" height="17"/>
+                                            <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="GPGTools - it's worth protecting what you love" id="2my-oL-hKP">
+                                                <font key="font" metaFont="system"/>
                                                 <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                                                 <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                             </textFieldCell>
@@ -771,9 +777,11 @@ GPGTools - it's worth protecting what you love</string>
                                         <constraint firstItem="507" firstAttribute="top" secondItem="249" secondAttribute="top" constant="3" id="2G3-nl-4X7"/>
                                         <constraint firstItem="cgV-J0-dBB" firstAttribute="leading" secondItem="249" secondAttribute="leading" constant="17" id="8RX-TY-QMq"/>
                                         <constraint firstItem="508" firstAttribute="top" secondItem="249" secondAttribute="top" constant="15" id="Jrx-nq-cnC"/>
+                                        <constraint firstItem="59N-A0-ZKF" firstAttribute="leading" secondItem="508" secondAttribute="leading" id="M2e-92-Pga"/>
                                         <constraint firstItem="507" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="508" secondAttribute="trailing" constant="8" id="Tcf-ix-XPx"/>
                                         <constraint firstItem="508" firstAttribute="leading" secondItem="249" secondAttribute="leading" constant="17" id="gGn-mp-oxb"/>
                                         <constraint firstAttribute="bottom" secondItem="cgV-J0-dBB" secondAttribute="bottom" constant="17" id="giS-gK-76t"/>
+                                        <constraint firstItem="59N-A0-ZKF" firstAttribute="top" secondItem="508" secondAttribute="bottom" constant="17" id="sfu-Ka-JfX"/>
                                         <constraint firstItem="cgV-J0-dBB" firstAttribute="top" secondItem="Zjb-Pa-5rV" secondAttribute="bottom" constant="8" id="ttb-2h-H75"/>
                                         <constraint firstAttribute="trailing" secondItem="507" secondAttribute="trailing" constant="17" id="wj5-nK-7i8"/>
                                         <constraint firstItem="Zjb-Pa-5rV" firstAttribute="leading" secondItem="249" secondAttribute="leading" constant="17" id="zmb-cj-gpC"/>

@@ -1,7 +1,6 @@
-"12.title" = "GPGTools";
 "217.label" = "Inställningar";
 "248.label" = "Om";
-"510.title" = "GPG Suite är en samling mjukvara som gör det möjligt att kryptera / avkryptera och signera / verifiera epost och filer. Vårt mål är att erbjuda en enkel lösning för OpenPGP på OS X.\n\nGPGTools - det är värt att skydda det du älskar";
+"510.title" = "GPG Suite is a software collection, allowing to encrypt / decrypt and sign / verify emails and files. Our goal is to provide an easy to use OpenPGP solution on OS X.";
 "551.title" = "Support";
 "553.title" = "Kunskapsbas";
 "559.ibShadowedToolTip" = "Denna nyckel används som din förvalda nyckel i GPGServices.";
