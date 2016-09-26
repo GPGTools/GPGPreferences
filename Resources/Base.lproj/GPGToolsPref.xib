@@ -145,6 +145,9 @@
                                                 <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                                                 <font key="font" metaFont="system"/>
                                             </buttonCell>
+                                            <connections>
+                                                <binding destination="243" name="value" keyPath="rememberPassword" id="RrV-Ls-2pN"/>
+                                            </connections>
                                         </button>
                                         <textField verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="564">
                                             <rect key="frame" x="226" y="304" width="50" height="22"/>
@@ -161,6 +164,7 @@
                                                 <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                             </textFieldCell>
                                             <connections>
+                                                <binding destination="243" name="enabled" keyPath="rememberPassword" id="J0D-si-pUs"/>
                                                 <binding destination="243" name="value" keyPath="passphraseCacheTime" id="611">
                                                     <dictionary key="options">
                                                         <real key="NSNullPlaceholder" value="600"/>

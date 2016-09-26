@@ -28,6 +28,7 @@
 @property (readonly) NSAttributedString *credits;
 @property NSInteger indexOfSelectedSecretKey;
 @property NSInteger passphraseCacheTime;
+@property BOOL rememberPassword;
 @property (retain) NSString *comments;
 @property (readonly) GPGOptions *options;
 @property (readonly) NSString *bundleVersion, *version, *buildNumberDescription, *versionDescription;

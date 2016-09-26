@@ -184,15 +184,69 @@ static NSUInteger const kDefaultPassphraseCacheTime = 600;
  * Get and set the PassphraseCacheTime, with a dafault value of 600.
  */
 - (NSInteger)passphraseCacheTime {
-	NSNumber *value = [options valueForKey:@"PassphraseCacheTime"];
+	NSNumber *value = [options valueInGPGAgentConfForKey:@"default-cache-ttl"];
 	if (!value) {
 		[self setPassphraseCacheTime:kDefaultPassphraseCacheTime];
 		return kDefaultPassphraseCacheTime;
 	}
-	return [value integerValue];
+	
+	NSInteger intValue = value.integerValue;
+	if (intValue == 0) {
+		// default-cache-ttl is 0. This means no caching and the passphraseCacheTime field is disabled.
+		// max-cache-ttl is used to remeber the value of default-cache-ttl when the field is disabled.
+		intValue = [[options valueInGPGAgentConfForKey:@"max-cache-ttl"] integerValue];
+	}
+	
+	return intValue;
 }
 - (void)setPassphraseCacheTime:(NSInteger)value {
 	[options setValue:[NSNumber numberWithInteger:value] forKey:@"PassphraseCacheTime"];
+}
+
+- (BOOL)rememberPassword {
+	NSNumber *value = [options valueInGPGAgentConfForKey:@"default-cache-ttl"];
+	if (!value) {
+		[self setPassphraseCacheTime:kDefaultPassphraseCacheTime];
+		return YES;
+	}
+	
+	NSInteger intValue = value.integerValue;
+	if (intValue != 0) {
+		return YES;
+	}
+	
+	intValue = [[options valueInGPGAgentConfForKey:@"max-cache-ttl"] integerValue];
+	
+	return intValue == 0;
+}
+- (void)setRememberPassword:(BOOL)value {
+	NSNumber *cacheTimeNumber = [options valueInGPGAgentConfForKey:@"default-cache-ttl"];
+	NSInteger cacheTime = cacheTimeNumber.integerValue;
+	if (!cacheTimeNumber) {
+		cacheTime = kDefaultPassphraseCacheTime;
+		[self setPassphraseCacheTime:kDefaultPassphraseCacheTime];
+	}
+	
+	if (value) {
+		if (cacheTime == 0) {
+			NSInteger maxTime = [[options valueInGPGAgentConfForKey:@"max-cache-ttl"] integerValue];
+			if (maxTime != 0) {
+				[self setPassphraseCacheTime:maxTime];
+			}
+		}
+	} else {
+		if (cacheTime != 0) {
+			[options setValueInGPGAgentConf:@0 forKey:@"default-cache-ttl"];
+			[options setValueInGPGAgentConf:@(cacheTime) forKey:@"max-cache-ttl"];
+		} else {
+			NSInteger maxTime = [[options valueInGPGAgentConfForKey:@"max-cache-ttl"] integerValue];
+			
+			if (maxTime == 0) {
+				[options setValueInGPGAgentConf:@0 forKey:@"default-cache-ttl"];
+				[options setValueInGPGAgentConf:@(kDefaultPassphraseCacheTime) forKey:@"max-cache-ttl"];
+			}
+		}
+	}
 }
 
 
