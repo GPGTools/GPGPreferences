@@ -1,0 +1,57 @@
+
+
+"VERSION: %@" = "Versi: %@";
+"BUILD: %@" = "Build: %@";
+
+
+/* Bad keyserver */
+BadKeyserver_Title = "Server Kunci Buruk";
+BadKeyserver_Msg = "Server Kunci yang telah Anda masukkan tidak bekerja.\nHarap periksa alamat Server Kunci. Itu mesti seperti: hkp://suatu.server.kunci.org\n\nServer Kunci mungkin luring. Jika demikian, harap gunakan Server Kunci lain.";
+
+
+UpdateCheckFailed_Title = "Pemeriksaan pemutakhiran gagal!";
+UpdateCheckFailed_Msg = "Harap pasang ulang Keluarga GPG dari https://gpgtools.org.";
+
+
+NoUpdatesGM106_Title = "Tidak Ada Pemutakhiran!";
+NoUpdatesGM106_Msg = "Tidak ada Pemutakhiran bagi GPGMail pada Mac OS X 10.6";
+
+
+PassowrdsDeleted_Title = "Kata sandi dihapus";
+PassowrdsDeleted_Msg = "Semua kata sandi OpenPGP telah sukses dihapus dari ring kunci OS X dan singgahan.";
+
+PassowrdsDeletFailed_Title = "Penghapusan kata sandi gagal!";
+PassowrdsDeletFailed_Msg = "Tidak semua kata sandi yang disimpan dapat dihapus. Harap buka Console.app dan carilah kesalahan yang berhubungan. Lalu beritahu kami masalah ini melalui tab 'Kirim Laporan'.";
+
+Support_SendDebugInfo_Title = "Mengirim informasi debug";
+Support_SendDebugInfo_Msg = "Ulasan singkat tentang opsi untuk menyertakan informasi debug dengan laporan Anda: Seringkali informasi ini akan membantu mempercepat proses debug. Masalah Anda akan jauh lebih cepat dipecahkan.\n\nKecuali apabila laporan Anda adalah permintaan fitur, kami menyarankan menambahkan informasi debug.\n\nInfo dikirim melalui koneksi TLS terenkripsi ke server kami. Di sana itu dienkripsi memakai kunci tim kami lalu dikirim ke platform dukungan kami. Dengan cara itu informasi debug tidak akan dapat diakses oleh siapapun kecuali tim inti kami, bahkan bila laporan Anda tidak diatur untuk privat.\n\nSelama pembuatan informasi debug Anda mungkin ditanyai kata sandi kunci OpenPGP, karena kami akan menguji apakah dekripsi dan penandatanganan bekerja seperti yang diharapkan pada sistem Anda.\n\nLog debug termasuk informasi meta tentang kunci Anda.";
+Support_SendDebugInfo_Button1 = "Kirim Laporan";
+Support_SendDebugInfo_Button2 = "Batal";
+Support_SendDebugInfo_Checkbox = "Sertakan informasi debug dengan laporan ini";
+
+Support_BugDescriptionTooShort_Title = "Deskripsi terlalu pendek";
+Support_BugDescriptionTooShort_Msg = "Harap tambahkan lebih banyak rincian ke ruas deskripsi. Lebih banyak rincian yang dapat Anda berikan, kami akan bisa lebih cepat menemukan solusi yang bagus ke permintaan Anda. Bila berlaku, harap tambahkan langkah-langkah presisi yang membantu mereproduksi masalah.";
+
+Support_ExpectedBahaviorTooShort_Title = "Perilaku yang diharapkan terlalu pendek";
+Support_ExpectedBahaviorTooShort_Msg = "Harap tambahkan lebih banyak rincian ke ruas perilaku yang diharapkan. Lebih banyak rincian yang dapat Anda berikan, kami akan bisa lebih cepat menemukan solusi yang bagus ke permintaan Anda.";
+
+Support_SubjectTooShort_Title = "Subjek terlalu pendek";
+Support_SubjectTooShort_Msg = "Harap tambahkan suatu subjek yang lebih deskriptif.";
+
+Support_MailInvalid_Title = "Surel tak valid";
+Support_MailInvalid_Msg = "Harap gunakan alamat surel yang valid.";
+
+Support_NameTooShort_Title = "Nama terlalu pendek";
+Support_NameTooShort_Msg = "Harap masukkan nama yang lebih panjang.";
+
+Support_NoComponentSelected_Title = "Tidak ada komponen yang dipilih";
+Support_NoComponentSelected_Msg = "Harap pilih sebuah komponen.";
+
+Support_ReportFailed_Title = "Pengiriman laporan gagal";
+Support_ReportFailed_Msg = "Kami tidak bisa mengirim laporan Anda. Harap buat laporan Anda pada platform dukungan kami. Tombol \"Ok\" akan membuka peramban Anda dan membawa Anda ke sana.";
+
+Support_PublicReportSucceeded_Title = "Laporan dikirim";
+Support_PublicReportSucceeded_Msg = "Terima kasih telah meluangkan waktu untuk mengirim laporan ini. Suatu diskusi publik telah dibuat. Beri kami beberapa hari untuk merespon. Anda akan menerima pemutakhiran melalui surel.\n\nKami sekarang akan membuka diskusi Anda dalam peramban. Pertimbangkan untuk menandai halaman itu.";
+
+Support_PrivateReportSucceeded_Title = "Laporan dikirim";
+Support_PrivateReportSucceeded_Msg = "Terima kasih telah meluangkan waktu untuk mengirim laporan ini. Suatu diskusi privat telah dibuat. Beri kami beberapa hari untuk merespon. Anda akan menerima pemutakhiran melalui surel.\n\nKami sekarang akan membuka diskusi Anda dalam peramban. Pertimbangkan untuk menandai halaman itu.";
