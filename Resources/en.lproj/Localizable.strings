@@ -14,7 +14,7 @@ UpdateCheckFailed_Msg = "Please reinstall GPG Suite from https://gpgtools.org.";
 
 
 NoUpdatesGM106_Title = "No Updates!";
-NoUpdatesGM106_Msg = "There are no Updates for GPGMail on Mac OS X 10.6";
+NoUpdatesGM106_Msg = "There are no Updates for GPGMail on macOS 10.6";
 
 
 PassowrdsDeleted_Title = "Passwords deleted";
