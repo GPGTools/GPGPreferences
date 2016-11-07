@@ -191,9 +191,11 @@
 					   @"~/Library/Preferences/org.gpgtools.common.plist",
 					   @"~/Library/Preferences/org.gpgtools.gpgkeychainaccess.plist",
 					   @"~/Library/Preferences/org.gpgtools.gpgmail.plist",
+					   @"~/Library/Preferences/org.gpgtools.updater.plist",
 					   @"/Library/Preferences/org.gpgtools.common.plist",
 					   @"/Library/Preferences/org.gpgtools.gpgkeychainaccess.plist",
-					   @"/Library/Preferences/org.gpgtools.gpgmail.plist"
+					   @"/Library/Preferences/org.gpgtools.gpgmail.plist",
+					   @"/Library/Preferences/org.gpgtools.updater.plist"
 					   ];
 	for (NSString *path in files) {
 		NSString *expandedPath = [self expand:path];
@@ -288,6 +290,14 @@
 							  
 							  @"/Library/LaunchAgents/org.gpgtools.macgpg2.gpg-agent.plist",
 							  @"~/Library/LaunchAgents/org.gpgtools.macgpg2.gpg-agent.plist",
+
+							  @"/Library/Frameworks/Libmacgpg.framework",
+							  @"~/Library/Frameworks/Libmacgpg.framework",
+
+							  @"/Library/Application Support/GPGTools",
+							  @"/Library/Application Support/GPGTools/*",
+							  @"~/Library/Application Support/GPGTools",
+							  @"~/Library/Application Support/GPGTools/*",
 							  
 							  @"$GNUPGHOME",
 							  @"$GNUPGHOME/*"
