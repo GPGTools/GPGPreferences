@@ -58,8 +58,8 @@
                                             </connections>
                                         </popUpButton>
                                         <button translatesAutoresizingMaskIntoConstraints="NO" id="561">
-                                            <rect key="frame" x="108" y="329" width="165" height="18"/>
-                                            <buttonCell key="cell" type="check" title="Store in OS X Keychain" bezelStyle="regularSquare" imagePosition="left" alignment="left" state="on" inset="2" id="575">
+                                            <rect key="frame" x="108" y="329" width="178" height="18"/>
+                                            <buttonCell key="cell" type="check" title="Store in macOS Keychain" bezelStyle="regularSquare" imagePosition="left" alignment="left" state="on" inset="2" id="575">
                                                 <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                                                 <font key="font" metaFont="system"/>
                                             </buttonCell>
@@ -164,12 +164,12 @@
                                                 <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                             </textFieldCell>
                                             <connections>
-                                                <binding destination="243" name="enabled" keyPath="rememberPassword" id="J0D-si-pUs"/>
                                                 <binding destination="243" name="value" keyPath="passphraseCacheTime" id="611">
                                                     <dictionary key="options">
                                                         <real key="NSNullPlaceholder" value="600"/>
                                                     </dictionary>
                                                 </binding>
+                                                <binding destination="243" name="enabled" keyPath="rememberPassword" id="J0D-si-pUs"/>
                                                 <outlet property="nextKeyView" destination="566" id="hND-dB-f8z"/>
                                             </connections>
                                         </textField>
