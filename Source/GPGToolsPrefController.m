@@ -15,6 +15,10 @@
 
 static NSString * const kKeyserver = @"keyserver";
 static NSUInteger const kDefaultPassphraseCacheTime = 600;
+static NSString * const AutomaticallySendCrashReportsKey = @"AutomaticallySendCrashReports";
+static NSString * const CrashReportsUserEmailKey = @"CrashReportsUserEmail";
+
+
 
 @interface GPGToolsPrefController ()
 @property (readwrite) BOOL testingServer;
@@ -36,7 +40,7 @@ static NSUInteger const kDefaultPassphraseCacheTime = 600;
 
 
 @implementation GPGToolsPrefController
-@synthesize options, testingServer;
+@synthesize options, testingServer, updaterOptions;
 
 - (id)init {
 	if (!(self = [super init])) {
@@ -46,6 +50,8 @@ static NSUInteger const kDefaultPassphraseCacheTime = 600;
 	
 	options = [GPGOptions sharedOptions];
 	options.standardDomain = @"org.gpgtools.gpgpreferences";
+	updaterOptions = [[GPGOptions alloc] init];
+	updaterOptions.standardDomain = @"org.gpgtools.updater";
 	[[NSDistributedNotificationCenter defaultCenter] addObserver:self selector:@selector(keysDidChange:) name:GPGKeyManagerKeysDidChangeNotification object:nil];
 	[[GPGKeyManager sharedInstance] loadAllKeys];
 
@@ -471,6 +477,48 @@ static NSUInteger const kDefaultPassphraseCacheTime = 600;
 	
 	[self.options setValueInGPGConf:keyserverOptions forKey:@"keyserver-options"];
 }
+
+
+
+/*
+ * Crash reporting
+ */
+- (BOOL)automaticallySendCrashReports {
+	return [updaterOptions boolForKey:AutomaticallySendCrashReportsKey];
+}
+- (void)setAutomaticallySendCrashReports:(BOOL)value {
+	[updaterOptions setBool:value forKey:AutomaticallySendCrashReportsKey];
+}
+
+- (NSString *)crashReportsUserEmail {
+	return [updaterOptions valueForKey:CrashReportsUserEmailKey];
+}
+- (void)setCrashReportsUserEmail:(NSString *)value {
+	crashReportsUserEmail = value;
+	if (allowUserEmailContact > 0) {
+		[updaterOptions setValue:value forKey:CrashReportsUserEmailKey];
+	}
+}
+- (BOOL)allowUserEmailContact {
+	if (allowUserEmailContact == 0) {
+		if ([updaterOptions valueForKey:CrashReportsUserEmailKey]) {
+			allowUserEmailContact = 1;
+		} else {
+			allowUserEmailContact = -1;
+		}
+	}
+	return allowUserEmailContact > 0;
+}
+- (void)setAllowUserEmailContact:(BOOL)value {
+	if (value) {
+		allowUserEmailContact = 1;
+		[updaterOptions setObject:crashReportsUserEmail forKey:CrashReportsUserEmailKey];
+	} else {
+		allowUserEmailContact = -1;
+		[updaterOptions setObject:nil forKey:CrashReportsUserEmailKey];
+	}
+}
+
 
 
 #pragma mark Button Links

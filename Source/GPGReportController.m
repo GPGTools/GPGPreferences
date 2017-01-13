@@ -476,9 +476,9 @@ affectedComponent=_affectedComponent, privateDiscussion=_privateDiscussion;
 	
 	
 	NSMutableParagraphStyle *paragraphStyle = [[NSMutableParagraphStyle new] autorelease];
-	paragraphStyle.tabStops = @[[[[NSTextTab alloc] initWithTextAlignment:0 location:110 options:nil] autorelease],
-								[[[NSTextTab alloc] initWithTextAlignment:0 location:180 options:nil] autorelease],
-								[[[NSTextTab alloc] initWithTextAlignment:0 location:250 options:nil] autorelease]];
+	paragraphStyle.tabStops = @[[[[NSTextTab alloc] initWithTextAlignment:0 location:115 options:nil] autorelease],
+								[[[NSTextTab alloc] initWithTextAlignment:0 location:205 options:nil] autorelease],
+								[[[NSTextTab alloc] initWithTextAlignment:0 location:270 options:nil] autorelease]];
 	
 	
 	NSAttributedString *attributedVersions = [[[NSAttributedString alloc] initWithString:infoString attributes:@{NSParagraphStyleAttributeName:paragraphStyle}] autorelease];

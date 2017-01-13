@@ -17,10 +17,13 @@
 	NSArray *secretKeys;
 	NSLock *secretKeysLock;
 	GPGOptions *options;
+	GPGOptions *updaterOptions;
 	NSString *keyserverToCheck;
 	GPGController *gpgc;
 	BOOL testingServer;
 	IBOutlet GPGToolsPref *prefPane;
+	NSInteger allowUserEmailContact;
+	NSString *crashReportsUserEmail;
 }
 
 @property (readonly) NSBundle *myBundle;
@@ -29,10 +32,13 @@
 @property NSInteger indexOfSelectedSecretKey;
 @property NSInteger passphraseCacheTime;
 @property BOOL rememberPassword;
-@property (readonly) GPGOptions *options;
+@property (readonly) GPGOptions *options, *updaterOptions;
 @property (readonly) NSString *bundleVersion, *version, *buildNumberDescription, *versionDescription;
 @property BOOL autoKeyRetrive;
 @property (readonly) BOOL testingServer;
+@property BOOL automaticallySendCrashReports;
+@property (strong) NSString *crashReportsUserEmail;
+@property BOOL allowUserEmailContact;
 
 
 // Get a list of keyservers from GPGOptions
