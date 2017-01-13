@@ -55,3 +55,9 @@ Support_PublicReportSucceeded_Msg = "Thanks for taking the time to send this rep
 
 Support_PrivateReportSucceeded_Title = "Report sent";
 Support_PrivateReportSucceeded_Msg = "Thanks for taking the time to send this report. A private discussion has been created. Please allow a few days for us to respond. You will receive updates via Email.\n\nWe will now open your discussion in your browser. Consider creating a bookmark.";
+
+
+ShouldRemoveComment_Title = "Important information about the comment field";
+ShouldRemoveComment_Msg = "It appears you are using a comment. That is an expert option and best practices recommend not using the comment field at all since wrong usage may expose information to adversaries. To prevent this from happening, the comment field has been removed. We recommend to remove the comment. Only keep the comment if you really know what you are doing. Comments can be edited via command line in the future.\n\nThe comment you are currently using:\n\n%@\n\nRemove comment?";
+ShouldRemoveComment_Button1 = "Remove comment";
+ShouldRemoveComment_Button2 = "Keep comment";

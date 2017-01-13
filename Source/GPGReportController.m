@@ -212,7 +212,7 @@ affectedComponent=_affectedComponent, privateDiscussion=_privateDiscussion;
 	}
 
 	
-	NSAlert *alert = [gpgPrefPane alert:@"Support_SendDebugInfo" arguments:nil];
+	NSAlert *alert = [gpgPrefPane alert:@"Support_SendDebugInfo" parameters:nil];
 	alert.suppressionButton.state = self.attachDebugLog ? NSOnState : NSOffState;
 	
 	[gpgPrefPane displayAlert:alert completionHandler:^(NSModalResponse returnCode) {

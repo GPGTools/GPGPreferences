@@ -76,55 +76,6 @@
                                                 <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                             </textFieldCell>
                                         </textField>
-                                        <scrollView autohidesScrollers="YES" horizontalLineScroll="10" horizontalPageScroll="10" verticalLineScroll="10" verticalPageScroll="10" hasHorizontalScroller="NO" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="731">
-                                            <rect key="frame" x="110" y="141" width="381" height="46"/>
-                                            <string key="toolTip">The comment is added to every OpenPGP message you create. When using GPGMail it will not be visible. When using GPGServices you should see the comment.</string>
-                                            <clipView key="contentView" id="HrM-bC-5lf">
-                                                <rect key="frame" x="1" y="1" width="600" height="44"/>
-                                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                                                <subviews>
-                                                    <textView importsGraphics="NO" richText="NO" allowsUndo="YES" verticallyResizable="YES" allowsNonContiguousLayout="YES" spellingCorrection="YES" smartInsertDelete="YES" id="736">
-                                                        <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
-                                                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                                        <size key="minSize" width="379" height="44"/>
-                                                        <size key="maxSize" width="813" height="10000000"/>
-                                                        <color key="insertionPointColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
-                                                        <size key="minSize" width="379" height="44"/>
-                                                        <size key="maxSize" width="813" height="10000000"/>
-                                                        <allowedInputSourceLocales>
-                                                            <string>NSAllRomanInputSourcesLocaleIdentifier</string>
-                                                        </allowedInputSourceLocales>
-                                                        <connections>
-                                                            <binding destination="243" name="value" keyPath="comments" id="740"/>
-                                                        </connections>
-                                                    </textView>
-                                                </subviews>
-                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                            </clipView>
-                                            <constraints>
-                                                <constraint firstAttribute="height" constant="46" id="roV-v3-Gfj"/>
-                                            </constraints>
-                                            <scroller key="horizontalScroller" hidden="YES" verticalHuggingPriority="750" doubleValue="1" horizontal="YES" id="737">
-                                                <rect key="frame" x="-100" y="-100" width="302" height="15"/>
-                                                <autoresizingMask key="autoresizingMask"/>
-                                            </scroller>
-                                            <scroller key="verticalScroller" hidden="YES" verticalHuggingPriority="750" doubleValue="1" horizontal="NO" id="738">
-                                                <rect key="frame" x="586" y="1" width="15" height="44"/>
-                                                <autoresizingMask key="autoresizingMask"/>
-                                            </scroller>
-                                            <connections>
-                                                <outlet property="nextKeyView" destination="188" id="rko-61-kEM"/>
-                                            </connections>
-                                        </scrollView>
-                                        <textField verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="732">
-                                            <rect key="frame" x="15" y="170" width="77" height="17"/>
-                                            <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="right" title="Comment" id="735">
-                                                <font key="font" metaFont="system"/>
-                                                <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
-                                                <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
-                                            </textFieldCell>
-                                        </textField>
                                         <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="604">
                                             <rect key="frame" x="407" y="321" width="90" height="32"/>
                                             <constraints>
@@ -220,7 +171,6 @@
                                             </buttonCell>
                                             <connections>
                                                 <binding destination="243" name="value" keyPath="autoKeyRetrive" id="1051"/>
-                                                <outlet property="nextKeyView" destination="736" id="4UL-HD-9qi"/>
                                             </connections>
                                         </button>
                                         <progressIndicator horizontalHuggingPriority="750" verticalHuggingPriority="750" maxValue="100" bezeled="NO" indeterminate="YES" controlSize="small" style="spinning" translatesAutoresizingMaskIntoConstraints="NO" id="yH5-BR-TTA">
@@ -319,7 +269,6 @@
                                         <constraint firstItem="559" firstAttribute="trailing" secondItem="4Fu-PE-Y4O" secondAttribute="trailing" id="7By-Hn-xPd"/>
                                         <constraint firstItem="Ogz-DZ-1J8" firstAttribute="baseline" secondItem="b3k-dz-ngE" secondAttribute="baseline" id="8aW-dO-56x"/>
                                         <constraint firstItem="560" firstAttribute="baseline" secondItem="559" secondAttribute="baseline" id="ARB-iz-SIE"/>
-                                        <constraint firstItem="732" firstAttribute="top" secondItem="559" secondAttribute="bottom" constant="183" id="BMa-Vg-YK3"/>
                                         <constraint firstItem="561" firstAttribute="baseline" secondItem="604" secondAttribute="baseline" constant="1" id="BS2-FF-n1a"/>
                                         <constraint firstItem="559" firstAttribute="trailing" secondItem="ni6-qs-e6D" secondAttribute="trailing" id="CKa-wt-Co3"/>
                                         <constraint firstItem="566" firstAttribute="trailing" secondItem="yH5-BR-TTA" secondAttribute="trailing" constant="26" id="CTj-5c-9F9"/>
@@ -332,7 +281,6 @@
                                         <constraint firstItem="565" firstAttribute="width" secondItem="559" secondAttribute="width" id="JUx-8T-G4a"/>
                                         <constraint firstItem="Az4-kR-dAa" firstAttribute="top" secondItem="Lqb-EC-Zs0" secondAttribute="bottom" constant="8" id="Jky-eJ-dlC"/>
                                         <constraint firstItem="560" firstAttribute="trailing" secondItem="566" secondAttribute="trailing" id="Liv-iJ-Sfz"/>
-                                        <constraint firstItem="731" firstAttribute="leading" secondItem="zRU-zF-fXT" secondAttribute="trailing" constant="11" id="Pqx-9D-eX4"/>
                                         <constraint firstItem="iho-Ho-JOJ" firstAttribute="leading" secondItem="zRU-zF-fXT" secondAttribute="trailing" constant="11" id="RKf-k9-8Y8"/>
                                         <constraint firstItem="559" firstAttribute="leading" secondItem="218" secondAttribute="leading" constant="17" id="T6F-PH-lX4"/>
                                         <constraint firstItem="563" firstAttribute="baseline" secondItem="564" secondAttribute="baseline" id="Tgv-2P-963"/>
@@ -343,7 +291,6 @@
                                         <constraint firstItem="1048" firstAttribute="top" secondItem="566" secondAttribute="bottom" constant="8" id="aX4-2x-76f"/>
                                         <constraint firstItem="561" firstAttribute="leading" secondItem="zRU-zF-fXT" secondAttribute="trailing" constant="11" id="af4-fn-KRT"/>
                                         <constraint firstItem="559" firstAttribute="width" secondItem="4Fu-PE-Y4O" secondAttribute="width" id="f9l-fq-gpP"/>
-                                        <constraint firstItem="731" firstAttribute="top" secondItem="732" secondAttribute="top" id="fGu-CS-i4f"/>
                                         <constraint firstItem="b3k-dz-ngE" firstAttribute="leading" secondItem="zRU-zF-fXT" secondAttribute="trailing" constant="11" id="fY5-t3-Fg3"/>
                                         <constraint firstItem="565" firstAttribute="trailing" secondItem="559" secondAttribute="trailing" id="fiv-rR-LXs"/>
                                         <constraint firstItem="zkU-S7-MOM" firstAttribute="leading" secondItem="zRU-zF-fXT" secondAttribute="trailing" constant="11" id="gcz-qi-Jcq"/>
@@ -351,14 +298,11 @@
                                         <constraint firstItem="j6F-9e-l7j" firstAttribute="leading" secondItem="zRU-zF-fXT" secondAttribute="trailing" constant="11" id="heD-eh-YU7"/>
                                         <constraint firstItem="561" firstAttribute="baseline" secondItem="ni6-qs-e6D" secondAttribute="baseline" id="kgg-SJ-9Z1"/>
                                         <constraint firstItem="j6F-9e-l7j" firstAttribute="top" secondItem="561" secondAttribute="bottom" constant="10" id="lFS-I1-zQd"/>
-                                        <constraint firstItem="559" firstAttribute="width" secondItem="732" secondAttribute="width" id="mWp-Ej-a4n"/>
                                         <constraint firstItem="565" firstAttribute="top" secondItem="559" secondAttribute="bottom" constant="89" id="mec-QB-rwh"/>
                                         <constraint firstItem="1048" firstAttribute="leading" secondItem="zRU-zF-fXT" secondAttribute="trailing" constant="11" id="ncg-tZ-fc9"/>
                                         <constraint firstItem="zkU-S7-MOM" firstAttribute="top" secondItem="b3k-dz-ngE" secondAttribute="bottom" constant="11" id="oV4-m2-Veo"/>
-                                        <constraint firstItem="559" firstAttribute="trailing" secondItem="732" secondAttribute="trailing" id="wtW-x8-J57"/>
                                         <constraint firstItem="566" firstAttribute="leading" secondItem="zRU-zF-fXT" secondAttribute="trailing" constant="11" id="xiC-zc-HFk"/>
                                         <constraint firstItem="604" firstAttribute="trailing" secondItem="560" secondAttribute="trailing" id="yyi-BJ-Rft"/>
-                                        <constraint firstItem="731" firstAttribute="trailing" secondItem="560" secondAttribute="trailing" id="zAs-Ib-Pq5"/>
                                         <constraint firstItem="563" firstAttribute="leading" secondItem="564" secondAttribute="trailing" constant="8" id="zih-ls-e9B"/>
                                     </constraints>
                                 </view>

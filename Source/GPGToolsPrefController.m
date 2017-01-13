@@ -49,6 +49,8 @@ static NSUInteger const kDefaultPassphraseCacheTime = 600;
 	[[NSDistributedNotificationCenter defaultCenter] addObserver:self selector:@selector(keysDidChange:) name:GPGKeyManagerKeysDidChangeNotification object:nil];
 	[[GPGKeyManager sharedInstance] loadAllKeys];
 
+	[self performSelectorOnMainThread:@selector(removeCommentIfWanted) withObject:nil waitUntilDone:NO];
+	
 	return self;
 }
 - (void)dealloc {
@@ -58,24 +60,31 @@ static NSUInteger const kDefaultPassphraseCacheTime = 600;
 }
 
 
-- (NSString *)comments {
-	return [[options valueInGPGConfForKey:@"comment"] componentsJoinedByString:@"\n"];
-}
-- (void)setComments:(NSString *)value {
-	NSArray *lines = [value componentsSeparatedByString:@"\n"];
-	NSMutableArray *filteredLines = [NSMutableArray array];
-	NSCharacterSet *whitespaceCharacterSet = [NSCharacterSet whitespaceCharacterSet];
-	NSCharacterSet *nonWhitespaceCharacterSet = [whitespaceCharacterSet invertedSet];
-	
-	[lines enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
-		if ([obj rangeOfCharacterFromSet:nonWhitespaceCharacterSet].length > 0) {
-			[filteredLines addObject:[obj stringByTrimmingCharactersInSet:whitespaceCharacterSet]];
+
+
+
+- (void)removeCommentIfWanted {
+	if (![options boolForKey:@"RemoveCommentCheckRan"]) {
+		NSString *comment = [[options valueInGPGConfForKey:@"comment"] componentsJoinedByString:@"\n"];
+		
+		if (comment.length > 0) {
+			if ([comment isEqualToString:@"GPGTools - https://gpgtools.org"]) {
+				[options setValueInGPGConf:nil forKey:@"comment"];
+			} else {
+				[gpgPrefPane showAlert:@"ShouldRemoveComment" parameters:@[comment] completionHandler:^(NSModalResponse returnCode) {
+					if (returnCode == NSAlertFirstButtonReturn) {
+						[options setValueInGPGConf:nil forKey:@"comment"];
+					}
+				}];
+			}
 		}
-	}];
-	
-	
-	[options setValueInGPGConf:filteredLines forKey:@"comment"];
+		
+		[options setBool:YES forKey:@"RemoveCommentCheckRan"];
+	}
 }
+
+
+
 
 - (void)setNilValueForKey:(NSString *)key {
     if([key isEqualToString:@"passphraseCacheTime"]) {

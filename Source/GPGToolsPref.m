@@ -11,6 +11,49 @@
 
 GPGToolsPref *gpgPrefPane = nil;
 
+
+
+@implementation NSString (stringWithFormat_parameters)
+
++ (instancetype)stringWithFormat:(NSString *)format parameters:(NSArray *)parameters {
+	// Based on code from http://stackoverflow.com/questions/35039383 http://stackoverflow.com/users/4759124/ajjnix
+	
+	// https://developer.apple.com/library/mac/documentation/Cocoa/Conceptual/ObjCRuntimeGuide/Articles/ocrtTypeEncodings.html
+	NSInteger sizeptr = sizeof(void *);
+	NSInteger sumArgInvoke = parameters.count + 3; //self + _cmd + (NSString *)format
+	NSInteger offsetReturnType = sumArgInvoke * sizeptr;
+	
+	NSMutableString *mstring = [[[NSMutableString alloc] init] autorelease];
+	[mstring appendFormat:@"@%zd@0:%zd", offsetReturnType, sizeptr];
+	for (NSInteger i = 2; i < sumArgInvoke; i++) {
+		[mstring appendFormat:@"@%zd", sizeptr * i];
+	}
+	NSMethodSignature *methodSignature = [NSMethodSignature signatureWithObjCTypes:[mstring UTF8String]];
+
+	NSInvocation *invocation = [NSInvocation invocationWithMethodSignature:methodSignature];
+	
+	invocation.target = self;
+	invocation.selector = @selector(stringWithFormat:);
+	
+	[invocation setArgument:&format atIndex:2];
+	for (NSInteger i = 0; i < [parameters count]; i++) {
+		id obj = parameters[i];
+		[invocation setArgument:(&obj) atIndex:i+3];
+	}
+	
+	[invocation invoke];
+	
+	__autoreleasing NSString *string;
+	[invocation getReturnValue:&string];
+	
+	return string;
+}
+
+@end
+
+
+
+
 @implementation GPGToolsPref
 @synthesize tabView=_tabView;
 
@@ -74,7 +117,10 @@ GPGToolsPref *gpgPrefPane = nil;
 
 
 
-// Alerts
+#pragma mark Alerts
+
+
+// Show alerts.
 
 - (void)showAlert:(NSString *)string, ... {
 	va_list args;
@@ -83,22 +129,13 @@ GPGToolsPref *gpgPrefPane = nil;
 	va_end(args);
 }
 
+
 - (void)showAlert:(NSString *)string
 completionHandler:(void (^)(NSModalResponse returnCode))handler {
 	
 	[self showAlert:string arguments:nil completionHandler:handler];
 }
 
-
-
-- (NSAlert *)alert:(NSString *)string
-		parameters:(NSArray *)parameters {
-	
-	NSMutableData *data = [NSMutableData dataWithLength:(sizeof(id) * parameters.count)];
-	[parameters getObjects:(__unsafe_unretained id *)data.mutableBytes range:NSMakeRange(0, parameters.count)];
-	
-	return [self alert:string arguments:data.mutableBytes];
-}
 
 - (void)showAlert:(NSString *)string
 	   parameters:(NSArray *)parameters
@@ -108,18 +145,61 @@ completionHandler:(void (^)(NSModalResponse returnCode))handler {
 }
 
 
+- (void)showAlert:(NSString *)string
+		arguments:(va_list)arguments
+completionHandler:(void (^)(NSModalResponse returnCode))handler {
+	
+	[self displayAlert:[self alert:string arguments:arguments] completionHandler:handler];
+}
+
+
+- (void)showAlertWithTitle:(NSString *)title
+				   message:(NSString *)msg
+				   buttons:(NSArray *)buttons
+				  checkbox:(NSString *)checkbox
+		 completionHandler:(void (^)(NSModalResponse returnCode))handler {
+	
+	[self displayAlert:[self alertWithTitle:title message:msg buttons:buttons checkbox:checkbox] completionHandler:handler];
+}
+
+
+
+// Create alerts.
+
 - (NSAlert *)alert:(NSString *)string
 		 arguments:(va_list)arguments {
 	
-	NSString *title = [self localizedString:[string stringByAppendingString:@"_Title"]];
 	NSString *messageFormat = [self localizedString:[string stringByAppendingString:@"_Msg"]];
-	
 	NSString *message;
 	if (arguments) {
-		message = messageFormat;
-	} else {
 		message = [[[NSString alloc] initWithFormat:messageFormat arguments:arguments] autorelease];
+	} else {
+		message = messageFormat;
 	}
+	
+	return [self alert:string message:message];
+}
+
+
+- (NSAlert *)alert:(NSString *)string
+		parameters:(NSArray *)parameters {
+	
+	NSString *messageFormat = [self localizedString:[string stringByAppendingString:@"_Msg"]];
+	NSString *message;
+	if (parameters) {
+		message = [NSString stringWithFormat:messageFormat parameters:parameters];
+	} else {
+		message = messageFormat;
+	}
+	
+	return [self alert:string message:message];
+}
+
+- (NSAlert *)alert:(NSString *)string
+		   message:(NSString *)message {
+	
+	NSString *title = [self localizedString:[string stringByAppendingString:@"_Title"]];
+	
 	
 	NSMutableArray *buttons = nil;
 	NSString *button;
@@ -141,15 +221,8 @@ completionHandler:(void (^)(NSModalResponse returnCode))handler {
 	if ([checkbox isEqualToString:template]) {
 		checkbox = nil;
 	}
-
-	return [self alertWithTitle:title message:message buttons:buttons checkbox:checkbox];
-}
-
-- (void)showAlert:(NSString *)string
-		arguments:(va_list)arguments
-completionHandler:(void (^)(NSModalResponse returnCode))handler {
 	
-	[self displayAlert:[self alert:string arguments:arguments] completionHandler:handler];
+	return [self alertWithTitle:title message:message buttons:buttons checkbox:checkbox];
 }
 
 
@@ -179,19 +252,8 @@ completionHandler:(void (^)(NSModalResponse returnCode))handler {
 	return alert;
 }
 
-- (void)showAlertWithTitle:(NSString *)title
-				   message:(NSString *)msg
-				   buttons:(NSArray *)buttons
-				  checkbox:(NSString *)checkbox
-		 completionHandler:(void (^)(NSModalResponse returnCode))handler {
-	
-	[self displayAlert:[self alertWithTitle:title message:msg buttons:buttons checkbox:checkbox] completionHandler:handler];
-}
 
-
-
-
-
+// Dispaly alerts.
 - (void)displayAlert:(NSAlert *)alert
    completionHandler:(void (^)(NSModalResponse returnCode))handler {
 	
@@ -216,6 +278,7 @@ completionHandler:(void (^)(NSModalResponse returnCode))handler {
 }
 
 
+// Alert end.
 - (void)alertDidEnd:(NSAlert *)alert returnCode:(NSInteger)returnCode completionHandler:(NSDictionary *)context {
 	if (context) {
 		void (^handler)(NSModalResponse returnCode) = context[@"handler"];
