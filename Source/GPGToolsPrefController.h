@@ -24,6 +24,7 @@
 	IBOutlet GPGToolsPref *prefPane;
 	NSInteger allowUserEmailContact;
 	NSString *crashReportsUserEmail;
+	BOOL changingUserEmailEnabled;
 }
 
 @property (readonly) NSBundle *myBundle;

@@ -211,9 +211,8 @@
                                         </textField>
                                         <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" setsMaxLayoutWidthAtFirstLayout="YES" translatesAutoresizingMaskIntoConstraints="NO" id="5n5-Zm-LhX">
                                             <rect key="frame" x="108" y="134" width="383" height="28"/>
-                                            <textFieldCell key="cell" controlSize="small" sendsActionOnEndEditing="YES" id="Uyz-OV-Mnx">
+                                            <textFieldCell key="cell" controlSize="small" sendsActionOnEndEditing="YES" title="Sending in reports helps us fix problems. Occasionally we will contact users regarding a report when they allow this." id="Uyz-OV-Mnx">
                                                 <font key="font" metaFont="smallSystem"/>
-                                                <string key="title">Sending in reports helps us diagnose and fix the problem. Occasianlly we will contact users regarding a report when they allow this.</string>
                                                 <color key="textColor" name="disabledControlTextColor" catalog="System" colorSpace="catalog"/>
                                                 <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                             </textFieldCell>
@@ -236,6 +235,7 @@
                                             </buttonCell>
                                             <connections>
                                                 <binding destination="243" name="value" keyPath="allowUserEmailContact" id="57o-U0-nNE"/>
+                                                <binding destination="243" name="enabled" keyPath="automaticallySendCrashReports" id="Ilm-DC-tcT"/>
                                             </connections>
                                         </button>
                                         <textField verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="LVE-JK-9Iw">
@@ -247,7 +247,20 @@
                                             </textFieldCell>
                                             <connections>
                                                 <binding destination="243" name="enabled" keyPath="allowUserEmailContact" id="nVN-E8-Sa6"/>
-                                                <binding destination="243" name="value" keyPath="crashReportsUserEmail" id="xFR-7s-XB0"/>
+                                                <binding destination="243" name="enabled2" keyPath="automaticallySendCrashReports" previousBinding="nVN-E8-Sa6" id="n23-43-Qk3">
+                                                    <dictionary key="options">
+                                                        <integer key="NSMultipleValuesPlaceholder" value="-1"/>
+                                                        <integer key="NSNoSelectionPlaceholder" value="-1"/>
+                                                        <integer key="NSNotApplicablePlaceholder" value="-1"/>
+                                                        <integer key="NSNullPlaceholder" value="-1"/>
+                                                    </dictionary>
+                                                </binding>
+                                                <binding destination="243" name="value" keyPath="crashReportsUserEmail" id="q1s-lr-XGw">
+                                                    <dictionary key="options">
+                                                        <string key="NSNullPlaceholder">Enter your email here</string>
+                                                        <bool key="NSValidatesImmediately" value="YES"/>
+                                                    </dictionary>
+                                                </binding>
                                             </connections>
                                         </textField>
                                         <textField verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="4Fu-PE-Y4O">
@@ -478,7 +491,7 @@
                                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                 <subviews>
                                                     <textView importsGraphics="NO" richText="NO" findStyle="panel" continuousSpellChecking="YES" allowsUndo="YES" verticallyResizable="YES" allowsNonContiguousLayout="YES" quoteSubstitution="YES" dashSubstitution="YES" smartInsertDelete="YES" id="j6Q-iu-ygb">
-                                                        <rect key="frame" x="0.0" y="0.0" width="223" height="133"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="223" height="161"/>
                                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                         <size key="minSize" width="572" height="161"/>

@@ -160,8 +160,8 @@
 		30781C781D36489900A771AC /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/WarningView.strings; sourceTree = "<group>"; };
 		30781C7B1D36489C00A771AC /* sv */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = sv; path = sv.lproj/WarningView.strings; sourceTree = "<group>"; };
 		30781C841D36494800A771AC /* pt_BR */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = pt_BR; path = pt_BR.lproj/Localizable.strings; sourceTree = "<group>"; };
-		30781C861D36496000A771AC /* pt_BR */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "pt_BR"; path = "pt_BR.lproj/GPGToolsPref.strings"; sourceTree = "<group>"; };
-		30781C881D36496600A771AC /* pt_BR */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "pt_BR"; path = "pt_BR.lproj/WarningView.strings"; sourceTree = "<group>"; };
+		30781C861D36496000A771AC /* pt_BR */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = pt_BR; path = pt_BR.lproj/GPGToolsPref.strings; sourceTree = "<group>"; };
+		30781C881D36496600A771AC /* pt_BR */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = pt_BR; path = pt_BR.lproj/WarningView.strings; sourceTree = "<group>"; };
 		307B75191CB2A31C00002ACF /* GPGPreferencesTerms.searchTerms */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = GPGPreferencesTerms.searchTerms; sourceTree = "<group>"; };
 		30B455FE172D7BB500A04D4A /* Libmacgpg.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Libmacgpg.framework; path = /Library/Frameworks/Libmacgpg.framework; sourceTree = "<absolute>"; };
 		30B7416817A2EFC100E1D157 /* GPGTools+Text.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "GPGTools+Text.png"; path = "Images/GPGTools+Text.png"; sourceTree = "<group>"; };
@@ -386,7 +386,7 @@
 				fr,
 				pt_BR,
 				sv,
-				"pt_BR",
+				pt_BR,
 			);
 			mainGroup = 3056D046172D2EEA00CFC0FA;
 			productRefGroup = 3056D052172D2EEA00CFC0FA /* Products */;

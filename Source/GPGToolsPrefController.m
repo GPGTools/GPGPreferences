@@ -487,6 +487,11 @@ static NSString * const CrashReportsUserEmailKey = @"CrashReportsUserEmail";
 	return [updaterOptions boolForKey:AutomaticallySendCrashReportsKey];
 }
 - (void)setAutomaticallySendCrashReports:(BOOL)value {
+	if (value == NO) {
+		changingUserEmailEnabled = YES;
+		[prefPane.mainView.window endEditingFor:nil];
+		changingUserEmailEnabled = NO;
+	}
 	[updaterOptions setBool:value forKey:AutomaticallySendCrashReportsKey];
 }
 
@@ -515,9 +520,73 @@ static NSString * const CrashReportsUserEmailKey = @"CrashReportsUserEmail";
 		[updaterOptions setObject:crashReportsUserEmail forKey:CrashReportsUserEmailKey];
 	} else {
 		allowUserEmailContact = -1;
+		changingUserEmailEnabled = YES;
+		[prefPane.mainView.window endEditingFor:nil];
+		changingUserEmailEnabled = NO;
 		[updaterOptions setObject:nil forKey:CrashReportsUserEmailKey];
 	}
 }
+
+- (BOOL)validateCrashReportsUserEmail:(inout id *)ioValue error:(out NSError **)outError {
+	NSString *value = *ioValue;
+	if (value == nil) {
+		return YES;
+	}
+
+	NSString *errorText = nil;
+	
+	NSString * const tooLongKey = @"EmailCheck_TooLong";
+	NSString * const invalidKey = @"EmailCheck_Invalid";
+
+	
+	if (![value isKindOfClass:[NSString class]]) {
+		errorText = invalidKey;
+	} else if (value.length > 254) {
+		errorText = tooLongKey;
+	} else if ([value hasPrefix:@"@"] || [value hasSuffix:@"@"] || [value hasSuffix:@"."]) {
+		errorText = invalidKey;
+	} else {
+		NSArray *components = [value componentsSeparatedByString:@"@"];
+		if (components.count != 2) {
+			errorText = invalidKey;
+		} else {
+			NSString *localPart = components[0];
+			NSString *globalPart = components[1];
+			NSMutableCharacterSet *charSet = [NSMutableCharacterSet characterSetWithRange:(NSRange){128, 65408}];
+			[charSet addCharactersInString:@"01234567890_-+@.abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"];
+			[charSet invert];
+			
+			if (localPart.length > 64) {
+				errorText = invalidKey;
+			} else if ([localPart rangeOfCharacterFromSet:charSet].length != 0) {
+				errorText = invalidKey;
+			} else {
+				[charSet addCharactersInString:@"+"];
+				if ([globalPart rangeOfCharacterFromSet:charSet].length != 0) {
+					errorText = invalidKey;
+				}
+			}
+		}
+	}
+	
+	if (errorText) {
+		if (changingUserEmailEnabled) {
+			*ioValue = crashReportsUserEmail;
+			return YES;
+		} else {
+			if (outError) {
+				NSDictionary *userInfo = @{NSLocalizedDescriptionKey: localized(errorText), NSLocalizedRecoverySuggestionErrorKey: localized(@"EmailCheck_Msg")};
+				*outError = [NSError errorWithDomain:@"GPGPreferencesErrorDomain" code:1 userInfo:userInfo];
+			}
+			return NO;
+
+		}
+	}
+	
+	return YES;
+}
+
+
 
 
 

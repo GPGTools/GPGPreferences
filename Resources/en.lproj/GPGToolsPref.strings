@@ -33,13 +33,14 @@
 "RZt-Ds-s5C.title" = "Tell GPGTools about crashes";
 "Tqr-cf-yu3.ibShadowedToolTip" = "The debug information will be encrypted, so only GPGTools team can read it.";
 "Ubl-v4-JrU.title" = "GPGServices";
-"Uyz-OV-Mnx.title" = "Sending in reports helps us diagnose and fix the problem. Occasianlly we will contact users regarding a report when they allow this.";
+"Uyz-OV-Mnx.title" = "Sending in reports helps us fix problems. Occasionally we will contact users regarding a report when they allow this.";
 "Vsl-37-VNZ.title" = "N/A";
 "Wec-a0-JIf.title" = "MacGPG2";
 "ajI-ym-ZZk.ibShadowedIsNilPlaceholder" = "What did you expect instead?";
 "dQU-pL-8Hd.ibShadowedIsNilPlaceholder" = "Subject";
 "dyf-aR-2b2.title" = "Remember for";
 "mOw-yu-jQL.ibShadowedIsNilPlaceholder" = "Additional info…";
+"q1s-lr-XGw.ibShadowedIsNilPlaceholder" = "Enter your email here";
 "r17-CS-TqP.title" = "Installed versions";
 "riP-tC-7Wg.ibShadowedIsNilPlaceholder" = "Name";
 "se4-Hz-hAs.ibShadowedIsNilPlaceholder" = "Email";
