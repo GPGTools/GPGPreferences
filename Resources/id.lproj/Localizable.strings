@@ -14,11 +14,11 @@ UpdateCheckFailed_Msg = "Harap pasang ulang Keluarga GPG dari https://gpgtools.o
 
 
 NoUpdatesGM106_Title = "Tidak Ada Pemutakhiran!";
-NoUpdatesGM106_Msg = "Tidak ada Pemutakhiran bagi GPGMail pada Mac OS X 10.6";
+NoUpdatesGM106_Msg = "Tidak ada Pemutakhiran bagi GPGMail pada macOS 10.6";
 
 
 PassowrdsDeleted_Title = "Kata sandi dihapus";
-PassowrdsDeleted_Msg = "Semua kata sandi OpenPGP telah sukses dihapus dari ring kunci OS X dan singgahan.";
+PassowrdsDeleted_Msg = "Semua kata sandi OpenPGP sukses dihapus dari keychain macOS dan singgahan.";
 
 PassowrdsDeletFailed_Title = "Penghapusan kata sandi gagal!";
 PassowrdsDeletFailed_Msg = "Tidak semua kata sandi yang disimpan dapat dihapus. Harap buka Console.app dan carilah kesalahan yang berhubungan. Lalu beritahu kami masalah ini melalui tab 'Kirim Laporan'.";

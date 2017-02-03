@@ -14,11 +14,11 @@ UpdateCheckFailed_Msg = "Bitte installieren Sie GPG Suite von https://gpgtools.o
 
 
 NoUpdatesGM106_Title = "Keine Aktualisierungen!";
-NoUpdatesGM106_Msg = "Es gibt keine Aktualisierungen für GPGMail auf Mac OS X 10.6";
+NoUpdatesGM106_Msg = "Es gibt keine Updates für GPGMail auf macOS 10.6";
 
 
 PassowrdsDeleted_Title = "Passwörter gelöscht";
-PassowrdsDeleted_Msg = "Alle OpenPGP Passwörter wurden erfolgreich aus dem OS X Schlüsselbund und dem Cache gelöscht.";
+PassowrdsDeleted_Msg = "Alle OpenPGP Passwörter wurden erfolgreich aus dem macOS Schlüsselbund und dem Cache gelöscht.";
 
 PassowrdsDeletFailed_Title = "Löschen der Passwörter fehlgeschlagen!";
 PassowrdsDeletFailed_Msg = "Nicht alle gespeicherten Passwörter konnten gelöscht werden. Bitte öffne Konsole.app und schaue, ob du Fehlermeldungen findest, die in Zusammenhang stehen könnten. Informiere uns über dieses Problem, indem du 'Bericht senden' anwählst.";

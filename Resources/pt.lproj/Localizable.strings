@@ -14,11 +14,11 @@ UpdateCheckFailed_Msg = "Reinstale a GPG Suite de https://gpgtools.org.";
 
 
 NoUpdatesGM106_Title = "Nenhuma atualização disponível";
-NoUpdatesGM106_Msg = "Não há atualizações para o GPGMail no Mac OS X 10.6.";
+NoUpdatesGM106_Msg = "Não há atualizações para o GPGMail no macOS 10.6.";
 
 
 PassowrdsDeleted_Title = "Senhas apagadas";
-PassowrdsDeleted_Msg = "Todas as senhas OpenPGP foram apagadas corretamente das chaves e do cache do OS X.";
+PassowrdsDeleted_Msg = "Todas as senhas OpenPGP foram apagadas corretamente das chaves e do cache do macOS.";
 
 PassowrdsDeletFailed_Title = "Falha ao apagar senhas";
 PassowrdsDeletFailed_Msg = "Nem todas as senhas puderam ser apagadas. Abra o aplicativo Console e busque erros relacionados. Use a aba Enviar Relatório para nos informar sobre o problema.";

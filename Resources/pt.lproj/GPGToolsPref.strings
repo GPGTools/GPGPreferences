@@ -7,7 +7,7 @@
 "560.ibShadowedToolTip" = "Esta chave é usada como a chave padrão nos GPGServices.";
 "570.title" = "Servidor de Chaves";
 "573.title" = "segundo(s)";
-"575.title" = "Armazenar nas Chaves do OS X";
+"575.title" = "Armazenar nas Chaves do macOS";
 "579.title" = "Chave Padrão";
 "605.title" = "Limpar";
 "731.ibShadowedToolTip" = "O comentário é adicionado a todas as mensagens OpenPGP criadas. Ele não estará visível ao usar o GPGMail, somente ao usar os GPGServices.";

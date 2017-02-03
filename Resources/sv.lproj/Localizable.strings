@@ -6,52 +6,52 @@
 
 /* Bad keyserver */
 BadKeyserver_Title = "Dålig nyckelserver";
-BadKeyserver_Msg = "The Keyserver you have entered is not working.\nPlease check the Keyserver address. It should look something like: hkp://some.key.server.org\n\nThe Keyserver could also be offline. In that case, please use another Keyserver.";
+BadKeyserver_Msg = "Den nyckelserver du angivit fungerar inte.\nKontrollera nyckelserverns adress. Den borde se ut ungefär som hkp://some.key.server.org\n\nNyckelservern kan också vara offline. Använd i så fall en annan nyckelserver.";
 
 
-UpdateCheckFailed_Title = "Uppdateringskontrollen misslyckades!";
+UpdateCheckFailed_Title = "Det gick inte att kontrollera uppdatering!";
 UpdateCheckFailed_Msg = "Ominstallera GPG Suite från https://gpgtools.org.";
 
 
 NoUpdatesGM106_Title = "Inga uppdateringar!";
-NoUpdatesGM106_Msg = "Det finns inga uppdateringar för GPGMail på Mac OS X 10.6";
+NoUpdatesGM106_Msg = "Det finns inga uppdateringar för GPGMail på macOS 10.6";
 
 
 PassowrdsDeleted_Title = "Lösenorden raderades";
-PassowrdsDeleted_Msg = "Alla OpenPGP-lösenord raderades från OS X nyckelring och cachen.";
+PassowrdsDeleted_Msg = "Alla OpenPGP-lösenord raderades från macOS-nyckelringen och cachen.";
 
-PassowrdsDeletFailed_Title = "Delete passwords failed!";
-PassowrdsDeletFailed_Msg = "Not all stored passwords could be deleted. Please open Console.app and look for any related errors. Then let us know about this problem via the 'Send Report' tab.";
+PassowrdsDeletFailed_Title = "Det gick inte att radera lösenord!";
+PassowrdsDeletFailed_Msg = "Inte alla lagrade lösenorden kunde raderas. Öppna Console.app och leta efter relaterade fel. Meddela oss sedan om detta problem via fliken 'Skicka rapport'.";
 
-Support_SendDebugInfo_Title = "Sending debug information";
-Support_SendDebugInfo_Msg = "A quick word about the option to include debug information with your report: Often this information will help, to speed up the debugging process. Your problem will be solved a lot quicker.\n\nUnless your report is a feature request, we recommended adding the debug information.\n\nIt is sent via encrypted TLS connection to our hoster. There it is encrypted with our team key and then sent to our support platform. That way the debug information will not be accessible for anybody else except our core team, even if your report is not set to private.\n\nDuring the creation of the debug information you may be asked for your OpenPGP key password, since we will test if decryption and signing are working as expected on your system.\n\nThe debug log includes meta information about your keys.";
-Support_SendDebugInfo_Button1 = "Send Report";
+Support_SendDebugInfo_Title = "Skickar debug-information";
+Support_SendDebugInfo_Msg = "Ett kort ord om alternativet att inkludera debug-information i din rapport: Denna information kommer ofta bidra till att debug-processen snabbas på. Ditt problem kommer att lösas mycket snabbare.\n\nOm inte din rapport är ett förslag på ny funktionalitet så rekommenderar vi att debug-informationen inkluderas.\n\nDen skickas via en krypterad TLS-anslutning till vår värdtjänst. Där krypteras den med vårt teams nyckel för att sedan skickas till vår supportplattform. På det sättet kommer din informationen inte kunna ses av någon annan än de i vår kärna av utvecklare, även om din rapport inte angivits som privat.\n\nMedan din debug-information skapas kanske du kommer att tillfrågas om lösenordet till din OpenPGP-nyckel, eftersom vi vill testa om dekryptering och signering fungerar som det ska på ditt system.\n\nDebug-loggen inkluderar metainformation om dina nycklar.";
+Support_SendDebugInfo_Button1 = "Skicka rapport";
 Support_SendDebugInfo_Button2 = "Avbryt";
-Support_SendDebugInfo_Checkbox = "Include debug information with this report";
+Support_SendDebugInfo_Checkbox = "Inkludera debug-information i denna rapport";
 
-Support_BugDescriptionTooShort_Title = "Description too short";
-Support_BugDescriptionTooShort_Msg = "Please add more details to the description field. The more detail you can provide, the faster we will be able to find a good solution to your request. If applicable, please add precise steps that will help reproduce the issue.";
+Support_BugDescriptionTooShort_Title = "Beskrivning är fört kort";
+Support_BugDescriptionTooShort_Msg = "Lägg till mer info i fältet för beskrivning. Ju fler detaljer du kan återge, desto snabbare kan vi hitta en bra lösning på din begäran. Om det går, lägg till exakta steg som kan hjälpa oss reproducera felet.";
 
-Support_ExpectedBahaviorTooShort_Title = "Expected behavior too short";
-Support_ExpectedBahaviorTooShort_Msg = "Please add more details to the expected behavior field. The more detail you can provide, the faster we will be able to find a solution and answer your request.";
+Support_ExpectedBahaviorTooShort_Title = "Förväntat beteende är för kort";
+Support_ExpectedBahaviorTooShort_Msg = "Lägg till mer info i fältet för förväntat beteende. Ju fler detaljer du kan återge, desto snabbare kan vi hitta en lösning och svar på din begäran.";
 
-Support_SubjectTooShort_Title = "Subject too short";
-Support_SubjectTooShort_Msg = "Please add a more descriptive subject.";
+Support_SubjectTooShort_Title = "Ämne är för kort";
+Support_SubjectTooShort_Msg = "Lägg till ett mer beskrivande ämne";
 
 Support_MailInvalid_Title = "Ogiltig e-postadress";
-Support_MailInvalid_Msg = "Please use a valid Email address.";
+Support_MailInvalid_Msg = "Använd en giltig e-postadress.";
 
-Support_NameTooShort_Title = "Name too short";
-Support_NameTooShort_Msg = "Please enter a longer name.";
+Support_NameTooShort_Title = "Namn är för kort";
+Support_NameTooShort_Msg = "Ange ett längre namn.";
 
-Support_NoComponentSelected_Title = "No component selected";
-Support_NoComponentSelected_Msg = "Please select a component.";
+Support_NoComponentSelected_Title = "Ingen komponent är vald";
+Support_NoComponentSelected_Msg = "Välj en komponent.";
 
-Support_ReportFailed_Title = "Sending report failed";
-Support_ReportFailed_Msg = "We were unable to send your report. Please create your report on our support platform instead. The “Ok” button will open your browser and take you there.";
+Support_ReportFailed_Title = "Det gick inte att skicka rapporten";
+Support_ReportFailed_Msg = "Vi kunde inte skicka din rapport. Skapa en rapport på vår supportplattform istället. \"Ok\"-knappen kommer att öppna din webbläsare och ta dig dit.";
 
-Support_PublicReportSucceeded_Title = "Report sent";
-Support_PublicReportSucceeded_Msg = "Thanks for taking the time to send this report. A public discussion has been created. Please allow a few days for us to respond. You will receive updates via Email.\n\nWe will now open your discussion in your browser. Consider creating a bookmark.";
+Support_PublicReportSucceeded_Title = "Rapport skickad";
+Support_PublicReportSucceeded_Msg = "Tack för att du tar dig tid att skicka denna rapport. En öppen diskussion har skapats. Ge oss några dagar på att svara. Du kommer att få uppdateringar via e-post.\n\nVi kommer nu att öppna din diskussion i din webbläsare. Skapa gärna ett bokmärke.";
 
-Support_PrivateReportSucceeded_Title = "Report sent";
-Support_PrivateReportSucceeded_Msg = "Thanks for taking the time to send this report. A private discussion has been created. Please allow a few days for us to respond. You will receive updates via Email.\n\nWe will now open your discussion in your browser. Consider creating a bookmark.";
+Support_PrivateReportSucceeded_Title = "Rapport skickad";
+Support_PrivateReportSucceeded_Msg = "Tack för att du tar dig tid att skicka denna rapport. En privat diskussion har skapats. Ge oss några dagar på att svara. Du kommer att få uppdateringar via e-post.\n\nVi kommer nu att öppna din diskussion i din webbläsare. Skapa gärna ett bokmärke.";

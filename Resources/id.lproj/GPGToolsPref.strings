@@ -7,7 +7,7 @@
 "560.ibShadowedToolTip" = "Kunci ini dipakai sebagai kunci baku Anda dalam GPGServices.";
 "570.title" = "Server Kunci";
 "573.title" = "detik";
-"575.title" = "Simpan dalam Ring Kunci OS X";
+"575.title" = "Simpan dalam Keychain macOS";
 "579.title" = "Kunci Baku";
 "605.title" = "Bersihkan";
 "731.ibShadowedToolTip" = "Komentar ditambahkan ke setiap pesan OpenPGP yang Anda buag. Ketika memakai GPGMail itu tidak akan tampak. Ketika memakai GPGServices Anda mesti bisa melihat komentar.";

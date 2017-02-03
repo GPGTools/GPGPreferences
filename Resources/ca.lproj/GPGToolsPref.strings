@@ -7,7 +7,7 @@
 "560.ibShadowedToolTip" = "This key is used as your default key in GPGServices.";
 "570.title" = "Key Server";
 "573.title" = "seconds";
-"575.title" = "Store in OS X Keychain";
+"575.title" = "Store in macOS Keychain";
 "579.title" = "Default Key";
 "605.title" = "Clear";
 "731.ibShadowedToolTip" = "The comment is added to every OpenPGP message you create. When using GPGMail it will not be visible. When using GPGServices you should see the comment.";

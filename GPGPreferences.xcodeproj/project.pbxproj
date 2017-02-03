@@ -120,6 +120,18 @@
 		301EB4ED1D2E87AF00A50E38 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/WarningView.strings; sourceTree = "<group>"; };
 		3032EC911C63939900A4DFDB /* GPGDebugCollector.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GPGDebugCollector.h; sourceTree = "<group>"; };
 		3032EC921C63939900A4DFDB /* GPGDebugCollector.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GPGDebugCollector.m; sourceTree = "<group>"; };
+		30543FAC1E449F130053D095 /* el */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = el; path = el.lproj/Localizable.strings; sourceTree = "<group>"; };
+		30543FB11E449F1B0053D095 /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/Localizable.strings; sourceTree = "<group>"; };
+		30543FB21E449F200053D095 /* fa */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fa; path = fa.lproj/Localizable.strings; sourceTree = "<group>"; };
+		30543FB31E449F280053D095 /* id */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = id; path = id.lproj/Localizable.strings; sourceTree = "<group>"; };
+		30543FB41E449F540053D095 /* id */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = id; path = id.lproj/GPGToolsPref.strings; sourceTree = "<group>"; };
+		30543FB61E449F550053D095 /* fa */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fa; path = fa.lproj/GPGToolsPref.strings; sourceTree = "<group>"; };
+		30543FB71E449F5D0053D095 /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/GPGToolsPref.strings; sourceTree = "<group>"; };
+		30543FB81E449F5F0053D095 /* el */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = el; path = el.lproj/GPGToolsPref.strings; sourceTree = "<group>"; };
+		30543FBA1E449F620053D095 /* fa */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fa; path = fa.lproj/WarningView.strings; sourceTree = "<group>"; };
+		30543FBB1E449F650053D095 /* id */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = id; path = id.lproj/WarningView.strings; sourceTree = "<group>"; };
+		30543FBC1E449F670053D095 /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/WarningView.strings; sourceTree = "<group>"; };
+		30543FBD1E449F680053D095 /* el */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = el; path = el.lproj/WarningView.strings; sourceTree = "<group>"; };
 		3056D051172D2EEA00CFC0FA /* GPGPreferences.prefPane */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GPGPreferences.prefPane; sourceTree = BUILT_PRODUCTS_DIR; };
 		3056D054172D2EEA00CFC0FA /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 		3056D056172D2EEA00CFC0FA /* PreferencePanes.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = PreferencePanes.framework; path = System/Library/Frameworks/PreferencePanes.framework; sourceTree = SDKROOT; };
@@ -159,9 +171,9 @@
 		30781C771D36489500A771AC /* sv */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = sv; path = sv.lproj/GPGToolsPref.strings; sourceTree = "<group>"; };
 		30781C781D36489900A771AC /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/WarningView.strings; sourceTree = "<group>"; };
 		30781C7B1D36489C00A771AC /* sv */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = sv; path = sv.lproj/WarningView.strings; sourceTree = "<group>"; };
-		30781C841D36494800A771AC /* pt_BR */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = pt_BR; path = pt_BR.lproj/Localizable.strings; sourceTree = "<group>"; };
-		30781C861D36496000A771AC /* pt_BR */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = pt_BR; path = pt_BR.lproj/GPGToolsPref.strings; sourceTree = "<group>"; };
-		30781C881D36496600A771AC /* pt_BR */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = pt_BR; path = pt_BR.lproj/WarningView.strings; sourceTree = "<group>"; };
+		30781C841D36494800A771AC /* pt */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = pt; path = pt.lproj/Localizable.strings; sourceTree = "<group>"; };
+		30781C861D36496000A771AC /* pt */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = pt; path = pt.lproj/GPGToolsPref.strings; sourceTree = "<group>"; };
+		30781C881D36496600A771AC /* pt */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = pt; path = pt.lproj/WarningView.strings; sourceTree = "<group>"; };
 		307B75191CB2A31C00002ACF /* GPGPreferencesTerms.searchTerms */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = GPGPreferencesTerms.searchTerms; sourceTree = "<group>"; };
 		30B455FE172D7BB500A04D4A /* Libmacgpg.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Libmacgpg.framework; path = /Library/Frameworks/Libmacgpg.framework; sourceTree = "<absolute>"; };
 		30B7416817A2EFC100E1D157 /* GPGTools+Text.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "GPGTools+Text.png"; path = "Images/GPGTools+Text.png"; sourceTree = "<group>"; };
@@ -331,6 +343,7 @@
 				3056D04E172D2EEA00CFC0FA /* Resources */,
 				3056D0DA172D330100CFC0FA /* Fill Info.plist */,
 				1B49BC681A978529000440E9 /* Copy "How to get the source code" into Resources */,
+				302E885B1E44A0A4000E8AB2 /* Install GPGPreferences */,
 			);
 			buildRules = (
 			);
@@ -384,9 +397,12 @@
 				de,
 				ca,
 				fr,
-				pt_BR,
+				pt,
 				sv,
-				pt_BR,
+				el,
+				es,
+				fa,
+				id,
 			);
 			mainGroup = 3056D046172D2EEA00CFC0FA;
 			productRefGroup = 3056D052172D2EEA00CFC0FA /* Products */;
@@ -487,6 +503,21 @@
 			shellScript = "[[ -d \"$DEPLOY_RESOURCES_DIR\" ]] || exit 0\n \n HOWTO_PATH=\"$DEPLOY_RESOURCES_DIR/resources/How to get the source code\"\n cp \"$HOWTO_PATH\" \"$BUILT_PRODUCTS_DIR/$UNLOCALIZED_RESOURCES_FOLDER_PATH/\"";
 			showEnvVarsInLog = 0;
 		};
+		302E885B1E44A0A4000E8AB2 /* Install GPGPreferences */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Install GPGPreferences";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/bash;
+			shellScript = "###################################################\n# Install the bundle in ~/Library/PreferencePanes #\n###################################################\n\n[[ \"0$INSTALL_GPGPREFERENCES\" -eq 1 ]] || exit 0\n\n\nrm -fr \"$HOME/Library/PreferencePanes/$FULL_PRODUCT_NAME\"\n\n# Copy the Bundle\nmkdir -p \"$HOME/Library/PreferencePanes\"\ncp -RH \"$TARGET_BUILD_DIR/$FULL_PRODUCT_NAME\" \"$HOME/Library/PreferencePanes/\"\n";
+			showEnvVarsInLog = 0;
+		};
 		3056D0DA172D330100CFC0FA /* Fill Info.plist */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -566,7 +597,11 @@
 				30781C6E1D36485900A771AC /* ca */,
 				30781C741D36489200A771AC /* fr */,
 				30781C771D36489500A771AC /* sv */,
-				30781C861D36496000A771AC /* pt_BR */,
+				30781C861D36496000A771AC /* pt */,
+				30543FB41E449F540053D095 /* id */,
+				30543FB61E449F550053D095 /* fa */,
+				30543FB71E449F5D0053D095 /* es */,
+				30543FB81E449F5F0053D095 /* el */,
 			);
 			name = GPGToolsPref.xib;
 			sourceTree = "<group>";
@@ -580,7 +615,11 @@
 				30781C6F1D36485C00A771AC /* ca */,
 				30781C781D36489900A771AC /* fr */,
 				30781C7B1D36489C00A771AC /* sv */,
-				30781C881D36496600A771AC /* pt_BR */,
+				30781C881D36496600A771AC /* pt */,
+				30543FBA1E449F620053D095 /* fa */,
+				30543FBB1E449F650053D095 /* id */,
+				30543FBC1E449F670053D095 /* es */,
+				30543FBD1E449F680053D095 /* el */,
 			);
 			name = WarningView.xib;
 			sourceTree = "<group>";
@@ -593,7 +632,11 @@
 				30781C651D36485000A771AC /* ca */,
 				30781C701D36486500A771AC /* fr */,
 				30781C731D36487400A771AC /* sv */,
-				30781C841D36494800A771AC /* pt_BR */,
+				30781C841D36494800A771AC /* pt */,
+				30543FAC1E449F130053D095 /* el */,
+				30543FB11E449F1B0053D095 /* es */,
+				30543FB21E449F200053D095 /* fa */,
+				30543FB31E449F280053D095 /* id */,
 			);
 			name = Localizable.strings;
 			sourceTree = "<group>";
@@ -672,6 +715,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Source/GPGPreferences-Prefix.pch";
 				INFOPLIST_FILE = Resources/info.plist;
+				INSTALL_GPGPREFERENCES = 1;
 				INSTALL_PATH = "$(HOME)/Library/PreferencePanes";
 				LD_RUNPATH_SEARCH_PATHS = "/Library/Frameworks $(HOME)/Library/Frameworks";
 				PRODUCT_NAME = "${TARGET_NAME}";
@@ -692,6 +736,7 @@
 				GCC_PREFIX_HEADER = "Source/GPGPreferences-Prefix.pch";
 				GCC_PREPROCESSOR_DEFINITIONS = "CODE_SIGN_CHECK=$(CODE_SIGN)";
 				INFOPLIST_FILE = Resources/info.plist;
+				INSTALL_GPGPREFERENCES = "";
 				INSTALL_PATH = "$(HOME)/Library/PreferencePanes";
 				LD_RUNPATH_SEARCH_PATHS = "/Library/Frameworks $(HOME)/Library/Frameworks";
 				PRODUCT_NAME = "${TARGET_NAME}";

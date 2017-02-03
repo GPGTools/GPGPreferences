@@ -63,6 +63,11 @@ GPGToolsPref *gpgPrefPane = nil;
 		return nil;
 	}
 	gpgPrefPane = [self retain];
+	
+	if ([bundle respondsToSelector:@selector(useGPGLocalizations)]) {
+		[bundle useGPGLocalizations];
+	}
+	
 	return self;
 }
 
