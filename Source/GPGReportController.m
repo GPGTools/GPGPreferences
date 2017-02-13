@@ -480,6 +480,7 @@ affectedComponent=_affectedComponent, privateDiscussion=_privateDiscussion;
 								[[[NSTextTab alloc] initWithTextAlignment:0 location:205 options:nil] autorelease],
 								[[[NSTextTab alloc] initWithTextAlignment:0 location:270 options:nil] autorelease]];
 	
+	paragraphStyle.headIndent = DBL_EPSILON; // Fix for Sierra. tabStops doesn't work if headIndent is 0.
 	
 	NSAttributedString *attributedVersions = [[[NSAttributedString alloc] initWithString:infoString attributes:@{NSParagraphStyleAttributeName:paragraphStyle}] autorelease];
 
