@@ -195,7 +195,11 @@
 					   @"/Library/Preferences/org.gpgtools.common.plist",
 					   @"/Library/Preferences/org.gpgtools.gpgkeychainaccess.plist",
 					   @"/Library/Preferences/org.gpgtools.gpgmail.plist",
-					   @"/Library/Preferences/org.gpgtools.updater.plist"
+					   @"/Library/Preferences/org.gpgtools.updater.plist",
+					   @"~/Library/Mail/V2/MailData/Accounts.plist",
+					   @"~/Library/Mail/V3/MailData/Accounts.plist",
+					   @"~/Library/Mail/V4/MailData/Accounts.plist",
+					   @"~/Library/Mail/V5/MailData/Accounts.plist"
 					   ];
 	for (NSString *path in files) {
 		NSString *expandedPath = [self expand:path];
