@@ -396,15 +396,20 @@ affectedComponent=_affectedComponent, privateDiscussion=_privateDiscussion;
 		} else {
 			NSArray *parts = [infoPlist[@"CFBundleShortVersionString"] componentsSeparatedByString:@" "];
 			
-			
 			NSString *commit = @"";
 			if (parts.count > 1) {
 				commit = parts[1];
+			} else {
+				commit = [NSString stringWithFormat:@"(%@)", infoPlist[@"CommitHash"]];
 			}
 			
+			NSString *build = infoPlist[@"CFBundleVersion"];
+			build = [build stringByReplacingOccurrencesOfString:@"a" withString:@""];
+			build = [build stringByReplacingOccurrencesOfString:@"b" withString:@""];
+
 			[versions addObject:@{@"name": name,
 								  @"version": parts[0],
-								  @"build": infoPlist[@"CFBundleVersion"],
+								  @"build": build,
 								  @"commit": commit
 								  }];
 			
