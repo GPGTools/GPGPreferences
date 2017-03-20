@@ -14,11 +14,11 @@ UpdateCheckFailed_Msg = "Por favor vuelva a instalar GPG Suite desde https://gpg
 
 
 NoUpdatesGM106_Title = "¡No hay actualizaciones!";
-NoUpdatesGM106_Msg = "There are no Updates for GPGMail on macOS 10.6";
+NoUpdatesGM106_Msg = "No hay actualizaciones para GPGMail en macOS 10.6";
 
 
 PassowrdsDeleted_Title = "Contraseñas borradas";
-PassowrdsDeleted_Msg = "All OpenPGP passwords were successfully deleted from macOS keychain and the cache.";
+PassowrdsDeleted_Msg = "Todas las contraseñas de OpenPGP se borraron con éxito del Llavero de macOS y la caché.";
 
 PassowrdsDeletFailed_Title = "¡Fallo en el borrado de las contraseñas!";
 PassowrdsDeletFailed_Msg = "No se ha podido borrar todas las contraseñas almacenadas. Por favor abra Console.app y busque errores relacionados. Después infórmenos de este problema a través de la pestaña 'Enviar Informe' ";
@@ -55,3 +55,16 @@ Support_PublicReportSucceeded_Msg = "Gracias por el tiempo dedicado a enviar est
 
 Support_PrivateReportSucceeded_Title = "Informe enviado";
 Support_PrivateReportSucceeded_Msg = "Gracias por el tiempo dedicado a enviar este informe. Se ha creado una discusión privada. Por favor permítanos un par de días para responder. Recibirá actualizaciones por correo electrónico.\n\nAhora abriremos la discusión en su navegador. Considere crear un marcador.";
+
+
+ShouldRemoveComment_Title = "Información sobre el campo de comentario.";
+ShouldRemoveComment_Msg = "Hemos eliminado la opción de añadir un comentario en GPGPreferences. Las mejores prácticas recomienda no usar más el campo de comentario ya que el uso incorrecto puede filtrar información.\n\nActualmente ha configurado el siguiente comentario:\n\n%@\n\n¿Quiere eliminarlo? (recomendado)";
+ShouldRemoveComment_Button1 = "Eliminar comentario";
+ShouldRemoveComment_Button2 = "Mantener comentario";
+
+
+EmailCheck_TooLong = "La dirección de correo introducida es demasiado larga.";
+EmailCheck_Invalid = "Ha introducido una dirección de correo inválida.";
+EmailCheck_Msg = "Use una dirección de correo válida.";
+
+

@@ -6,7 +6,7 @@
 
 /* Bad keyserver */
 BadKeyserver_Title = "Servidor de Chaves inválido";
-BadKeyserver_Msg = "O Servidor de Chaves digitado não está funcionando. Verfiique o endereço do servidor, que deve ser similar a: hkp://servidor.de.chaves.org\n\nO Servidor de Chaves também pode estar off-line. Nesse caso, use outro servidor.";
+BadKeyserver_Msg = "O Servidor de Chaves digitado não está funcionando. Verifique o endereço do servidor, que deve ser similar a: hkp://servidor.de.chaves.org\n\nO Servidor de Chaves também pode estar off-line. Nesse caso, use outro servidor.";
 
 
 UpdateCheckFailed_Title = "Falha ao buscar atualização";
@@ -55,3 +55,16 @@ Support_PublicReportSucceeded_Msg = "Obrigado por enviar o relatório. Uma discu
 
 Support_PrivateReportSucceeded_Title = "Relatório enviado";
 Support_PrivateReportSucceeded_Msg = "Obrigado por enviar o relatório. Uma discussão privada foi criada. Aguarde alguns dias por uma resposta. Atualizações serão enviadas por e-mail.\n\nA discussão será aberta no navegador agora. Se desejar, adicione-a como um favorito no navegador.";
+
+
+ShouldRemoveComment_Title = "Informações sobre o campo de comentários";
+ShouldRemoveComment_Msg = "A opção para definir um comentário nas GPGPreferences foi removida. É recomendável não usar mais o campo de comentários, pois seu uso incorreto pode acarretar no vazamento de informações.\n\nO seguinte comentário está configurado atualmente:\n\n%@\n\nDeseja removê-lo? (Recomendável)";
+ShouldRemoveComment_Button1 = "Remover Comentário";
+ShouldRemoveComment_Button2 = "Manter Comentário";
+
+
+EmailCheck_TooLong = "O endereço de e-mail digitado é grande demais.";
+EmailCheck_Invalid = "O endereço de e-mail digitado é inválido.";
+EmailCheck_Msg = "Use um endereço de e-mail válido.";
+
+

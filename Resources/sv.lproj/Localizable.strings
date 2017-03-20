@@ -55,3 +55,16 @@ Support_PublicReportSucceeded_Msg = "Tack för att du tar dig tid att skicka den
 
 Support_PrivateReportSucceeded_Title = "Rapport skickad";
 Support_PrivateReportSucceeded_Msg = "Tack för att du tar dig tid att skicka denna rapport. En privat diskussion har skapats. Ge oss några dagar på att svara. Du kommer att få uppdateringar via e-post.\n\nVi kommer nu att öppna din diskussion i din webbläsare. Skapa gärna ett bokmärke.";
+
+
+ShouldRemoveComment_Title = "Information about the comment field";
+ShouldRemoveComment_Msg = "We have removed the option to set a comment in GPGPreferences. Best practices recommend to no longer use the comment field since wrong usage may leak information.\n\nYou have currently configured the following comment:\n\n%@\n\nWould you like to remove it? (recommended)";
+ShouldRemoveComment_Button1 = "Remove comment";
+ShouldRemoveComment_Button2 = "Keep comment";
+
+
+EmailCheck_TooLong = "The email address you entered is too long.";
+EmailCheck_Invalid = "You entered an invalid email address.";
+EmailCheck_Msg = "Please use a valid email address.";
+
+

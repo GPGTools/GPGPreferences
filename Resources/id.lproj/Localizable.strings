@@ -55,3 +55,16 @@ Support_PublicReportSucceeded_Msg = "Terima kasih telah meluangkan waktu untuk m
 
 Support_PrivateReportSucceeded_Title = "Laporan dikirim";
 Support_PrivateReportSucceeded_Msg = "Terima kasih telah meluangkan waktu untuk mengirim laporan ini. Suatu diskusi privat telah dibuat. Beri kami beberapa hari untuk merespon. Anda akan menerima pemutakhiran melalui surel.\n\nKami sekarang akan membuka diskusi Anda dalam peramban. Pertimbangkan untuk menandai halaman itu.";
+
+
+ShouldRemoveComment_Title = "Informasi tentang ruas komentar";
+ShouldRemoveComment_Msg = "Kami telang membuang opsi untuk mengatur suatu komentar dalam GPGPreferences. Best practice merekomendasikan untuk tidak lagi memakai ruas komentar karena penggunaan yang salah mungkin membocorkan informasi.\n\nAnda saat ini menata komentar berikit:\n\n%@\n\nApakah hendak dibuang? (dianjurkan)";
+ShouldRemoveComment_Button1 = "Buang komentar";
+ShouldRemoveComment_Button2 = "Pertahankan komentar";
+
+
+EmailCheck_TooLong = "Alamat surel yang Anda masukkan terlalu panjang.";
+EmailCheck_Invalid = "Anda memasukkan alamat surel yang tidak valid.";
+EmailCheck_Msg = "Harap gunakan suatu alamat surel yang valid.";
+
+
