@@ -364,6 +364,9 @@ affectedComponent=_affectedComponent, privateDiscussion=_privateDiscussion;
 	
 	for (NSDictionary *toolInfo in tools) {
 	
+		// Readable name of the tool.
+		NSString *name = toolInfo[NKEY];
+
 		// Possible paths to the tool.
 		id paths = [toolInfo objectForKey:PKEY];
 		if (!paths) {
@@ -384,12 +387,21 @@ affectedComponent=_affectedComponent, privateDiscussion=_privateDiscussion;
 			plistPath = [path stringByAppendingPathComponent:plistPath];
 			if ([fileManager fileExistsAtPath:plistPath]) {
 				infoPlist = [NSDictionary dictionaryWithContentsOfFile:plistPath];
+				
+				if ([name isEqualToString:@"GPG Suite"]) {
+					NSString *versionPlistPath = [path.stringByDeletingLastPathComponent stringByAppendingPathComponent:@"version.plist"];
+					NSDictionary *secondPlist = [NSDictionary dictionaryWithContentsOfFile:versionPlistPath];
+					if (secondPlist[@"CFBundleVersion"]) {
+						NSMutableDictionary *mutablePlist = [[infoPlist mutableCopy] autorelease];
+						mutablePlist[@"CFBundleVersion"] = secondPlist[@"CFBundleVersion"];
+						infoPlist = [[mutablePlist copy] autorelease];
+					}
+				}
+				
 				break;
 			}
 		}
 		
-		// Readable name of the tool.
-		NSString *name = toolInfo[NKEY];
 		
 		if (!infoPlist) {
 			[versions addObject:@{@"name": name}];
