@@ -785,15 +785,7 @@
                                             </constraints>
                                             <textFieldCell key="cell" sendsActionOnEndEditing="YES" id="510">
                                                 <font key="font" metaFont="system"/>
-                                                <string key="title">GPG Suite is a software collection, allowing to encrypt / decrypt and sign / verify emails and files. Our goal is to provide an easy to use OpenPGP solution on OS X.</string>
-                                                <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
-                                                <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
-                                            </textFieldCell>
-                                        </textField>
-                                        <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="59N-A0-ZKF">
-                                            <rect key="frame" x="15" y="295" width="297" height="17"/>
-                                            <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="GPGTools - it's worth protecting what you love" id="2my-oL-hKP">
-                                                <font key="font" metaFont="system"/>
+                                                <string key="title">GPG Suite is a software collection, allowing to encrypt / decrypt and sign / verify emails and files. Our goal is to provide an easy to use OpenPGP solution on macOS.</string>
                                                 <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                                                 <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                             </textFieldCell>
@@ -803,11 +795,9 @@
                                         <constraint firstItem="507" firstAttribute="top" secondItem="249" secondAttribute="top" constant="3" id="2G3-nl-4X7"/>
                                         <constraint firstItem="cgV-J0-dBB" firstAttribute="leading" secondItem="249" secondAttribute="leading" constant="17" id="8RX-TY-QMq"/>
                                         <constraint firstItem="508" firstAttribute="top" secondItem="249" secondAttribute="top" constant="15" id="Jrx-nq-cnC"/>
-                                        <constraint firstItem="59N-A0-ZKF" firstAttribute="leading" secondItem="508" secondAttribute="leading" id="M2e-92-Pga"/>
                                         <constraint firstItem="507" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="508" secondAttribute="trailing" constant="8" id="Tcf-ix-XPx"/>
                                         <constraint firstItem="508" firstAttribute="leading" secondItem="249" secondAttribute="leading" constant="17" id="gGn-mp-oxb"/>
                                         <constraint firstAttribute="bottom" secondItem="cgV-J0-dBB" secondAttribute="bottom" constant="17" id="giS-gK-76t"/>
-                                        <constraint firstItem="59N-A0-ZKF" firstAttribute="top" secondItem="508" secondAttribute="bottom" constant="17" id="sfu-Ka-JfX"/>
                                         <constraint firstItem="cgV-J0-dBB" firstAttribute="top" secondItem="Zjb-Pa-5rV" secondAttribute="bottom" constant="8" id="ttb-2h-H75"/>
                                         <constraint firstAttribute="trailing" secondItem="507" secondAttribute="trailing" constant="17" id="wj5-nK-7i8"/>
                                         <constraint firstItem="Zjb-Pa-5rV" firstAttribute="leading" secondItem="249" secondAttribute="leading" constant="17" id="zmb-cj-gpC"/>
