@@ -16,7 +16,8 @@
 // Returns all debug infos in a dictionary.
 - (NSDictionary *)debugInfos {
 	[self collectAllDebugInfo];
-	return [[debugInfos copy] autorelease];
+	NSDictionary *cleanDebugInfos = [self plistDictionary:debugInfos];
+	return [[cleanDebugInfos copy] autorelease];
 }
 
 
@@ -419,6 +420,41 @@
 	string = [string stringByReplacingOccurrencesOfString:@"$GNUPGHOME" withString:gpgHome];
 	string = [string stringByExpandingTildeInPath];
 	return string;
+}
+
+- (NSDictionary *)plistDictionary:(NSDictionary *)dictionary {
+	NSMutableDictionary *newDictionary = [[NSMutableDictionary new] autorelease];
+	
+	[dictionary enumerateKeysAndObjectsUsingBlock:^(id  _Nonnull key, id  _Nonnull obj, BOOL * _Nonnull stop) {
+		if ([obj isKindOfClass:[NSDictionary class]]) {
+			newDictionary[key] = [self plistDictionary:obj];
+		} else if ([obj isKindOfClass:[NSArray class]]) {
+			newDictionary[key] = [self plistArray:obj];
+		} else if ([obj isKindOfClass:[NSNull class]]) {
+			// NSNull is prohibited is a property list.
+		} else {
+			newDictionary[key] = obj;
+		}
+	}];
+	
+	return newDictionary;
+}
+- (NSArray *)plistArray:(NSArray *)array {
+	NSMutableArray *newArray = [[NSMutableArray new] autorelease];
+	
+	[array enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+		if ([obj isKindOfClass:[NSDictionary class]]) {
+			[newArray addObject:[self plistDictionary:obj]];
+		} else if ([obj isKindOfClass:[NSArray class]]) {
+			[newArray addObject:[self plistArray:obj]];
+		} else if ([obj isKindOfClass:[NSNull class]]) {
+			// NSNull is prohibited is a property list.
+		} else {
+			[newArray addObject:obj];
+		}
+	}];
+	
+	return newArray;
 }
 
 - (instancetype)init {
