@@ -425,7 +425,7 @@
 - (NSDictionary *)plistDictionary:(NSDictionary *)dictionary {
 	NSMutableDictionary *newDictionary = [[NSMutableDictionary new] autorelease];
 	
-	[dictionary enumerateKeysAndObjectsUsingBlock:^(id  _Nonnull key, id  _Nonnull obj, BOOL * _Nonnull stop) {
+	[dictionary enumerateKeysAndObjectsUsingBlock:^(id key, id obj, BOOL *stop) {
 		if ([obj isKindOfClass:[NSDictionary class]]) {
 			newDictionary[key] = [self plistDictionary:obj];
 		} else if ([obj isKindOfClass:[NSArray class]]) {
@@ -442,7 +442,7 @@
 - (NSArray *)plistArray:(NSArray *)array {
 	NSMutableArray *newArray = [[NSMutableArray new] autorelease];
 	
-	[array enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+	[array enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
 		if ([obj isKindOfClass:[NSDictionary class]]) {
 			[newArray addObject:[self plistDictionary:obj]];
 		} else if ([obj isKindOfClass:[NSArray class]]) {
