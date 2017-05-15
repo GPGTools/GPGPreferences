@@ -1,6 +1,6 @@
 "217.label" = "Paramètres";
 "248.label" = "À propos";
-"510.title" = "GPG Suite is a software collection, allowing to encrypt / decrypt and sign / verify emails and files. Our goal is to provide an easy to use OpenPGP solution on OS X.";
+"510.title" = "GPG Suite is a software collection, allowing to encrypt / decrypt and sign / verify emails and files. Our goal is to provide an easy to use OpenPGP solution on macOS.";
 "551.title" = "Support";
 "553.title" = "Base de connaissances";
 "559.ibShadowedToolTip" = "This key is used as your default key in GPGServices.";
@@ -18,7 +18,6 @@
 "8Ci-Ey-IBB.title" = "Privé";
 "8Sd-BJ-8sG.title" = "Select Component";
 "9oN-AB-7Fa.title" = "This option searches the key servers for a public key, in case no public key is found on your system to verify a certain signature.";
-"AMm-3X-7BA.title" = "GPGMail";
 "ANB-ym-fp2.title" = "GPGPreferences";
 "CVn-T1-UHW.ibShadowedIsNilPlaceholder" = "Décrivez le problème. Ajoutez les étapes pour le reproduire si possible.";
 "FGo-Ci-zfF.title" = "Envoyer un rapport";

@@ -1,0 +1,70 @@
+
+
+"VERSION: %@" = "Versione: %@";
+"BUILD: %@" = "Build: %@";
+
+
+/* Bad keyserver */
+BadKeyserver_Title = "Server delle chiavi difettoso";
+BadKeyserver_Msg = "Il server delle chiavi inserito non risponde.\n\nControllare la correttezza dell'indirizzo. Dovrebbe avere un formato simile a questo: hkp://some.key.server.org\n\nIl server potrebbe anche essere disconnesso. In questo caso provare questa soluzione, l'uso di un altro server.";
+
+
+UpdateCheckFailed_Title = "Verifica aggiornamenti fallita!";
+UpdateCheckFailed_Msg = "Ti preghiamo di reinstallare GPG Suite da https://gpgtools.org.";
+
+
+NoUpdatesGM106_Title = "Nessun aggiornamento disponibile!";
+NoUpdatesGM106_Msg = "Nessun aggiornamento disponibile per GPGMail su sistemi macOS 10.6";
+
+
+PassowrdsDeleted_Title = "Password cancellate";
+PassowrdsDeleted_Msg = "All OpenPGP passwords were successfully deleted from macOS keychain and the cache.";
+
+PassowrdsDeletFailed_Title = "Cancellazione password fallita!";
+PassowrdsDeletFailed_Msg = "Not all stored passwords could be deleted. Please open Console.app and look for any related errors. Then let us know about this problem via the 'Send Report' tab.";
+
+Support_SendDebugInfo_Title = "Invio in corso informazioni di debug";
+Support_SendDebugInfo_Msg = "A quick word about the option to include debug information with your report: Often this information will help, to speed up the debugging process. Your problem will be solved a lot quicker.\n\nUnless your report is a feature request, we recommended adding the debug information.\n\nIt is sent via encrypted TLS connection to our hoster. There it is encrypted with our team key and then sent to our support platform. That way the debug information will not be accessible for anybody else except our core team, even if your report is not set to private.\n\nDuring the creation of the debug information you may be asked for your OpenPGP key password, since we will test if decryption and signing are working as expected on your system.\n\nThe debug log includes meta information about your keys.";
+Support_SendDebugInfo_Button1 = "Manda report";
+Support_SendDebugInfo_Button2 = "Cancella";
+Support_SendDebugInfo_Checkbox = "Allega informazioni di debug nel report";
+
+Support_BugDescriptionTooShort_Title = "Descrizione troppo breve";
+Support_BugDescriptionTooShort_Msg = "Please add more details to the description field. The more detail you can provide, the faster we will be able to find a good solution to your request. If applicable, please add precise steps that will help reproduce the issue.";
+
+Support_ExpectedBahaviorTooShort_Title = "Funzionamento atteso troppo veloce";
+Support_ExpectedBahaviorTooShort_Msg = "Please add more details to the expected behavior field. The more detail you can provide, the faster we will be able to find a solution and answer your request.";
+
+Support_SubjectTooShort_Title = "Oggetto troppo breve";
+Support_SubjectTooShort_Msg = "Si prega di aggiungere un oggetto maggiormente descrittivo.";
+
+Support_MailInvalid_Title = "Indirizzo email non valido";
+Support_MailInvalid_Msg = "Si prega di inserire un indirizzo email valido.";
+
+Support_NameTooShort_Title = "Nome troppo breve";
+Support_NameTooShort_Msg = "Si prega di inserire un nome più lungo.";
+
+Support_NoComponentSelected_Title = "Nessun component selezionato";
+Support_NoComponentSelected_Msg = "Si prega di selezionare un componente.";
+
+Support_ReportFailed_Title = "Invio del report fallito";
+Support_ReportFailed_Msg = "We were unable to send your report. Please create your report on our support platform instead. The “Ok” button will open your browser and take you there.";
+
+Support_PublicReportSucceeded_Title = "Report inviato";
+Support_PublicReportSucceeded_Msg = "Thanks for taking the time to send this report. A public discussion has been created. Please allow a few days for us to respond. You will receive updates via Email.\n\nWe will now open your discussion in your browser. Consider creating a bookmark.";
+
+Support_PrivateReportSucceeded_Title = "Report inviato";
+Support_PrivateReportSucceeded_Msg = "Thanks for taking the time to send this report. A private discussion has been created. Please allow a few days for us to respond. You will receive updates via Email.\n\nWe will now open your discussion in your browser. Consider creating a bookmark.";
+
+
+ShouldRemoveComment_Title = "Nota sul campo Commento";
+ShouldRemoveComment_Msg = "We have removed the option to set a comment in GPGPreferences. Best practices recommend to no longer use the comment field since wrong usage may leak information.\n\nYou have currently configured the following comment:\n\n%@\n\nWould you like to remove it? (recommended)";
+ShouldRemoveComment_Button1 = "Rimuovi commento";
+ShouldRemoveComment_Button2 = "Lascia commento";
+
+
+EmailCheck_TooLong = "Hai inserito un indirizzo email troppo lungo.";
+EmailCheck_Invalid = "Hai inserito un indirizzo email non valido.";
+EmailCheck_Msg = "Si prega di inserire un indirizzo email valido.";
+
+

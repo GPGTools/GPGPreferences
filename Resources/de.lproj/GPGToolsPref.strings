@@ -1,6 +1,6 @@
 "217.label" = "Einstellungen";
 "248.label" = "Über";
-"510.title" = "GPG Suite ist eine Sammlung verschiedener Programme zum Ver-/Entschlüsseln sowie zum Signieren/Verifizieren von E-Mails und Dateien. Unser Ziel ist es, eine einfach zu verwendende OpenPGP-Lösung auf OS X anzubieten.";
+"510.title" = "GPG Suite ist eine Sammlung verschiedener Programme zum Ver-/Entschlüsseln sowie zum Signieren/Verifizieren von E-Mails und Dateien. Unser Ziel ist es, eine einfach zu verwendende OpenPGP-Lösung auf macOS anzubieten.";
 "551.title" = "Unterstützung";
 "553.title" = "Knowledge Base";
 "559.ibShadowedToolTip" = "Dieser Schlüssel wird als Ihr Standardschlüssel in GPGServices verwendet.";
@@ -18,7 +18,6 @@
 "8Ci-Ey-IBB.title" = "Privat";
 "8Sd-BJ-8sG.title" = "Komponente wählen";
 "9oN-AB-7Fa.title" = "Falls ein öffentlicher Schlüssel zur Verifikation einer Signatur nicht auf deinem System gefunden wird, durchsucht diese Option die Schlüsselserver nach dem Schlüssel.";
-"AMm-3X-7BA.title" = "GPGMail";
 "ANB-ym-fp2.title" = "GPGPreferences";
 "CVn-T1-UHW.ibShadowedIsNilPlaceholder" = "Beschreibe das Problem. Falls möglich, nenne Schritte, um das Problem zu reproduzieren.";
 "FGo-Ci-zfF.title" = "Bericht senden";

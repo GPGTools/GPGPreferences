@@ -1,6 +1,6 @@
 "217.label" = "Ajustes";
 "248.label" = "Sobre";
-"510.title" = "A GPG Suite é uma coleção de softwares que permite criptografar/decriptografar e assinar/verificar e-mails e arquivos. Nosso objetivo é fornecer uma solução OpenPGP que seja fácil de usar no OS X.";
+"510.title" = "A GPG Suite é uma coleção de softwares que permite criptografar/decriptografar e assinar/verificar e-mails e arquivos. Nosso objetivo é fornecer uma solução OpenPGP que seja fácil de usar no macOS.";
 "551.title" = "Suporte";
 "553.title" = "Base de Conhecimento";
 "559.ibShadowedToolTip" = "Esta chave é usada como a chave padrão nos GPGServices.";
@@ -18,7 +18,6 @@
 "8Ci-Ey-IBB.title" = "Privado";
 "8Sd-BJ-8sG.title" = "Selecionar Componente";
 "9oN-AB-7Fa.title" = "Esta opção busca uma chave pública nos servidores de chaves caso nenhuma chave pública seja encontrada no sistema para verificar uma assinatura específica.";
-"AMm-3X-7BA.title" = "GPGMail";
 "ANB-ym-fp2.title" = "GPGPreferences";
 "CVn-T1-UHW.ibShadowedIsNilPlaceholder" = "Descreva o problema. Adicione a sequência de passos, se possível.";
 "FGo-Ci-zfF.title" = "Enviar Relatório";

@@ -1,6 +1,6 @@
 "217.label" = "Pengaturan";
 "248.label" = "Tentang";
-"510.title" = "Keluarga GPG adalah suatu koleksi perangkat lunak, memungkinkan mengenkripsi/mendekripsi dan menandatangani/verifikasi surel dan berkas. Sasaran kami adalah untuk menyediakan suatu solusi OpenPGP yang mudah dipakai pada OS X.";
+"510.title" = "GPG Suite is a software collection, allowing to encrypt / decrypt and sign / verify emails and files. Our goal is to provide an easy to use OpenPGP solution on macOS.";
 "551.title" = "Dukungan";
 "553.title" = "Basis Pengetahuan";
 "559.ibShadowedToolTip" = "Kunci ini dipakai sebagai kunci baku Anda dalam GPGServices.";
@@ -18,7 +18,6 @@
 "8Ci-Ey-IBB.title" = "Pribadi";
 "8Sd-BJ-8sG.title" = "Pilih Komponen";
 "9oN-AB-7Fa.title" = "Opsi ini mencari kunci publik pada server kunci, dalam kasus tidak ditemukannya kunci publik pada sistem Anda untuk memverifikasi tanda tangan tertentu.";
-"AMm-3X-7BA.title" = "GPGMail";
 "ANB-ym-fp2.title" = "GPGPreferences";
 "CVn-T1-UHW.ibShadowedIsNilPlaceholder" = "Uraikan masalah. Tambahkan langkah reproduksi bila mungkin.";
 "FGo-Ci-zfF.title" = "Kirim Laporan";

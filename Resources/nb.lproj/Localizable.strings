@@ -1,0 +1,70 @@
+
+
+"VERSION: %@" = "Versjon: %@";
+"BUILD: %@" = "Bygg: %@";
+
+
+/* Bad keyserver */
+BadKeyserver_Title = "Dårlig nøkkeltjener";
+BadKeyserver_Msg = "Nøkkeltjeneren du skrev inn virker ikke.\nSjekk nøkkeltjeneradressen. Den bør se ut noe ala hkp://en.nøkkel.tjener.no\n\nNøkkeltjeneren kan også være nede. I sådant fall, bruk en annen nøkkeltjener.";
+
+
+UpdateCheckFailed_Title = "Oppdateringssjekk mislyktes!";
+UpdateCheckFailed_Msg = "Reinstaller GPG Suite fra https://gpgtools.org";
+
+
+NoUpdatesGM106_Title = "Ingen oppdateringer!";
+NoUpdatesGM106_Msg = "Det er ingen oppdateringer for GPGMail på macOS 10.6";
+
+
+PassowrdsDeleted_Title = "Passord slettet";
+PassowrdsDeleted_Msg = "Alle OpenPGP-passord ble slettet fra macOS-nøkkelknippet og hurtiglageret.";
+
+PassowrdsDeletFailed_Title = "Sletting av passord mislyktes!";
+PassowrdsDeletFailed_Msg = "Ikke alle lagrede passord kunne slettes. Åpne Console.app og se etter feil som har med dette å gjøre. La oss høre om problemet fra fanen 'Send rapport'.";
+
+Support_SendDebugInfo_Title = "Sender feilrettingsinformasjon";
+Support_SendDebugInfo_Msg = "Feilrettingsinformasjon i rapporten:\n\nHjelper til med å fremskynde feilrettingsprosessen.\n\nDet sendes via kryptert TLS til vårt vertsskap. Der blir det kryptert med vår nøkkel og så sendt til vår brukerstøtteplattform. På den måten er ikke feilrettingsinformasjon tilgjengelig for noen andre enn vårt indre utviklerlag, selv om din rapport ikke har blitt satt til privat.\n\nUnder opprettelsen av feilrettingsinformasjonen vil du bli spurt om ditt OpenPGP-passord for din nøkkel, siden vi tester at dekryptering og signering fungerer som forventet på ditt system.\n\nFeilrettingsinformasjonsloggen inneholder metainformasjon om dine nøkler.\"";
+Support_SendDebugInfo_Button1 = "Send rapport";
+Support_SendDebugInfo_Button2 = "Avbryt";
+Support_SendDebugInfo_Checkbox = "Inkluder feilrettingsinformasjon i denne rapporten";
+
+Support_BugDescriptionTooShort_Title = "Beskrivelsen er for kort";
+Support_BugDescriptionTooShort_Msg = "Legg til flere detaljer i beskrivelsesfeltet. Desto mer detaljer du kan oppgi, desto raskere kan vi finne en god løsning på din forespørsel. Hvis det inngår, legg til stegvise beskrivelser for å reprodusere problemet.";
+
+Support_ExpectedBahaviorTooShort_Title = "Forventet oppførsel for kort";
+Support_ExpectedBahaviorTooShort_Msg = "Detaljer i rikt monn i feltet for forventet oppførsel. Desto mer detaljer du kan oppgi, desto raskere kan vi finne en løsning og besvare din forespørsel.";
+
+Support_SubjectTooShort_Title = "Emnet er for kort";
+Support_SubjectTooShort_Msg = "Legg til et mer beskrivende emne.";
+
+Support_MailInvalid_Title = "Ugyldig e-postadresse";
+Support_MailInvalid_Msg = "Bruk en gyldig e-postadresse.";
+
+Support_NameTooShort_Title = "Navnet er for kort";
+Support_NameTooShort_Msg = "Skriv inn et lengre lavn.";
+
+Support_NoComponentSelected_Title = "Ingen komponent valgt";
+Support_NoComponentSelected_Msg = "Velg en komponent";
+
+Support_ReportFailed_Title = "Forsendelse av rapport mislyktes";
+Support_ReportFailed_Msg = "Rapporten din kunne ikke sendes. Opprett rapporten din på vår brukerstøtteplattform i steden for. \"OK\"-knappen vil åpne din forvalgte nettleser og ta deg dit.";
+
+Support_PublicReportSucceeded_Title = "Rapport sendt";
+Support_PublicReportSucceeded_Msg = "Takk for at du tok deg tid til å sende denne rapporten! En offentlig korrespondanse har blitt opprettet. Gi oss et par dager på å svare. Du vil motta oppdateringer per e-post.\n\nDiskusjonen vil nå åpnes i din nettleser. Overvei å lage et bokmerke.";
+
+Support_PrivateReportSucceeded_Title = "Rapport sendt";
+Support_PrivateReportSucceeded_Msg = "Takk for at du tok deg tid til å sende denne rapporten! En privat korrespondanse har blitt opprettet. Gi oss et par dager på å svare. Du vil motta oppdateringer per e-post.\n\nDiskusjonen vil nå åpnes i din nettleser. Overvei å lage et bokmerke.";
+
+
+ShouldRemoveComment_Title = "Informasjon om kommentarfeltet";
+ShouldRemoveComment_Msg = "Vi har fjernet muligheten til å sette en kommentar i GPGPreferences. Kjørereglene anbefaler å ikke bruke dette feltet lenger siden feil bruk kan lekke informasjon.\n\nDu har for øyeblikket satt opp følgende kommentar:\n\n%@\n\nØnsker du å fjerne den? (Anbefalt)";
+ShouldRemoveComment_Button1 = "Fjern kommentar";
+ShouldRemoveComment_Button2 = "Behold kommentar";
+
+
+EmailCheck_TooLong = "E-postadressen du har angitt er for lang.";
+EmailCheck_Invalid = "Du har angitt en ugyldig e-postadresse.";
+EmailCheck_Msg = "Oppgi en gyldig e-postadresse.";
+
+

@@ -1,6 +1,7 @@
 [main]
 host = https://www.transifex.com
 lang_map = pt_BR:pt, fa_IR:fa
+minimum-perc = 20
 
 [gpgpreferences.localizable]
 file_filter = Resources/<lang>.lproj/Localizable.strings

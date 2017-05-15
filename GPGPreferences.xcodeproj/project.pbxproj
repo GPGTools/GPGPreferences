@@ -177,6 +177,12 @@
 		307B75191CB2A31C00002ACF /* GPGPreferencesTerms.searchTerms */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = GPGPreferencesTerms.searchTerms; sourceTree = "<group>"; };
 		30B455FE172D7BB500A04D4A /* Libmacgpg.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Libmacgpg.framework; path = /Library/Frameworks/Libmacgpg.framework; sourceTree = "<absolute>"; };
 		30B7416817A2EFC100E1D157 /* GPGTools+Text.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "GPGTools+Text.png"; path = "Images/GPGTools+Text.png"; sourceTree = "<group>"; };
+		30D0BEAD1EC9D15600875277 /* nb */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = nb; path = nb.lproj/Localizable.strings; sourceTree = "<group>"; };
+		30D0BEB21EC9D16F00875277 /* nb */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = nb; path = nb.lproj/GPGToolsPref.strings; sourceTree = "<group>"; };
+		30D0BEB31EC9D17D00875277 /* it */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = it; path = it.lproj/Localizable.strings; sourceTree = "<group>"; };
+		30D0BEB41EC9D18200875277 /* it */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = it; path = it.lproj/GPGToolsPref.strings; sourceTree = "<group>"; };
+		30D0BEB51EC9D18700875277 /* nb */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = nb; path = nb.lproj/WarningView.strings; sourceTree = "<group>"; };
+		30D0BEB61EC9D18900875277 /* it */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = it; path = it.lproj/WarningView.strings; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -403,6 +409,8 @@
 				es,
 				fa,
 				id,
+				nb,
+				it,
 			);
 			mainGroup = 3056D046172D2EEA00CFC0FA;
 			productRefGroup = 3056D052172D2EEA00CFC0FA /* Products */;
@@ -602,6 +610,8 @@
 				30543FB61E449F550053D095 /* fa */,
 				30543FB71E449F5D0053D095 /* es */,
 				30543FB81E449F5F0053D095 /* el */,
+				30D0BEB21EC9D16F00875277 /* nb */,
+				30D0BEB41EC9D18200875277 /* it */,
 			);
 			name = GPGToolsPref.xib;
 			sourceTree = "<group>";
@@ -620,6 +630,8 @@
 				30543FBB1E449F650053D095 /* id */,
 				30543FBC1E449F670053D095 /* es */,
 				30543FBD1E449F680053D095 /* el */,
+				30D0BEB51EC9D18700875277 /* nb */,
+				30D0BEB61EC9D18900875277 /* it */,
 			);
 			name = WarningView.xib;
 			sourceTree = "<group>";
@@ -637,6 +649,8 @@
 				30543FB11E449F1B0053D095 /* es */,
 				30543FB21E449F200053D095 /* fa */,
 				30543FB31E449F280053D095 /* id */,
+				30D0BEAD1EC9D15600875277 /* nb */,
+				30D0BEB31EC9D17D00875277 /* it */,
 			);
 			name = Localizable.strings;
 			sourceTree = "<group>";
