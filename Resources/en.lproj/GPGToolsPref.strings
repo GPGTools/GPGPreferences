@@ -9,7 +9,7 @@
 "573.title" = "seconds";
 "575.title" = "Store in macOS Keychain";
 "579.title" = "Default Key";
-"605.title" = "Clear";
+"605.title" = "Clear …";
 "1048.ibShadowedToolTip" = "When attempting to verify a signature for which the required public key can not be found on your system, this option will search the key servers. If found, the key is downloaded and added to your keyring.";
 "1049.title" = "Automatically download public keys";
 "2us-TG-ZgZ.title" = "Automatically check for updates";

@@ -114,83 +114,89 @@ static NSString * const CrashReportsUserEmailKey = @"CrashReportsUserEmail";
  * Delete stored passphrases from the Mac OS X keychain.
  */
 - (IBAction)deletePassphrases:(id)sender {
-	BOOL success = YES;
-	@try {
-		[options gpgAgentFlush];
+	[gpgPrefPane showAlert:@"WarningDeletePasswords" parameters:nil completionHandler:^(NSModalResponse returnCode) {
+		if (returnCode != NSAlertFirstButtonReturn) {
+			return;
+		}
 		
-        // On 10.6 and lower the newer SecItemCopyMatching API is available, but generic passwords
-        // can't be searched. So on 10.7+ we'll use the newer API, while on 10.6 we fallback to the
-        // SecKeychainFindGenericPassword method, which is not quite as handy, since it requires us to know
-        // the accountName (which is the fingerprint of the key in our case).
-        NSString *serviceName = @"GnuPG";
-		OSStatus status;
-		
-        if (floor(NSAppKitVersionNumber) > NSAppKitVersionNumber10_6) {
-            NSDictionary *query = [NSDictionary dictionaryWithObjectsAndKeys:kSecClassGenericPassword, kSecClass, kSecMatchLimitAll, kSecMatchLimit, kCFBooleanTrue, kSecReturnRef, kCFBooleanTrue, kSecReturnAttributes, serviceName, kSecAttrService, nil];
-
-            NSArray *result = nil;
-            status = SecItemCopyMatching((CFDictionaryRef)query, (CFTypeRef *)&result);
-
-            NSCharacterSet *nonHexCharSet = [[NSCharacterSet characterSetWithCharactersInString:@"0123456789abcdefABCDEF"] invertedSet];
-
-            if (status == noErr) {
-                for (NSDictionary *item in result) {
-                    if (![[item objectForKey:kSecAttrService] isEqualToString:serviceName]) {
-                        continue;
-                    }
-
-                    NSString *fingerprint = [item objectForKey:kSecAttrAccount];
-                    if ([fingerprint length] < 8 || [fingerprint length] > 40) {
-                        continue;
-                    }
-                    if ([fingerprint rangeOfCharacterFromSet:nonHexCharSet].length > 0) {
-                        continue;
-                    }
-
-                    status = SecKeychainItemDelete((SecKeychainItemRef)[item objectForKey:kSecValueRef]);
-					
-					if (status != noErr) {
-						success = NO;
-						NSLog(@"Failed to delete keychain item: %@", SecCopyErrorMessageString(status, nil));
-					}
-                }
-            }
-            [result release];
+		BOOL success = YES;
+		@try {
+			[options gpgAgentFlush];
 			
-        } else {
-            SecKeychainItemRef keychainItem;
-
-            NSSet *keys = [[GPGKeyManager sharedInstance] allKeysAndSubkeys];
-            for (GPGKey *key in keys) {
-				if (!key.secret) {
-                    continue;
-				}
-
-                NSString *accountName = [key fingerprint];
-                status = SecKeychainFindGenericPassword(NULL, (UInt32)[serviceName length], [serviceName UTF8String], (UInt32)[accountName length], [accountName UTF8String], NULL, NULL, &keychainItem);
-                if (status == errSecSuccess) {
-                    // Try to delete the keychain item.
-                    status = SecKeychainItemDelete(keychainItem);
-                    CFRelease(keychainItem);
-					
-					if (status != noErr) {
-						success = NO;
-						NSLog(@"Failed to delete old keychain item: %@", SecCopyErrorMessageString(status, nil));
+			// On 10.6 and lower the newer SecItemCopyMatching API is available, but generic passwords
+			// can't be searched. So on 10.7+ we'll use the newer API, while on 10.6 we fallback to the
+			// SecKeychainFindGenericPassword method, which is not quite as handy, since it requires us to know
+			// the accountName (which is the fingerprint of the key in our case).
+			NSString *serviceName = @"GnuPG";
+			OSStatus status;
+			
+			if (floor(NSAppKitVersionNumber) > NSAppKitVersionNumber10_6) {
+				NSDictionary *query = [NSDictionary dictionaryWithObjectsAndKeys:kSecClassGenericPassword, kSecClass, kSecMatchLimitAll, kSecMatchLimit, kCFBooleanTrue, kSecReturnRef, kCFBooleanTrue, kSecReturnAttributes, serviceName, kSecAttrService, nil];
+				
+				NSArray *result = nil;
+				status = SecItemCopyMatching((CFDictionaryRef)query, (CFTypeRef *)&result);
+				
+				NSCharacterSet *nonHexCharSet = [[NSCharacterSet characterSetWithCharactersInString:@"0123456789abcdefABCDEF"] invertedSet];
+				
+				if (status == noErr) {
+					for (NSDictionary *item in result) {
+						if (![[item objectForKey:kSecAttrService] isEqualToString:serviceName]) {
+							continue;
+						}
+						
+						NSString *fingerprint = [item objectForKey:kSecAttrAccount];
+						if ([fingerprint length] < 8 || [fingerprint length] > 40) {
+							continue;
+						}
+						if ([fingerprint rangeOfCharacterFromSet:nonHexCharSet].length > 0) {
+							continue;
+						}
+						
+						status = SecKeychainItemDelete((SecKeychainItemRef)[item objectForKey:kSecValueRef]);
+						
+						if (status != noErr) {
+							success = NO;
+							NSLog(@"Failed to delete keychain item: %@", SecCopyErrorMessageString(status, nil));
+						}
 					}
-                }
-            }
-        }
+				}
+				[result release];
+				
+			} else {
+				SecKeychainItemRef keychainItem;
+				
+				NSSet *keys = [[GPGKeyManager sharedInstance] allKeysAndSubkeys];
+				for (GPGKey *key in keys) {
+					if (!key.secret) {
+						continue;
+					}
+					
+					NSString *accountName = [key fingerprint];
+					status = SecKeychainFindGenericPassword(NULL, (UInt32)[serviceName length], [serviceName UTF8String], (UInt32)[accountName length], [accountName UTF8String], NULL, NULL, &keychainItem);
+					if (status == errSecSuccess) {
+						// Try to delete the keychain item.
+						status = SecKeychainItemDelete(keychainItem);
+						CFRelease(keychainItem);
+						
+						if (status != noErr) {
+							success = NO;
+							NSLog(@"Failed to delete old keychain item: %@", SecCopyErrorMessageString(status, nil));
+						}
+					}
+				}
+			}
+			
+		} @catch (NSException *exception) {
+			success = NO;
+			NSLog(@"deletePassphrases failed: %@", exception);
+		}
 		
-	} @catch (NSException *exception) {
-		success = NO;
-		NSLog(@"deletePassphrases failed: %@", exception);
-	}
-	
-	if (success) {
-		localizedAlert(@"PassowrdsDeleted");
-	} else {
-		localizedAlert(@"PassowrdsDeletFailed");
-	}
+		if (success) {
+			localizedAlert(@"PassowrdsDeleted");
+		} else {
+			localizedAlert(@"PassowrdsDeletFailed");
+		}
+	}];
 }
 
 
