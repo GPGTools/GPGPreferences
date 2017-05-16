@@ -7,7 +7,7 @@
 	<key>CFBundleDevelopmentRegion</key>
 	<string>English</string>
 	<key>CFBundleDisplayName</key>
-	<string>GPGPreferences</string>
+	<string>GPG Suite</string>
 	<key>CFBundleExecutable</key>
 	<string>${EXECUTABLE_NAME}</string>
 	<key>CFBundleIconFile</key>
@@ -17,7 +17,7 @@
 	<key>CFBundleInfoDictionaryVersion</key>
 	<string>6.0</string>
 	<key>CFBundleName</key>
-	<string>${PRODUCT_NAME}</string>
+	<string>GPG Suite</string>
 	<key>CFBundlePackageType</key>
 	<string>BNDL</string>
 	<key>CFBundleShortVersionString</key>
@@ -31,7 +31,7 @@
 	<key>NSPrefPaneIconFile</key>
 	<string>GPGTools.icns</string>
 	<key>NSPrefPaneIconLabel</key>
-	<string>GPGPreferences</string>
+	<string>GPG Suite</string>
 	<key>NSPrincipalClass</key>
 	<string>GPGToolsPref</string>
 	<key>SUEnableAutomaticChecks</key>
