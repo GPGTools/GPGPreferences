@@ -286,9 +286,12 @@ static NSString * const CrashReportsUserEmailKey = @"CrashReportsUserEmail";
 	[secretKeysLock lock];
 		
 	if (!secretKeys) {
-		secretKeys = [[[[GPGKeyManager sharedInstance].allKeys objectsPassingTest:^BOOL(GPGKey *key, BOOL *stop) {
+		NSSet *unsorted = [[GPGKeyManager sharedInstance].allKeys objectsPassingTest:^BOOL(GPGKey *key, BOOL *stop) {
 			return key.secret && key.validity < GPGValidityInvalid;
-		}] allObjects] retain];
+		}];
+		NSSortDescriptor *descriptor = [NSSortDescriptor sortDescriptorWithKey:@"name" ascending:YES selector:@selector(localizedCaseInsensitiveCompare:)];
+		secretKeys = [unsorted sortedArrayUsingDescriptors:@[descriptor]];
+		[secretKeys retain];
 	}
 	NSArray *value = [[secretKeys retain] autorelease];
 	
