@@ -419,6 +419,9 @@ static NSString * const CrashReportsUserEmailKey = @"CrashReportsUserEmail";
 }
 
 - (IBAction)testKeyserver:(id)sender {
+	if (!keyserverToCheck) {
+		return;
+	}
 	if (self.testingServer) {
 		[gpgc cancel];
 	}
@@ -440,6 +443,7 @@ static NSString * const CrashReportsUserEmailKey = @"CrashReportsUserEmail";
 - (void)gpgController:(GPGController *)gc operationDidFinishWithReturnValue:(id)value {
 	// Result of the keyserer test.
 	self.testingServer = NO;
+	keyserverToCheck = nil;
 	
 	if (![value boolValue]) {
 		[self.options removeKeyserver:gc.keyserver];
