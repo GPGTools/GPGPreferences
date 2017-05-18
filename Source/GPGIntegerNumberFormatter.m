@@ -11,30 +11,37 @@
 @implementation GPGIntegerNumberFormatter
 
 
-- (BOOL)isPartialStringValid:(NSString *)partialString newEditingString:(NSString **)newString errorDescription:(NSString **)error {
+- (BOOL)isPartialStringValid:(NSString **)partialStringPtr
+	   proposedSelectedRange:(NSRangePointer)proposedSelRangePtr
+			  originalString:(NSString *)origString
+	   originalSelectedRange:(NSRange)origSelRange
+			errorDescription:(NSString **)error {
+	
+	NSString *partialString = *partialStringPtr;
+	NSUInteger maxLength = self.maximum.stringValue.length;
+	
 	if (partialString.length == 0) {
 		return YES;
 	}
 	
 	NSCharacterSet *nonDigitSet = [[NSCharacterSet decimalDigitCharacterSet] invertedSet];
-	if ([partialString rangeOfCharacterFromSet:nonDigitSet].length > 0) {
-		NSBeep();
-		return NO;
-	}
 	
-	NSScanner *scanner = [NSScanner scannerWithString:partialString];
-	unsigned long long value;
-	
-	if ([scanner scanUnsignedLongLong:&value] && [scanner isAtEnd]) {
-		if (value > self.maximum.integerValue) {
-			*newString = self.maximum.stringValue;
-			if (value >= self.maximum.integerValue * 10) {
+	if ([partialString rangeOfCharacterFromSet:nonDigitSet].length == 0) {
+		NSScanner *scanner = [NSScanner scannerWithString:partialString];
+		unsigned long long value;
+		if ([scanner scanUnsignedLongLong:&value] && [scanner isAtEnd]) {
+			
+			if (partialString.length > maxLength) {
+				if (origString.length < maxLength) {
+					*partialStringPtr = [partialString substringToIndex:maxLength];
+				}
 				NSBeep();
+				return NO;
 			}
-			return NO;
-		}
-		if (partialString.length <= 5) {
-			return YES;
+			
+			if (value <= self.maximum.unsignedIntegerValue) {
+				return YES;
+			}
 		}
 	}
 	
