@@ -64,7 +64,7 @@
 	
 	results[@"Encrypt GPGTools"] = [self runShellCommand:[NSString stringWithFormat:@"'%@' --batch --no-tty -aer 85E38F69046B44C1EC9FB07B76D78F0500D026C4 <<<test", gpgPath]];
 	results[@"Encrypt Self"] = [self runShellCommand:[NSString stringWithFormat:@"'%@' --batch --no-tty -ae --default-recipient-self <<<test", gpgPath]];
-	results[@"Encrypt+Decrypt"] = [self runShellCommand:[NSString stringWithFormat:@"'%@' --batch --no-tty -ae --default-recipient-self <<<test | '%@' -d", gpgPath, gpgPath]];
+	results[@"Encrypt+Decrypt"] = [self runShellCommand:[NSString stringWithFormat:@"'%@' --batch --no-tty -ae --default-recipient-self <<<test | '%@'  --batch --no-tty -d", gpgPath, gpgPath]];
 
 	results[@"Sign"] = [self runShellCommand:[NSString stringWithFormat:@"'%@' --batch --no-tty -as <<<test", gpgPath]];
 	results[@"Sign+Encrypt"] = [self runShellCommand:[NSString stringWithFormat:@"'%@' --batch --no-tty -aser 85E38F69046B44C1EC9FB07B76D78F0500D026C4 --default-recipient-self <<<test", gpgPath]];
