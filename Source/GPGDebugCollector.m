@@ -123,6 +123,10 @@
 			paths[@"pinentry"] = pinentryPath;
 		}
 	}
+	GPGOptions *options = [GPGOptions sharedOptions];
+	if ([options respondsToSelector:@selector(pinentryPath)]) {
+		paths[@"pinentry"] = options.pinentryPath;
+	}
 
 	paths[@"GnuPGs"] = [self linesFromString:[self runShellCommand:@"which -a gpg gpg2"]];
 	paths[@"Agents"] = [self linesFromString:[self runShellCommand:@"which -a gpg-agent"]];
