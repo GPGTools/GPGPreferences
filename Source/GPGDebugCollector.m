@@ -51,6 +51,9 @@
 	@try {
 		[self testEncryptAndSign];
 	} @catch (NSException *exception) {}
+	@try {
+		[self collectMailAccounts];
+	} @catch (NSException *exception) {}
 }
 
 // Test encryption and signing.
@@ -307,6 +310,9 @@
 							  @"/Library/Application Support/GPGTools/*",
 							  @"~/Library/Application Support/GPGTools",
 							  @"~/Library/Application Support/GPGTools/*",
+
+							  @"~/Library/Accounts",
+							  @"~/Library/Accounts/*",
 							  
 							  @"$GNUPGHOME",
 							  @"$GNUPGHOME/*"
@@ -379,6 +385,79 @@
 	
 	debugInfos[@"File Infos"][path] = info;
 }
+
+
+- (void)collectMailAccounts {
+	NSFileManager *fileManager = [NSFileManager defaultManager];
+	NSString *libraryPath = NSSearchPathForDirectoriesInDomains(NSLibraryDirectory, NSUserDomainMask, YES)[0];
+	NSString *accountsDir = [libraryPath stringByAppendingPathComponent:@"Accounts"];
+	NSArray *files = [fileManager contentsOfDirectoryAtPath:accountsDir error:nil];
+	
+	NSRegularExpression *regex = [NSRegularExpression regularExpressionWithPattern:@"^Accounts\\d+\\.sqlite$" options:0 error:nil];
+	for (NSString *file in files) {
+		if ([regex firstMatchInString:file options:0 range:NSMakeRange(0, file.length)]) {
+			[self collectAccountsFromPath:[accountsDir stringByAppendingPathComponent:file]];
+		}
+	}
+}
+- (void)collectAccountsFromPath:(NSString *)path {
+	NSMutableArray *emailAliases = [NSMutableArray array];
+
+	@try {
+		NSError *error = nil;
+		
+		NSURL *accountsURL = [NSURL fileURLWithPath:path];
+		NSURL *modelURL = [NSURL fileURLWithPath:@"/System/Library/PrivateFrameworks/AccountsDaemon.framework/Resources/accounts.momd"];
+		
+		
+		NSManagedObjectModel *objectModel = [[[NSManagedObjectModel alloc] initWithContentsOfURL:modelURL] autorelease];
+		NSPersistentStoreCoordinator *coordinator = [[[NSPersistentStoreCoordinator alloc] initWithManagedObjectModel:objectModel] autorelease];
+		
+		
+		NSDictionary *options = @{NSReadOnlyPersistentStoreOption: @YES};
+		NSPersistentStore *store = [coordinator addPersistentStoreWithType:NSSQLiteStoreType configuration:nil URL:accountsURL options:options error:&error];
+		if (!store) {
+			NSLog(@"Failed to initalize persistent store: %@\n%@", error.localizedDescription, error.userInfo);
+			return;
+		}
+		
+		
+		NSManagedObjectContext *context = [[[NSManagedObjectContext alloc] initWithConcurrencyType:NSMainQueueConcurrencyType] autorelease];
+		context.persistentStoreCoordinator = coordinator;
+		
+		
+		NSFetchRequest *fetchRequest = [NSFetchRequest fetchRequestWithEntityName:@"Account"];
+		NSArray *accounts = [context executeFetchRequest:fetchRequest error:&error];
+		if (error) {
+			NSLog(@"Failed to execute fetch request: %@\n%@", error.localizedDescription, error.userInfo);
+			return;
+		}
+		
+		
+		for (NSManagedObject *account in accounts) {
+			NSSet *accountProperties = [account valueForKey:@"customProperties"];
+			
+			for (NSManagedObject *accountProperty in accountProperties) {
+				NSString *key = [accountProperty valueForKey:@"key"];
+				
+				if ([key isEqualToString:@"EmailAliases"]) {
+					NSArray *aliases = [accountProperty valueForKey:@"value"];
+					[emailAliases addObjectsFromArray:aliases];
+				}
+			}
+		}
+	} @catch (NSException *exception) {
+		NSLog(@"Exception in collectMailAccounts: %@", exception);
+		return;
+	}
+	
+	if (debugInfos[@"Mail Accounts"] == nil) {
+		debugInfos[@"Mail Accounts"] = [NSMutableDictionary dictionary];
+	}
+	
+	debugInfos[@"Mail Accounts"][path] = [emailAliases.copy autorelease];
+}
+
 
 
 
