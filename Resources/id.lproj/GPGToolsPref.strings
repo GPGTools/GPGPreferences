@@ -1,6 +1,6 @@
 "217.label" = "Pengaturan";
 "248.label" = "Tentang";
-"510.title" = "GPG Suite is a software collection, allowing to encrypt / decrypt and sign / verify emails and files. Our goal is to provide an easy to use OpenPGP solution on macOS.";
+"510.title" = "GPG Suite adalah sebuah koleksi perangkat lunak, memungkinkan enkripsi / dekripsi dan tanda tangan / verifikasi surel dan berkas. Sasaran kami adalah untuk menyediakan solusi OpenPGP yang mudah dipakai pada macOS.";
 "551.title" = "Dukungan";
 "553.title" = "Basis Pengetahuan";
 "559.ibShadowedToolTip" = "Kunci ini dipakai sebagai kunci baku Anda dalam GPGServices.";
@@ -9,9 +9,9 @@
 "573.title" = "detik";
 "575.title" = "Simpan dalam Keychain macOS";
 "579.title" = "Kunci Baku";
-"605.title" = "Bersihkan";
+"605.title" = "Delete…";
 "1048.ibShadowedToolTip" = "Ketika mencoba verifikasi suatu tanda tangan dimana kunci publik yang diperlukan tidak dapat ditemukan pada sistem Anda, opsi ini akan mencari server kunci. Bila ditemukan, kunci diunduh dan ditambahkan ke ring kunci Anda.";
-"1049.title" = "Otomatis ambil kunci";
+"1049.title" = "Automatically download public keys";
 "2us-TG-ZgZ.title" = "Otomatis periksa pemutakhiran";
 "33G-1W-wz2.title" = "Tampilkan Catatan Rilis";
 "3fg-5i-nL6.title" = "Izinkan GPGTools menghubungi saya mengenai laporan saya";

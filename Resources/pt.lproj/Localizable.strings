@@ -17,6 +17,11 @@ NoUpdatesGM106_Title = "Nenhuma atualização disponível";
 NoUpdatesGM106_Msg = "Não há atualizações para o GPGMail no macOS 10.6.";
 
 
+WarningDeletePasswords_Title = "Delete stored OpenPGP passwords";
+WarningDeletePasswords_Msg = "This will delete all OpenPGP passwords stored in macOS keychain and empty the cache.";
+WarningDeletePasswords_Button1 = "Delete";
+WarningDeletePasswords_Button2 = "Cancelar";
+
 PassowrdsDeleted_Title = "Senhas apagadas";
 PassowrdsDeleted_Msg = "Todas as senhas OpenPGP foram apagadas corretamente das chaves e do cache do macOS.";
 
@@ -24,7 +29,7 @@ PassowrdsDeletFailed_Title = "Falha ao apagar senhas";
 PassowrdsDeletFailed_Msg = "Nem todas as senhas puderam ser apagadas. Abra o aplicativo Console e busque erros relacionados. Use a aba Enviar Relatório para nos informar sobre o problema.";
 
 Support_SendDebugInfo_Title = "Enviando informações de depuração";
-Support_SendDebugInfo_Msg = "Alguns fatos sobre a opção de incluir informações de depuração no relatório: na maioria das vezes, essas informações ajudarão a acelerar o processo de depuração e o seu problema será resolvido mais rápido.\n\nRecomendamos que as informações de depuração sejam adicionadas, a não ser que o relatório seja uma sugestão de recurso.\n\nA comunicação ocorre através de uma conexão TLS criptografada com nossos servidores; chegando lá, a mensagem é criptografada com a chave da nossa equipe e enviada para a plataforma de suporte. Assim, as informações de depuração não estarão acessíveis para ninguém além de nossa equipe principal, mesmo que a opção “Privado” não seja selecionada na aba Enviar Relatório.\n\nDurante a criação das informações de depuração, a senha da sua chave OpenPGP pode ser solicitada, visando testar o funcionamento esperado da decriptação e assinatura no sistema.\n\nO relatório de depuração inclui meta-informações sobre as suas chaves.";
+Support_SendDebugInfo_Msg = "Alguns fatos sobre a opção de incluir informações de depuração no relatório: na maioria das vezes, essas informações ajudarão a acelerar o processo de depuração e o seu problema será resolvido mais rápido.\n\nRecomendamos que as informações de depuração sejam adicionadas, a não ser que o relatório seja uma sugestão de recurso.\n\nA comunicação ocorre através de uma conexão TLS criptografada com nossos servidores; chegando lá, a mensagem é criptografada com a chave da nossa equipe e enviada para a plataforma de suporte. Assim, as informações de depuração não estarão acessíveis para ninguém além de nossa equipe principal, mesmo que a opção “Privado” não seja selecionada na aba Enviar Relatório.\n\nDurante a criação das informações de depuração, a senha da sua chave OpenPGP pode ser solicitada, visando testar o funcionamento esperado da decriptação e assinatura no sistema.\n\nO registro de depuração inclui meta-informações sobre as suas chaves.";
 Support_SendDebugInfo_Button1 = "Enviar Relatório";
 Support_SendDebugInfo_Button2 = "Cancelar";
 Support_SendDebugInfo_Checkbox = "Incluir informações de depuração no relatório";

@@ -9,9 +9,9 @@
 "573.title" = "sekunder";
 "575.title" = "Lagra i macOS-nyckelringen";
 "579.title" = "Förvald nyckel";
-"605.title" = "Rensa";
+"605.title" = "Delete…";
 "1048.ibShadowedToolTip" = "För att försöka verifiera en signatur som inte har en publik nyckel på ditt system, kommer detta alternativ att söka på nyckelservrar. Om den hittas, kommer den att laddas ned och läggas till din nyckelring.";
-"1049.title" = "Hämta nycklar automatiskt";
+"1049.title" = "Automatically download public keys";
 "2us-TG-ZgZ.title" = "Leta efter uppdateringar automatiskt";
 "33G-1W-wz2.title" = "Visa versionsinformation";
 "3fg-5i-nL6.title" = "Tillåt GPGTools att kontakta mig angående mina rapporter";

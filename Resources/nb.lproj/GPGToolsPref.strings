@@ -9,9 +9,9 @@
 "573.title" = "sekunder";
 "575.title" = "Lagre i nøkkelknippet til macOS";
 "579.title" = "Forvalgt nøkkel";
-"605.title" = "Tøm";
+"605.title" = "Delete…";
 "1048.ibShadowedToolTip" = "Når du prøver å bekrefte en signatur som ikke finnes på ditt system, vil dette valget søke etter den på nøkkeltjenerne. Hvis den blir funnet blir nøkkelen lastet ned og lagt til i din nøkkelring.";
-"1049.title" = "Automatisk innhenting av nøkler";
+"1049.title" = "Automatically download public keys";
 "2us-TG-ZgZ.title" = "Se etter oppdateringer automatisk";
 "33G-1W-wz2.title" = "Vis utgivelsesnotater";
 "3fg-5i-nL6.title" = "Tillat GPGTools å kontakte meg vedrørende mine rapporter";

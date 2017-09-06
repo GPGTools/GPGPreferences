@@ -9,9 +9,9 @@
 "573.title" = "segundo(s)";
 "575.title" = "Armazenar nas Chaves do macOS";
 "579.title" = "Chave Padrão";
-"605.title" = "Limpar";
+"605.title" = "Delete…";
 "1048.ibShadowedToolTip" = "Esta opção busca uma chave pública nos servidores de chaves caso nenhuma chave pública seja encontrada no sistema ao verificar uma assinatura. Se encontrada, a chave será transferida e adicionada ao chaveiro.";
-"1049.title" = "Obter chaves automaticamente";
+"1049.title" = "Automatically download public keys";
 "2us-TG-ZgZ.title" = "Buscar atualizações automaticamente";
 "33G-1W-wz2.title" = "Notas da Versão";
 "3fg-5i-nL6.title" = "Permitir contato da equipe do GPGTools sobre os relatórios";
@@ -22,7 +22,7 @@
 "CVn-T1-UHW.ibShadowedIsNilPlaceholder" = "Descreva o problema. Adicione a sequência de passos, se possível.";
 "FGo-Ci-zfF.title" = "Enviar Relatório";
 "GN0-q8-084.title" = "Atualizações";
-"ITf-VV-Ist.title" = "Anexar relatório de depuração";
+"ITf-VV-Ist.title" = "Anexar registro de depuração";
 "LlU-F9-JUG.title" = "Incluir fases beta";
 "N7W-a5-kXF.title" = "Buscar Agora";
 "NHG-AV-7kF.label" = "Enviar Relatório";

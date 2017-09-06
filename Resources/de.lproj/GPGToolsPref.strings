@@ -9,9 +9,9 @@
 "573.title" = "Sekunden";
 "575.title" = "In macOS Schlüsselbund speichern";
 "579.title" = "Standardschlüssel";
-"605.title" = "Löschen";
+"605.title" = "Delete…";
 "1048.ibShadowedToolTip" = "Falls ein öffentlicher Schlüssel zum Verifizieren einer Signatur nicht auf deinem System gefunden wird, durchsucht diese Option die Schlüsselserver nach dem Schlüssel. Wird der Schlüssel gefunden, wird er heruntergeladen und zu deinem Schlüsselbund hinzugefügt.";
-"1049.title" = "Schlüssel automatisch abrufen";
+"1049.title" = "Automatically download public keys";
 "2us-TG-ZgZ.title" = "Automatisch nach Updates suchen";
 "33G-1W-wz2.title" = "Versionshinweise anzeigen";
 "3fg-5i-nL6.title" = "GPGTools erlauben, wegen meiner Berichte Kontakt aufzunehmen.";

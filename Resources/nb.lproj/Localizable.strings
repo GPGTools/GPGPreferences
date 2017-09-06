@@ -17,6 +17,11 @@ NoUpdatesGM106_Title = "Ingen oppdateringer!";
 NoUpdatesGM106_Msg = "Det er ingen oppdateringer for GPGMail på macOS 10.6";
 
 
+WarningDeletePasswords_Title = "Delete stored OpenPGP passwords";
+WarningDeletePasswords_Msg = "This will delete all OpenPGP passwords stored in macOS keychain and empty the cache.";
+WarningDeletePasswords_Button1 = "Delete";
+WarningDeletePasswords_Button2 = "Avbryt";
+
 PassowrdsDeleted_Title = "Passord slettet";
 PassowrdsDeleted_Msg = "Alle OpenPGP-passord ble slettet fra macOS-nøkkelknippet og hurtiglageret.";
 

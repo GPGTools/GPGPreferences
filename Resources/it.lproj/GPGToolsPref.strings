@@ -9,9 +9,9 @@
 "573.title" = "secondi";
 "575.title" = "Salva nel portachiavi di macOS";
 "579.title" = "Chiace predefinita";
-"605.title" = "Clear";
+"605.title" = "Delete…";
 "1048.ibShadowedToolTip" = "When attempting to verify a signature for which the required public key can not be found on your system, this option will search the key servers. If found, the key is downloaded and added to your keyring.";
-"1049.title" = "Recupera automaticamente chiavi";
+"1049.title" = "Automatically download public keys";
 "2us-TG-ZgZ.title" = "Cerca automaticamente aggiornamenti";
 "33G-1W-wz2.title" = "Mostra Note di rilascio";
 "3fg-5i-nL6.title" = "Consenti a GPGTools di contattarmi relativamenti ai miei report";
