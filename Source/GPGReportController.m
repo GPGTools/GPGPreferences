@@ -47,7 +47,7 @@ affectedComponent=_affectedComponent, privateDiscussion=_privateDiscussion;
 	// Compose the message text.
 	NSMutableString *message = [NSMutableString string];
 	if (self.affectedComponent > 0 && self.affectedComponent <= 5) {
-		NSArray *components = @[@"GPGMail", @"GPG Keychain", @"MacGPG2", @"GPGServices", @"GPGPreferences"];
+		NSArray *components = @[@"GPGMail", @"GPG Keychain", @"MacGPG", @"GPGServices", @"GPG Suite Preferences"];
 		NSString *component = components[self.affectedComponent - 1];
 		
 		subject = [NSString stringWithFormat:@"%@: %@", component, subject];
@@ -328,11 +328,11 @@ affectedComponent=_affectedComponent, privateDiscussion=_privateDiscussion;
 					   @{NKEY: @"GPGServices",
 						 PKEY: @[@"~/Library/Services/GPGServices.service", @"/Library/Services/GPGServices.service"]},
 					   
-					   @{NKEY: @"MacGPG2",
+					   @{NKEY: @"MacGPG",
 						 PKEY: @"/usr/local/MacGPG2",
 						 LKEY: @"share/gnupg/Version.plist"},
 					   
-					   @{NKEY: @"GPGPreferences",
+					   @{NKEY: @"GPG Suite Preferences",
 						 PKEY: @[@"~/Library/PreferencePanes/GPGPreferences.prefPane", @"/Library/PreferencePanes/GPGPreferences.prefPane"]},
 					   
 					   @{NKEY: @"Libmacgpg",
@@ -447,7 +447,7 @@ affectedComponent=_affectedComponent, privateDiscussion=_privateDiscussion;
 			NSString *commit = toolVersion[@"commit"];
 			
 			[infoString appendFormat:@"    %@%@%@",
-			 [name stringByPaddingToTab:4],
+			 [name stringByPaddingToTab:6],
 			 [version stringByPaddingToTab:3],
 			 [build stringByPaddingToTab:1]];
 			
@@ -493,9 +493,9 @@ affectedComponent=_affectedComponent, privateDiscussion=_privateDiscussion;
 	
 	
 	NSMutableParagraphStyle *paragraphStyle = [[NSMutableParagraphStyle new] autorelease];
-	paragraphStyle.tabStops = @[[[[NSTextTab alloc] initWithTextAlignment:0 location:115 options:nil] autorelease],
-								[[[NSTextTab alloc] initWithTextAlignment:0 location:205 options:nil] autorelease],
-								[[[NSTextTab alloc] initWithTextAlignment:0 location:270 options:nil] autorelease]];
+	paragraphStyle.tabStops = @[[[[NSTextTab alloc] initWithTextAlignment:0 location:155 options:@{}] autorelease],
+								[[[NSTextTab alloc] initWithTextAlignment:0 location:235 options:@{}] autorelease],
+								[[[NSTextTab alloc] initWithTextAlignment:0 location:310 options:@{}] autorelease]];
 	
 	paragraphStyle.headIndent = DBL_EPSILON; // Fix for Sierra. tabStops doesn't work if headIndent is 0.
 	

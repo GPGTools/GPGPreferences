@@ -18,7 +18,7 @@
 "8Ci-Ey-IBB.title" = "Private";
 "8Sd-BJ-8sG.title" = "Select Component";
 "9oN-AB-7Fa.title" = "This option searches the key servers for a public key, in case no public key is found on your system to verify a certain signature.";
-"ANB-ym-fp2.title" = "GPGPreferences";
+"ANB-ym-fp2.title" = "GPG Suite Preferences";
 "CVn-T1-UHW.ibShadowedIsNilPlaceholder" = "Describe the problem. Add reproduce steps if possible.";
 "FGo-Ci-zfF.title" = "Send Report";
 "GN0-q8-084.title" = "Updates";
@@ -34,7 +34,7 @@
 "Ubl-v4-JrU.title" = "GPGServices";
 "Uyz-OV-Mnx.title" = "Sending in reports helps us fix problems. Occasionally we will contact users regarding a report when they allow this.";
 "Vsl-37-VNZ.title" = "N/A";
-"Wec-a0-JIf.title" = "MacGPG2";
+"Wec-a0-JIf.title" = "MacGPG";
 "ajI-ym-ZZk.ibShadowedIsNilPlaceholder" = "What did you expect instead?";
 "dQU-pL-8Hd.ibShadowedIsNilPlaceholder" = "Subject";
 "dyf-aR-2b2.title" = "Remember for";
