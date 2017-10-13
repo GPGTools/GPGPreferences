@@ -13,7 +13,6 @@
 
 #define GPG_SERVICE_NAME "GnuPG"
 
-static NSString * const kKeyserver = @"keyserver";
 static NSUInteger const kDefaultPassphraseCacheTime = 600;
 static NSString * const AutomaticallySendCrashReportsKey = @"AutomaticallySendCrashReports";
 static NSString * const CrashReportsUserEmailKey = @"CrashReportsUserEmail";
@@ -21,7 +20,9 @@ static NSString * const CrashReportsUserEmailKey = @"CrashReportsUserEmail";
 
 
 @interface GPGToolsPrefController ()
-@property (readwrite) BOOL testingServer;
+@property (nonatomic) BOOL testingServer;
+@property (nonatomic, strong) NSString *keyserverToCheck;
+@property (nonatomic, strong) GPGController *gpgc;
 @end
 
 
@@ -40,7 +41,7 @@ static NSString * const CrashReportsUserEmailKey = @"CrashReportsUserEmail";
 
 
 @implementation GPGToolsPrefController
-@synthesize options, testingServer, updaterOptions;
+@synthesize options, testingServer, updaterOptions, keyserverToCheck;
 
 - (id)init {
 	if (!(self = [super init])) {
@@ -404,46 +405,48 @@ static NSString * const CrashReportsUserEmailKey = @"CrashReportsUserEmail";
  * Keyserver
  */
 - (NSArray *)keyservers {
-    return [options keyservers];
+    return options.keyservers;
 }
 
 - (NSString *)keyserver {
-    return keyserverToCheck ? [[keyserverToCheck retain] autorelease] : [options valueForKey:kKeyserver];
+    return self.keyserverToCheck ? self.keyserverToCheck : options.keyserver;
 }
 - (void)setKeyserver:(NSString *)value {
-	if (value != keyserverToCheck) {
-		NSString *oldValue = keyserverToCheck;
-		keyserverToCheck = [value retain];
-		[oldValue release];
-	}
+	self.keyserverToCheck = value;
 }
 
 - (IBAction)testKeyserver:(id)sender {
-	if (!keyserverToCheck) {
+	if (!self.keyserverToCheck) {
 		return;
 	}
 	if (self.testingServer) {
-		[gpgc cancel];
+		[self.gpgc cancel];
 	}
 	
 	// We can't use options.keyserver anymore, since setting this value
 	// will update gpg.conf which doesn't make sense if the keyserver can't be used.
-	gpgc = [GPGController gpgController];
-	gpgc.keyserver = keyserverToCheck;
-	gpgc.async = YES;
-	gpgc.delegate = self;
-	gpgc.keyserverTimeout = 3;
-	gpgc.timeout = 3;
+	self.gpgc = [GPGController gpgController];
+	self.gpgc.keyserver = self.keyserverToCheck;
+	self.gpgc.delegate = self;
+	self.gpgc.keyserverTimeout = 3;
 	[spinner startAnimation:nil];
 	self.testingServer = YES;
 	
-	[gpgc testKeyserver];
+	[self.gpgc testKeyserver];
 }
 
 - (void)gpgController:(GPGController *)gc operationDidFinishWithReturnValue:(id)value {
 	// Result of the keyserer test.
-	self.testingServer = NO;
-	keyserverToCheck = nil;
+	
+	if (gc != self.gpgc) {
+		// It's not the result of the latest test.
+		return;
+	}
+	
+	dispatch_async(dispatch_get_main_queue(), ^{
+		self.testingServer = NO;
+	});
+	self.keyserverToCheck = nil;
 	
 	if (![value boolValue]) {
 		[self.options removeKeyserver:gc.keyserver];
@@ -451,12 +454,11 @@ static NSString * const CrashReportsUserEmailKey = @"CrashReportsUserEmail";
 		dispatch_async(dispatch_get_main_queue(), ^{
 			localizedAlert(@"BadKeyserver");
 		});
-		
 	}
 	else {
 		// The server passed the check.
 		// Set it as default keyserver.
-		options.keyserver = gc.keyserver;
+		self.options.keyserver = gc.keyserver;
 	}
 }
 

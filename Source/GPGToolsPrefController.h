@@ -18,9 +18,6 @@
 	NSLock *secretKeysLock;
 	GPGOptions *options;
 	GPGOptions *updaterOptions;
-	NSString *keyserverToCheck;
-	GPGController *gpgc;
-	BOOL testingServer;
 	IBOutlet GPGToolsPref *prefPane;
 	NSInteger allowUserEmailContact;
 	NSString *crashReportsUserEmail;
@@ -36,7 +33,6 @@
 @property (readonly) GPGOptions *options, *updaterOptions;
 @property (readonly) NSString *bundleVersion, *version, *buildNumberDescription, *versionDescription;
 @property BOOL autoKeyRetrive;
-@property (readonly) BOOL testingServer;
 @property BOOL automaticallySendCrashReports;
 @property (strong) NSString *crashReportsUserEmail;
 @property BOOL allowUserEmailContact;
