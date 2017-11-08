@@ -23,7 +23,7 @@ WarningDeletePasswords_Button1 = "Delete";
 WarningDeletePasswords_Button2 = "Cancel";
 
 PassowrdsDeleted_Title = "Passwords deleted";
-PassowrdsDeleted_Msg = "All OpenPGP passwords were successfully deleted from macOS keychain and the cache.";
+PassowrdsDeleted_Msg = "All OpenPGP passwords were deleted from macOS keychain and the cache.";
 
 PassowrdsDeletFailed_Title = "Delete passwords failed!";
 PassowrdsDeletFailed_Msg = "Not all stored passwords could be deleted. Please open Console.app and look for any related errors. Then let us know about this problem via the 'Send Report' tab.";
