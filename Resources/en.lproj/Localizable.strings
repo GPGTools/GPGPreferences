@@ -13,7 +13,7 @@ UpdateCheckFailed_Title = "Update check failed!";
 UpdateCheckFailed_Msg = "Please reinstall GPG Suite from https://gpgtools.org.";
 
 
-NoUpdatesGM106_Title = "No updates!";
+NoUpdatesGM106_Title = "No Updates!";
 NoUpdatesGM106_Msg = "There are no updates for GPGMail on macOS 10.6";
 
 
