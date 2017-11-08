@@ -13,8 +13,8 @@ UpdateCheckFailed_Title = "Update check failed!";
 UpdateCheckFailed_Msg = "Please reinstall GPG Suite from https://gpgtools.org.";
 
 
-NoUpdatesGM106_Title = "No Updates!";
-NoUpdatesGM106_Msg = "There are no Updates for GPGMail on macOS 10.6";
+NoUpdatesGM106_Title = "No updates!";
+NoUpdatesGM106_Msg = "There are no updates for GPGMail on macOS 10.6";
 
 
 WarningDeletePasswords_Title = "Delete stored OpenPGP passwords";
@@ -44,7 +44,7 @@ Support_SubjectTooShort_Title = "Subject too short";
 Support_SubjectTooShort_Msg = "Please add a more descriptive subject.";
 
 Support_MailInvalid_Title = "Email invalid";
-Support_MailInvalid_Msg = "Please use a valid Email address.";
+Support_MailInvalid_Msg = "Please use a valid email address.";
 
 Support_NameTooShort_Title = "Name too short";
 Support_NameTooShort_Msg = "Please enter a longer name.";
