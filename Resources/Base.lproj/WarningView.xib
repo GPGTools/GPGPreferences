@@ -220,7 +220,7 @@
 				<boolean value="NO" key="1.IBNSWindowAutoPositionCentersHorizontal"/>
 				<boolean value="NO" key="1.IBNSWindowAutoPositionCentersVertical"/>
 				<string key="1.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
-				<boolean value="YES" key="1.NSWindowTemplate.visibleAtLaunch"/>
+				<boolean value="NO" key="1.NSWindowTemplate.visibleAtLaunch"/>
 				<boolean value="NO" key="1.showNotes"/>
 				<reference key="2.IBNSViewMetadataGestureRecognizers" ref="0"/>
 				<string key="2.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
