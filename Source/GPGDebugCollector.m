@@ -207,7 +207,13 @@
 					   @"~/Library/Mail/V2/MailData/Accounts.plist",
 					   @"~/Library/Mail/V3/MailData/Accounts.plist",
 					   @"~/Library/Mail/V4/MailData/Accounts.plist",
-					   @"~/Library/Mail/V5/MailData/Accounts.plist"
+					   @"~/Library/Mail/V5/MailData/Accounts.plist",
+					   @"/Library/LaunchAgents/org.gpgtools.Libmacgpg.xpc.plist",
+					   @"/Library/LaunchAgents/org.gpgtools.gpgmail.enable-bundles.plist",
+					   @"/Library/LaunchAgents/org.gpgtools.gpgmail.patch-uuid-user.plist",
+					   @"/Library/LaunchAgents/org.gpgtools.macgpg2.fix.plist",
+					   @"/Library/LaunchAgents/org.gpgtools.macgpg2.shutdown-gpg-agent.plist",
+					   @"/Library/LaunchAgents/org.gpgtools.updater.plist"
 					   ];
 	for (NSString *path in files) {
 		NSString *expandedPath = [self expand:path];
@@ -303,6 +309,13 @@
 							  @"/Library/LaunchAgents/org.gpgtools.macgpg2.gpg-agent.plist",
 							  @"~/Library/LaunchAgents/org.gpgtools.macgpg2.gpg-agent.plist",
 
+							  @"/Library/LaunchAgents/org.gpgtools.Libmacgpg.xpc.plist",
+							  @"/Library/LaunchAgents/org.gpgtools.gpgmail.enable-bundles.plist",
+							  @"/Library/LaunchAgents/org.gpgtools.gpgmail.patch-uuid-user.plist",
+							  @"/Library/LaunchAgents/org.gpgtools.macgpg2.fix.plist",
+							  @"/Library/LaunchAgents/org.gpgtools.macgpg2.shutdown-gpg-agent.plist",
+							  @"/Library/LaunchAgents/org.gpgtools.updater.plist",
+							  
 							  @"/Library/Frameworks/Libmacgpg.framework",
 							  @"~/Library/Frameworks/Libmacgpg.framework",
 
