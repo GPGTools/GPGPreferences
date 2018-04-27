@@ -412,7 +412,14 @@ static NSString * const CrashReportsUserEmailKey = @"CrashReportsUserEmail";
     return self.keyserverToCheck ? self.keyserverToCheck : options.keyserver;
 }
 - (void)setKeyserver:(NSString *)value {
-	self.keyserverToCheck = value;
+	if (value.length == 0) {
+		// Don't allow an empty keyserver. Set the default keyserver.
+		self.keyserverToCheck = nil;
+		self.options.keyserver = GPG_DEFAULT_KEYSERVER;
+		[self performSelectorOnMainThread:@selector(setKeyserver:) withObject:GPG_DEFAULT_KEYSERVER waitUntilDone:NO];
+	} else {
+		self.keyserverToCheck = value;
+	}
 }
 
 - (IBAction)testKeyserver:(id)sender {
