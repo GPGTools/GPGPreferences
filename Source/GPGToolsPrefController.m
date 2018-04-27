@@ -100,15 +100,38 @@ static NSString * const CrashReportsUserEmailKey = @"CrashReportsUserEmail";
     }
 }
 
+
+/*
+ * Key-Value Observing
+ */
 + (NSSet *)keyPathsForValuesAffectingValueForKey:(NSString *)key {
-	NSSet *mySet = nil;
+	NSSet *affectingKeys = [super keyPathsForValuesAffectingValueForKey:key];
+	
 	NSSet *keysAffectedBySecretKeys = [NSSet setWithObjects:@"secretKeyDescriptions", @"indexOfSelectedSecretKey", nil];
 	if ([keysAffectedBySecretKeys containsObject:key]) {
-		mySet = [NSSet setWithObject:@"secretKeys"];
+		affectingKeys = [affectingKeys setByAddingObject:@"secretKeys"];
 	}
-	NSSet *superSet = [super keyPathsForValuesAffectingValueForKey:key];
-	return [superSet setByAddingObjectsFromSet:mySet];
+	
+	NSSet *keysAffectedByConf = [NSSet setWithObjects:
+								 @"autoKeyRetrive",
+								 @"keyserver",
+								 @"passphraseCacheTime",
+								 @"rememberPassword",
+								 @"indexOfSelectedSecretKey",
+								 nil];
+	if ([keysAffectedByConf containsObject:key]) {
+		affectingKeys = [affectingKeys setByAddingObject:@"options.gpgConf"];
+	}
+
+	return affectingKeys;
 }
++ (NSSet *)keyPathsForValuesAffectingKeyservers {
+	return [NSSet setWithObject:@"options.keyservers"];
+}
++ (NSSet *)keyPathsForValuesAffectingKeyserver {
+	return [NSSet setWithObject:@"options.keyserver"];
+}
+
 
 
 /*
@@ -470,12 +493,8 @@ static NSString * const CrashReportsUserEmailKey = @"CrashReportsUserEmail";
 }
 
 
-+ (NSSet *)keyPathsForValuesAffectingKeyservers {
-	return [NSSet setWithObject:@"options.keyservers"];
-}
-+ (NSSet *)keyPathsForValuesAffectingKeyserver {
-	return [NSSet setWithObject:@"options.keyserver"];
-}
+
+
 
 
 - (BOOL)autoKeyRetrive {
