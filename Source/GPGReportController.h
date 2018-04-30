@@ -8,6 +8,8 @@
 
 #import <Foundation/Foundation.h>
 
+@class GPGToolsPrefController;
+
 @interface GPGReportController : NSObject <NSTextViewDelegate> {
 	NSString *_username;
 	NSString *_email;
@@ -38,5 +40,6 @@
 @property (nonatomic, assign) IBOutlet NSTextView *textView1;
 @property (nonatomic, assign) IBOutlet NSTextView *textView2;
 @property (nonatomic, assign) IBOutlet NSTextView *textView3;
+@property (nonatomic, assign) IBOutlet GPGToolsPrefController *prefController;
 
 @end

@@ -9,6 +9,7 @@
 #import "GPGReportController.h"
 #import "GPGDebugCollector.h"
 #import "GPGToolsPref.h"
+#import "GPGToolsPrefController.h"
 
 
 
@@ -293,6 +294,23 @@ affectedComponent=_affectedComponent, privateDiscussion=_privateDiscussion;
 	
 	return self;
 }
+- (void)awakeFromNib {
+	self.email = self.prefController.crashReportsUserEmail;
+	[self.prefController addObserver:self forKeyPath:@"crashReportsUserEmail" options:NSKeyValueObservingOptionOld context:nil];
+}
+- (void)dealloc {
+	[self.prefController removeObserver:self forKeyPath:@"crashReportsUserEmail"];
+	[super dealloc];
+}
+
+- (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary<NSKeyValueChangeKey,id> *)change context:(void *)context {
+	if (object == self.prefController && [keyPath isEqualToString:@"crashReportsUserEmail"]) {
+		if (self.email.length == 0 || [change[@"old"] isEqual:self.email]) {
+			self.email = self.prefController.crashReportsUserEmail;
+		}
+	}
+}
+
 
 
 // NSTextView Delegate
