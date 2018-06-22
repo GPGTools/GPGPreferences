@@ -32,7 +32,6 @@
 @property BOOL rememberPassword;
 @property (readonly) GPGOptions *options, *updaterOptions;
 @property (readonly) NSString *bundleVersion, *version, *buildNumberDescription, *versionDescription;
-@property BOOL autoKeyRetrive;
 @property BOOL automaticallySendCrashReports;
 @property (strong) NSString *crashReportsUserEmail;
 @property BOOL allowUserEmailContact;

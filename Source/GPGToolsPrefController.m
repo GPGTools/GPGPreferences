@@ -113,7 +113,6 @@ static NSString * const CrashReportsUserEmailKey = @"CrashReportsUserEmail";
 	}
 	
 	NSSet *keysAffectedByConf = [NSSet setWithObjects:
-								 @"autoKeyRetrive",
 								 @"keyserver",
 								 @"passphraseCacheTime",
 								 @"rememberPassword",
@@ -492,32 +491,6 @@ static NSString * const CrashReportsUserEmailKey = @"CrashReportsUserEmail";
 	}
 }
 
-
-
-
-
-
-- (BOOL)autoKeyRetrive {
-	NSArray *keyserverOptions = [self.options valueInGPGConfForKey:@"keyserver-options"];
-	return [keyserverOptions containsObject:@"auto-key-retrieve"];
-}
-- (void)setAutoKeyRetrive:(BOOL)value {
-	NSMutableArray *keyserverOptions = [[self.options valueInGPGConfForKey:@"keyserver-options"] mutableCopy];
-	if (!keyserverOptions) {
-		keyserverOptions = [NSMutableArray array];
-	}
-	
-	if (value) {
-		[keyserverOptions removeObject:@"no-auto-key-retrieve"];
-		if (![keyserverOptions containsObject:@"auto-key-retrieve"]) {
-			[keyserverOptions addObject:@"auto-key-retrieve"];
-		}
-	} else {
-		[keyserverOptions removeObject:@"auto-key-retrieve"];
-	}
-	
-	[self.options setValueInGPGConf:keyserverOptions forKey:@"keyserver-options"];
-}
 
 
 

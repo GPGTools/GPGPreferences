@@ -182,7 +182,7 @@
                                                 <font key="font" metaFont="system"/>
                                             </buttonCell>
                                             <connections>
-                                                <binding destination="243" name="value" keyPath="autoKeyRetrive" id="1051"/>
+                                                <binding destination="243" name="value" keyPath="options.auto-key-retrieve" id="Jvn-Nn-rDN"/>
                                             </connections>
                                         </button>
                                         <progressIndicator wantsLayer="YES" horizontalHuggingPriority="750" verticalHuggingPriority="750" maxValue="100" bezeled="NO" indeterminate="YES" controlSize="small" style="spinning" translatesAutoresizingMaskIntoConstraints="NO" id="yH5-BR-TTA">
@@ -490,7 +490,7 @@
                                             <rect key="frame" x="17" y="191" width="574" height="163"/>
                                             <clipView key="contentView" id="8yv-m4-YRG">
                                                 <rect key="frame" x="1" y="1" width="572" height="161"/>
-                                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                                <autoresizingMask key="autoresizingMask"/>
                                                 <subviews>
                                                     <textView importsGraphics="NO" richText="NO" verticallyResizable="YES" findStyle="panel" continuousSpellChecking="YES" allowsUndo="YES" allowsNonContiguousLayout="YES" quoteSubstitution="YES" dashSubstitution="YES" smartInsertDelete="YES" id="j6Q-iu-ygb">
                                                         <rect key="frame" x="0.0" y="0.0" width="572" height="161"/>
@@ -530,7 +530,7 @@
                                             <rect key="frame" x="17" y="39" width="574" height="68"/>
                                             <clipView key="contentView" id="9gh-SO-vYd">
                                                 <rect key="frame" x="1" y="1" width="572" height="66"/>
-                                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                                <autoresizingMask key="autoresizingMask"/>
                                                 <subviews>
                                                     <textView importsGraphics="NO" richText="NO" verticallyResizable="YES" findStyle="panel" continuousSpellChecking="YES" allowsUndo="YES" allowsNonContiguousLayout="YES" quoteSubstitution="YES" dashSubstitution="YES" smartInsertDelete="YES" id="HBN-6z-ZHJ">
                                                         <rect key="frame" x="0.0" y="0.0" width="572" height="66"/>
@@ -573,7 +573,7 @@
                                             <rect key="frame" x="17" y="115" width="574" height="68"/>
                                             <clipView key="contentView" id="m6j-Jf-GRI">
                                                 <rect key="frame" x="1" y="1" width="572" height="66"/>
-                                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                                <autoresizingMask key="autoresizingMask"/>
                                                 <subviews>
                                                     <textView importsGraphics="NO" richText="NO" verticallyResizable="YES" findStyle="panel" continuousSpellChecking="YES" allowsUndo="YES" allowsNonContiguousLayout="YES" quoteSubstitution="YES" dashSubstitution="YES" smartInsertDelete="YES" id="VIT-xl-tp6">
                                                         <rect key="frame" x="0.0" y="0.0" width="572" height="66"/>
