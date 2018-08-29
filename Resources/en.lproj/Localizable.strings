@@ -5,16 +5,8 @@
 
 
 /* Bad keyserver */
-BadKeyserver_Title = "Bad Keyserver";
-BadKeyserver_Msg = "The Keyserver you have entered is not working.\nPlease check the Keyserver address. It should look something like: hkp://some.key.server.org\n\nThe Keyserver could also be offline. In that case, please use another Keyserver.";
-
-
-UpdateCheckFailed_Title = "Update check failed!";
-UpdateCheckFailed_Msg = "Please reinstall GPG Suite from https://gpgtools.org.";
-
-
-NoUpdatesGM106_Title = "No Updates!";
-NoUpdatesGM106_Msg = "There are no updates for GPGMail on macOS 10.6";
+BadKeyserver_Title = "Key server not working";
+BadKeyserver_Msg = "The key server you entered is not working.\nPlease verify that the address is correct. It should look something like: hkps://some.key.server.org\n\nSince the key server could also be offline you can try another key server.";
 
 
 WarningDeletePasswords_Title = "Delete stored OpenPGP passwords";
@@ -52,20 +44,20 @@ Support_NameTooShort_Msg = "Please enter a longer name.";
 Support_NoComponentSelected_Title = "No component selected";
 Support_NoComponentSelected_Msg = "Please select a component.";
 
-Support_ReportFailed_Title = "Sending report failed";
-Support_ReportFailed_Msg = "We were unable to send your report. Please create your report on our support platform instead. The “Ok” button will open your browser and take you there.";
+Support_ReportFailed_Title = "Report could not be sent";
+Support_ReportFailed_Msg = "Please create your report on our support platform instead. Click “Ok” to open the support form in your browser.";
 
 Support_PublicReportSucceeded_Title = "Report sent";
-Support_PublicReportSucceeded_Msg = "Thanks for taking the time to send this report. A public discussion has been created. Please allow a few days for us to respond. You will receive updates via Email.\n\nWe will now open your discussion in your browser. Consider creating a bookmark.";
+Support_PublicReportSucceeded_Msg = "Thank you for the report. A public discussion has been created. Please allow a few days for us to respond. You will receive updates via email.\n\nThe discussion will now be openend in your browser. Consider creating a bookmark.";
 
 Support_PrivateReportSucceeded_Title = "Report sent";
-Support_PrivateReportSucceeded_Msg = "Thanks for taking the time to send this report. A private discussion has been created. Please allow a few days for us to respond. You will receive updates via Email.\n\nWe will now open your discussion in your browser. Consider creating a bookmark.";
+Support_PrivateReportSucceeded_Msg = "Thank you for the report. A private discussion has been created. Please allow a few days for us to respond. You will receive updates via email.\n\nThe discussion will now be openend in your browser. Consider creating a bookmark.";
 
 
 ShouldRemoveComment_Title = "Information about the comment field";
-ShouldRemoveComment_Msg = "We have removed the option to set a comment in GPGPreferences. Best practices recommend to no longer use the comment field since wrong usage may leak information.\n\nYou have currently configured the following comment:\n\n%@\n\nWould you like to remove it? (recommended)";
-ShouldRemoveComment_Button1 = "Remove comment";
-ShouldRemoveComment_Button2 = "Keep comment";
+ShouldRemoveComment_Msg = "We have removed the option to set a comment in GPG Suite Preferences. Best practices recommend to no longer use the comment field since wrong usage may leak information.\n\nYou have currently configured the following comment:\n\n%@\n\nWould you like to remove it? (recommended)";
+ShouldRemoveComment_Button1 = "Remove Comment";
+ShouldRemoveComment_Button2 = "Keep Comment";
 
 
 EmailCheck_TooLong = "The email address you entered is too long.";

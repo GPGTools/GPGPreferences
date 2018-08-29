@@ -51,13 +51,13 @@
                                                 </menu>
                                             </popUpButtonCell>
                                             <connections>
-                                                <binding destination="243" name="enabled" keyPath="haveSecretKeys" id="e59-ti-iHG"/>
-                                                <binding destination="243" name="selectedIndex" keyPath="indexOfSelectedSecretKey" previousBinding="vRf-iC-NSj" id="NbV-Jh-zMV"/>
-                                                <binding destination="243" name="content" keyPath="secretKeyDescriptions" id="vRf-iC-NSj">
+                                                <binding destination="243" name="content" keyPath="secretKeyDescriptions" id="hh8-z9-nWJ">
                                                     <dictionary key="options">
-                                                        <string key="NSNullPlaceholder">Select a key...</string>
+                                                        <string key="NSNullPlaceholder">Select a key…</string>
                                                     </dictionary>
                                                 </binding>
+                                                <binding destination="243" name="enabled" keyPath="haveSecretKeys" id="e59-ti-iHG"/>
+                                                <binding destination="243" name="selectedIndex" keyPath="indexOfSelectedSecretKey" previousBinding="hh8-z9-nWJ" id="3yY-xZ-rCf"/>
                                                 <outlet property="nextKeyView" destination="561" id="5tv-lf-j0s"/>
                                             </connections>
                                         </popUpButton>
@@ -136,7 +136,7 @@
                                                 <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                             </textFieldCell>
                                         </textField>
-                                        <textField toolTip="This key is used as your default key in GPGServices." verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="YES" translatesAutoresizingMaskIntoConstraints="NO" id="559">
+                                        <textField verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="YES" translatesAutoresizingMaskIntoConstraints="NO" id="559">
                                             <rect key="frame" x="15" y="404" width="74" height="17"/>
                                             <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="right" title="Default Key" id="579">
                                                 <font key="font" metaFont="system"/>
@@ -199,10 +199,9 @@
                                             <rect key="frame" x="93" y="17" width="5" height="405"/>
                                         </box>
                                         <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" setsMaxLayoutWidthAtFirstLayout="YES" allowsCharacterPickerTouchBarItem="YES" translatesAutoresizingMaskIntoConstraints="NO" id="iho-Ho-JOJ">
-                                            <rect key="frame" x="105" y="251" width="377" height="28"/>
-                                            <textFieldCell key="cell" controlSize="small" sendsActionOnEndEditing="YES" id="9oN-AB-7Fa">
+                                            <rect key="frame" x="105" y="251" width="371" height="28"/>
+                                            <textFieldCell key="cell" controlSize="small" sendsActionOnEndEditing="YES" title="Search key servers for public key when signatures can not be verified because the public key does not exist in GPG Keychain." id="9oN-AB-7Fa">
                                                 <font key="font" metaFont="smallSystem"/>
-                                                <string key="title">This option searches the key servers for a public key, in case no public key is found on your system to verify a certain signature.</string>
                                                 <color key="textColor" name="disabledControlTextColor" catalog="System" colorSpace="catalog"/>
                                                 <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                             </textFieldCell>
@@ -429,7 +428,7 @@
                                                 <outlet property="nextKeyView" destination="j6Q-iu-ygb" id="rOv-XJ-42k"/>
                                             </connections>
                                         </textField>
-                                        <button toolTip="The debug information will be encrypted, so only GPGTools team can read it." translatesAutoresizingMaskIntoConstraints="NO" id="Tqr-cf-yu3">
+                                        <button toolTip="The debug log will be encrypted, so only GPGTools staff can read it." translatesAutoresizingMaskIntoConstraints="NO" id="Tqr-cf-yu3">
                                             <rect key="frame" x="15" y="11" width="126" height="18"/>
                                             <buttonCell key="cell" type="check" title="Attach debug log" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="ITf-VV-Ist">
                                                 <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
@@ -490,7 +489,7 @@
                                             <rect key="frame" x="17" y="191" width="574" height="163"/>
                                             <clipView key="contentView" id="8yv-m4-YRG">
                                                 <rect key="frame" x="1" y="1" width="572" height="161"/>
-                                                <autoresizingMask key="autoresizingMask"/>
+                                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                 <subviews>
                                                     <textView importsGraphics="NO" richText="NO" verticallyResizable="YES" findStyle="panel" continuousSpellChecking="YES" allowsUndo="YES" allowsNonContiguousLayout="YES" quoteSubstitution="YES" dashSubstitution="YES" smartInsertDelete="YES" id="j6Q-iu-ygb">
                                                         <rect key="frame" x="0.0" y="0.0" width="572" height="161"/>
@@ -530,7 +529,7 @@
                                             <rect key="frame" x="17" y="39" width="574" height="68"/>
                                             <clipView key="contentView" id="9gh-SO-vYd">
                                                 <rect key="frame" x="1" y="1" width="572" height="66"/>
-                                                <autoresizingMask key="autoresizingMask"/>
+                                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                 <subviews>
                                                     <textView importsGraphics="NO" richText="NO" verticallyResizable="YES" findStyle="panel" continuousSpellChecking="YES" allowsUndo="YES" allowsNonContiguousLayout="YES" quoteSubstitution="YES" dashSubstitution="YES" smartInsertDelete="YES" id="HBN-6z-ZHJ">
                                                         <rect key="frame" x="0.0" y="0.0" width="572" height="66"/>
@@ -573,7 +572,7 @@
                                             <rect key="frame" x="17" y="115" width="574" height="68"/>
                                             <clipView key="contentView" id="m6j-Jf-GRI">
                                                 <rect key="frame" x="1" y="1" width="572" height="66"/>
-                                                <autoresizingMask key="autoresizingMask"/>
+                                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                 <subviews>
                                                     <textView importsGraphics="NO" richText="NO" verticallyResizable="YES" findStyle="panel" continuousSpellChecking="YES" allowsUndo="YES" allowsNonContiguousLayout="YES" quoteSubstitution="YES" dashSubstitution="YES" smartInsertDelete="YES" id="VIT-xl-tp6">
                                                         <rect key="frame" x="0.0" y="0.0" width="572" height="66"/>
@@ -640,7 +639,7 @@
                                                 <binding destination="hlC-rl-bAu" name="hidden" keyPath="uiEnabled" id="Y3f-Gi-4du"/>
                                             </connections>
                                         </customView>
-                                        <button toolTip="Hide this report from the public. Only you, GPGTools team and the company hosting the support platform can access this report." translatesAutoresizingMaskIntoConstraints="NO" id="NgS-lQ-Wdq">
+                                        <button toolTip="Hide this report from the public. Only you, GPGTools staff and the company hosting the support platform can access this report." translatesAutoresizingMaskIntoConstraints="NO" id="NgS-lQ-Wdq">
                                             <rect key="frame" x="153" y="11" width="65" height="18"/>
                                             <buttonCell key="cell" type="check" title="Private" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="8Ci-Ey-IBB">
                                                 <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
