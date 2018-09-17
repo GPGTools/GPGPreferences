@@ -5,21 +5,13 @@
 
 
 /* Bad keyserver */
-BadKeyserver_Title = "Dålig nyckelserver";
-BadKeyserver_Msg = "Den nyckelserver du angivit fungerar inte.\nKontrollera nyckelserverns adress. Den borde se ut ungefär som hkp://some.key.server.org\n\nNyckelservern kan också vara offline. Använd i så fall en annan nyckelserver.";
+BadKeyserver_Title = "Nyckelservern fungerar inte";
+BadKeyserver_Msg = "The key server you entered is not working.\nPlease verify that the address is correct. It should look something like: hkps://some.key.server.org\n\nSince the key server could also be offline you can try another key server.";
 
 
-UpdateCheckFailed_Title = "Det gick inte att kontrollera uppdatering!";
-UpdateCheckFailed_Msg = "Ominstallera GPG Suite från https://gpgtools.org.";
-
-
-NoUpdatesGM106_Title = "Inga uppdateringar!";
-NoUpdatesGM106_Msg = "Det finns inga uppdateringar för GPGMail på macOS 10.6";
-
-
-WarningDeletePasswords_Title = "Delete stored OpenPGP passwords";
-WarningDeletePasswords_Msg = "This will delete all OpenPGP passwords stored in macOS keychain and empty the cache.";
-WarningDeletePasswords_Button1 = "Delete";
+WarningDeletePasswords_Title = "Radera lagrade OpenPGP-lösenord";
+WarningDeletePasswords_Msg = "Detta kommer att radera alla OpenPGP-lösenord som lagras i macOS-nyckelringen och tömma cachen.";
+WarningDeletePasswords_Button1 = "Radera";
 WarningDeletePasswords_Button2 = "Avbryt";
 
 PassowrdsDeleted_Title = "Lösenorden raderades";
@@ -52,18 +44,18 @@ Support_NameTooShort_Msg = "Ange ett längre namn.";
 Support_NoComponentSelected_Title = "Ingen komponent är vald";
 Support_NoComponentSelected_Msg = "Välj en komponent.";
 
-Support_ReportFailed_Title = "Det gick inte att skicka rapporten";
-Support_ReportFailed_Msg = "Vi kunde inte skicka din rapport. Skapa en rapport på vår supportplattform istället. \"Ok\"-knappen kommer att öppna din webbläsare och ta dig dit.";
+Support_ReportFailed_Title = "Report could not be sent";
+Support_ReportFailed_Msg = "Please create your report on our support platform instead. Click “Ok” to open the support form in your browser.";
 
 Support_PublicReportSucceeded_Title = "Rapport skickad";
-Support_PublicReportSucceeded_Msg = "Tack för att du tar dig tid att skicka denna rapport. En öppen diskussion har skapats. Ge oss några dagar på att svara. Du kommer att få uppdateringar via e-post.\n\nVi kommer nu att öppna din diskussion i din webbläsare. Skapa gärna ett bokmärke.";
+Support_PublicReportSucceeded_Msg = "Thank you for the report. A public discussion has been created. Please allow a few days for us to respond. You will receive updates via email.\n\nThe discussion will now be openend in your browser. Consider creating a bookmark.";
 
 Support_PrivateReportSucceeded_Title = "Rapport skickad";
-Support_PrivateReportSucceeded_Msg = "Tack för att du tar dig tid att skicka denna rapport. En privat diskussion har skapats. Ge oss några dagar på att svara. Du kommer att få uppdateringar via e-post.\n\nVi kommer nu att öppna din diskussion i din webbläsare. Skapa gärna ett bokmärke.";
+Support_PrivateReportSucceeded_Msg = "Thank you for the report. A private discussion has been created. Please allow a few days for us to respond. You will receive updates via email.\n\nThe discussion will now be openend in your browser. Consider creating a bookmark.";
 
 
 ShouldRemoveComment_Title = "Information om kommentarsfältet";
-ShouldRemoveComment_Msg = "Vi har tagit bort möjligheten att lägga till en kommentar i GPGPreferences. Bästa praxis är att inte längre använda kommentarsfältet eftersom information kan läcka ut vid felanvändning.\n\nDu har för närvarande ställt in följande kommentar:\n\n%@\n\nVill du ta bort den? (rekommenderas)";
+ShouldRemoveComment_Msg = "We have removed the option to set a comment in GPG Suite Preferences. Best practices recommend to no longer use the comment field since wrong usage may leak information.\n\nYou have currently configured the following comment:\n\n%@\n\nWould you like to remove it? (recommended)";
 ShouldRemoveComment_Button1 = "Ta bort kommentar";
 ShouldRemoveComment_Button2 = "Behåll kommentar";
 

@@ -5,25 +5,17 @@
 
 
 /* Bad keyserver */
-BadKeyserver_Title = "Dårlig nøkkeltjener";
-BadKeyserver_Msg = "Nøkkeltjeneren du skrev inn virker ikke.\nSjekk nøkkeltjeneradressen. Den bør se ut noe ala hkp://en.nøkkel.tjener.no\n\nNøkkeltjeneren kan også være nede. I sådant fall, bruk en annen nøkkeltjener.";
+BadKeyserver_Title = "Key server not working";
+BadKeyserver_Msg = "The key server you entered is not working.\nPlease verify that the address is correct. It should look something like: hkps://some.key.server.org\n\nSince the key server could also be offline you can try another key server.";
 
 
-UpdateCheckFailed_Title = "Oppdateringssjekk mislyktes!";
-UpdateCheckFailed_Msg = "Reinstaller GPG Suite fra https://gpgtools.org";
-
-
-NoUpdatesGM106_Title = "Ingen oppdateringer!";
-NoUpdatesGM106_Msg = "Det er ingen oppdateringer for GPGMail på macOS 10.6";
-
-
-WarningDeletePasswords_Title = "Delete stored OpenPGP passwords";
-WarningDeletePasswords_Msg = "This will delete all OpenPGP passwords stored in macOS keychain and empty the cache.";
-WarningDeletePasswords_Button1 = "Delete";
+WarningDeletePasswords_Title = "Slett lagrede OpenPGP-passord";
+WarningDeletePasswords_Msg = "Dette vil slette alle OpenPGP-passord lagret i macOS-nøkkelknippet og tømme hurtiglageret.";
+WarningDeletePasswords_Button1 = "Slett";
 WarningDeletePasswords_Button2 = "Avbryt";
 
 PassowrdsDeleted_Title = "Passord slettet";
-PassowrdsDeleted_Msg = "Alle OpenPGP-passord ble slettet fra macOS-nøkkelknippet og hurtiglageret.";
+PassowrdsDeleted_Msg = "All OpenPGP passwords were deleted from macOS keychain and the cache.";
 
 PassowrdsDeletFailed_Title = "Sletting av passord mislyktes!";
 PassowrdsDeletFailed_Msg = "Ikke alle lagrede passord kunne slettes. Åpne Console.app og se etter feil som har med dette å gjøre. La oss høre om problemet fra fanen 'Send rapport'.";
@@ -44,7 +36,7 @@ Support_SubjectTooShort_Title = "Emnet er for kort";
 Support_SubjectTooShort_Msg = "Legg til et mer beskrivende emne.";
 
 Support_MailInvalid_Title = "Ugyldig e-postadresse";
-Support_MailInvalid_Msg = "Bruk en gyldig e-postadresse.";
+Support_MailInvalid_Msg = "Oppgi en gyldig e-postadresse.";
 
 Support_NameTooShort_Title = "Navnet er for kort";
 Support_NameTooShort_Msg = "Skriv inn et lengre lavn.";
@@ -52,20 +44,20 @@ Support_NameTooShort_Msg = "Skriv inn et lengre lavn.";
 Support_NoComponentSelected_Title = "Ingen komponent valgt";
 Support_NoComponentSelected_Msg = "Velg en komponent";
 
-Support_ReportFailed_Title = "Forsendelse av rapport mislyktes";
-Support_ReportFailed_Msg = "Rapporten din kunne ikke sendes. Opprett rapporten din på vår brukerstøtteplattform i steden for. \"OK\"-knappen vil åpne din forvalgte nettleser og ta deg dit.";
+Support_ReportFailed_Title = "Report could not be sent";
+Support_ReportFailed_Msg = "Please create your report on our support platform instead. Click “Ok” to open the support form in your browser.";
 
 Support_PublicReportSucceeded_Title = "Rapport sendt";
-Support_PublicReportSucceeded_Msg = "Takk for at du tok deg tid til å sende denne rapporten! En offentlig korrespondanse har blitt opprettet. Gi oss et par dager på å svare. Du vil motta oppdateringer per e-post.\n\nDiskusjonen vil nå åpnes i din nettleser. Overvei å lage et bokmerke.";
+Support_PublicReportSucceeded_Msg = "Thank you for the report. A public discussion has been created. Please allow a few days for us to respond. You will receive updates via email.\n\nThe discussion will now be openend in your browser. Consider creating a bookmark.";
 
 Support_PrivateReportSucceeded_Title = "Rapport sendt";
-Support_PrivateReportSucceeded_Msg = "Takk for at du tok deg tid til å sende denne rapporten! En privat korrespondanse har blitt opprettet. Gi oss et par dager på å svare. Du vil motta oppdateringer per e-post.\n\nDiskusjonen vil nå åpnes i din nettleser. Overvei å lage et bokmerke.";
+Support_PrivateReportSucceeded_Msg = "Thank you for the report. A private discussion has been created. Please allow a few days for us to respond. You will receive updates via email.\n\nThe discussion will now be openend in your browser. Consider creating a bookmark.";
 
 
 ShouldRemoveComment_Title = "Informasjon om kommentarfeltet";
-ShouldRemoveComment_Msg = "Vi har fjernet muligheten til å sette en kommentar i GPGPreferences. Kjørereglene anbefaler å ikke bruke dette feltet lenger siden feil bruk kan lekke informasjon.\n\nDu har for øyeblikket satt opp følgende kommentar:\n\n%@\n\nØnsker du å fjerne den? (Anbefalt)";
-ShouldRemoveComment_Button1 = "Fjern kommentar";
-ShouldRemoveComment_Button2 = "Behold kommentar";
+ShouldRemoveComment_Msg = "We have removed the option to set a comment in GPG Suite Preferences. Best practices recommend to no longer use the comment field since wrong usage may leak information.\n\nYou have currently configured the following comment:\n\n%@\n\nWould you like to remove it? (recommended)";
+ShouldRemoveComment_Button1 = "Remove Comment";
+ShouldRemoveComment_Button2 = "Keep Comment";
 
 
 EmailCheck_TooLong = "E-postadressen du har angitt er for lang.";

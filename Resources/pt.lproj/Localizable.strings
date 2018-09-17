@@ -5,31 +5,23 @@
 
 
 /* Bad keyserver */
-BadKeyserver_Title = "Servidor de Chaves inválido";
-BadKeyserver_Msg = "O Servidor de Chaves digitado não está funcionando. Verifique o endereço do servidor, que deve ser similar a: hkp://servidor.de.chaves.org\n\nO Servidor de Chaves também pode estar off-line. Nesse caso, use outro servidor.";
+BadKeyserver_Title = "Servidor de chaves não funcionando";
+BadKeyserver_Msg = "O servidor de chaves digitado não está funcionando.\nVerifique se o endereço está certo, que deve ser similar a: hkps://servidor.de.chaves.org\n\nJá que o servidor também pode estar off‑line, tente usar outro.";
 
 
-UpdateCheckFailed_Title = "Falha ao buscar atualização";
-UpdateCheckFailed_Msg = "Reinstale a GPG Suite de https://gpgtools.org.";
-
-
-NoUpdatesGM106_Title = "Nenhuma atualização disponível";
-NoUpdatesGM106_Msg = "Não há atualizações para o GPGMail no macOS 10.6.";
-
-
-WarningDeletePasswords_Title = "Delete stored OpenPGP passwords";
-WarningDeletePasswords_Msg = "This will delete all OpenPGP passwords stored in macOS keychain and empty the cache.";
-WarningDeletePasswords_Button1 = "Delete";
+WarningDeletePasswords_Title = "Apagar senhas OpenPGP armazenadas";
+WarningDeletePasswords_Msg = "Isto apagará todas as senhas OpenPGP armazenadas nas chaves do macOS e esvaziará o cache.";
+WarningDeletePasswords_Button1 = "Apagar";
 WarningDeletePasswords_Button2 = "Cancelar";
 
 PassowrdsDeleted_Title = "Senhas apagadas";
-PassowrdsDeleted_Msg = "Todas as senhas OpenPGP foram apagadas corretamente das chaves e do cache do macOS.";
+PassowrdsDeleted_Msg = "Todas as senhas OpenPGP foram apagadas das chaves e do cache do macOS.";
 
 PassowrdsDeletFailed_Title = "Falha ao apagar senhas";
 PassowrdsDeletFailed_Msg = "Nem todas as senhas puderam ser apagadas. Abra o aplicativo Console e busque erros relacionados. Use a aba Enviar Relatório para nos informar sobre o problema.";
 
 Support_SendDebugInfo_Title = "Enviando informações de depuração";
-Support_SendDebugInfo_Msg = "Alguns fatos sobre a opção de incluir informações de depuração no relatório: na maioria das vezes, essas informações ajudarão a acelerar o processo de depuração e o seu problema será resolvido mais rápido.\n\nRecomendamos que as informações de depuração sejam adicionadas, a não ser que o relatório seja uma sugestão de recurso.\n\nA comunicação ocorre através de uma conexão TLS criptografada com nossos servidores; chegando lá, a mensagem é criptografada com a chave da nossa equipe e enviada para a plataforma de suporte. Assim, as informações de depuração não estarão acessíveis para ninguém além de nossa equipe principal, mesmo que a opção “Privado” não seja selecionada na aba Enviar Relatório.\n\nDurante a criação das informações de depuração, a senha da sua chave OpenPGP pode ser solicitada, visando testar o funcionamento esperado da decriptação e assinatura no sistema.\n\nO registro de depuração inclui meta-informações sobre as suas chaves.";
+Support_SendDebugInfo_Msg = "Alguns fatos sobre a opção de incluir informações de depuração no relatório: na maioria das vezes, essas informações ajudarão a acelerar o processo de depuração e o seu problema será resolvido mais rápido.\n\nRecomenda‑se que as informações de depuração sejam adicionadas, a não ser que o relatório seja uma sugestão de recurso.\n\nA comunicação ocorre através de uma conexão TLS criptografada com nossos servidores; chegando lá, a mensagem é criptografada com a chave da nossa equipe e enviada para a plataforma de suporte. Assim, as informações de depuração não estarão acessíveis para ninguém além de nossa equipe principal, mesmo que a opção “Privado” não seja selecionada na aba Enviar Relatório.\n\nDurante a criação das informações de depuração, a senha da sua chave OpenPGP pode ser solicitada, visando testar o funcionamento esperado da descriptografia e assinatura no sistema.\n\nO registro de depuração inclui meta‑informações sobre as suas chaves.";
 Support_SendDebugInfo_Button1 = "Enviar Relatório";
 Support_SendDebugInfo_Button2 = "Cancelar";
 Support_SendDebugInfo_Checkbox = "Incluir informações de depuração no relatório";
@@ -43,7 +35,7 @@ Support_ExpectedBahaviorTooShort_Msg = "Adicione mais detalhes no campo de compo
 Support_SubjectTooShort_Title = "Assunto curto demais";
 Support_SubjectTooShort_Msg = "Adicione um assunto mais descritivo.";
 
-Support_MailInvalid_Title = "E-mail inválido";
+Support_MailInvalid_Title = "E‑mail inválido";
 Support_MailInvalid_Msg = "Use um endereço de e-mail válido.";
 
 Support_NameTooShort_Title = "Nome curto demais";
@@ -52,24 +44,24 @@ Support_NameTooShort_Msg = "Digite um nome mais longo.";
 Support_NoComponentSelected_Title = "Nenhum componente selecionado";
 Support_NoComponentSelected_Msg = "Selecione um componente.";
 
-Support_ReportFailed_Title = "Falha ao enviar relatório";
-Support_ReportFailed_Msg = "O relatório não pôde ser enviado. Use nossa plataforma de suporte para criar o relatório. Ao clicar no botão “OK”, o navegador será aberto e você será direcionado para a plataforma de suporte.";
+Support_ReportFailed_Title = "O relatório não pôde ser enviado";
+Support_ReportFailed_Msg = "Use a nossa plataforma de suporte para criar o relatório. Clique em “OK” para abrir a plataforma de suporte no navegador.";
 
 Support_PublicReportSucceeded_Title = "Relatório enviado";
-Support_PublicReportSucceeded_Msg = "Obrigado por enviar o relatório. Uma discussão pública foi criada. Aguarde alguns dias por uma resposta. Atualizações serão enviadas por e-mail.\n\nA discussão será aberta no navegador agora. Se desejar, adicione-a como um favorito no navegador.";
+Support_PublicReportSucceeded_Msg = "Obrigado pelo relatório. Uma discussão pública foi criada. Aguarde alguns dias por uma resposta. Atualizações serão enviadas por e‑mail.\n\nA discussão será aberta no navegador agora. Se desejar, adicione‑a como um favorito no navegador.";
 
 Support_PrivateReportSucceeded_Title = "Relatório enviado";
-Support_PrivateReportSucceeded_Msg = "Obrigado por enviar o relatório. Uma discussão privada foi criada. Aguarde alguns dias por uma resposta. Atualizações serão enviadas por e-mail.\n\nA discussão será aberta no navegador agora. Se desejar, adicione-a como um favorito no navegador.";
+Support_PrivateReportSucceeded_Msg = "Obrigado pelo relatório. Uma discussão privada foi criada. Aguarde alguns dias por uma resposta. Atualizações serão enviadas por e‑mail.\n\nA discussão será aberta no navegador agora. Se desejar, adicione‑a como um favorito no navegador.";
 
 
 ShouldRemoveComment_Title = "Informações sobre o campo de comentários";
-ShouldRemoveComment_Msg = "A opção para definir um comentário nas GPGPreferences foi removida. É recomendável não usar mais o campo de comentários, pois seu uso incorreto pode acarretar no vazamento de informações.\n\nO seguinte comentário está configurado atualmente:\n\n%@\n\nDeseja removê-lo? (Recomendável)";
+ShouldRemoveComment_Msg = "A opção para definir um comentário nas Preferências da GPG Suite foi removida. É recomendável não usar mais o campo de comentários, pois seu uso incorreto pode acarretar no vazamento de informações.\n\nO seguinte comentário está configurado atualmente:\n\n%@\n\nDeseja removê‑lo? (Recomendável)";
 ShouldRemoveComment_Button1 = "Remover Comentário";
 ShouldRemoveComment_Button2 = "Manter Comentário";
 
 
-EmailCheck_TooLong = "O endereço de e-mail digitado é grande demais.";
-EmailCheck_Invalid = "O endereço de e-mail digitado é inválido.";
+EmailCheck_TooLong = "O endereço de e‑mail digitado é grande demais.";
+EmailCheck_Invalid = "O endereço de e‑mail digitado é inválido.";
 EmailCheck_Msg = "Use um endereço de e-mail válido.";
 
 

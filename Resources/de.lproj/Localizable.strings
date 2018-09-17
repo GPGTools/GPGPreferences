@@ -5,46 +5,38 @@
 
 
 /* Bad keyserver */
-BadKeyserver_Title = "Schlechter Schlüsselserver";
-BadKeyserver_Msg = "Der eingegebene Schlüsselserver funktioniert nicht.\nBitte prüfe die Adresse des Schlüsselservers. Sie sollte ungefähr so aussehen:\nhkp://some.key.server.org\n\nDer Schlüsselserver könnte auch Offline sein. In dem Fall verwende bitte einen anderen Schlüsselserver.";
+BadKeyserver_Title = "Schlüsselserver funktioniert nicht";
+BadKeyserver_Msg = "Der eingegebene Schlüsselserver funktioniert nicht.\nBitte prüfe, ob die Adresse korrekt ist. Sie sollte ungefähr so aussehen:\nhkps://some.key.server.org\n\nDa der Schlüsselserver Offline sein könnte, versuche einen anderen Schlüsselserver zu verwenden.";
 
 
-UpdateCheckFailed_Title = "Aktualisierungsprüfung fehlgeschlagen!";
-UpdateCheckFailed_Msg = "Bitte installieren Sie GPG Suite von https://gpgtools.org erneut.";
-
-
-NoUpdatesGM106_Title = "Keine Aktualisierungen!";
-NoUpdatesGM106_Msg = "Es gibt keine Updates für GPGMail auf macOS 10.6";
-
-
-WarningDeletePasswords_Title = "Delete stored OpenPGP passwords";
-WarningDeletePasswords_Msg = "This will delete all OpenPGP passwords stored in macOS keychain and empty the cache.";
-WarningDeletePasswords_Button1 = "Delete";
+WarningDeletePasswords_Title = "Gespeicherte OpenPGP Passwörter löschen";
+WarningDeletePasswords_Msg = "Alle OpenPGP Passwörter die im macOS Schlüsselbund gespeichert sind löschen und den Cache leeren.";
+WarningDeletePasswords_Button1 = "Löschen";
 WarningDeletePasswords_Button2 = "Abbrechen";
 
 PassowrdsDeleted_Title = "Passwörter gelöscht";
-PassowrdsDeleted_Msg = "Alle OpenPGP Passwörter wurden erfolgreich aus dem macOS Schlüsselbund und dem Cache gelöscht.";
+PassowrdsDeleted_Msg = "Alle OpenPGP Passwörter wurden aus dem macOS Schlüsselbund und dem Cache gelöscht.";
 
 PassowrdsDeletFailed_Title = "Löschen der Passwörter fehlgeschlagen!";
-PassowrdsDeletFailed_Msg = "Nicht alle gespeicherten Passwörter konnten gelöscht werden. Bitte öffne Konsole.app und schaue, ob du Fehlermeldungen findest, die in Zusammenhang stehen könnten. Informiere uns über dieses Problem, indem du 'Bericht senden' anwählst.";
+PassowrdsDeletFailed_Msg = "Nicht alle gespeicherten Passwörter konnten gelöscht werden. Bitte öffne Konsole.app und schaue, ob du Fehlermeldungen findest, die in Zusammenhang stehen könnten. Informiere uns über dieses Problem über 'Bericht senden'.";
 
-Support_SendDebugInfo_Title = "Fehlersuchinformationen werden gesendet";
-Support_SendDebugInfo_Msg = "Ein kurzer Hinweis zur Option, Debug Informationen an Deinen Bericht anzuhängen: Häufig wird uns diese Information helfen, den Debugging-Prozess zu beschleunigen. Dein Problem kann so deutlich schneller gelöst werden.\n\nSofern Dein Bericht nicht ein Feature-Request ist, empfehlen wir, die Debug Informationen beizufügen.\n\nDie Infos werden via verschlüsselter TLS-Verbindung an unseren Hoster geschickt. Dort werden sie mit unserem Team-Schlüssel verschlüsselt und weiter an unsere Support-Plattform geschickt. So werden die Debug Infos für niemanden außer unserem Kernteam zugänglich sein, selbst wenn dein Bericht nicht auf Privat gestellt ist.\n\nWährend der Erstellung der Debug Informationen kann es sein, dass du nach deinem OpenPGP Passwort gefragt wirst. Das passiert deshalb, weil wir testen, ob auf deinem System das Entschlüsseln und Signieren korrekt funktioniert.\n\nDas Debug Log enthält Metadaten zu deinen Schlüsseln.";
+Support_SendDebugInfo_Title = "Diagnose-Informationen senden";
+Support_SendDebugInfo_Msg = "Ein kurzer Hinweis zur Option, Debug Informationen an deinen Bericht anzuhängen: Oft werden uns diese Informationen helfen, den Debugging-Prozess zu beschleunigen. Dein Problem kann so schneller gelöst werden.\n\nSofern dein Bericht nicht ein Feature-Request ist, empfehlen wir die Debug Informationen beizufügen.\n\nDie Infos werden via verschlüsselter TLS-Verbindung an unseren Hoster geschickt. Dort werden sie mit unserem Team-Schlüssel verschlüsselt und weiter an unsere Support-Plattform geschickt. So werden die Debug Infos für niemanden außer unserem Kernteam zugänglich sein, selbst wenn dein Bericht nicht auf Privat gestellt ist.\n\nWährend der Erstellung der Debug Informationen kann es sein, dass du nach deinem OpenPGP Passwort gefragt wirst. Das passiert, weil wir testen, ob auf deinem System das Entschlüsseln und Signieren korrekt funktioniert.\n\nDas Debug Log enthält Metadaten zu deinen Schlüsseln.";
 Support_SendDebugInfo_Button1 = "Bericht senden";
 Support_SendDebugInfo_Button2 = "Abbrechen";
 Support_SendDebugInfo_Checkbox = "Debug Informationen mit diesem Bericht versenden";
 
 Support_BugDescriptionTooShort_Title = "Beschreibung zu kurz";
-Support_BugDescriptionTooShort_Msg = "Bitte ergänze mehr Details im Beschreibungs-Feld. Je mehr Details Du uns mitteilst, umso schneller sind wir in der Lage eine Lösung für dein Problem zu finden. Falls anwendbar, füge bitte genaue Schritte bei, die uns helfen, das Problem zu reproduzieren.";
+Support_BugDescriptionTooShort_Msg = "Bitte ergänze mehr Details im Beschreibungsfeld. Je mehr Details du uns mitteilst, umso schneller sind wir in der Lage eine Lösung für dein Problem zu finden. Wenn möglich, füge bitte genaue Schritte bei, die uns helfen, das Problem zu reproduzieren.";
 
 Support_ExpectedBahaviorTooShort_Title = "Erwartetes Verhalten zu kurz";
-Support_ExpectedBahaviorTooShort_Msg = "Bitte ergänze mehr Details im Feld zum erwarteten Verhalten. Je mehr Details du uns mitteilst, umso schneller sind wir in der Lage eine Lösung und Antwort auf deine Anfrage zu finden.";
+Support_ExpectedBahaviorTooShort_Msg = "Bitte ergänze mehr Details im Feld zum erwarteten Verhalten. Je mehr Details du uns mitteilst, umso schneller sind wir in der Lage eine Lösung zu finden und deine Anfrage zu bearbeiten.";
 
 Support_SubjectTooShort_Title = "Betreff zu kurz";
-Support_SubjectTooShort_Msg = "Bitte fügen Sie einen aussagekräftigeren Betreff ein.";
+Support_SubjectTooShort_Msg = "Bitte verwende einen aussagekräftigeren Betreff.";
 
-Support_MailInvalid_Title = "E-Mail-Adresse ungültig";
-Support_MailInvalid_Msg = "Bitte verwende eine gültige E-Mail-Adresse.";
+Support_MailInvalid_Title = "E-Mail ungültig";
+Support_MailInvalid_Msg = "Bitte verwende eine gültige E-Mail Adresse.";
 
 Support_NameTooShort_Title = "Name zu kurz.";
 Support_NameTooShort_Msg = "Bitte gib einen längeren Namen ein.";
@@ -52,24 +44,24 @@ Support_NameTooShort_Msg = "Bitte gib einen längeren Namen ein.";
 Support_NoComponentSelected_Title = "Keine Komponente ausgewählt";
 Support_NoComponentSelected_Msg = "Bitte wähle eine Komponente aus.";
 
-Support_ReportFailed_Title = "Senden des Berichts fehlgeschlagen";
-Support_ReportFailed_Msg = "Wir konnten Deinen Bericht nicht senden. Bitte erstelle den Bericht direkt auf unserer Support-Plattform. Der \"Ok\"-Knopf öffnet Deinen Browser und bringt Dich dorthin.";
+Support_ReportFailed_Title = "Bericht konnte nicht gesendet werden";
+Support_ReportFailed_Msg = "Bitte erstelle den Bericht direkt auf unserer Support-Plattform. Der \"Ok\"-Knopf öffnet deinen Browser und bringt dich dorthin.";
 
 Support_PublicReportSucceeded_Title = "Bericht gesendet";
-Support_PublicReportSucceeded_Msg = "Danke, dass Du Dir die Zeit genommen hast, diesen Bericht zu senden. Eine öffentliche Diskussion wurde erstellt. Bitte gib uns ein paar Tage Zeit für eine Antwort. Du wirst via E-Mail informiert, sobald es Neuigkeiten gibt.\n\nWir werden nun Deine Diskussion im Browser öffnen. Erstelle gegebenenfalls ein Lesezeichen.";
+Support_PublicReportSucceeded_Msg = "Danke für den Bericht. Eine öffentliche Diskussion wurde erstellt. Bitte gib uns ein paar Tage Zeit für eine Antwort. Updates wirst du per E-Mail erhalten.\n\nDeine Diskussion wird nun im Browser geöffnet. Lege bei Bedarf ein Lesezeichen an.";
 
 Support_PrivateReportSucceeded_Title = "Bericht gesendet";
-Support_PrivateReportSucceeded_Msg = "Danke, dass Du Dir die Zeit genommen hast, diesen Bericht zu senden. Eine private Diskussion wurde erstellt. Bitte gib uns ein paar Tage Zeit für eine Antwort. Du wirst via E-Mail informiert, sobald es Neuigkeiten gibt.\n\nWir werden nun deine Diskussion im Browser öffnen. Erstelle gegebenenfalls ein Lesezeichen.";
+Support_PrivateReportSucceeded_Msg = "Danke für den Bericht. Eine private Diskussion wurde erstellt. Bitte gib uns ein paar Tage Zeit für eine Antwort. Updates wirst du per E-Mail erhalten.\n\nDeine Diskussion wird nun im Browser geöffnet. Lege bei Bedarf ein Lesezeichen an.";
 
 
 ShouldRemoveComment_Title = "Information zum Kommentar-Feld";
-ShouldRemoveComment_Msg = "Wir haben die Option für ein Kommentar-Feld in GPGPreferences entfernt. Seine Nutzung wird nicht mehr empfohlen, da bei unsachgemäßer Verwendung sensible Daten offengelegt werden könnten.\n\nDu hast aktuell folgenden Kommentar konfiguriert:\n\n%@\n\nMöchtest Du den Kommentar entfernen? (empfohlen)";
+ShouldRemoveComment_Msg = "Wir haben die Option für ein Kommentar-Feld in GPG Suite Preferences entfernt. Dessen Nutzung wird nicht mehr empfohlen, da bei unsachgemäßer Verwendung sensible Daten offengelegt werden könnten.\n\nDu hast aktuell folgenden Kommentar konfiguriert:\n\n%@\n\nMöchtest Du den Kommentar entfernen? (empfohlen)";
 ShouldRemoveComment_Button1 = "Kommentar entfernen";
 ShouldRemoveComment_Button2 = "Kommentar behalten";
 
 
-EmailCheck_TooLong = "Die eingegebene Email-Adresse ist zu lang.";
-EmailCheck_Invalid = "Die eingegebene Email-Adresse ist ungültig.";
-EmailCheck_Msg = "Bitte gib eine gültige Email-Adresse ein.";
+EmailCheck_TooLong = "Die eingegebene Email ist zu lang.";
+EmailCheck_Invalid = "Die eingegebene E-Mail ist ungültig.";
+EmailCheck_Msg = "Bitte gib eine gültige E-Mail ein.";
 
 

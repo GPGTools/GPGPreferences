@@ -5,16 +5,8 @@
 
 
 /* Bad keyserver */
-BadKeyserver_Title = "Κακός Εξυπηρετητής Κλειδιών";
-BadKeyserver_Msg = "Ο Εξυπηρετητής Κλειδιών που εισάγατε δε λειτουργεί.\nΠαρακαλώ ελέγξτε τη διεύθυνση του Εξυπηρετητή Κλειδιών. Θα πρέπει να μοιάζει κάπως έτσι: hkp://some.key.server.org\n\nΟ Εξυπηρετητής Κλειδιών μπορεί επίσης να είναι εκτός λειτουργίας. Σε αυτή την περίπτωση, παρακαλώ χρησιμοποιήστε άλλο Εξυπηρετητή Κλειδιών.";
-
-
-UpdateCheckFailed_Title = "Ο έλεγος για ενημερώσεις απέτυχε!";
-UpdateCheckFailed_Msg = "Παρακαλώ εγκαταστήστε ξανά το GPG Suite από το https://gpgtools.org.";
-
-
-NoUpdatesGM106_Title = "Δεν υπάρχουν διαθέσιμες ενημερώσεις!";
-NoUpdatesGM106_Msg = "There are no Updates for GPGMail on macOS 10.6";
+BadKeyserver_Title = "Key server not working";
+BadKeyserver_Msg = "The key server you entered is not working.\nPlease verify that the address is correct. It should look something like: hkps://some.key.server.org\n\nSince the key server could also be offline you can try another key server.";
 
 
 WarningDeletePasswords_Title = "Delete stored OpenPGP passwords";
@@ -23,7 +15,7 @@ WarningDeletePasswords_Button1 = "Delete";
 WarningDeletePasswords_Button2 = "Ακύρωση";
 
 PassowrdsDeleted_Title = "Οι κωδικοί διαγράφηκαν";
-PassowrdsDeleted_Msg = "All OpenPGP passwords were successfully deleted from macOS keychain and the cache.";
+PassowrdsDeleted_Msg = "All OpenPGP passwords were deleted from macOS keychain and the cache.";
 
 PassowrdsDeletFailed_Title = "Η διαγραφή κωδικών απέτυχε!";
 PassowrdsDeletFailed_Msg = "Δεν ήταν δυνατή η διαγραφή όλων των αποθηκευμένων κωδικών. Παρακαλώ ανοίξτε το Console.app και αναζητήστε σχετικά σφάλματα. Έπειτα ενημερώστε μας για το πρόβλημα μέσω της καρτέλας 'Αποστολή Αναφοράς'.";
@@ -44,7 +36,7 @@ Support_SubjectTooShort_Title = "Πολύ σύντομο θέμα";
 Support_SubjectTooShort_Msg = "Παρακαλώ εισάγετε ένα πιο περιγραφικό θέμα.";
 
 Support_MailInvalid_Title = "Η Διεύθυνση Ηλεκτρονικού Ταχυδρομείου δεν είναι έγκυρη";
-Support_MailInvalid_Msg = "Παρακαλώ χρησιμοποιήστε μία έγκυρη Διεύθυνση Ηλεκτρονικού Ταχυδρομείου.";
+Support_MailInvalid_Msg = "Please use a valid email address.";
 
 Support_NameTooShort_Title = "Πολύ σύντομο όνομα";
 Support_NameTooShort_Msg = "Παρακαλώ εισάγετε ένα πιο μεγάλο όνομα.";
@@ -52,20 +44,20 @@ Support_NameTooShort_Msg = "Παρακαλώ εισάγετε ένα πιο με
 Support_NoComponentSelected_Title = "Δεν επιλέχθηκε τμήμα";
 Support_NoComponentSelected_Msg = "Παρακαλώ επιλέξτε ένα τμήμα.";
 
-Support_ReportFailed_Title = "Η αποστολή αναφοράς απέτυχε";
-Support_ReportFailed_Msg = "Δεν ήταν δυνατή η αποστολή της αναφορά σας. Παρακαλώ, δημιουργήστε την αναφορά σας στην πλατφόρμα υποστήριξής μας αντί αυτού. Το κουμπί \"Ok\" θα ανοίξει τον περιηγητή ιστού σας και θα σας κατευθύνει εκεί.";
+Support_ReportFailed_Title = "Report could not be sent";
+Support_ReportFailed_Msg = "Please create your report on our support platform instead. Click “Ok” to open the support form in your browser.";
 
 Support_PublicReportSucceeded_Title = "Η αναφορά εστάλη";
-Support_PublicReportSucceeded_Msg = "Σας ευχαριστούμε για το χρόνο σας για την αποστολή αυτής της αναφοράς. Μία δημόσια συζήτηση έχει δημιουργηθεί. Παρακαλώ, αφήστε μερικές μέρες εώς ότου απαντήσουμε. Θα λαμβάνετε ενημερώσεις μέσω ηλεκτρονικού ταχυδρομείου.\n\nΘα ανοίξουμε τώρα τη συζήτηση στον περιηγητή ιστού σας. Αναλογιστείτε εάν θέλετε να αποθηκεύσετε τη σελίδα στους σελιδοδείκτες σας.";
+Support_PublicReportSucceeded_Msg = "Thank you for the report. A public discussion has been created. Please allow a few days for us to respond. You will receive updates via email.\n\nThe discussion will now be openend in your browser. Consider creating a bookmark.";
 
 Support_PrivateReportSucceeded_Title = "Η αναφορά εστάλη";
-Support_PrivateReportSucceeded_Msg = "Σας ευχαριστούμε για το χρόνο σας για την αποστολή αυτής της αναφοράς. Μία ιδιωτική συζήτηση έχει δημιουργηθεί. Παρακαλώ, αφήστε μερικές μέρες εώς ότου απαντήσουμε. Θα λαμβάνετε ενημερώσεις μέσω ηλεκτρονικού ταχυδρομείου.\n\nΘα ανοίξουμε τώρα τη συζήτηση στον περιηγητή ιστού σας. Αναλογιστείτε εάν θέλετε να αποθηκεύσετε τη σελίδα στους σελιδοδείκτες σας.";
+Support_PrivateReportSucceeded_Msg = "Thank you for the report. A private discussion has been created. Please allow a few days for us to respond. You will receive updates via email.\n\nThe discussion will now be openend in your browser. Consider creating a bookmark.";
 
 
 ShouldRemoveComment_Title = "Information about the comment field";
-ShouldRemoveComment_Msg = "We have removed the option to set a comment in GPGPreferences. Best practices recommend to no longer use the comment field since wrong usage may leak information.\n\nYou have currently configured the following comment:\n\n%@\n\nWould you like to remove it? (recommended)";
-ShouldRemoveComment_Button1 = "Remove comment";
-ShouldRemoveComment_Button2 = "Keep comment";
+ShouldRemoveComment_Msg = "We have removed the option to set a comment in GPG Suite Preferences. Best practices recommend to no longer use the comment field since wrong usage may leak information.\n\nYou have currently configured the following comment:\n\n%@\n\nWould you like to remove it? (recommended)";
+ShouldRemoveComment_Button1 = "Remove Comment";
+ShouldRemoveComment_Button2 = "Keep Comment";
 
 
 EmailCheck_TooLong = "The email address you entered is too long.";

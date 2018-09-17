@@ -170,9 +170,21 @@
 		30781C841D36494800A771AC /* pt */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = pt; path = pt.lproj/Localizable.strings; sourceTree = "<group>"; };
 		30781C861D36496000A771AC /* pt */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = pt; path = pt.lproj/GPGToolsPref.strings; sourceTree = "<group>"; };
 		30781C881D36496600A771AC /* pt */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = pt; path = pt.lproj/WarningView.strings; sourceTree = "<group>"; };
+		30783F76214FA050000AF958 /* zh_CN */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh_CN"; path = "zh_CN.lproj/GPGToolsPref.strings"; sourceTree = "<group>"; };
+		30783F78214FA052000AF958 /* zh_CN */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh_CN"; path = "zh_CN.lproj/WarningView.strings"; sourceTree = "<group>"; };
 		307B75191CB2A31C00002ACF /* GPGPreferencesTerms.searchTerms */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = GPGPreferencesTerms.searchTerms; sourceTree = "<group>"; };
 		30B455FE172D7BB500A04D4A /* Libmacgpg.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Libmacgpg.framework; path = /Library/Frameworks/Libmacgpg.framework; sourceTree = "<absolute>"; };
 		30B7416817A2EFC100E1D157 /* GPGTools+Text.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "GPGTools+Text.png"; path = "Images/GPGTools+Text.png"; sourceTree = "<group>"; };
+		30CF1E49214F9F9000AB0F5E /* zh_CN */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = zh_CN; path = zh_CN.lproj/Localizable.strings; sourceTree = "<group>"; };
+		30CF1E4E214F9FA300AB0F5E /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Localizable.strings; sourceTree = "<group>"; };
+		30CF1E4F214F9FA800AB0F5E /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/Localizable.strings; sourceTree = "<group>"; };
+		30CF1E50214F9FB100AB0F5E /* cs */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = cs; path = cs.lproj/Localizable.strings; sourceTree = "<group>"; };
+		30CF1E51214F9FC300AB0F5E /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/WarningView.strings; sourceTree = "<group>"; };
+		30CF1E54214F9FC800AB0F5E /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/WarningView.strings; sourceTree = "<group>"; };
+		30CF1E55214F9FC900AB0F5E /* cs */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = cs; path = cs.lproj/WarningView.strings; sourceTree = "<group>"; };
+		30CF1E56214F9FE500AB0F5E /* cs */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = cs; path = cs.lproj/GPGToolsPref.strings; sourceTree = "<group>"; };
+		30CF1E57214F9FE600AB0F5E /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/GPGToolsPref.strings; sourceTree = "<group>"; };
+		30CF1E58214F9FE700AB0F5E /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/GPGToolsPref.strings; sourceTree = "<group>"; };
 		30D0BEAD1EC9D15600875277 /* nb */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = nb; path = nb.lproj/Localizable.strings; sourceTree = "<group>"; };
 		30D0BEB21EC9D16F00875277 /* nb */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = nb; path = nb.lproj/GPGToolsPref.strings; sourceTree = "<group>"; };
 		30D0BEB31EC9D17D00875277 /* it */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = it; path = it.lproj/Localizable.strings; sourceTree = "<group>"; };
@@ -408,6 +420,10 @@
 				id,
 				nb,
 				it,
+				zh_CN,
+				ru,
+				ja,
+				cs,
 			);
 			mainGroup = 3056D046172D2EEA00CFC0FA;
 			productRefGroup = 3056D052172D2EEA00CFC0FA /* Products */;
@@ -603,6 +619,10 @@
 				30543FB81E449F5F0053D095 /* el */,
 				30D0BEB21EC9D16F00875277 /* nb */,
 				30D0BEB41EC9D18200875277 /* it */,
+				30CF1E56214F9FE500AB0F5E /* cs */,
+				30CF1E57214F9FE600AB0F5E /* ja */,
+				30CF1E58214F9FE700AB0F5E /* ru */,
+				30783F76214FA050000AF958 /* zh_CN */,
 			);
 			name = GPGToolsPref.xib;
 			sourceTree = "<group>";
@@ -623,6 +643,10 @@
 				30543FBD1E449F680053D095 /* el */,
 				30D0BEB51EC9D18700875277 /* nb */,
 				30D0BEB61EC9D18900875277 /* it */,
+				30CF1E51214F9FC300AB0F5E /* ru */,
+				30CF1E54214F9FC800AB0F5E /* ja */,
+				30CF1E55214F9FC900AB0F5E /* cs */,
+				30783F78214FA052000AF958 /* zh_CN */,
 			);
 			name = WarningView.xib;
 			sourceTree = "<group>";
@@ -642,6 +666,10 @@
 				30543FB31E449F280053D095 /* id */,
 				30D0BEAD1EC9D15600875277 /* nb */,
 				30D0BEB31EC9D17D00875277 /* it */,
+				30CF1E49214F9F9000AB0F5E /* zh_CN */,
+				30CF1E4E214F9FA300AB0F5E /* ru */,
+				30CF1E4F214F9FA800AB0F5E /* ja */,
+				30CF1E50214F9FB100AB0F5E /* cs */,
 			);
 			name = Localizable.strings;
 			sourceTree = "<group>";

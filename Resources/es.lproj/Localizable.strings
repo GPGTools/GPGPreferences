@@ -5,25 +5,17 @@
 
 
 /* Bad keyserver */
-BadKeyserver_Title = "Servidor de claves erróneo";
-BadKeyserver_Msg = "El servidor de claves que ha introducido no funciona.\nPor favor compruebe la dirección del servidor de claves. Debería ser parecida a la siguiente: hkp://some.key.server.org\n\nEl servidor de claves podría estar también desconectado. En cuyo caso, por favor use otro servidor de claves.";
+BadKeyserver_Title = "Key server not working";
+BadKeyserver_Msg = "The key server you entered is not working.\nPlease verify that the address is correct. It should look something like: hkps://some.key.server.org\n\nSince the key server could also be offline you can try another key server.";
 
 
-UpdateCheckFailed_Title = "¡Fallo en la comprobación de la actualización!";
-UpdateCheckFailed_Msg = "Por favor vuelva a instalar GPG Suite desde https://gpgtools.org.";
-
-
-NoUpdatesGM106_Title = "¡No hay actualizaciones!";
-NoUpdatesGM106_Msg = "No hay actualizaciones para GPGMail en macOS 10.6";
-
-
-WarningDeletePasswords_Title = "Delete stored OpenPGP passwords";
-WarningDeletePasswords_Msg = "This will delete all OpenPGP passwords stored in macOS keychain and empty the cache.";
-WarningDeletePasswords_Button1 = "Delete";
+WarningDeletePasswords_Title = "Eliminar contraseñas OpenPGP almacenadas";
+WarningDeletePasswords_Msg = "Esto borrará todas las contraseñas OpenPGP almacenadas en el juego de claves de macOS y vacía la caché.";
+WarningDeletePasswords_Button1 = "Eliminar";
 WarningDeletePasswords_Button2 = "Cancelar";
 
 PassowrdsDeleted_Title = "Contraseñas borradas";
-PassowrdsDeleted_Msg = "Todas las contraseñas de OpenPGP se borraron con éxito del Llavero de macOS y la caché.";
+PassowrdsDeleted_Msg = "All OpenPGP passwords were deleted from macOS keychain and the cache.";
 
 PassowrdsDeletFailed_Title = "¡Fallo en el borrado de las contraseñas!";
 PassowrdsDeletFailed_Msg = "No se ha podido borrar todas las contraseñas almacenadas. Por favor abra Console.app y busque errores relacionados. Después infórmenos de este problema a través de la pestaña 'Enviar Informe' ";
@@ -44,7 +36,7 @@ Support_SubjectTooShort_Title = "Asunto demasiado corto";
 Support_SubjectTooShort_Msg = "Por favor añada un asunto más descriptivo.";
 
 Support_MailInvalid_Title = "Dirección de correo inválida";
-Support_MailInvalid_Msg = "Use una dirección de correo válida";
+Support_MailInvalid_Msg = "Use una dirección de correo válida.";
 
 Support_NameTooShort_Title = "Nombre demasiado corto";
 Support_NameTooShort_Msg = "Introduzca un nombre más largo por favor";
@@ -52,20 +44,20 @@ Support_NameTooShort_Msg = "Introduzca un nombre más largo por favor";
 Support_NoComponentSelected_Title = "Ningún componente seleccionado";
 Support_NoComponentSelected_Msg = "Por favor seleccione un componente.";
 
-Support_ReportFailed_Title = "Fallo al enviar el informe";
-Support_ReportFailed_Msg = "No se pudo enviar el informe. Por favor, en su lugar cree su informe en nuestra plataforma de asistencia. El botón \"Ok\" abrirá su navegador y le llevará allí.";
+Support_ReportFailed_Title = "Report could not be sent";
+Support_ReportFailed_Msg = "Please create your report on our support platform instead. Click “Ok” to open the support form in your browser.";
 
 Support_PublicReportSucceeded_Title = "Informe enviado";
-Support_PublicReportSucceeded_Msg = "Gracias por el tiempo dedicado a enviar este informe. Se ha creado una discusión pública. Por favor permítanos un par de días para responder. Recibirá actualizaciones por correo electrónico.\n\nAhora abriremos la discusión en su navegador. Considere crear un marcador.";
+Support_PublicReportSucceeded_Msg = "Thank you for the report. A public discussion has been created. Please allow a few days for us to respond. You will receive updates via email.\n\nThe discussion will now be openend in your browser. Consider creating a bookmark.";
 
 Support_PrivateReportSucceeded_Title = "Informe enviado";
-Support_PrivateReportSucceeded_Msg = "Gracias por el tiempo dedicado a enviar este informe. Se ha creado una discusión privada. Por favor permítanos un par de días para responder. Recibirá actualizaciones por correo electrónico.\n\nAhora abriremos la discusión en su navegador. Considere crear un marcador.";
+Support_PrivateReportSucceeded_Msg = "Thank you for the report. A private discussion has been created. Please allow a few days for us to respond. You will receive updates via email.\n\nThe discussion will now be openend in your browser. Consider creating a bookmark.";
 
 
 ShouldRemoveComment_Title = "Información sobre el campo de comentario.";
-ShouldRemoveComment_Msg = "Hemos eliminado la opción de añadir un comentario en GPGPreferences. Las mejores prácticas recomienda no usar más el campo de comentario ya que el uso incorrecto puede filtrar información.\n\nActualmente ha configurado el siguiente comentario:\n\n%@\n\n¿Quiere eliminarlo? (recomendado)";
-ShouldRemoveComment_Button1 = "Eliminar comentario";
-ShouldRemoveComment_Button2 = "Mantener comentario";
+ShouldRemoveComment_Msg = "We have removed the option to set a comment in GPG Suite Preferences. Best practices recommend to no longer use the comment field since wrong usage may leak information.\n\nYou have currently configured the following comment:\n\n%@\n\nWould you like to remove it? (recommended)";
+ShouldRemoveComment_Button1 = "Remove Comment";
+ShouldRemoveComment_Button2 = "Keep Comment";
 
 
 EmailCheck_TooLong = "La dirección de correo introducida es demasiado larga.";

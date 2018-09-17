@@ -1,0 +1,67 @@
+
+
+"VERSION: %@" = "Verze: %@";
+"BUILD: %@" = "Sestavení: %@";
+
+
+/* Bad keyserver */
+BadKeyserver_Title = "Key server not working";
+BadKeyserver_Msg = "The key server you entered is not working.\nPlease verify that the address is correct. It should look something like: hkps://some.key.server.org\n\nSince the key server could also be offline you can try another key server.";
+
+
+WarningDeletePasswords_Title = "Smazat uložená OpenPGP hesla";
+WarningDeletePasswords_Msg = "Tímto se smažou všechna hesla OpenPGP uložená v Klíčence macOS a z mezipaměi.";
+WarningDeletePasswords_Button1 = "Smazat";
+WarningDeletePasswords_Button2 = "Zrušit";
+
+PassowrdsDeleted_Title = "Hesla byla smazána";
+PassowrdsDeleted_Msg = "All OpenPGP passwords were deleted from macOS keychain and the cache.";
+
+PassowrdsDeletFailed_Title = "Mazání hesel selhalo!";
+PassowrdsDeletFailed_Msg = "Ne všechna uložená hesla mohla být odstraněna. Otevřete prosím, program Konzola.app a podívejte se na všechny související chyby. Poté nám o tomto problému dejte vědět prostřednictvím panelu „Odeslat hlášení“.";
+
+Support_SendDebugInfo_Title = "Odesílání ladících informací";
+Support_SendDebugInfo_Msg = "Rychlý návod jak můžete zahrnout do vašeho hlášení ladící informace: Často tyto informace pomohou urychlit proces opravy chyby. Váš problém se tak může vyřešit mnohem rychleji.\n\nPokud vaše hlášení není žádostí o novou funkci, doporučujeme přidat ladící informace.\n\nHlášení se odesílá šifrovaným spojením TLS. Je zašifrováno naším týmovým klíčem a odesláno do našeho systému pro správu hlášení. Tím je zaručeno, že ladící informace nebudou přístupné nikomu jinému, kromě našeho jádrového týmu, a to i v případě, že váše hlášení není označeno jako soukromé.\n\nBěhem sbírání ladících informací můžete být požádáni o heslo klíče OpenPGP, protože testujeme, zda funkce dešifrování a podepisování fungují ve vašem systému správně.\n\nLadící informace obsahují meta data o vašich klíčích.";
+Support_SendDebugInfo_Button1 = "Odeslat hlášení";
+Support_SendDebugInfo_Button2 = "Zrušit";
+Support_SendDebugInfo_Checkbox = "K hlášení přikládat ladící informace";
+
+Support_BugDescriptionTooShort_Title = "Popis je příliš krátký";
+Support_BugDescriptionTooShort_Msg = "Přidejte popis další podrobnosti. Čím více detailů nám poskytnete, tím rychleji budeme schopni nalézt řešení vašeho problému. Pokud je to možné, popište přesně všechny kroky, které nám pomohou zreprodukovat problém.";
+
+Support_ExpectedBahaviorTooShort_Title = "Popis očekávaného chování je příliš krátký";
+Support_ExpectedBahaviorTooShort_Msg = "Přidejte podrobnosti do pole očekávané chování. Čím více detailů nám poskytnete, tím rychleji budeme schopni najít řešení a odpovědět na vaše požadavky.";
+
+Support_SubjectTooShort_Title = "Předmět je příliš krátký";
+Support_SubjectTooShort_Msg = "Přidejte prosím více popisný předmět.";
+
+Support_MailInvalid_Title = "E-mail je neplatný";
+Support_MailInvalid_Msg = "Zadejte prosím platný e-mail.";
+
+Support_NameTooShort_Title = "Jméno je příliš krátké";
+Support_NameTooShort_Msg = "Zadejte prosím delší jméno.";
+
+Support_NoComponentSelected_Title = "Žádná komponenta nebyla vybrána";
+Support_NoComponentSelected_Msg = "Vyberte komponentu";
+
+Support_ReportFailed_Title = "Report could not be sent";
+Support_ReportFailed_Msg = "Please create your report on our support platform instead. Click “Ok” to open the support form in your browser.";
+
+Support_PublicReportSucceeded_Title = "Hlášení bylo odesláno";
+Support_PublicReportSucceeded_Msg = "Thank you for the report. A public discussion has been created. Please allow a few days for us to respond. You will receive updates via email.\n\nThe discussion will now be openend in your browser. Consider creating a bookmark.";
+
+Support_PrivateReportSucceeded_Title = "Hlášení bylo odesláno";
+Support_PrivateReportSucceeded_Msg = "Thank you for the report. A private discussion has been created. Please allow a few days for us to respond. You will receive updates via email.\n\nThe discussion will now be openend in your browser. Consider creating a bookmark.";
+
+
+ShouldRemoveComment_Title = "Informace o poli komentáře";
+ShouldRemoveComment_Msg = "We have removed the option to set a comment in GPG Suite Preferences. Best practices recommend to no longer use the comment field since wrong usage may leak information.\n\nYou have currently configured the following comment:\n\n%@\n\nWould you like to remove it? (recommended)";
+ShouldRemoveComment_Button1 = "Remove Comment";
+ShouldRemoveComment_Button2 = "Keep Comment";
+
+
+EmailCheck_TooLong = "Zadaný e-mail je příliš dlouhý.";
+EmailCheck_Invalid = "Byl zadán neplatný e-mail.";
+EmailCheck_Msg = "Zadejte prosím platný e-mail.";
+
+
