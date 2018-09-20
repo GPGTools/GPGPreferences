@@ -6,6 +6,8 @@
 //  Copyright (c) 2016 GPGTools. All rights reserved.
 //
 
+#import <Libmacgpg/GPGTaskHelperXPC.h>
+
 #import "GPGReportController.h"
 #import "GPGDebugCollector.h"
 #import "GPGToolsPref.h"
@@ -115,9 +117,23 @@ affectedComponent=_affectedComponent, privateDiscussion=_privateDiscussion;
 	[fieldsString appendFormat:@"%@email%@%@\r\n--%@\r\n", dispo1, dispo2, email, boundry];
 	[fieldsString appendFormat:@"%@subject%@%@\r\n--%@\r\n", dispo1, dispo2, subject, boundry];
 	[fieldsString appendFormat:@"%@message%@%@\r\n--%@\r\n", dispo1, dispo2, message, boundry];
-	[fieldsString appendFormat:@"%@private%@%@\r\n--%@--\r\n", dispo1, dispo2, privateDiscussion ? @"1" : @"0", boundry];
+	[fieldsString appendFormat:@"%@private%@%@\r\n--%@", dispo1, dispo2, privateDiscussion ? @"1" : @"0", boundry];
 	
-	
+    // Fetch support plan information if available.
+    GPGTaskHelperXPC *xpc = [[GPGTaskHelperXPC alloc] init];
+    NSDictionary *activationInfo = nil;
+    [xpc validSupportContractAvailableForProduct:@"GPGMail" activationInfo:&activationInfo];
+    if([[activationInfo valueForKey:@"Active"] boolValue]) {
+        if([[activationInfo valueForKey:@"ActivationEmail"] length]) {
+            [fieldsString appendFormat:@"\r\n%@support_plan_email%@%@\r\n--%@", dispo1, dispo2, activationInfo[@"ActivationEmail"], boundry];
+        }
+        if([[activationInfo valueForKey:@"ActivationCode"] length]) {
+            // Last field, as it ends with --
+            [fieldsString appendFormat:@"\r\n%@support_plan_activation_code%@%@\r\n--%@", dispo1, dispo2, activationInfo[@"ActivationCode"], boundry];
+        }
+    }
+    [fieldsString appendString:@"--\r\n"];
+    
 	[postData appendData:[fieldsString dataUsingEncoding:NSUTF8StringEncoding]];
 	
 	
