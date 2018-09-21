@@ -493,7 +493,9 @@ affectedComponent=_affectedComponent, privateDiscussion=_privateDiscussion;
 
 			if([name isEqualToString:@"GPG Mail"]) {
 				NSString *supportPlanStatus = [self humanReadableSupportPlanStatus];
-				[infoString appendFormat:@"\t%@", supportPlanStatus];
+				if(supportPlanStatus) {
+					[infoString appendFormat:@"\t%@", supportPlanStatus];
+				}
 			}
 
 			[infoString appendString:@"\n"];
@@ -515,12 +517,18 @@ affectedComponent=_affectedComponent, privateDiscussion=_privateDiscussion;
 
 - (NSString *)humanReadableSupportPlanStatus {
 	// Fetch trial or activated status for GPG Mail.
+	if(![[NSProcessInfo processInfo] isOperatingSystemAtLeastVersion:(NSOperatingSystemVersion){10,13,0}]) {
+		return nil;
+	}
 	NSDictionary *supportPlanInfo = [self supportPlanInfo];
 	NSString *supportPlanStatus = @"N/A";
 	if([[supportPlanInfo valueForKey:@"Active"] boolValue] && [[supportPlanInfo valueForKey:@"ActivationCode"] length]) {
 		supportPlanStatus = @"Active Support Plan";
 	}
-	else if([[supportPlanInfo valueForKey:@"ActivationRemainingTrialDays"] integerValue] <= 0) {
+	else if(![supportPlanInfo valueForKey:@"ActivationRemainingTrialDays"]) {
+		supportPlanStatus = @"Trial not yet started";
+	}
+	else if([supportPlanInfo valueForKey:@"ActivationRemainingTrialDays"] && [[supportPlanInfo valueForKey:@"ActivationRemainingTrialDays"] integerValue] <= 0) {
 		supportPlanStatus = @"Trial Expired";
 	}
 	else if([[supportPlanInfo valueForKey:@"ActivationRemainingTrialDays"] integerValue] > 0) {
@@ -552,7 +560,9 @@ affectedComponent=_affectedComponent, privateDiscussion=_privateDiscussion;
 			}
 			if([name isEqualToString:@"GPG Mail"]) {
 				NSString *supportPlanStatus = [self humanReadableSupportPlanStatus];
-				[infoString appendFormat:@"\t%@", supportPlanStatus];
+				if(supportPlanStatus) {
+					[infoString appendFormat:@"\t%@", supportPlanStatus];
+				}
 			}
 			[infoString appendString:@"\n"];
 		} else {
