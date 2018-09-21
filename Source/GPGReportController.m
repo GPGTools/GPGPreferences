@@ -347,17 +347,22 @@ affectedComponent=_affectedComponent, privateDiscussion=_privateDiscussion;
 #define LKEY @"plist"
 	NSFileManager *fileManager = [NSFileManager defaultManager];
 	NSDictionary *systemPlist = [NSDictionary dictionaryWithContentsOfFile:@"/System/Library/CoreServices/SystemVersion.plist"];
+	NSArray *osVersionParts = [[systemPlist objectForKey:@"ProductVersion"] componentsSeparatedByString:@"."];
+	NSString *mailBundleLocation = @"/Library/Application Support/GPGTools/GPGMail/GPGMail_%@.mailbundle";
+	if([osVersionParts count] > 1) {
+		mailBundleLocation = [NSString stringWithFormat:mailBundleLocation, osVersionParts[1]];
+	}
 	NSArray *tools = @[
 					   @{NKEY: @"GPG Suite",
 						 PKEY: @[@"/Library/Application Support/GPGTools/GPGSuite_Updater.app"]},
 
-					   @{NKEY: @"GPGMail",
-						 PKEY: @[@"/Network/Library/Mail/Bundles/GPGMail.mailbundle", @"~/Library/Mail/Bundles/GPGMail.mailbundle", @"/Library/Mail/Bundles/GPGMail.mailbundle"]},
+					   @{NKEY: @"GPG Mail",
+						 PKEY: @[mailBundleLocation, @"/Network/Library/Mail/Bundles/GPGMail.mailbundle", @"~/Library/Mail/Bundles/GPGMail.mailbundle", @"/Library/Mail/Bundles/GPGMail.mailbundle"]},
 					   
 					   @{NKEY: @"GPG Keychain",
 						 IKEY: @"org.gpgtools.gpgkeychain"},
 					   
-					   @{NKEY: @"GPGServices",
+					   @{NKEY: @"GPG Services",
 						 PKEY: @[@"~/Library/Services/GPGServices.service", @"/Library/Services/GPGServices.service"]},
 					   
 					   @{NKEY: @"MacGPG",
