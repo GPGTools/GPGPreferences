@@ -50,7 +50,7 @@ affectedComponent=_affectedComponent, privateDiscussion=_privateDiscussion;
 	// Compose the message text.
 	NSMutableString *message = [NSMutableString string];
 	if (self.affectedComponent > 0 && self.affectedComponent <= 5) {
-		NSArray *components = @[@"GPGMail", @"GPG Keychain", @"MacGPG", @"GPGServices", @"GPG Suite Preferences"];
+		NSArray *components = @[@"GPG Mail", @"GPG Keychain", @"GPG Services", @"MacGPG", @"GPG Suite Preferences"];
 		NSString *component = components[self.affectedComponent - 1];
 		
 		subject = [NSString stringWithFormat:@"%@: %@", component, subject];
