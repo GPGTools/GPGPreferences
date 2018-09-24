@@ -230,7 +230,7 @@ static NSString * const CrashReportsUserEmailKey = @"CrashReportsUserEmail";
 - (NSInteger)passphraseCacheTime {
 	NSNumber *value = [options valueInGPGAgentConfForKey:@"default-cache-ttl"];
 	if (!value) {
-		[self setPassphraseCacheTime:kDefaultPassphraseCacheTime];
+		[options setValue:@(kDefaultPassphraseCacheTime) forKey:@"PassphraseCacheTime"];
 		return kDefaultPassphraseCacheTime;
 	}
 	
@@ -244,13 +244,13 @@ static NSString * const CrashReportsUserEmailKey = @"CrashReportsUserEmail";
 	return intValue;
 }
 - (void)setPassphraseCacheTime:(NSInteger)value {
-	[options setValue:[NSNumber numberWithInteger:value] forKey:@"PassphraseCacheTime"];
+	[options setValue:@(value) forKey:@"PassphraseCacheTime"];
 }
 
 - (BOOL)rememberPassword {
 	NSNumber *value = [options valueInGPGAgentConfForKey:@"default-cache-ttl"];
 	if (!value) {
-		[self setPassphraseCacheTime:kDefaultPassphraseCacheTime];
+		[options setValue:@(kDefaultPassphraseCacheTime) forKey:@"PassphraseCacheTime"];
 		return YES;
 	}
 	
