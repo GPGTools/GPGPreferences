@@ -85,8 +85,8 @@
 	
 	NSMutableDictionary *listings = [NSMutableDictionary dictionary];
 
-	listings[@"Public"] = [self linesFromString:[self runCommand:@[gpgPath, @"-k"]]];
-	listings[@"Secret"] = [self linesFromString:[self runCommand:@[gpgPath, @"-K"]]];
+	listings[@"Public"] = [self linesFromString:[self runCommand:@[gpgPath, @"--with-subkey-fingerprint -k"]]];
+	listings[@"Secret"] = [self linesFromString:[self runCommand:@[gpgPath, @"--with-subkey-fingerprint -K"]]];
 	
 	debugInfos[@"Key Listings"] = listings;
 }
