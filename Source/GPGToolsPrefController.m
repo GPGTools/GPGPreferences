@@ -474,21 +474,17 @@ static NSString * const CrashReportsUserEmailKey = @"CrashReportsUserEmail";
 	
 	dispatch_async(dispatch_get_main_queue(), ^{
 		self.testingServer = NO;
-	});
-	self.keyserverToCheck = nil;
-	
-	if (![value boolValue]) {
-		[self.options removeKeyserver:gc.keyserver];
-		
-		dispatch_async(dispatch_get_main_queue(), ^{
+		self.keyserverToCheck = nil;
+
+		if (![value boolValue]) {
+			[self.options removeKeyserver:gc.keyserver];
 			localizedAlert(@"BadKeyserver");
-		});
-	}
-	else {
-		// The server passed the check.
-		// Set it as default keyserver.
-		self.options.keyserver = gc.keyserver;
-	}
+		} else {
+			// The server passed the check.
+			// Set it as default keyserver.
+			self.options.keyserver = gc.keyserver;
+		}
+	});
 }
 
 
