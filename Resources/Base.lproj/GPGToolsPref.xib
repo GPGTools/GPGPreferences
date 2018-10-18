@@ -51,13 +51,13 @@
                                                 </menu>
                                             </popUpButtonCell>
                                             <connections>
+                                                <binding destination="243" name="enabled" keyPath="haveSecretKeys" id="e59-ti-iHG"/>
+                                                <binding destination="243" name="selectedIndex" keyPath="indexOfSelectedSecretKey" previousBinding="hh8-z9-nWJ" id="3yY-xZ-rCf"/>
                                                 <binding destination="243" name="content" keyPath="secretKeyDescriptions" id="hh8-z9-nWJ">
                                                     <dictionary key="options">
                                                         <string key="NSNullPlaceholder">Select a key…</string>
                                                     </dictionary>
                                                 </binding>
-                                                <binding destination="243" name="enabled" keyPath="haveSecretKeys" id="e59-ti-iHG"/>
-                                                <binding destination="243" name="selectedIndex" keyPath="indexOfSelectedSecretKey" previousBinding="hh8-z9-nWJ" id="3yY-xZ-rCf"/>
                                                 <outlet property="nextKeyView" destination="561" id="5tv-lf-j0s"/>
                                             </connections>
                                         </popUpButton>
@@ -471,10 +471,10 @@
                                                         <menuItem title="N/A" tag="-1" id="Vsl-37-VNZ">
                                                             <modifierMask key="keyEquivalentModifierMask"/>
                                                         </menuItem>
-                                                        <menuItem title="GPGMail" tag="1" id="AMm-3X-7BA"/>
+                                                        <menuItem title="GPGMail" tag="1" id="AMm-3X-7BA" userLabel="GPG Mail"/>
                                                         <menuItem title="GPG Keychain" tag="2" id="Qrr-gv-RoV"/>
+                                                        <menuItem title="GPGServices" tag="4" id="Ubl-v4-JrU" userLabel="GPG Services"/>
                                                         <menuItem title="MacGPG" tag="3" id="Wec-a0-JIf"/>
-                                                        <menuItem title="GPGServices" tag="4" id="Ubl-v4-JrU"/>
                                                         <menuItem title="GPG Suite Preferences" tag="5" id="ANB-ym-fp2"/>
                                                     </items>
                                                 </menu>
