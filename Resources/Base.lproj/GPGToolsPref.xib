@@ -202,7 +202,7 @@
                                             <rect key="frame" x="105" y="251" width="371" height="28"/>
                                             <textFieldCell key="cell" controlSize="small" sendsActionOnEndEditing="YES" title="Search key servers for public key when signatures can not be verified because the public key does not exist in GPG Keychain." id="9oN-AB-7Fa">
                                                 <font key="font" metaFont="smallSystem"/>
-                                                <color key="textColor" name="disabledControlTextColor" catalog="System" colorSpace="catalog"/>
+                                                <color key="textColor" name="secondaryLabelColor" catalog="System" colorSpace="catalog"/>
                                                 <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                             </textFieldCell>
                                         </textField>
@@ -210,7 +210,7 @@
                                             <rect key="frame" x="105" y="134" width="383" height="28"/>
                                             <textFieldCell key="cell" controlSize="small" sendsActionOnEndEditing="YES" title="Sending in reports helps us fix problems. Occasionally we will contact users regarding a report when they allow this." id="Uyz-OV-Mnx">
                                                 <font key="font" metaFont="smallSystem"/>
-                                                <color key="textColor" name="disabledControlTextColor" catalog="System" colorSpace="catalog"/>
+                                                <color key="textColor" name="secondaryLabelColor" catalog="System" colorSpace="catalog"/>
                                                 <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                             </textFieldCell>
                                         </textField>
@@ -315,7 +315,7 @@
                                             <rect key="frame" x="105" y="15" width="377" height="28"/>
                                             <textFieldCell key="cell" controlSize="small" sendsActionOnEndEditing="YES" title="Beta builds are published more often. New features and improvements are less tested." id="NWt-L7-Mwu">
                                                 <font key="font" metaFont="smallSystem"/>
-                                                <color key="textColor" name="disabledControlTextColor" catalog="System" colorSpace="catalog"/>
+                                                <color key="textColor" name="secondaryLabelColor" catalog="System" colorSpace="catalog"/>
                                                 <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                             </textFieldCell>
                                         </textField>

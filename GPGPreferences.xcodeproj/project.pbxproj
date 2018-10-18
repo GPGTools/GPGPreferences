@@ -170,8 +170,8 @@
 		30781C841D36494800A771AC /* pt */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = pt; path = pt.lproj/Localizable.strings; sourceTree = "<group>"; };
 		30781C861D36496000A771AC /* pt */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = pt; path = pt.lproj/GPGToolsPref.strings; sourceTree = "<group>"; };
 		30781C881D36496600A771AC /* pt */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = pt; path = pt.lproj/WarningView.strings; sourceTree = "<group>"; };
-		30783F76214FA050000AF958 /* zh_CN */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh_CN"; path = "zh_CN.lproj/GPGToolsPref.strings"; sourceTree = "<group>"; };
-		30783F78214FA052000AF958 /* zh_CN */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh_CN"; path = "zh_CN.lproj/WarningView.strings"; sourceTree = "<group>"; };
+		30783F76214FA050000AF958 /* zh_CN */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = zh_CN; path = zh_CN.lproj/GPGToolsPref.strings; sourceTree = "<group>"; };
+		30783F78214FA052000AF958 /* zh_CN */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = zh_CN; path = zh_CN.lproj/WarningView.strings; sourceTree = "<group>"; };
 		307B75191CB2A31C00002ACF /* GPGPreferencesTerms.searchTerms */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = GPGPreferencesTerms.searchTerms; sourceTree = "<group>"; };
 		30B455FE172D7BB500A04D4A /* Libmacgpg.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Libmacgpg.framework; path = /Library/Frameworks/Libmacgpg.framework; sourceTree = "<absolute>"; };
 		30B7416817A2EFC100E1D157 /* GPGTools+Text.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "GPGTools+Text.png"; path = "Images/GPGTools+Text.png"; sourceTree = "<group>"; };
@@ -221,8 +221,8 @@
 			children = (
 				1B3EAB321A975FD3005A444E /* Libmacgpg.framework */,
 				3032EC8B1C637A3C00A4DFDB /* UnitTests.xctest */,
-				1B3EAB361A975FD3005A444E /* org.gpgtools.Libmacgpg.xpc */,
 				1B3EAB3A1A975FD3005A444E /* LeakFinder.app */,
+				1B3EAB361A975FD3005A444E /* org.gpgtools.Libmacgpg.xpc */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -452,7 +452,7 @@
 		};
 		1B3EAB361A975FD3005A444E /* org.gpgtools.Libmacgpg.xpc */ = {
 			isa = PBXReferenceProxy;
-			fileType = "compiled.mach-o.executable";
+			fileType = "wrapper.xpc-service";
 			path = org.gpgtools.Libmacgpg.xpc;
 			remoteRef = 1B3EAB351A975FD3005A444E /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
@@ -703,7 +703,7 @@
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				MACOSX_DEPLOYMENT_TARGET = 10.9;
+				MACOSX_DEPLOYMENT_TARGET = 10.12;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = macosx;
 			};
@@ -731,7 +731,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				LLVM_LTO = YES;
-				MACOSX_DEPLOYMENT_TARGET = 10.9;
+				MACOSX_DEPLOYMENT_TARGET = 10.12;
 				SDKROOT = macosx;
 			};
 			name = Release;
@@ -752,6 +752,7 @@
 				INSTALL_PATH = "$(HOME)/Library/PreferencePanes";
 				LD_RUNPATH_SEARCH_PATHS = "/Library/Frameworks $(HOME)/Library/Frameworks";
 				PRODUCT_NAME = "${TARGET_NAME}";
+				SDKROOT = Dependencies/MacOSX10.14.sdk;
 				WRAPPER_EXTENSION = prefPane;
 			};
 			name = Debug;
@@ -773,6 +774,7 @@
 				INSTALL_PATH = "$(HOME)/Library/PreferencePanes";
 				LD_RUNPATH_SEARCH_PATHS = "/Library/Frameworks $(HOME)/Library/Frameworks";
 				PRODUCT_NAME = "${TARGET_NAME}";
+				SDKROOT = Dependencies/MacOSX10.14.sdk;
 				WRAPPER_EXTENSION = prefPane;
 			};
 			name = Release;
@@ -794,7 +796,6 @@
 				GCC_WARN_UNDECLARED_SELECTOR = YES;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
-				MACOSX_DEPLOYMENT_TARGET = 10.9;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
@@ -815,7 +816,6 @@
 				GCC_WARN_UNDECLARED_SELECTOR = YES;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
-				MACOSX_DEPLOYMENT_TARGET = 10.9;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
