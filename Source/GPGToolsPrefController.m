@@ -290,6 +290,8 @@ static NSString * const CrashReportsUserEmailKey = @"CrashReportsUserEmail";
 				[options setValueInGPGAgentConf:@(kDefaultPassphraseCacheTime) forKey:@"max-cache-ttl"];
 			}
 		}
+		[options setValueInGPGAgentConf:@0 forKey:@"default-cache-ttl-ssh"];
+		[options setValueInGPGAgentConf:@0 forKey:@"max-cache-ttl-ssh"];
 	}
 }
 
