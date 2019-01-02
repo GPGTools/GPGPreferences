@@ -595,6 +595,9 @@ affectedComponent=_affectedComponent, privateDiscussion=_privateDiscussion;
 - (NSFont *)textViewFont {
 	return [NSFont systemFontOfSize:[NSFont systemFontSize]];
 }
+- (NSColor *)textViewFontColor {
+	return [NSColor textColor];
+}
 - (void)setTextView1:(NSTextView *)value {
 	_textView1 = value;
 	if (value) {

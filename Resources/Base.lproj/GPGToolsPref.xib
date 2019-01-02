@@ -506,6 +506,7 @@
                                                                     <string key="NSNullPlaceholder">Describe the problem. Add reproduce steps if possible.</string>
                                                                 </dictionary>
                                                             </binding>
+                                                            <binding destination="hlC-rl-bAu" name="textColor" keyPath="textViewFontColor" id="GMz-C4-Rcw"/>
                                                             <binding destination="hlC-rl-bAu" name="font" keyPath="textViewFont" id="j3z-A2-K6a"/>
                                                             <binding destination="hlC-rl-bAu" name="editable" keyPath="uiEnabled" id="bEE-3O-Jbk"/>
                                                             <outlet property="delegate" destination="hlC-rl-bAu" id="aSX-Fc-FId"/>
@@ -547,6 +548,7 @@
                                                                     <string key="NSNullPlaceholder">Additional info…</string>
                                                                 </dictionary>
                                                             </binding>
+                                                            <binding destination="hlC-rl-bAu" name="textColor" keyPath="textViewFontColor" id="65b-n4-LoA"/>
                                                             <binding destination="hlC-rl-bAu" name="font" keyPath="textViewFont" id="PUp-2u-LcK"/>
                                                             <binding destination="hlC-rl-bAu" name="editable" keyPath="uiEnabled" id="Exd-Nd-G3i"/>
                                                             <outlet property="delegate" destination="hlC-rl-bAu" id="oTE-fW-x51"/>
@@ -591,6 +593,7 @@
                                                                     <string key="NSNullPlaceholder">What did you expect instead?</string>
                                                                 </dictionary>
                                                             </binding>
+                                                            <binding destination="hlC-rl-bAu" name="textColor" keyPath="textViewFontColor" id="rEN-El-i61"/>
                                                             <binding destination="hlC-rl-bAu" name="font" keyPath="textViewFont" id="VRs-tL-2YC"/>
                                                             <binding destination="hlC-rl-bAu" name="editable" keyPath="uiEnabled" id="UML-VH-amZ"/>
                                                             <outlet property="delegate" destination="hlC-rl-bAu" id="iJo-tv-WMi"/>
