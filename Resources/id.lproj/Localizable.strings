@@ -5,8 +5,8 @@
 
 
 /* Bad keyserver */
-BadKeyserver_Title = "Key server not working";
-BadKeyserver_Msg = "The key server you entered is not working.\nPlease verify that the address is correct. It should look something like: hkps://some.key.server.org\n\nSince the key server could also be offline you can try another key server.";
+BadKeyserver_Title = "Server kunci tidak bekerja";
+BadKeyserver_Msg = "Server Kunci yang Anda masukkan tidak bekerja.\nHarap periksa bahwa alamat benar. Itu mesti seperti: hkps://suatu.server.kunci.org\n\nKarena server kunci mungkin luring Anda dapat mencoba menggunakan server kunci lain.";
 
 
 WarningDeletePasswords_Title = "Hapus kata sandi OpenPGP yang tersimpan";
@@ -15,7 +15,7 @@ WarningDeletePasswords_Button1 = "Hapus";
 WarningDeletePasswords_Button2 = "Batal";
 
 PassowrdsDeleted_Title = "Kata sandi dihapus";
-PassowrdsDeleted_Msg = "All OpenPGP passwords were deleted from macOS keychain and the cache.";
+PassowrdsDeleted_Msg = "Semua kata sandi OpenPGP dihapus dari keychain macOS dan singgahan.";
 
 PassowrdsDeletFailed_Title = "Penghapusan kata sandi gagal!";
 PassowrdsDeletFailed_Msg = "Tidak semua kata sandi yang disimpan dapat dihapus. Harap buka Console.app dan carilah kesalahan yang berhubungan. Lalu beritahu kami masalah ini melalui tab 'Kirim Laporan'.";
@@ -44,20 +44,20 @@ Support_NameTooShort_Msg = "Harap masukkan nama yang lebih panjang.";
 Support_NoComponentSelected_Title = "Tidak ada komponen yang dipilih";
 Support_NoComponentSelected_Msg = "Harap pilih sebuah komponen.";
 
-Support_ReportFailed_Title = "Report could not be sent";
-Support_ReportFailed_Msg = "Please create your report on our support platform instead. Click “Ok” to open the support form in your browser.";
+Support_ReportFailed_Title = "Laporan tidak dapat dikirim";
+Support_ReportFailed_Msg = "Harap buat laporan Anda pada platform dukungan kami. Klik \"Ok\" untuk membuka formulir dukungan dalam peramban Anda.";
 
 Support_PublicReportSucceeded_Title = "Laporan dikirim";
-Support_PublicReportSucceeded_Msg = "Thank you for the report. A public discussion has been created. Please allow a few days for us to respond. You will receive updates via email.\n\nThe discussion will now be openend in your browser. Consider creating a bookmark.";
+Support_PublicReportSucceeded_Msg = "Terima kasih atas laporan ini. Suatu diskusi publik telah dibuat. Mohon beri kami beberapa hari untuk merespon. Anda akan menerima pemutakhiran melalui surel.\n\nSekarang diskusi akan dibuka di dalam peramban Anda. Pertimbangkan untuk membuat markah.";
 
 Support_PrivateReportSucceeded_Title = "Laporan dikirim";
-Support_PrivateReportSucceeded_Msg = "Thank you for the report. A private discussion has been created. Please allow a few days for us to respond. You will receive updates via email.\n\nThe discussion will now be openend in your browser. Consider creating a bookmark.";
+Support_PrivateReportSucceeded_Msg = "Terima kasih atas laporan ini. Suatu diskusi privat telah dibuat. Harap beri kami beberapa hari untuk merespon. Anda akan menerima pemutakhiran melalui surel.\n\nSekarang diskusi akan dibuka dalam peramban Anda. Pertimbangkan untuk membuat markah.";
 
 
 ShouldRemoveComment_Title = "Informasi tentang ruas komentar";
-ShouldRemoveComment_Msg = "We have removed the option to set a comment in GPG Suite Preferences. Best practices recommend to no longer use the comment field since wrong usage may leak information.\n\nYou have currently configured the following comment:\n\n%@\n\nWould you like to remove it? (recommended)";
-ShouldRemoveComment_Button1 = "Remove Comment";
-ShouldRemoveComment_Button2 = "Keep Comment";
+ShouldRemoveComment_Msg = "Kami telang membuang opsi untuk mengatur suatu komentar dalam Preferensi Keluarga GPG. Praktik terbaik merekomendasikan untuk tidak lagi memakai ruas komentar karena penggunaan yang salah mungkin membocorkan informasi.\n\nAnda saat ini menata komentar berikut:\n\n%@\n\nApakah hendak dibuang? (dianjurkan)";
+ShouldRemoveComment_Button1 = "Buang Komentar";
+ShouldRemoveComment_Button2 = "Pertahankan Komentar";
 
 
 EmailCheck_TooLong = "Alamat surel yang Anda masukkan terlalu panjang.";

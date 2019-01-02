@@ -5,8 +5,8 @@
 
 
 /* Bad keyserver */
-BadKeyserver_Title = "Key server not working";
-BadKeyserver_Msg = "The key server you entered is not working.\nPlease verify that the address is correct. It should look something like: hkps://some.key.server.org\n\nSince the key server could also be offline you can try another key server.";
+BadKeyserver_Title = "Klíčový server neodpovídá";
+BadKeyserver_Msg = "Zadaný klíčový server nefunguje\nOvěřte, zda jste zadal správnou adresu. Měla by vypadat jako: https: //some.key.server.org\n\nVzhledem k tomu, že klíčový server může být offline, můžete zkusit jiný klíčový server.";
 
 
 WarningDeletePasswords_Title = "Smazat uložená OpenPGP hesla";
@@ -15,7 +15,7 @@ WarningDeletePasswords_Button1 = "Smazat";
 WarningDeletePasswords_Button2 = "Zrušit";
 
 PassowrdsDeleted_Title = "Hesla byla smazána";
-PassowrdsDeleted_Msg = "All OpenPGP passwords were deleted from macOS keychain and the cache.";
+PassowrdsDeleted_Msg = "Všechna hesla OpenPGP byla odstraněna ze systémové aplikace Klíčenka.";
 
 PassowrdsDeletFailed_Title = "Mazání hesel selhalo!";
 PassowrdsDeletFailed_Msg = "Ne všechna uložená hesla mohla být odstraněna. Otevřete prosím, program Konzola.app a podívejte se na všechny související chyby. Poté nám o tomto problému dejte vědět prostřednictvím panelu „Odeslat hlášení“.";
@@ -44,20 +44,20 @@ Support_NameTooShort_Msg = "Zadejte prosím delší jméno.";
 Support_NoComponentSelected_Title = "Žádná komponenta nebyla vybrána";
 Support_NoComponentSelected_Msg = "Vyberte komponentu";
 
-Support_ReportFailed_Title = "Report could not be sent";
-Support_ReportFailed_Msg = "Please create your report on our support platform instead. Click “Ok” to open the support form in your browser.";
+Support_ReportFailed_Title = "Hlášení nelze odeslat";
+Support_ReportFailed_Msg = "Prosím, vytvořte své hlášení na naší platformě uživatelské podpory. Klepnutím na tlačítko „OK“ otevřete formulář v prohlížeči.";
 
 Support_PublicReportSucceeded_Title = "Hlášení bylo odesláno";
-Support_PublicReportSucceeded_Msg = "Thank you for the report. A public discussion has been created. Please allow a few days for us to respond. You will receive updates via email.\n\nThe discussion will now be openend in your browser. Consider creating a bookmark.";
+Support_PublicReportSucceeded_Msg = "Děkujeme za hlášení. Byla vytvořena veřejná diskuse. Dejte nám prosím několik dní na odpověď. Obdržíte aktualizace hlášní prostřednictvím e-mailu\n\nDiskuse bude nyní otevřena ve vašem prohlížeči. Zvažte vytvoření záložky k této diskuzi.";
 
 Support_PrivateReportSucceeded_Title = "Hlášení bylo odesláno";
-Support_PrivateReportSucceeded_Msg = "Thank you for the report. A private discussion has been created. Please allow a few days for us to respond. You will receive updates via email.\n\nThe discussion will now be openend in your browser. Consider creating a bookmark.";
+Support_PrivateReportSucceeded_Msg = "Děkujeme za hlášení. Byla vytvořena neveřejná diskuse. Dejte nám prosím několik dní na odpověď. Obdržíte aktualizace hlášní prostřednictvím e-mailu\n\nDiskuse bude nyní otevřena ve vašem prohlížeči. Zvažte vytvoření záložky k této diskuzi.";
 
 
 ShouldRemoveComment_Title = "Informace o poli komentáře";
-ShouldRemoveComment_Msg = "We have removed the option to set a comment in GPG Suite Preferences. Best practices recommend to no longer use the comment field since wrong usage may leak information.\n\nYou have currently configured the following comment:\n\n%@\n\nWould you like to remove it? (recommended)";
-ShouldRemoveComment_Button1 = "Remove Comment";
-ShouldRemoveComment_Button2 = "Keep Comment";
+ShouldRemoveComment_Msg = "Odstranili jsme možnost nastavit komentáře v Předvolbách GPG Suite. Podle nejnovějších poznatků v oblasti bezpečnosti je doporučeno pole komentáře již nepoužívat, protože jeho nesprávné použití může způsobit únik citlivých informací.\n\nAktuálně jste zadal následující komentář:\n\n%@\n\nChcete jej odstranit? (doporučeno)";
+ShouldRemoveComment_Button1 = "Odstranit komentář";
+ShouldRemoveComment_Button2 = "Uchovat komentář";
 
 
 EmailCheck_TooLong = "Zadaný e-mail je příliš dlouhý.";

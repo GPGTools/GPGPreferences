@@ -471,9 +471,9 @@
                                                         <menuItem title="N/A" tag="-1" id="Vsl-37-VNZ">
                                                             <modifierMask key="keyEquivalentModifierMask"/>
                                                         </menuItem>
-                                                        <menuItem title="GPGMail" tag="1" id="AMm-3X-7BA" userLabel="GPG Mail"/>
+                                                        <menuItem title="GPG Mail" tag="1" id="AMm-3X-7BA" userLabel="GPG Mail"/>
                                                         <menuItem title="GPG Keychain" tag="2" id="Qrr-gv-RoV"/>
-                                                        <menuItem title="GPGServices" tag="4" id="Ubl-v4-JrU" userLabel="GPG Services"/>
+                                                        <menuItem title="GPG Services" tag="4" id="Ubl-v4-JrU" userLabel="GPG Services"/>
                                                         <menuItem title="MacGPG" tag="3" id="Wec-a0-JIf"/>
                                                         <menuItem title="GPG Suite Preferences" tag="5" id="ANB-ym-fp2"/>
                                                     </items>

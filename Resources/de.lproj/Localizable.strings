@@ -45,7 +45,7 @@ Support_NoComponentSelected_Title = "Keine Komponente ausgewählt";
 Support_NoComponentSelected_Msg = "Bitte wähle eine Komponente aus.";
 
 Support_ReportFailed_Title = "Bericht konnte nicht gesendet werden";
-Support_ReportFailed_Msg = "Bitte erstelle den Bericht direkt auf unserer Support-Plattform. Der \"Ok\"-Knopf öffnet deinen Browser und bringt dich dorthin.";
+Support_ReportFailed_Msg = "Bitte erstelle deinen Bericht über unsere Support-Webseite. Ein Klick auf \"OK\" bringt dich dorthin.";
 
 Support_PublicReportSucceeded_Title = "Bericht gesendet";
 Support_PublicReportSucceeded_Msg = "Danke für den Bericht. Eine öffentliche Diskussion wurde erstellt. Bitte gib uns ein paar Tage Zeit für eine Antwort. Updates wirst du per E-Mail erhalten.\n\nDeine Diskussion wird nun im Browser geöffnet. Lege bei Bedarf ein Lesezeichen an.";

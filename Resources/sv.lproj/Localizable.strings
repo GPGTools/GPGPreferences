@@ -6,7 +6,7 @@
 
 /* Bad keyserver */
 BadKeyserver_Title = "Nyckelservern fungerar inte";
-BadKeyserver_Msg = "The key server you entered is not working.\nPlease verify that the address is correct. It should look something like: hkps://some.key.server.org\n\nSince the key server could also be offline you can try another key server.";
+BadKeyserver_Msg = "Den nyckelserver du angivit fungerar inte.\nKontrollera nyckelserverns adress. Den borde se ut ungefär som hkps://some.key.server.org\n\nEftersom nyckelservern kan vara offline, försök i så fall med en annan nyckelserver.";
 
 
 WarningDeletePasswords_Title = "Radera lagrade OpenPGP-lösenord";
@@ -44,18 +44,18 @@ Support_NameTooShort_Msg = "Ange ett längre namn.";
 Support_NoComponentSelected_Title = "Ingen komponent är vald";
 Support_NoComponentSelected_Msg = "Välj en komponent.";
 
-Support_ReportFailed_Title = "Report could not be sent";
-Support_ReportFailed_Msg = "Please create your report on our support platform instead. Click “Ok” to open the support form in your browser.";
+Support_ReportFailed_Title = "Rapporten kunde inte skickas";
+Support_ReportFailed_Msg = "Skapa en rapport på vår supportplattform istället. Klicka \"Ok\" för att öppna ett support-formulär i din webbläsare.";
 
 Support_PublicReportSucceeded_Title = "Rapport skickad";
-Support_PublicReportSucceeded_Msg = "Thank you for the report. A public discussion has been created. Please allow a few days for us to respond. You will receive updates via email.\n\nThe discussion will now be openend in your browser. Consider creating a bookmark.";
+Support_PublicReportSucceeded_Msg = "Tack för rapporten. En publik diskussion har skapats. Ge oss några dagar att svara. Du kommer att få uppdateringar via e-post.\n\nNu öppnas diskussionen i din webbläsare. Skapa gärna ett bokmärke.";
 
 Support_PrivateReportSucceeded_Title = "Rapport skickad";
-Support_PrivateReportSucceeded_Msg = "Thank you for the report. A private discussion has been created. Please allow a few days for us to respond. You will receive updates via email.\n\nThe discussion will now be openend in your browser. Consider creating a bookmark.";
+Support_PrivateReportSucceeded_Msg = "Tack för rapporten. En privat diskussion har skapats. Ge oss några dagar att svara. Du kommer att få uppdateringar via e-post.\n\nNu öppnas diskussionen i din webbläsare. Skapa gärna ett bokmärke.";
 
 
 ShouldRemoveComment_Title = "Information om kommentarsfältet";
-ShouldRemoveComment_Msg = "We have removed the option to set a comment in GPG Suite Preferences. Best practices recommend to no longer use the comment field since wrong usage may leak information.\n\nYou have currently configured the following comment:\n\n%@\n\nWould you like to remove it? (recommended)";
+ShouldRemoveComment_Msg = "Vi har tagit bort möjligheten att lägga till en kommentar i GPG Suite Preferences. Bästa praxis är att inte längre använda kommentarsfältet eftersom information kan läcka ut vid felanvändning.\n\nDu har för närvarande ställt in följande kommentar:\n\n%@\n\nVill du ta bort den? (rekommenderas)";
 ShouldRemoveComment_Button1 = "Ta bort kommentar";
 ShouldRemoveComment_Button2 = "Behåll kommentar";
 

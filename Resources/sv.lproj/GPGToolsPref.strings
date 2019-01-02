@@ -26,11 +26,10 @@
 "N7W-a5-kXF.title" = "Kontrollera nu";
 "NHG-AV-7kF.label" = "Skicka rapport";
 "NWt-L7-Mwu.title" = "Betaversioner publiceras oftare. Nya funktioner och förbättringar är mindre testade.";
-"NgS-lQ-Wdq.ibShadowedToolTip" = "Hide this report from the public. Only you, GPGTools staff and the company hosting the support platform can access this report.";
+"NgS-lQ-Wdq.ibShadowedToolTip" = "Göm denna rapport från offentligheten. Endast du, GPGTools-teamet och företaget som är värd för support-plattformen kan komma åt denna rapport.";
 "RTl-LW-KmP.title" = "Rapporter";
 "RZt-Ds-s5C.title" = "Berätta för GPGTools om krascher";
-"Tqr-cf-yu3.ibShadowedToolTip" = "The debug log will be encrypted, so only GPGTools staff can read it.";
-"Ubl-v4-JrU.title" = "GPGServices";
+"Tqr-cf-yu3.ibShadowedToolTip" = "Avlusningsloggen kommer att krypteras, så att endast GPGTools-teamet kan läsa den.";
 "Uyz-OV-Mnx.title" = "Att skicka in rapporter hjälper oss lösa problem. Då och då kommer vi kontakta användare angående en rapport om de tillåter detta.";
 "Vsl-37-VNZ.title" = "Behövs ej";
 "Wec-a0-JIf.title" = "MacGPG";

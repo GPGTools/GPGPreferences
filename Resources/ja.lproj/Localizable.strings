@@ -5,7 +5,7 @@
 
 
 /* Bad keyserver */
-BadKeyserver_Title = "Key server not working";
+BadKeyserver_Title = "鍵サーバが利用できません";
 BadKeyserver_Msg = "The key server you entered is not working.\nPlease verify that the address is correct. It should look something like: hkps://some.key.server.org\n\nSince the key server could also be offline you can try another key server.";
 
 
@@ -15,7 +15,7 @@ WarningDeletePasswords_Button1 = "削除";
 WarningDeletePasswords_Button2 = "キャンセル";
 
 PassowrdsDeleted_Title = "パスワードを削除しました";
-PassowrdsDeleted_Msg = "All OpenPGP passwords were deleted from macOS keychain and the cache.";
+PassowrdsDeleted_Msg = "macOS キーチェーンとキャッシュからすべての OpenPGP パスワードを削除しました。";
 
 PassowrdsDeletFailed_Title = "パスワードの削除に失敗しました。";
 PassowrdsDeletFailed_Msg = "Not all stored passwords could be deleted. Please open Console.app and look for any related errors. Then let us know about this problem via the 'Send Report' tab.";
@@ -24,7 +24,7 @@ Support_SendDebugInfo_Title = "デバッグ情報を送信";
 Support_SendDebugInfo_Msg = "A quick word about the option to include debug information with your report: Often this information will help, to speed up the debugging process. Your problem will be solved a lot quicker.\n\nUnless your report is a feature request, we recommended adding the debug information.\n\nIt is sent via encrypted TLS connection to our hoster. There it is encrypted with our team key and then sent to our support platform. That way the debug information will not be accessible for anybody else except our core team, even if your report is not set to private.\n\nDuring the creation of the debug information you may be asked for your OpenPGP key password, since we will test if decryption and signing are working as expected on your system.\n\nThe debug log includes meta information about your keys.";
 Support_SendDebugInfo_Button1 = "レポートを送信";
 Support_SendDebugInfo_Button2 = "キャンセル";
-Support_SendDebugInfo_Checkbox = "Include debug information with this report";
+Support_SendDebugInfo_Checkbox = "レポートにデバッグ情報を含める";
 
 Support_BugDescriptionTooShort_Title = "説明が短すぎます";
 Support_BugDescriptionTooShort_Msg = "Please add more details to the description field. The more detail you can provide, the faster we will be able to find a good solution to your request. If applicable, please add precise steps that will help reproduce the issue.";
@@ -32,20 +32,20 @@ Support_BugDescriptionTooShort_Msg = "Please add more details to the description
 Support_ExpectedBahaviorTooShort_Title = "Expected behavior too short";
 Support_ExpectedBahaviorTooShort_Msg = "Please add more details to the expected behavior field. The more detail you can provide, the faster we will be able to find a solution and answer your request.";
 
-Support_SubjectTooShort_Title = "Subject too short";
+Support_SubjectTooShort_Title = "件名が短すぎます";
 Support_SubjectTooShort_Msg = "Please add a more descriptive subject.";
 
 Support_MailInvalid_Title = "メールアドレスが無効です";
 Support_MailInvalid_Msg = "有効なメールアドレスを使用してください。";
 
 Support_NameTooShort_Title = "名前が短すぎます";
-Support_NameTooShort_Msg = "Please enter a longer name.";
+Support_NameTooShort_Msg = "名前を長くしてください";
 
 Support_NoComponentSelected_Title = "コンポーネントが選択されていません";
 Support_NoComponentSelected_Msg = "コンポーネントを選択してください。";
 
-Support_ReportFailed_Title = "Report could not be sent";
-Support_ReportFailed_Msg = "Please create your report on our support platform instead. Click “Ok” to open the support form in your browser.";
+Support_ReportFailed_Title = "レポートを送信できません";
+Support_ReportFailed_Msg = "かわりにサポートプラットフォームからレポートを作成してください。「OK」をクリックするとブラウザーでサポートフォームを開きます。";
 
 Support_PublicReportSucceeded_Title = "レポートを送信しました";
 Support_PublicReportSucceeded_Msg = "Thank you for the report. A public discussion has been created. Please allow a few days for us to respond. You will receive updates via email.\n\nThe discussion will now be openend in your browser. Consider creating a bookmark.";
@@ -56,7 +56,7 @@ Support_PrivateReportSucceeded_Msg = "Thank you for the report. A private discus
 
 ShouldRemoveComment_Title = "Information about the comment field";
 ShouldRemoveComment_Msg = "We have removed the option to set a comment in GPG Suite Preferences. Best practices recommend to no longer use the comment field since wrong usage may leak information.\n\nYou have currently configured the following comment:\n\n%@\n\nWould you like to remove it? (recommended)";
-ShouldRemoveComment_Button1 = "Remove Comment";
+ShouldRemoveComment_Button1 = "コメントを消去";
 ShouldRemoveComment_Button2 = "Keep Comment";
 
 
