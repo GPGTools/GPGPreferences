@@ -3,7 +3,7 @@
 //  GPGTools
 //
 //  Created by Alexander Willner on 04.08.10.
-//  Copyright (c) 2016 GPGTools Project Team. All rights reserved.
+//  Copyright © 2019 GPGTools. All rights reserved.
 //
 
 #import "GPGToolsPref.h"
@@ -11,6 +11,7 @@
 
 GPGToolsPref *gpgPrefPane = nil;
 
+static NSString * const GPGPreferencesShowTabNotification = @"GPGPreferencesShowTabNotification";
 
 
 @implementation NSString (stringWithFormat_parameters)
@@ -63,12 +64,45 @@ GPGToolsPref *gpgPrefPane = nil;
 		return nil;
 	}
 	gpgPrefPane = [self retain];
+
+	[[NSDistributedNotificationCenter defaultCenter] addObserver:self
+														selector:@selector(showTabNotificaiton:)
+															name:GPGPreferencesShowTabNotification
+														  object:nil
+											  suspensionBehavior:NSNotificationSuspensionBehaviorDeliverImmediately];
 	
 	if ([bundle respondsToSelector:@selector(useGPGLocalizations)]) {
 		[bundle useGPGLocalizations];
 	}
 	
+	
+	
+	// System Preferences.app has a nice "x-apple.systempreferences:" url scheme, with support to select the tab to show.
+	// Example: open "x-apple.systempreferences:com.apple.preference.security?Firewall"
+	// BUT this only works for preference panes which are signed by Apple and have NSPrefPaneAllowsXAppleSystemPreferencesURLScheme = YES in their Info.plist
+	//
+	// So this a solution to launch GPGPreferences with a specific tab shown.
+	// The name of the tab is read from the file /private/tmp/GPGPreferences.USER/tab
+	// When GPGPreferences is already loaded, a tab can be shown by sending a GPGPreferencesShowTabNotification with userinfo @{@"tab": @"tabname"}
+	
+	NSString *directory = [NSString stringWithFormat:@"/private/tmp/GPGPreferences.%@", NSUserName()];
+	NSString *path = [directory stringByAppendingPathComponent:@"tab"];
+	if ([[NSFileManager defaultManager] fileExistsAtPath:path]) {
+		NSString *tabToShow = [NSString stringWithContentsOfFile:path encoding:NSUTF8StringEncoding error:nil];
+		[[NSFileManager defaultManager] removeItemAtPath:directory error:nil];
+		if (tabToShow.length > 0 && tabToShow.length < 100) {
+			self.tabToShow = tabToShow;
+		}
+	}
+	
+	
 	return self;
+}
+
+- (void)dealloc {
+	[[NSDistributedNotificationCenter defaultCenter] removeObserver:self];
+	self.tabToShow = nil;
+	[super dealloc];
 }
 
 - (NSString *)mainNibName {
@@ -86,6 +120,21 @@ GPGToolsPref *gpgPrefPane = nil;
 	return [super mainNibName];
 }
 
+
+- (void)showTabNotificaiton:(NSNotification *)notification {
+	NSString *tab = notification.userInfo[@"tab"];
+	[self revealElementForKey:tab];
+	
+	// Remove the temporary file, which contains the tab to show.
+	NSString *directory = [NSString stringWithFormat:@"/private/tmp/GPGPreferences.%@", NSUserName()];
+	if ([[NSFileManager defaultManager] fileExistsAtPath:directory]) {
+		[[NSFileManager defaultManager] removeItemAtPath:directory error:nil];
+	}
+}
+
+
+
+
 - (void)willUnselect {
 	[self.mainView.window makeFirstResponder:nil];
 }
@@ -93,9 +142,20 @@ GPGToolsPref *gpgPrefPane = nil;
 
 
 - (void)revealElementForKey:(NSString *)key {
-	NSInteger index = [self.tabView indexOfTabViewItemWithIdentifier:key];
-	if (index != NSNotFound) {
-		[self.tabView selectTabViewItemAtIndex:index];
+	if (_viewsLoaded) {
+		NSInteger index = [self.tabView indexOfTabViewItemWithIdentifier:key];
+		if (index != NSNotFound) {
+			[self.tabView selectTabViewItemAtIndex:index];
+		}
+	} else {
+		self.tabToShow = key;
+	}
+}
+- (void)mainViewDidLoad {
+	_viewsLoaded = YES;
+	if (self.tabToShow) {
+		[self revealElementForKey:self.tabToShow];
+		self.tabToShow = nil;
 	}
 }
 

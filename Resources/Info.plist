@@ -45,6 +45,6 @@
 	<key>NSPrefPaneSearchParameters</key>
 	<string>GPGPreferencesTerms</string>
 	<key>NSHumanReadableCopyright</key>
-	<string>Copyright © 2016, GPGTools.</string>
+	<string>Copyright © 2019, GPGTools.</string>
 </dict>
 </plist>

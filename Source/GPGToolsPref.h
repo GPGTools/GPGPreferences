@@ -18,11 +18,11 @@ extern GPGToolsPref *gpgPrefPane;
 
 @interface GPGToolsPref : NSPreferencePane {
 	NSTabView *_tabView;
+	BOOL _viewsLoaded;
 }
 
-
+@property (copy, nonatomic) NSString *tabToShow;
 @property (strong) IBOutlet NSTabView *tabView;
-
 
 - (NSString *)localizedString:(NSString *)key;
 

@@ -3,55 +3,49 @@
 //  gpgPrefLauncher
 //
 //  Created by Mento on 13.04.16.
-//  Copyright (c) 2016 GPGTools. All rights reserved.
+//  Copyright © 2019. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
-#import "SBSystemPreferences.h"
+#import <Cocoa/Cocoa.h>
 
+static NSString * const GPGPreferencesShowTabNotification = @"GPGPreferencesShowTabNotification";
 
 int main(int argc, const char *argv[]) {
 	@autoreleasepool {
-		SBSystemPreferencesApplication *systemPrefs = [SBApplication applicationWithBundleIdentifier:@"com.apple.systempreferences"];
-		if (!systemPrefs) {
-			return 1;
-		}
-		BOOL running = systemPrefs.isRunning;
-		SBElementArray *panes = systemPrefs.panes;
-		SBSystemPreferencesPane *gpgPane = nil;
+		NSString *tab = nil;
 		
-		
-		for (SBSystemPreferencesPane *pane in panes) {
-			if ([pane.id isEqualToString:@"org.gpgtools.gpgpreferences"]) {
-				gpgPane = pane;
-				break;
-			}
-		}
-		if (gpgPane) {
-			NSArray *arguments = [[NSProcessInfo processInfo] arguments];
-			if (arguments.count < 2) {
-				[gpgPane reveal];
-				[systemPrefs activate];
-				return 0;
-			}
-			NSString *tab = arguments[1];
-			if ([tab isKindOfClass:[NSString class]]) {
-				SBElementArray *anchors = gpgPane.anchors;
-				
-				for (SBSystemPreferencesAnchor *anchor in anchors) {
-					if ([anchor.name isEqualToString:tab]) {
-						[systemPrefs activate];
-						[anchor reveal];
-						return 0;
-					}
-				}
+		NSArray <NSString *> *arguments = [[NSProcessInfo processInfo] arguments];
+		if (arguments.count >= 2) {
+			tab = arguments[1];
+			NSString *directory = [NSString stringWithFormat:@"/private/tmp/GPGPreferences.%@", NSUserName()];
+			NSString *path = [directory stringByAppendingPathComponent:@"tab"];
+			[[NSFileManager defaultManager] createDirectoryAtPath:directory withIntermediateDirectories:NO attributes:nil error:nil];
+			if (![tab writeToFile:path atomically:YES encoding:NSUTF8StringEncoding error:nil]) {
+				return 1;
 			}
 		}
 		
-		
-		if (running == NO) {
-			[systemPrefs quitSaving:SBSystemPreferencesSaveOptionsNo];
+		NSString *panePath = @"/Library/PreferencePanes/GPGPreferences.prefPane";
+		if (![[NSFileManager defaultManager] fileExistsAtPath:panePath]) {
+			panePath = [NSHomeDirectory() stringByAppendingPathComponent:panePath];
+			if (![[NSFileManager defaultManager] fileExistsAtPath:panePath]) {
+				return 2;
+			}
 		}
+		
+		NSURL *appURL = [NSURL fileURLWithPath:@"/Applications/System Preferences.app"];
+		NSURL *paneURL = [NSURL fileURLWithPath:panePath];
+
+		NSRunningApplication *application = [[NSWorkspace sharedWorkspace] openURLs:@[paneURL] withApplicationAtURL:appURL options:0 configuration:@{} error:nil];
+		if (!application) {
+			return 3;
+		}
+		
+		if (tab) {
+			[[NSDistributedNotificationCenter defaultCenter] postNotificationName:GPGPreferencesShowTabNotification object:nil userInfo:@{@"tab": tab} deliverImmediately:YES];
+		}
+		
 	}
-    return 1;
+	return 0;
 }
+

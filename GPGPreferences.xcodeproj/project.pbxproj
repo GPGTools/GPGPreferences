@@ -30,7 +30,6 @@
 		3056D0D0172D319400CFC0FA /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3056D0CF172D319400CFC0FA /* Security.framework */; };
 		3063FE631CBE68F900E3B255 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 3063FE621CBE68F900E3B255 /* main.m */; };
 		3063FE6B1CBE69FD00E3B255 /* gpgPrefLauncher in Resources */ = {isa = PBXBuildFile; fileRef = 3063FE601CBE68F900E3B255 /* gpgPrefLauncher */; };
-		3063FE711CBE6AEC00E3B255 /* ScriptingBridge.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3063FE701CBE6AEC00E3B255 /* ScriptingBridge.framework */; };
 		307257A21D2D1E1600CD2ED6 /* WarningView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 307257A41D2D1E1600CD2ED6 /* WarningView.xib */; };
 		307257A51D2D1E8700CD2ED6 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 307257A71D2D1E8700CD2ED6 /* Localizable.strings */; };
 		307257B01D2D1F2800CD2ED6 /* Credits.rtf in Resources */ = {isa = PBXBuildFile; fileRef = 307257AF1D2D1F2800CD2ED6 /* Credits.rtf */; };
@@ -150,7 +149,6 @@
 		3056D0D1172D31B500CFC0FA /* Sparkle.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Sparkle.framework; path = Frameworks/Sparkle.framework; sourceTree = "<group>"; };
 		3063FE601CBE68F900E3B255 /* gpgPrefLauncher */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = gpgPrefLauncher; sourceTree = BUILT_PRODUCTS_DIR; };
 		3063FE621CBE68F900E3B255 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		3063FE6F1CBE6ACD00E3B255 /* SBSystemPreferences.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SBSystemPreferences.h; sourceTree = "<group>"; };
 		3063FE701CBE6AEC00E3B255 /* ScriptingBridge.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ScriptingBridge.framework; path = System/Library/Frameworks/ScriptingBridge.framework; sourceTree = SDKROOT; };
 		307257A11D2D1DDA00CD2ED6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/GPGToolsPref.xib; sourceTree = "<group>"; };
 		307257A31D2D1E1600CD2ED6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/WarningView.xib; sourceTree = "<group>"; };
@@ -209,7 +207,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3063FE711CBE6AEC00E3B255 /* ScriptingBridge.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -339,7 +336,6 @@
 		3063FE611CBE68F900E3B255 /* gpgPrefLauncher */ = {
 			isa = PBXGroup;
 			children = (
-				3063FE6F1CBE6ACD00E3B255 /* SBSystemPreferences.h */,
 				3063FE621CBE68F900E3B255 /* main.m */,
 			);
 			path = gpgPrefLauncher;
