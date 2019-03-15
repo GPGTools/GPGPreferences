@@ -296,6 +296,16 @@ static NSString * const CrashReportsUserEmailKey = @"CrashReportsUserEmail";
 }
 
 
+/*
+ * Should pinentry save passwords in the macOS keychain by default?
+ */
+- (BOOL)useKeychain {
+	return [self.options boolForKey:@"UseKeychain"] && ![self.options boolForKey:@"DisableKeychain"];
+}
+- (void)setUseKeychain:(BOOL)useKeychain {
+	[self.options setBool:useKeychain forKey:@"UseKeychain"];
+}
+
 
 /*
  * Handle external key changes.

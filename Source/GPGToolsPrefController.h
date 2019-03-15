@@ -35,6 +35,8 @@
 @property BOOL automaticallySendCrashReports;
 @property (strong) NSString *crashReportsUserEmail;
 @property BOOL allowUserEmailContact;
+@property (nonatomic) BOOL useKeychain;
+
 
 
 // Get a list of keyservers from GPGOptions
