@@ -12,15 +12,29 @@ static NSString * const GPGPreferencesShowTabNotification = @"GPGPreferencesShow
 
 int main(int argc, const char *argv[]) {
 	@autoreleasepool {
-		NSString *tab = nil;
-		
+		NSMutableDictionary *userInfo = [NSMutableDictionary new];
 		NSArray <NSString *> *arguments = [[NSProcessInfo processInfo] arguments];
+		
 		if (arguments.count >= 2) {
-			tab = arguments[1];
+			if (arguments[1].length > 0 && [arguments[1] characterAtIndex:0] == '-') {
+				NSDictionary *parsedArguments = [[NSUserDefaults standardUserDefaults] volatileDomainForName:NSArgumentDomain];
+
+				if (parsedArguments[@"tab"]) {
+					userInfo[@"tab"] = parsedArguments[@"tab"];
+				}
+				if (parsedArguments[@"tool"]) {
+					userInfo[@"tool"] = parsedArguments[@"tool"];
+				}
+			} else {
+				// Old variant: The tab to select is the only argument.
+				userInfo[@"tab"] = arguments[1];
+			}
+			
 			NSString *directory = [NSString stringWithFormat:@"/private/tmp/GPGPreferences.%@", NSUserName()];
 			NSString *path = [directory stringByAppendingPathComponent:@"tab"];
 			[[NSFileManager defaultManager] createDirectoryAtPath:directory withIntermediateDirectories:NO attributes:nil error:nil];
-			if (![tab writeToFile:path atomically:YES encoding:NSUTF8StringEncoding error:nil]) {
+			
+			if (![userInfo writeToFile:path atomically:YES]) {
 				return 1;
 			}
 		}
@@ -41,8 +55,8 @@ int main(int argc, const char *argv[]) {
 			return 3;
 		}
 		
-		if (tab) {
-			[[NSDistributedNotificationCenter defaultCenter] postNotificationName:GPGPreferencesShowTabNotification object:nil userInfo:@{@"tab": tab} deliverImmediately:YES];
+		if (userInfo.count > 0) {
+			[[NSDistributedNotificationCenter defaultCenter] postNotificationName:GPGPreferencesShowTabNotification object:nil userInfo:userInfo deliverImmediately:YES];
 		}
 		
 	}

@@ -7,6 +7,7 @@
 //
 
 #import <PreferencePanes/PreferencePanes.h>
+#import "GPGReportController.h"
 
 @class GPGToolsPref;
 extern GPGToolsPref *gpgPrefPane;
@@ -21,8 +22,9 @@ extern GPGToolsPref *gpgPrefPane;
 	BOOL _viewsLoaded;
 }
 
-@property (copy, nonatomic) NSString *tabToShow;
-@property (strong) IBOutlet NSTabView *tabView;
+@property (nonatomic, assign) IBOutlet GPGReportController *reportController;
+@property (nonatomic, copy) NSDictionary *infoToShow;
+@property (nonatomic, strong) IBOutlet NSTabView *tabView;
 
 - (NSString *)localizedString:(NSString *)key;
 

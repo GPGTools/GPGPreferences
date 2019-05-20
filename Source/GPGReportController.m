@@ -32,7 +32,14 @@ bugDescription=_bugDescription, expectedBahavior=_expectedBahavior, additionalIn
 affectedComponent=_affectedComponent, privateDiscussion=_privateDiscussion;
 
 
-
+- (void)selectTool:(NSString *)tool {
+	NSArray *tools = @[@"n/a", @"gpgmail", @"gpgkeychain", @"gpgservices", @"macgpg", @"gpgpreferences"];
+	NSUInteger index = [tools indexOfObject:tool];
+	if (index == NSNotFound) {
+		index = 0;
+	}
+	self.affectedComponent = index;
+}
 
 - (void)sendSupportRequest {
 	NSCharacterSet *whitespaceSet = [NSCharacterSet whitespaceAndNewlineCharacterSet];

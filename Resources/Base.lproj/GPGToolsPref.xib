@@ -9,6 +9,7 @@
         <customObject id="-2" userLabel="File's Owner" customClass="GPGToolsPref">
             <connections>
                 <outlet property="_window" destination="12" id="26"/>
+                <outlet property="reportController" destination="hlC-rl-bAu" id="qv7-xB-f89"/>
                 <outlet property="tabView" destination="188" id="LA0-Sw-ehc"/>
             </connections>
         </customObject>
@@ -26,9 +27,6 @@
                 <subviews>
                     <tabView drawsBackground="NO" initialItem="217" translatesAutoresizingMaskIntoConstraints="NO" id="188">
                         <rect key="frame" x="16" y="10" width="628" height="475"/>
-                        <constraints>
-                            <constraint firstAttribute="bottom" secondItem="Az4-kR-dAa" secondAttribute="top" constant="46" id="k6X-R5-yyd"/>
-                        </constraints>
                         <font key="font" metaFont="system"/>
                         <tabViewItems>
                             <tabViewItem label="Settings" identifier="settings" id="217">
@@ -330,6 +328,7 @@
                                         <constraint firstAttribute="bottom" secondItem="zRU-zF-fXT" secondAttribute="bottom" constant="17" id="3PR-3Q-tm1"/>
                                         <constraint firstItem="Lqb-EC-Zs0" firstAttribute="top" secondItem="zkU-S7-MOM" secondAttribute="bottom" constant="8" id="3gh-U7-dbT"/>
                                         <constraint firstItem="559" firstAttribute="width" secondItem="ni6-qs-e6D" secondAttribute="width" id="4Gv-zL-vn5"/>
+                                        <constraint firstAttribute="bottom" secondItem="Az4-kR-dAa" secondAttribute="bottom" constant="15" id="4oF-to-g9h"/>
                                         <constraint firstItem="LVE-JK-9Iw" firstAttribute="leading" secondItem="Z2R-d0-2Bh" secondAttribute="leading" id="5CA-eD-qGD"/>
                                         <constraint firstItem="560" firstAttribute="leading" secondItem="zRU-zF-fXT" secondAttribute="trailing" constant="11" id="5YN-Zh-h6w"/>
                                         <constraint firstItem="Ogz-DZ-1J8" firstAttribute="leading" secondItem="b3k-dz-ngE" secondAttribute="trailing" constant="12" id="766-cr-imd"/>

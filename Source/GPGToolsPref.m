@@ -88,11 +88,10 @@ static NSString * const GPGPreferencesShowTabNotification = @"GPGPreferencesShow
 	NSString *directory = [NSString stringWithFormat:@"/private/tmp/GPGPreferences.%@", NSUserName()];
 	NSString *path = [directory stringByAppendingPathComponent:@"tab"];
 	if ([[NSFileManager defaultManager] fileExistsAtPath:path]) {
-		NSString *tabToShow = [NSString stringWithContentsOfFile:path encoding:NSUTF8StringEncoding error:nil];
+		NSDictionary *userInfo = [NSDictionary dictionaryWithContentsOfFile:path];
 		[[NSFileManager defaultManager] removeItemAtPath:directory error:nil];
-		if (tabToShow.length > 0 && tabToShow.length < 100) {
-			self.tabToShow = tabToShow;
-		}
+		
+		self.infoToShow = userInfo;
 	}
 	
 	
@@ -101,7 +100,7 @@ static NSString * const GPGPreferencesShowTabNotification = @"GPGPreferencesShow
 
 - (void)dealloc {
 	[[NSDistributedNotificationCenter defaultCenter] removeObserver:self];
-	self.tabToShow = nil;
+	self.infoToShow = nil;
 	[super dealloc];
 }
 
@@ -122,8 +121,7 @@ static NSString * const GPGPreferencesShowTabNotification = @"GPGPreferencesShow
 
 
 - (void)showTabNotificaiton:(NSNotification *)notification {
-	NSString *tab = notification.userInfo[@"tab"];
-	[self revealElementForKey:tab];
+	[self revealElementWithInfo:notification.userInfo];
 	
 	// Remove the temporary file, which contains the tab to show.
 	NSString *directory = [NSString stringWithFormat:@"/private/tmp/GPGPreferences.%@", NSUserName()];
@@ -140,22 +138,34 @@ static NSString * const GPGPreferencesShowTabNotification = @"GPGPreferencesShow
 }
 
 
+- (void)revealElementWithInfo:(NSDictionary *)userInfo {
+	if (_viewsLoaded) {
+		NSString *tabName = userInfo[@"tab"];
+		if (tabName) {
+			NSInteger index = [self.tabView indexOfTabViewItemWithIdentifier:tabName];
+			if (index != NSNotFound) {
+				[self.tabView selectTabViewItemAtIndex:index];
+			}
+		}
+		NSString *tool = userInfo[@"tool"];
+		if (tool) {
+			GPGReportController *reportController = self.reportController;
+			[reportController selectTool:tool];
+		}
+		
+	} else {
+		self.infoToShow = userInfo;
+	}
+}
 
 - (void)revealElementForKey:(NSString *)key {
-	if (_viewsLoaded) {
-		NSInteger index = [self.tabView indexOfTabViewItemWithIdentifier:key];
-		if (index != NSNotFound) {
-			[self.tabView selectTabViewItemAtIndex:index];
-		}
-	} else {
-		self.tabToShow = key;
-	}
+	[self revealElementWithInfo:@{@"tab": key}];
 }
 - (void)mainViewDidLoad {
 	_viewsLoaded = YES;
-	if (self.tabToShow) {
-		[self revealElementForKey:self.tabToShow];
-		self.tabToShow = nil;
+	if (self.infoToShow) {
+		[self revealElementWithInfo:self.infoToShow];
+		self.infoToShow = nil;
 	}
 }
 

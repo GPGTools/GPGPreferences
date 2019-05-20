@@ -42,4 +42,7 @@
 @property (nonatomic, assign) IBOutlet NSTextView *textView3;
 @property (nonatomic, assign) IBOutlet GPGToolsPrefController *prefController;
 
+- (void)selectTool:(NSString *)tool;
+
+
 @end
