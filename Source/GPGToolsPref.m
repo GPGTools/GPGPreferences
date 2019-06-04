@@ -82,17 +82,7 @@ static NSString * const GPGPreferencesShowTabNotification = @"GPGPreferencesShow
 	// BUT this only works for preference panes which are signed by Apple and have NSPrefPaneAllowsXAppleSystemPreferencesURLScheme = YES in their Info.plist
 	//
 	// So this a solution to launch GPGPreferences with a specific tab shown.
-	// The name of the tab is read from the file /private/tmp/GPGPreferences.USER/tab
-	// When GPGPreferences is already loaded, a tab can be shown by sending a GPGPreferencesShowTabNotification with userinfo @{@"tab": @"tabname"}
-	
-	NSString *directory = [NSString stringWithFormat:@"/private/tmp/GPGPreferences.%@", NSUserName()];
-	NSString *path = [directory stringByAppendingPathComponent:@"tab"];
-	if ([[NSFileManager defaultManager] fileExistsAtPath:path]) {
-		NSDictionary *userInfo = [NSDictionary dictionaryWithContentsOfFile:path];
-		[[NSFileManager defaultManager] removeItemAtPath:directory error:nil];
-		
-		self.infoToShow = userInfo;
-	}
+	self.infoToShow = [GPGTask readGPGSuitePreferencesArguments];
 	
 	
 	return self;
@@ -124,10 +114,7 @@ static NSString * const GPGPreferencesShowTabNotification = @"GPGPreferencesShow
 	[self revealElementWithInfo:notification.userInfo];
 	
 	// Remove the temporary file, which contains the tab to show.
-	NSString *directory = [NSString stringWithFormat:@"/private/tmp/GPGPreferences.%@", NSUserName()];
-	if ([[NSFileManager defaultManager] fileExistsAtPath:directory]) {
-		[[NSFileManager defaultManager] removeItemAtPath:directory error:nil];
-	}
+	[GPGTask readGPGSuitePreferencesArguments];
 }
 
 
