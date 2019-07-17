@@ -128,7 +128,7 @@ static NSString * const CrashReportsUserEmailKey = @"CrashReportsUserEmail";
 	return [NSSet setWithObject:@"options.keyservers"];
 }
 + (NSSet *)keyPathsForValuesAffectingKeyserver {
-	return [NSSet setWithObject:@"options.keyserver"];
+	return [NSSet setWithObjects:@"options.keyserver", @"keyserverToCheck", nil];
 }
 
 
@@ -461,42 +461,71 @@ static NSString * const CrashReportsUserEmailKey = @"CrashReportsUserEmail";
 		return;
 	}
 	if (self.testingServer) {
+		// Cancel the last check.
 		[self.gpgc cancel];
 	}
 	
-	// We can't use options.keyserver anymore, since setting this value
-	// will update gpg.conf which doesn't make sense if the keyserver can't be used.
-	self.gpgc = [GPGController gpgController];
-	self.gpgc.keyserver = self.keyserverToCheck;
-	self.gpgc.delegate = self;
-	self.gpgc.keyserverTimeout = 10;
 	[spinner startAnimation:nil];
 	self.testingServer = YES;
+	GPGController *gc = [GPGController gpgController];
+	self.gpgc = gc;
 	
-	[self.gpgc testKeyserver];
-}
+	__block BOOL serverWorking = NO;
+	__block BOOL keepCurrentServer = NO;
+	dispatch_group_t dispatchGroup = dispatch_group_create();
+	dispatch_group_enter(dispatchGroup);
+	
+	dispatch_group_notify(dispatchGroup, dispatch_get_main_queue(), ^{
+		if (gc != self.gpgc) {
+			// This is not the result of the last check.
+			return;
+		}
+		self.gpgc = nil;
+		self.testingServer = NO;
+		
+		if (!keepCurrentServer) {
+			if (serverWorking) {
+				// The server passed the check.
+				// Set it as default keyserver.
+				self.options.keyserver = gc.keyserver;
+			} else {
+				[self.options removeKeyserver:gc.keyserver];
+				localizedAlert(@"BadKeyserver");
+			}
+		}
+		
+		self.keyserverToCheck = nil;
+	});
+	
+	// We can't use options.keyserver anymore, since setting this value
+	// will update gpg.conf which doesn't make sense if the keyserver can't be used.
+	self.gpgc.keyserver = self.keyserverToCheck;
+	dispatch_group_enter(dispatchGroup);
+	[self.gpgc testKeyserverWithCompletionHandler:^(BOOL working) {
+		serverWorking = working;
+		dispatch_group_leave(dispatchGroup);
+	}];
+	
+	
+	if ([GPGOptions sharedOptions].isVerifyingKeyserver && ![GPGOptions isVerifyingKeyserver:self.keyserverToCheck]) {
+		// The user is switching from keys.openpgp.org to an old keyserver. Better warn them.
+		[gpgPrefPane showAlertWithTitle:localizedLibmacgpgString(@"SwitchToOldKeyserver_Title")
+								message:localizedLibmacgpgString(@"SwitchToOldKeyserver_Msg")
+								buttons:@[localizedLibmacgpgString(@"SwitchToOldKeyserver_No"), localizedLibmacgpgString(@"SwitchToOldKeyserver_Yes")]
+							   checkbox:nil
+					  completionHandler:^(NSModalResponse returnCode) {
+						  if (returnCode == NSAlertFirstButtonReturn) {
+							  // Do not change the server.
+							  keepCurrentServer = YES;
+							  [self.gpgc cancel];
+						  }
 
-- (void)gpgController:(GPGController *)gc operationDidFinishWithReturnValue:(id)value {
-	// Result of the keyserer test.
-	
-	if (gc != self.gpgc) {
-		// It's not the result of the latest test.
-		return;
+						  dispatch_group_leave(dispatchGroup);
+		}];
+	} else {
+		dispatch_group_leave(dispatchGroup);
 	}
 	
-	dispatch_async(dispatch_get_main_queue(), ^{
-		self.testingServer = NO;
-		self.keyserverToCheck = nil;
-
-		if (![value boolValue]) {
-			[self.options removeKeyserver:gc.keyserver];
-			localizedAlert(@"BadKeyserver");
-		} else {
-			// The server passed the check.
-			// Set it as default keyserver.
-			self.options.keyserver = gc.keyserver;
-		}
-	});
 }
 
 
