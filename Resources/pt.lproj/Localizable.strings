@@ -1,12 +1,12 @@
 
 
 "VERSION: %@" = "Versão: %@";
-"BUILD: %@" = "Fase: %@";
+"BUILD: %@" = "Compilação: %@";
 
 
 /* Bad keyserver */
-BadKeyserver_Title = "Servidor de chaves não funcionando";
-BadKeyserver_Msg = "O servidor de chaves digitado não está funcionando.\nVerifique se o endereço está certo, que deve ser similar a: hkps://servidor.de.chaves.org\n\nJá que o servidor também pode estar off‑line, tente usar outro.";
+BadKeyserver_Title = "Servidor de chaves incomunicável";
+BadKeyserver_Msg = "O servidor de chaves digitado não está funcionando.\nVerifique se o endereço está certo, o qual deve ter o seguinte formato: hkps://servidor.de.chaves.org\n\nJá que o servidor também pode estar off‑line, tente usar outro.";
 
 
 WarningDeletePasswords_Title = "Apagar senhas OpenPGP armazenadas";

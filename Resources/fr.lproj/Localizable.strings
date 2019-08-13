@@ -5,17 +5,17 @@
 
 
 /* Bad keyserver */
-BadKeyserver_Title = "Key server not working";
+BadKeyserver_Title = "Le serveur des clés ne fonctionne pas actuellement";
 BadKeyserver_Msg = "The key server you entered is not working.\nPlease verify that the address is correct. It should look something like: hkps://some.key.server.org\n\nSince the key server could also be offline you can try another key server.";
 
 
-WarningDeletePasswords_Title = "Delete stored OpenPGP passwords";
+WarningDeletePasswords_Title = "Supprimer les mots de passe OpenPGP conservés";
 WarningDeletePasswords_Msg = "This will delete all OpenPGP passwords stored in macOS keychain and empty the cache.";
-WarningDeletePasswords_Button1 = "Delete";
+WarningDeletePasswords_Button1 = "Supprimer";
 WarningDeletePasswords_Button2 = "Annuler";
 
 PassowrdsDeleted_Title = "Mots de passe supprimés";
-PassowrdsDeleted_Msg = "All OpenPGP passwords were deleted from macOS keychain and the cache.";
+PassowrdsDeleted_Msg = "Tous les mots de passe OpenPGP ont été supprimer du trousseau de macOS et du cache.";
 
 PassowrdsDeletFailed_Title = "Suppression des mots de passe échouées";
 PassowrdsDeletFailed_Msg = "Not all stored passwords could be deleted. Please open Console.app and look for any related errors. Then let us know about this problem via the 'Send Report' tab.";
@@ -24,7 +24,7 @@ Support_SendDebugInfo_Title = "Envoi des informations de débogage";
 Support_SendDebugInfo_Msg = "A quick word about the option to include debug information with your report: Often this information will help, to speed up the debugging process. Your problem will be solved a lot quicker.\n\nUnless your report is a feature request, we recommended adding the debug information.\n\nIt is sent via encrypted TLS connection to our hoster. There it is encrypted with our team key and then sent to our support platform. That way the debug information will not be accessible for anybody else except our core team, even if your report is not set to private.\n\nDuring the creation of the debug information you may be asked for your OpenPGP key password, since we will test if decryption and signing are working as expected on your system.\n\nThe debug log includes meta information about your keys.";
 Support_SendDebugInfo_Button1 = "Envoyer le rapport";
 Support_SendDebugInfo_Button2 = "Annuler";
-Support_SendDebugInfo_Checkbox = "Include debug information with this report";
+Support_SendDebugInfo_Checkbox = "Inclure les information de déboguage dans le rapport";
 
 Support_BugDescriptionTooShort_Title = "Description trop courte";
 Support_BugDescriptionTooShort_Msg = "Please add more details to the description field. The more detail you can provide, the faster we will be able to find a good solution to your request. If applicable, please add precise steps that will help reproduce the issue.";
@@ -36,7 +36,7 @@ Support_SubjectTooShort_Title = "Sujet trop court";
 Support_SubjectTooShort_Msg = "Veuillez ajoutez un sujet plus descriptif.";
 
 Support_MailInvalid_Title = "Email invalide";
-Support_MailInvalid_Msg = "Please use a valid email address.";
+Support_MailInvalid_Msg = "S'il vous plait, utilisez une adresse e-mail valide";
 
 Support_NameTooShort_Title = "Nom trop court";
 Support_NameTooShort_Msg = "Merci d'entrer un nom plus long.";
@@ -56,12 +56,12 @@ Support_PrivateReportSucceeded_Msg = "Thank you for the report. A private discus
 
 ShouldRemoveComment_Title = "Information about the comment field";
 ShouldRemoveComment_Msg = "We have removed the option to set a comment in GPG Suite Preferences. Best practices recommend to no longer use the comment field since wrong usage may leak information.\n\nYou have currently configured the following comment:\n\n%@\n\nWould you like to remove it? (recommended)";
-ShouldRemoveComment_Button1 = "Remove Comment";
+ShouldRemoveComment_Button1 = "Supprimer le commentaire";
 ShouldRemoveComment_Button2 = "Keep Comment";
 
 
-EmailCheck_TooLong = "The email address you entered is too long.";
-EmailCheck_Invalid = "You entered an invalid email address.";
-EmailCheck_Msg = "Please use a valid email address.";
+EmailCheck_TooLong = "L'adresse e-mail que vous avez entré est trop longue.";
+EmailCheck_Invalid = "Vous avez entré une adresse e-mail invalide";
+EmailCheck_Msg = "S'il vous plait, utilisez une adresse e-mail valide";
 
 
