@@ -354,17 +354,30 @@ affectedComponent=_affectedComponent, privateDiscussion=_privateDiscussion;
 #define LKEY @"plist"
 	NSFileManager *fileManager = [NSFileManager defaultManager];
 	NSDictionary *systemPlist = [NSDictionary dictionaryWithContentsOfFile:@"/System/Library/CoreServices/SystemVersion.plist"];
-	NSArray *osVersionParts = [[systemPlist objectForKey:@"ProductVersion"] componentsSeparatedByString:@"."];
-	NSString *mailBundleLocation = @"/Library/Application Support/GPGTools/GPGMail/GPGMail_%@.mailbundle";
-	if([osVersionParts count] > 1) {
-		mailBundleLocation = [NSString stringWithFormat:mailBundleLocation, osVersionParts[1]];
+	NSArray<NSString *> *osVersionParts = [[systemPlist objectForKey:@"ProductVersion"] componentsSeparatedByString:@"."];
+	
+	// Add locations for GPGMail_12–GPGMail_14 and GPGMail_3–GPGMail_4.
+	NSMutableArray *mailBundleLocations = [NSMutableArray array];
+	NSString *mailBundleLocation = @"/Library/Application Support/GPGTools/GPGMail/GPGMail_%i.mailbundle";
+	if (osVersionParts.count > 1) {
+		int osVersion = osVersionParts[1].intValue;
+		if (osVersion >= 15) {
+			[mailBundleLocations addObject:[NSString stringWithFormat:mailBundleLocation, 4]];
+		} else if (osVersion >= 13) {
+			[mailBundleLocations addObject:[NSString stringWithFormat:mailBundleLocation, 3]];
+			[mailBundleLocations addObject:[NSString stringWithFormat:mailBundleLocation, osVersion]];
+		} else {
+			[mailBundleLocations addObject:[NSString stringWithFormat:mailBundleLocation, osVersion]];
+		}
 	}
+	[mailBundleLocations addObjectsFromArray:@[@"/Network/Library/Mail/Bundles/GPGMail.mailbundle", @"~/Library/Mail/Bundles/GPGMail.mailbundle", @"/Library/Mail/Bundles/GPGMail.mailbundle"]];
+	
 	NSArray *tools = @[
 					   @{NKEY: @"GPG Suite",
 						 PKEY: @[@"/Library/Application Support/GPGTools/GPGSuite_Updater.app"]},
 
 					   @{NKEY: @"GPG Mail",
-						 PKEY: @[mailBundleLocation, @"/Network/Library/Mail/Bundles/GPGMail.mailbundle", @"~/Library/Mail/Bundles/GPGMail.mailbundle", @"/Library/Mail/Bundles/GPGMail.mailbundle"]},
+						 PKEY: mailBundleLocations},
 					   
 					   @{NKEY: @"GPG Keychain",
 						 IKEY: @"org.gpgtools.gpgkeychain"},
