@@ -1,0 +1,3 @@
+[submodule "Dependencies/GMSupportPlan"]
+	path = Dependencies/GMSupportPlan
+	url = gpgtools@gpgtools.org:git-repositories/GMSupportPlan.git

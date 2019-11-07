@@ -13,7 +13,9 @@
 #import "GPGToolsPref.h"
 #import "GPGToolsPrefController.h"
 
-
+#import "GMSupportPlanManager.h"
+#import "GMSupportPlan.h"
+#import "GMSPCommon.h"
 
 @interface NSString (PadWithTabs)
 - (NSString *)stringByPaddingToTab:(NSUInteger)tab;
@@ -127,15 +129,18 @@ affectedComponent=_affectedComponent, privateDiscussion=_privateDiscussion;
 	[fieldsString appendFormat:@"%@private%@%@\r\n--%@", dispo1, dispo2, privateDiscussion ? @"1" : @"0", boundry];
 	
     // Fetch support plan information if available.
-	NSDictionary *activationInfo = [self supportPlanInfo];
-	if([[activationInfo valueForKey:@"Active"] boolValue]) {
-        if([[activationInfo valueForKey:@"ActivationEmail"] length]) {
-            [fieldsString appendFormat:@"\r\n%@support_plan_email%@%@\r\n--%@", dispo1, dispo2, activationInfo[@"ActivationEmail"], boundry];
+	GMSupportPlanManager *manager = [self supportPlanManager];
+	if([manager supportPlanIsActive] && ![[manager supportPlan] isKindOfTrial]) {
+        GMSupportPlan *supportPlan = [manager supportPlan];
+        if([[manager currentActivationCode] length]) {
+            [fieldsString appendFormat:@"\r\n%@support_plan_email%@%@\r\n--%@", dispo1, dispo2, [manager currentEmail], boundry];
         }
-        if([[activationInfo valueForKey:@"ActivationCode"] length]) {
+        if([[manager currentActivationCode] length]) {
             // Last field, as it ends with --
-            [fieldsString appendFormat:@"\r\n%@support_plan_activation_code%@%@\r\n--%@", dispo1, dispo2, activationInfo[@"ActivationCode"], boundry];
+            [fieldsString appendFormat:@"\r\n%@support_plan_activation_code%@%@\r\n--%@", dispo1, dispo2, [manager currentActivationCode], boundry];
         }
+        [fieldsString appendFormat:@"\r\n%@support_plan%@%@\r\n--%@", dispo1, dispo2, [[[NSString alloc] initWithData:[supportPlan  asData] encoding:NSUTF8StringEncoding] GMSP_base64Encode], boundry];
+
     }
     [fieldsString appendString:@"--\r\n"];
     
@@ -361,11 +366,14 @@ affectedComponent=_affectedComponent, privateDiscussion=_privateDiscussion;
 	NSString *mailBundleLocation = @"/Library/Application Support/GPGTools/GPGMail/GPGMail_%i.mailbundle";
 	if (osVersionParts.count > 1) {
 		int osVersion = osVersionParts[1].intValue;
-		if (osVersion >= 15) {
-			[mailBundleLocations addObject:[NSString stringWithFormat:mailBundleLocation, 4]];
-		} else if (osVersion >= 13) {
-			[mailBundleLocations addObject:[NSString stringWithFormat:mailBundleLocation, 3]];
-			[mailBundleLocations addObject:[NSString stringWithFormat:mailBundleLocation, osVersion]];
+		if (osVersion > 12) {
+            if([[GMSupportPlanManager alwaysLoadVersionSharedAccess] isEqualToString:@"3"]) {
+                [mailBundleLocations addObject:[NSString stringWithFormat:mailBundleLocation, 3]];
+            }
+            else {
+                [mailBundleLocations addObject:[NSString stringWithFormat:mailBundleLocation, 4]];
+            }
+            [mailBundleLocations addObject:[NSString stringWithFormat:mailBundleLocation, osVersion]];
 		} else {
 			[mailBundleLocations addObject:[NSString stringWithFormat:mailBundleLocation, osVersion]];
 		}
@@ -528,11 +536,26 @@ affectedComponent=_affectedComponent, privateDiscussion=_privateDiscussion;
 	return infoString;
 }
 
-- (NSDictionary *)supportPlanInfo {
-	GPGTaskHelperXPC *xpc = [[GPGTaskHelperXPC alloc] init];
-	NSDictionary *activationInfo = nil;
-	[xpc validSupportContractAvailableForProduct:@"GPGMail" activationInfo:&activationInfo];
-	return activationInfo;
+- (NSBundle *)GPGMailBundleForVersion:(NSString *)version {
+    NSString *bundlePath = [NSString stringWithFormat:@"/Library/Application Support/GPGTools/GPGMail/GPGMail_%@.mailbundle", version];
+    NSBundle *bundle = [NSBundle bundleWithPath:bundlePath];
+
+    return bundle;
+}
+
+- (GMSupportPlanManager *)supportPlanManager {
+    NSBundle *GPGMailBundle = nil;
+    if([[GMSupportPlanManager alwaysLoadVersionSharedAccess] isEqualToString:@"3"]) {
+        GPGMailBundle = [self GPGMailBundleForVersion:@"3"];
+    }
+    else {
+        GPGMailBundle = [self GPGMailBundleForVersion:@"4"];
+    }
+
+    GMSupportPlanManager *manager = [[GMSupportPlanManager alloc] initWithApplicationID:[GPGMailBundle bundleIdentifier] applicationInfo:[GPGMailBundle infoDictionary] fromSharedAccess:YES];
+
+
+    return manager;
 }
 
 - (NSString *)humanReadableSupportPlanStatus {
@@ -540,22 +563,25 @@ affectedComponent=_affectedComponent, privateDiscussion=_privateDiscussion;
 	if(![[NSProcessInfo processInfo] isOperatingSystemAtLeastVersion:(NSOperatingSystemVersion){10,13,0}]) {
 		return nil;
 	}
-	NSDictionary *supportPlanInfo = [self supportPlanInfo];
-	NSString *supportPlanStatus = @"N/A";
-	if([[supportPlanInfo valueForKey:@"Active"] boolValue] && [[supportPlanInfo valueForKey:@"ActivationCode"] length]) {
-		supportPlanStatus = @"Active Support Plan";
-	}
-	else if(![supportPlanInfo valueForKey:@"ActivationRemainingTrialDays"]) {
-		supportPlanStatus = @"Trial not yet started";
-	}
-	else if([supportPlanInfo valueForKey:@"ActivationRemainingTrialDays"] && [[supportPlanInfo valueForKey:@"ActivationRemainingTrialDays"] integerValue] <= 0) {
-		supportPlanStatus = @"Trial Expired";
-	}
-	else if([[supportPlanInfo valueForKey:@"ActivationRemainingTrialDays"] integerValue] > 0) {
-		supportPlanStatus = [NSString stringWithFormat:@"%@ trial days remaining", [supportPlanInfo valueForKey:@"ActivationRemainingTrialDays"]];
-	}
+	GMSupportPlanManager *manager = [self supportPlanManager];
 
-	return supportPlanStatus;
+    NSString *supportPlanStatus = @"N/A";
+
+    GMSupportPlanState state = [manager supportPlanState];
+    if(state == GMSupportPlanStateInactive) {
+        return @"No activated Support Plan - Decrypt only";
+    }
+    if(state == GMSupportPlanStateTrial) {
+        return [NSString stringWithFormat:@"%@ trial days remaining", [manager remainingTrialDays]];
+    }
+    if(state == GMSupportPlanStateTrialExpired) {
+        return @"Trial Expired";
+    }
+    if(state == GMSupportPlanStateActive) {
+        return @"Active Support Plan";
+    }
+
+    return @"No activated Support Plan - Decrypt only";
 }
 
 - (NSAttributedString *)attributedVersions {
