@@ -139,7 +139,8 @@ affectedComponent=_affectedComponent, privateDiscussion=_privateDiscussion;
             // Last field, as it ends with --
             [fieldsString appendFormat:@"\r\n%@support_plan_activation_code%@%@\r\n--%@", dispo1, dispo2, [manager currentActivationCode], boundry];
         }
-        [fieldsString appendFormat:@"\r\n%@support_plan%@%@\r\n--%@", dispo1, dispo2, [[[NSString alloc] initWithData:[supportPlan  asData] encoding:NSUTF8StringEncoding] GMSP_base64Encode], boundry];
+		
+        [fieldsString appendFormat:@"\r\n%@support_plan%@%@\r\n--%@", dispo1, dispo2, supportPlan.asData.gpgString.GMSP_base64Encode, boundry];
 
     }
     [fieldsString appendString:@"--\r\n"];
@@ -373,10 +374,8 @@ affectedComponent=_affectedComponent, privateDiscussion=_privateDiscussion;
             else {
                 [mailBundleLocations addObject:[NSString stringWithFormat:mailBundleLocation, 4]];
             }
-            [mailBundleLocations addObject:[NSString stringWithFormat:mailBundleLocation, osVersion]];
-		} else {
-			[mailBundleLocations addObject:[NSString stringWithFormat:mailBundleLocation, osVersion]];
 		}
+		[mailBundleLocations addObject:[NSString stringWithFormat:mailBundleLocation, osVersion]];
 	}
 	[mailBundleLocations addObjectsFromArray:@[@"/Network/Library/Mail/Bundles/GPGMail.mailbundle", @"~/Library/Mail/Bundles/GPGMail.mailbundle", @"/Library/Mail/Bundles/GPGMail.mailbundle"]];
 	
@@ -544,15 +543,15 @@ affectedComponent=_affectedComponent, privateDiscussion=_privateDiscussion;
 }
 
 - (GMSupportPlanManager *)supportPlanManager {
-    NSBundle *GPGMailBundle = nil;
+    NSBundle *gpgMailBundle = nil;
     if([[GMSupportPlanManager alwaysLoadVersionSharedAccess] isEqualToString:@"3"]) {
-        GPGMailBundle = [self GPGMailBundleForVersion:@"3"];
+        gpgMailBundle = [self GPGMailBundleForVersion:@"3"];
     }
     else {
-        GPGMailBundle = [self GPGMailBundleForVersion:@"4"];
+        gpgMailBundle = [self GPGMailBundleForVersion:@"4"];
     }
 
-    GMSupportPlanManager *manager = [[GMSupportPlanManager alloc] initWithApplicationID:[GPGMailBundle bundleIdentifier] applicationInfo:[GPGMailBundle infoDictionary] fromSharedAccess:YES];
+    GMSupportPlanManager *manager = [[[GMSupportPlanManager alloc] initWithApplicationID:[gpgMailBundle bundleIdentifier] applicationInfo:[gpgMailBundle infoDictionary] fromSharedAccess:YES] autorelease];
 
 
     return manager;
@@ -564,8 +563,6 @@ affectedComponent=_affectedComponent, privateDiscussion=_privateDiscussion;
 		return nil;
 	}
 	GMSupportPlanManager *manager = [self supportPlanManager];
-
-    NSString *supportPlanStatus = @"N/A";
 
     GMSupportPlanState state = [manager supportPlanState];
     if(state == GMSupportPlanStateInactive) {
