@@ -566,7 +566,7 @@ affectedComponent=_affectedComponent, privateDiscussion=_privateDiscussion;
 
     GMSupportPlanState state = [manager supportPlanState];
     if(state == GMSupportPlanStateInactive) {
-        return @"No activated Support Plan - Decrypt only";
+        return @"Decrypt Only Mode";
     }
     if(state == GMSupportPlanStateTrial) {
         return [NSString stringWithFormat:@"%@ trial days remaining", [manager remainingTrialDays]];
@@ -578,7 +578,7 @@ affectedComponent=_affectedComponent, privateDiscussion=_privateDiscussion;
         return @"Active Support Plan";
     }
 
-    return @"No activated Support Plan - Decrypt only";
+    return @"Decrypt Only Mode";
 }
 
 - (NSAttributedString *)attributedVersions {
