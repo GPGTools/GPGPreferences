@@ -65,12 +65,12 @@
 	
 	NSMutableDictionary *results = [NSMutableDictionary dictionary];
 	
-	results[@"Encrypt GPGTools"] = [self runShellCommand:[NSString stringWithFormat:@"'%@' --batch --trust-model always --no-tty -aer 85E38F69046B44C1EC9FB07B76D78F0500D026C4 <<<test", gpgPath]];
-	results[@"Encrypt Self"] = [self runShellCommand:[NSString stringWithFormat:@"'%@' --batch --trust-model always --no-tty -ae --default-recipient-self <<<test", gpgPath]];
-	results[@"Encrypt+Decrypt"] = [self runShellCommand:[NSString stringWithFormat:@"'%@' --batch --trust-model always --no-tty -ae --default-recipient-self <<<test | '%@'  --batch --no-tty -d", gpgPath, gpgPath]];
+	results[@"Encrypt GPGTools"] = [self.class runShellCommand:[NSString stringWithFormat:@"'%@' --batch --trust-model always --no-tty -aer 85E38F69046B44C1EC9FB07B76D78F0500D026C4 <<<test", gpgPath]];
+	results[@"Encrypt Self"] = [self.class runShellCommand:[NSString stringWithFormat:@"'%@' --batch --trust-model always --no-tty -ae --default-recipient-self <<<test", gpgPath]];
+	results[@"Encrypt+Decrypt"] = [self.class runShellCommand:[NSString stringWithFormat:@"'%@' --batch --trust-model always --no-tty -ae --default-recipient-self <<<test | '%@'  --batch --no-tty -d", gpgPath, gpgPath]];
 
-	results[@"Sign"] = [self runShellCommand:[NSString stringWithFormat:@"'%@' --batch --trust-model always --no-tty -as <<<test", gpgPath]];
-	results[@"Sign+Encrypt"] = [self runShellCommand:[NSString stringWithFormat:@"'%@' --batch --trust-model always --no-tty -aser 85E38F69046B44C1EC9FB07B76D78F0500D026C4 --default-recipient-self <<<test", gpgPath]];
+	results[@"Sign"] = [self.class runShellCommand:[NSString stringWithFormat:@"'%@' --batch --trust-model always --no-tty -as <<<test", gpgPath]];
+	results[@"Sign+Encrypt"] = [self.class runShellCommand:[NSString stringWithFormat:@"'%@' --batch --trust-model always --no-tty -aser 85E38F69046B44C1EC9FB07B76D78F0500D026C4 --default-recipient-self <<<test", gpgPath]];
 
 	
 	debugInfos[@"Encrypt/Sign"] = results;
@@ -95,8 +95,8 @@
 - (void)collectMailBundleConfig {
 	NSMutableDictionary *bundleConfig = [NSMutableDictionary dictionary];
 
-	bundleConfig[@"EnableBundles"] = [self runShellCommand:@"defaults read com.apple.mail EnableBundles"];
-	bundleConfig[@"BundleCompatibilityVersion"] = [self runShellCommand:@"defaults read com.apple.mail BundleCompatibilityVersion"];
+	bundleConfig[@"EnableBundles"] = [self.class runShellCommand:@"defaults read com.apple.mail EnableBundles"];
+	bundleConfig[@"BundleCompatibilityVersion"] = [self.class runShellCommand:@"defaults read com.apple.mail BundleCompatibilityVersion"];
 	
 	debugInfos[@"Bundle Config"] = bundleConfig;
 }
@@ -105,9 +105,9 @@
 - (void)collectAgentInfos {
 	NSMutableDictionary *agentInfos = [NSMutableDictionary dictionary];
 	
-	agentInfos[@"Normal call"] = [self runShellCommand:@"gpg-agent"];
-	agentInfos[@"Direct call"] = [self runCommand:@[@"/usr/local/MacGPG2/bin/gpg-agent"]];
-	agentInfos[@"ps"] = [self runShellCommand:@"ps axo command | grep '[g]pg-agent'"];
+	agentInfos[@"Normal call"] = [self.class runShellCommand:@"gpg-agent"];
+	agentInfos[@"Direct call"] = [self.class runCommand:@[@"/usr/local/MacGPG2/bin/gpg-agent"]];
+	agentInfos[@"ps"] = [self.class runShellCommand:@"ps axo command | grep '[g]pg-agent'"];
 
 	debugInfos[@"Agent Infos"] = agentInfos;
 }
@@ -131,8 +131,8 @@
 		paths[@"pinentry"] = options.pinentryPath;
 	}
 
-	paths[@"GnuPGs"] = [self linesFromString:[self runShellCommand:@"which -a gpg gpg2"]];
-	paths[@"Agents"] = [self linesFromString:[self runShellCommand:@"which -a gpg-agent"]];
+	paths[@"GnuPGs"] = [self linesFromString:[self.class runShellCommand:@"which -a gpg gpg2"]];
+	paths[@"Agents"] = [self linesFromString:[self.class runShellCommand:@"which -a gpg-agent"]];
 	
 	debugInfos[@"Paths"] = paths;
 }
@@ -175,12 +175,12 @@
 - (void)collectEnvironment {
 	debugInfos[@"Environment"] = [[NSProcessInfo processInfo] environment];
 	
-	NSArray *lines = [self linesFromString:[self runShellCommand:@"printenv"]];
+	NSArray *lines = [self linesFromString:[self.class runShellCommand:@"printenv"]];
 	if (lines) {
 		debugInfos[@"Shell Environment"] = lines;
 	}
 	
-	lines = [self linesFromString:[self runCommand:@[@"/sbin/mount"]]];
+	lines = [self linesFromString:[self.class runCommand:@[@"/sbin/mount"]]];
 	if (lines) {
 		debugInfos[@"Mount"] = lines;
 	}
@@ -480,13 +480,13 @@
 	return lines;
 }
 
-- (NSString *)runShellCommand:(NSString *)command {
++ (NSString *)runShellCommand:(NSString *)command {
 	if (command == nil) {
 		return @"";
 	}
 	return [self runCommand:[@[@"/bin/bash", @"-l", @"-c"] arrayByAddingObject:command]];
 }
-- (NSString *)runCommand:(NSArray *)command {
++ (NSString *)runCommand:(NSArray *)command {
 	if (command.count == 0) {
 		return @"";
 	}
