@@ -505,12 +505,22 @@ affectedComponent=_affectedComponent, privateDiscussion=_privateDiscussion;
 	for (NSDictionary *toolVersion in toolVersions) {
 		if (toolVersion[@"version"]) {
 			NSString *name = toolVersion[@"name"];
+			NSString *nameField = name;
 			NSString *version = toolVersion[@"version"];
 			NSString *build = toolVersion[@"build"];
 			NSString *commit = toolVersion[@"commit"];
 			
+			
+			if ([name isEqualToString:@"GPG Mail"]) {
+				NSString *status = [self gpgMailLoadingStateWithToolVersion:toolVersion];
+				if (status.length > 0) {
+					nameField = [NSString stringWithFormat:@"%@ (%@)", name, status];
+				}
+			}
+			
+			
 			[infoString appendFormat:@"    %@%@%@",
-			 [name stringByPaddingToTab:6],
+			 [nameField stringByPaddingToTab:6],
 			 [version stringByPaddingToTab:3],
 			 [build stringByPaddingToTab:1]];
 			
@@ -533,6 +543,56 @@ affectedComponent=_affectedComponent, privateDiscussion=_privateDiscussion;
 	}
 
 	return infoString;
+}
+
+- (NSString *)gpgMailLoadingStateWithToolVersion:(NSDictionary *)toolVersion {
+	// First check if GPGMail is installed.
+	BOOL gpgMailInstalled = NO;
+	if (toolVersion[@"version"]) {
+		gpgMailInstalled = YES;
+	}
+	if (!gpgMailInstalled) {
+		return @"";
+	}
+	
+	
+	// Check if the GPGMailLoader is enabled.
+	BOOL loaderEnabled = NO;
+	NSString *bundlesDir = [NSHomeDirectory() stringByAppendingPathComponent:@"Library/Containers/com.apple.mail/Data/DataVaults/MailBundles/Library/Mail/Bundles"];
+	NSArray *loaderNames = @[@"GPGMailLoader.mailbundle", @"GPGMailLoader_2.mailbundle", @"GPGMailLoader_3.mailbundle"];
+	NSFileManager *fileManager = [NSFileManager defaultManager];
+
+	for (NSString *loaderName in loaderNames) {
+		NSString *path = [bundlesDir stringByAppendingPathComponent:loaderName];
+		NSError *error = nil;
+		[fileManager attributesOfItemAtPath:path error:&error];
+		
+		NSError *posixError = error.userInfo[NSUnderlyingErrorKey];
+				
+		if (!error || (posixError.code == EPERM && [posixError.domain isEqualToString:NSPOSIXErrorDomain])) {
+			// No error or "Operation not permitted", this means the files exists.
+			loaderEnabled = YES;
+			break;
+		}
+	}
+
+	
+	// Check if GPGMail is laoded.
+	BOOL gpgMailLoaded = NO;
+	NSString *result = [GPGDebugCollector runCommand:@[@"/usr/sbin/lsof", @"-F", @"-c", @"Mail"]];
+	if (result && [result rangeOfString:@".mailbundle/Contents/MacOS/GPGMail\n"].length > 0) {
+		gpgMailLoaded = YES;
+	}
+	
+	if (loaderEnabled && gpgMailLoaded) {
+		return @"loaded";
+	} else if (loaderEnabled) {
+		return @"enabled";
+	} else if (gpgMailLoaded) {
+		return @"disabled";
+	}
+	
+	return @"not loaded";
 }
 
 - (NSBundle *)GPGMailBundleForVersion:(NSString *)version {
