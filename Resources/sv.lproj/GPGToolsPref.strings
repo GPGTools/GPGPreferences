@@ -10,7 +10,7 @@
 "579.title" = "Förvald nyckel";
 "605.title" = "Radera…";
 "1048.ibShadowedToolTip" = "För att försöka verifiera en signatur som inte har en publik nyckel på ditt system, kommer detta alternativ att söka på nyckelservrar. Om den hittas, kommer den att laddas ned och läggas till din nyckelring.";
-"1049.title" = "Hämta automatiskt publika nycklar";
+"1049.title" = "Hämta publika nycklar automatiskt";
 "2us-TG-ZgZ.title" = "Leta efter uppdateringar automatiskt";
 "33G-1W-wz2.title" = "Visa versionsinformation";
 "3fg-5i-nL6.title" = "Tillåt GPGTools att kontakta mig angående mina rapporter";

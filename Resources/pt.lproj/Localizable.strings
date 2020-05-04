@@ -36,7 +36,7 @@ Support_SubjectTooShort_Title = "Assunto curto demais";
 Support_SubjectTooShort_Msg = "Adicione um assunto mais descritivo.";
 
 Support_MailInvalid_Title = "E‑mail inválido";
-Support_MailInvalid_Msg = "Use um endereço de e-mail válido.";
+Support_MailInvalid_Msg = "Use um endereço de e‑mail válido.";
 
 Support_NameTooShort_Title = "Nome curto demais";
 Support_NameTooShort_Msg = "Digite um nome mais longo.";
@@ -62,6 +62,6 @@ ShouldRemoveComment_Button2 = "Manter Comentário";
 
 EmailCheck_TooLong = "O endereço de e‑mail digitado é grande demais.";
 EmailCheck_Invalid = "O endereço de e‑mail digitado é inválido.";
-EmailCheck_Msg = "Use um endereço de e-mail válido.";
+EmailCheck_Msg = "Use um endereço de e‑mail válido.";
 
 

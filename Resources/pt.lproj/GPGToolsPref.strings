@@ -9,8 +9,8 @@
 "575.title" = "Armazenar nas Chaves do macOS";
 "579.title" = "Chave Padrão";
 "605.title" = "Apagar…";
-"1048.ibShadowedToolTip" = "Esta opção busca uma chave pública nos servidores de chaves caso nenhuma chave pública seja encontrada no sistema ao verificar uma assinatura. Se encontrada, a chave será transferida e adicionada ao chaveiro.";
-"1049.title" = "Transferir chaves públicas automaticamente";
+"1048.ibShadowedToolTip" = "Esta opção busca uma chave pública nos servidores de chaves caso nenhuma chave pública seja encontrada no sistema ao verificar uma assinatura. Se encontrada, a chave será baixada e adicionada ao chaveiro.";
+"1049.title" = "Baixar chaves públicas automaticamente";
 "2us-TG-ZgZ.title" = "Buscar atualizações automaticamente";
 "33G-1W-wz2.title" = "Notas da Versão";
 "3fg-5i-nL6.title" = "Permitir contato da equipe do GPGTools sobre os relatórios";

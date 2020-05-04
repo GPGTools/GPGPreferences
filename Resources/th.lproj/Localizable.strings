@@ -1,0 +1,67 @@
+
+
+"VERSION: %@" = "รุ่น: %@";
+"BUILD: %@" = "สร้าง: %@";
+
+
+/* Bad keyserver */
+BadKeyserver_Title = "เซิร์ฟเวอร์กุญแจไม่ทำงาน";
+BadKeyserver_Msg = "เซิร์ฟเวอร์กุญแจที่คุณใส่มาไม่ทำงาน\nกรุณาตรวจยืนยันว่าที่อยู่นั้นถูกต้อง มันควรมีหน้าตาทำนองนี้: hkps://some.key.server.org\n\nเนื่องจากเซิร์ฟเวอร์กุญแจอาจหยุดให้บริการได้ คุณอาจจะลองเซิร์ฟเวอร์กุญแจอื่น";
+
+
+WarningDeletePasswords_Title = "ลบรหัสผ่าน OpenPGP ที่บันทึกอยู่";
+WarningDeletePasswords_Msg = "นี่จะลบรหัสผ่าน OpenPGP ทั้งหมดที่เก็บอยู่ใน macOS Keychain และล้างแคชทิ้ง";
+WarningDeletePasswords_Button1 = "ลบ";
+WarningDeletePasswords_Button2 = "ยกเลิก";
+
+PassowrdsDeleted_Title = "ลบรหัสผ่านแล้ว";
+PassowrdsDeleted_Msg = "รหัสผ่าน OpenPGP ทั้งหมดได้ถูกลบออกจาก macOS Keychain และแคชแล้ว";
+
+PassowrdsDeletFailed_Title = "การลบรหัสผ่านล้มเหลว!";
+PassowrdsDeletFailed_Msg = "รหัสผ่านที่ถูกบันทึกในระบบไม่ได้ถูกลบไปทั้งหมด กรุณาเปิด Console.app และมองหาข้อผิดพลาดใดๆ ที่เกี่ยวข้อง จากนั้นช่วยแจ้งให้เราทราบถึงปัญหานี้ผ่านแถบ 'ส่งรายงาน'";
+
+Support_SendDebugInfo_Title = "ส่งข้อมูลดีบัก";
+Support_SendDebugInfo_Msg = "A quick word about the option to include debug information with your report: Often this information will help, to speed up the debugging process. Your problem will be solved a lot quicker.\n\nUnless your report is a feature request, we recommended adding the debug information.\n\nIt is sent via encrypted TLS connection to our hoster. There it is encrypted with our team key and then sent to our support platform. That way the debug information will not be accessible for anybody else except our core team, even if your report is not set to private.\n\nDuring the creation of the debug information you may be asked for your OpenPGP key password, since we will test if decryption and signing are working as expected on your system.\n\nThe debug log includes meta information about your keys.";
+Support_SendDebugInfo_Button1 = "ส่งรายงาน";
+Support_SendDebugInfo_Button2 = "ยกเลิก";
+Support_SendDebugInfo_Checkbox = "รวมข้อมูลดีบักไปกับรายงานนี้ด้วย";
+
+Support_BugDescriptionTooShort_Title = "คำอธิบายสั้นเกินไป";
+Support_BugDescriptionTooShort_Msg = "Please add more details to the description field. The more detail you can provide, the faster we will be able to find a good solution to your request. If applicable, please add precise steps that will help reproduce the issue.";
+
+Support_ExpectedBahaviorTooShort_Title = "พฤติกรรมที่คาดหวังสั้นเกินไป";
+Support_ExpectedBahaviorTooShort_Msg = "กรุณาเพิ่มรายละเอียดให้มากขึ้นในช่องพฤติกรรมที่คาดหวัง ยิ่งมีรายละเอียดมาก เราก็สามารถหาทางออกและตอบคำร้องของคุณได้เร็วยิ่งขึ้น";
+
+Support_SubjectTooShort_Title = "หัวข้อสั้นเกินไป";
+Support_SubjectTooShort_Msg = "กรุณาใส่หัวข้อที่อธิบายมากกว่านี้";
+
+Support_MailInvalid_Title = "อีเมลผิดรูปแบบ";
+Support_MailInvalid_Msg = "กรุณาใช้ที่อยู่อีเมลที่ตรงรูปแบบ";
+
+Support_NameTooShort_Title = "ชื่อสั้นเกินไป";
+Support_NameTooShort_Msg = "กรุณาใส่ชื่อที่ยาวกว่านี้";
+
+Support_NoComponentSelected_Title = "No component selected";
+Support_NoComponentSelected_Msg = "Please select a component.";
+
+Support_ReportFailed_Title = "ไม่สามารถส่งรายงานได้";
+Support_ReportFailed_Msg = "Please create your report on our support platform instead. Click “Ok” to open the support form in your browser.";
+
+Support_PublicReportSucceeded_Title = "ส่งรายงานแล้ว";
+Support_PublicReportSucceeded_Msg = "Thank you for the report. A public discussion has been created. Please allow a few days for us to respond. You will receive updates via email.\n\nThe discussion will now be openend in your browser. Consider creating a bookmark.";
+
+Support_PrivateReportSucceeded_Title = "ส่งรายงานแล้ว";
+Support_PrivateReportSucceeded_Msg = "Thank you for the report. A private discussion has been created. Please allow a few days for us to respond. You will receive updates via email.\n\nThe discussion will now be openend in your browser. Consider creating a bookmark.";
+
+
+ShouldRemoveComment_Title = "ข้อมูลเกี่ยวกับช่องความเห็น";
+ShouldRemoveComment_Msg = "We have removed the option to set a comment in GPG Suite Preferences. Best practices recommend to no longer use the comment field since wrong usage may leak information.\n\nYou have currently configured the following comment:\n\n%@\n\nWould you like to remove it? (recommended)";
+ShouldRemoveComment_Button1 = "ลบความเห็น";
+ShouldRemoveComment_Button2 = "เก็บความเห็น";
+
+
+EmailCheck_TooLong = "ที่อยู่อีเมลที่คุณใส่มายาวเกินไป";
+EmailCheck_Invalid = "คุณใส่ที่อยู่อีเมลผิดรูปแบบ";
+EmailCheck_Msg = "กรุณาใช้ที่อยู่อีเมลที่ตรงรูปแบบ";
+
+
