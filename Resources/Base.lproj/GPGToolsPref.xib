@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="13771" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES">
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="15705" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES">
     <dependencies>
         <deployment identifier="macosx"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="13771"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="15705"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -15,7 +15,7 @@
         </customObject>
         <customObject id="-1" userLabel="First Responder" customClass="FirstResponder"/>
         <customObject id="-3" userLabel="Application" customClass="NSObject"/>
-        <window title="GPGTools" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" deferred="NO" oneShot="NO" releasedWhenClosed="NO" visibleAtLaunch="NO" animationBehavior="default" id="12" userLabel="PrefPane">
+        <window title="GPGTools" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" deferred="NO" releasedWhenClosed="NO" visibleAtLaunch="NO" animationBehavior="default" id="12" userLabel="PrefPane">
             <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES"/>
             <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
             <rect key="contentRect" x="319" y="327" width="660" height="495"/>
@@ -35,7 +35,7 @@
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
                                         <popUpButton toolTip="This key is used as your default key in GPGServices." verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="560">
-                                            <rect key="frame" x="105" y="398" width="386" height="26"/>
+                                            <rect key="frame" x="105" y="399" width="386" height="25"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" constant="381" id="B2j-4f-jqO"/>
                                             </constraints>
@@ -59,8 +59,8 @@
                                                 <outlet property="nextKeyView" destination="561" id="5tv-lf-j0s"/>
                                             </connections>
                                         </popUpButton>
-                                        <button translatesAutoresizingMaskIntoConstraints="NO" id="561">
-                                            <rect key="frame" x="105" y="367" width="174" height="18"/>
+                                        <button ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="561">
+                                            <rect key="frame" x="105" y="367" width="175" height="18"/>
                                             <buttonCell key="cell" type="check" title="Store in macOS Keychain" bezelStyle="regularSquare" imagePosition="left" alignment="left" state="on" inset="2" id="575">
                                                 <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                                                 <font key="font" metaFont="system"/>
@@ -75,7 +75,7 @@
                                                 <outlet property="nextKeyView" destination="604" id="ZMB-nh-jwH"/>
                                             </connections>
                                         </button>
-                                        <textField verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ni6-qs-e6D">
+                                        <textField verticalHuggingPriority="750" ambiguous="YES" allowsCharacterPickerTouchBarItem="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ni6-qs-e6D">
                                             <rect key="frame" x="15" y="368" width="74" height="17"/>
                                             <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="right" title="Password" id="yaL-Pm-Uv7">
                                                 <font key="font" metaFont="system"/>
@@ -83,7 +83,7 @@
                                                 <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                             </textFieldCell>
                                         </textField>
-                                        <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="604">
+                                        <button verticalHuggingPriority="750" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="604">
                                             <rect key="frame" x="404" y="359" width="90" height="32"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="78" id="vAR-8Y-8gO"/>
@@ -97,7 +97,7 @@
                                                 <outlet property="nextKeyView" destination="564" id="qPW-uF-IGe"/>
                                             </connections>
                                         </button>
-                                        <button translatesAutoresizingMaskIntoConstraints="NO" id="j6F-9e-l7j">
+                                        <button ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="j6F-9e-l7j">
                                             <rect key="frame" x="105" y="343" width="108" height="18"/>
                                             <buttonCell key="cell" type="check" title="Remember for" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="dyf-aR-2b2">
                                                 <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
@@ -107,7 +107,7 @@
                                                 <binding destination="243" name="value" keyPath="rememberPassword" id="RrV-Ls-2pN"/>
                                             </connections>
                                         </button>
-                                        <textField verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="YES" translatesAutoresizingMaskIntoConstraints="NO" id="564">
+                                        <textField verticalHuggingPriority="750" ambiguous="YES" allowsCharacterPickerTouchBarItem="YES" translatesAutoresizingMaskIntoConstraints="NO" id="564">
                                             <rect key="frame" x="219" y="341" width="50" height="22"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" constant="50" id="6Mp-WX-wao"/>
@@ -118,7 +118,7 @@
                                                     <real key="maximum" value="99999"/>
                                                 </numberFormatter>
                                                 <font key="font" metaFont="system"/>
-                                                <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
+                                                <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                                                 <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                             </textFieldCell>
                                             <connections>
@@ -131,7 +131,7 @@
                                                 <outlet property="nextKeyView" destination="566" id="hND-dB-f8z"/>
                                             </connections>
                                         </textField>
-                                        <textField verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="YES" translatesAutoresizingMaskIntoConstraints="NO" id="563">
+                                        <textField verticalHuggingPriority="750" ambiguous="YES" allowsCharacterPickerTouchBarItem="YES" translatesAutoresizingMaskIntoConstraints="NO" id="563">
                                             <rect key="frame" x="275" y="344" width="56" height="17"/>
                                             <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="seconds" id="573">
                                                 <font key="font" metaFont="system"/>
@@ -140,14 +140,14 @@
                                             </textFieldCell>
                                         </textField>
                                         <textField verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="YES" translatesAutoresizingMaskIntoConstraints="NO" id="559">
-                                            <rect key="frame" x="15" y="404" width="74" height="17"/>
+                                            <rect key="frame" x="15" y="405" width="74" height="16"/>
                                             <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="right" title="Default Key" id="579">
                                                 <font key="font" metaFont="system"/>
                                                 <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                                                 <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                             </textFieldCell>
                                         </textField>
-                                        <textField verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="YES" translatesAutoresizingMaskIntoConstraints="NO" id="565">
+                                        <textField verticalHuggingPriority="750" ambiguous="YES" allowsCharacterPickerTouchBarItem="YES" translatesAutoresizingMaskIntoConstraints="NO" id="565">
                                             <rect key="frame" x="15" y="308" width="74" height="17"/>
                                             <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="right" title="Key Server" id="570">
                                                 <font key="font" metaFont="system"/>
@@ -155,7 +155,7 @@
                                                 <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                             </textFieldCell>
                                         </textField>
-                                        <textField verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Jsm-9N-fEv">
+                                        <textField verticalHuggingPriority="750" ambiguous="YES" allowsCharacterPickerTouchBarItem="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Jsm-9N-fEv">
                                             <rect key="frame" x="15" y="219" width="74" height="17"/>
                                             <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="right" title="Reports" id="RTl-LW-KmP">
                                                 <font key="font" metaFont="system"/>
@@ -163,7 +163,7 @@
                                                 <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                             </textFieldCell>
                                         </textField>
-                                        <comboBox verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="YES" translatesAutoresizingMaskIntoConstraints="NO" id="566">
+                                        <comboBox verticalHuggingPriority="750" ambiguous="YES" allowsCharacterPickerTouchBarItem="YES" translatesAutoresizingMaskIntoConstraints="NO" id="566">
                                             <rect key="frame" x="107" y="304" width="384" height="26"/>
                                             <comboBoxCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" borderStyle="bezel" drawsBackground="YES" usesSingleLineMode="YES" completes="NO" numberOfVisibleItems="10" id="569">
                                                 <font key="font" metaFont="system"/>
@@ -177,7 +177,7 @@
                                                 <outlet property="nextKeyView" destination="1048" id="wOJ-we-xfb"/>
                                             </connections>
                                         </comboBox>
-                                        <button translatesAutoresizingMaskIntoConstraints="NO" id="1048">
+                                        <button ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="1048">
                                             <rect key="frame" x="105" y="284" width="238" height="18"/>
                                             <string key="toolTip">When attempting to verify a signature for which the required public key can not be found on your system, this option will search the key servers. If found, the key is downloaded and added to your keyring.</string>
                                             <buttonCell key="cell" type="check" title="Automatically download public keys" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="1049">
@@ -188,7 +188,7 @@
                                                 <binding destination="243" name="value" keyPath="options.auto-key-retrieve" id="Jvn-Nn-rDN"/>
                                             </connections>
                                         </button>
-                                        <progressIndicator wantsLayer="YES" horizontalHuggingPriority="750" verticalHuggingPriority="750" maxValue="100" bezeled="NO" indeterminate="YES" controlSize="small" style="spinning" translatesAutoresizingMaskIntoConstraints="NO" id="yH5-BR-TTA">
+                                        <progressIndicator wantsLayer="YES" horizontalHuggingPriority="750" verticalHuggingPriority="750" ambiguous="YES" maxValue="100" bezeled="NO" indeterminate="YES" controlSize="small" style="spinning" translatesAutoresizingMaskIntoConstraints="NO" id="yH5-BR-TTA">
                                             <rect key="frame" x="446" y="309" width="16" height="16"/>
                                             <connections>
                                                 <binding destination="243" name="hidden" keyPath="testingServer" id="8Fl-hq-feu">
@@ -201,7 +201,7 @@
                                         <box horizontalHuggingPriority="751" verticalHuggingPriority="248" verticalCompressionResistancePriority="751" boxType="separator" translatesAutoresizingMaskIntoConstraints="NO" id="zRU-zF-fXT">
                                             <rect key="frame" x="93" y="17" width="5" height="405"/>
                                         </box>
-                                        <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" setsMaxLayoutWidthAtFirstLayout="YES" allowsCharacterPickerTouchBarItem="YES" translatesAutoresizingMaskIntoConstraints="NO" id="iho-Ho-JOJ">
+                                        <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" ambiguous="YES" setsMaxLayoutWidthAtFirstLayout="YES" allowsCharacterPickerTouchBarItem="YES" translatesAutoresizingMaskIntoConstraints="NO" id="iho-Ho-JOJ">
                                             <rect key="frame" x="105" y="251" width="371" height="28"/>
                                             <textFieldCell key="cell" controlSize="small" sendsActionOnEndEditing="YES" title="Search key servers for public key when signatures can not be verified because the public key does not exist in GPG Keychain." id="9oN-AB-7Fa">
                                                 <font key="font" metaFont="smallSystem"/>
@@ -209,7 +209,7 @@
                                                 <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                             </textFieldCell>
                                         </textField>
-                                        <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" setsMaxLayoutWidthAtFirstLayout="YES" allowsCharacterPickerTouchBarItem="YES" translatesAutoresizingMaskIntoConstraints="NO" id="5n5-Zm-LhX">
+                                        <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" ambiguous="YES" setsMaxLayoutWidthAtFirstLayout="YES" allowsCharacterPickerTouchBarItem="YES" translatesAutoresizingMaskIntoConstraints="NO" id="5n5-Zm-LhX">
                                             <rect key="frame" x="105" y="134" width="383" height="28"/>
                                             <textFieldCell key="cell" controlSize="small" sendsActionOnEndEditing="YES" title="Sending in reports helps us fix problems. Occasionally we will contact users regarding a report when they allow this." id="Uyz-OV-Mnx">
                                                 <font key="font" metaFont="smallSystem"/>
@@ -217,7 +217,7 @@
                                                 <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                             </textFieldCell>
                                         </textField>
-                                        <button translatesAutoresizingMaskIntoConstraints="NO" id="mnc-fg-npB">
+                                        <button ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="mnc-fg-npB">
                                             <rect key="frame" x="105" y="218" width="196" height="18"/>
                                             <buttonCell key="cell" type="check" title="Tell GPGTools about crashes" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="RZt-Ds-s5C">
                                                 <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
@@ -227,7 +227,7 @@
                                                 <binding destination="243" name="value" keyPath="automaticallySendCrashReports" id="Vf3-c1-TAd"/>
                                             </connections>
                                         </button>
-                                        <button translatesAutoresizingMaskIntoConstraints="NO" id="Z2R-d0-2Bh">
+                                        <button ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Z2R-d0-2Bh">
                                             <rect key="frame" x="105" y="198" width="313" height="18"/>
                                             <buttonCell key="cell" type="check" title="Allow GPGTools to contact me about my reports" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="3fg-5i-nL6">
                                                 <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
@@ -238,11 +238,11 @@
                                                 <binding destination="243" name="enabled" keyPath="automaticallySendCrashReports" id="Ilm-DC-tcT"/>
                                             </connections>
                                         </button>
-                                        <textField verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="YES" translatesAutoresizingMaskIntoConstraints="NO" id="LVE-JK-9Iw">
+                                        <textField verticalHuggingPriority="750" ambiguous="YES" allowsCharacterPickerTouchBarItem="YES" translatesAutoresizingMaskIntoConstraints="NO" id="LVE-JK-9Iw">
                                             <rect key="frame" x="107" y="170" width="381" height="22"/>
                                             <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" placeholderString="" drawsBackground="YES" id="ZnT-yK-W8S">
                                                 <font key="font" metaFont="system"/>
-                                                <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
+                                                <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                                                 <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                             </textFieldCell>
                                             <connections>
@@ -263,7 +263,7 @@
                                                 </binding>
                                             </connections>
                                         </textField>
-                                        <textField verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="YES" translatesAutoresizingMaskIntoConstraints="NO" id="4Fu-PE-Y4O">
+                                        <textField verticalHuggingPriority="750" ambiguous="YES" allowsCharacterPickerTouchBarItem="YES" translatesAutoresizingMaskIntoConstraints="NO" id="4Fu-PE-Y4O">
                                             <rect key="frame" x="15" y="101" width="74" height="17"/>
                                             <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="right" title="Updates" id="GN0-q8-084">
                                                 <font key="font" metaFont="system"/>
@@ -271,7 +271,7 @@
                                                 <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                             </textFieldCell>
                                         </textField>
-                                        <button translatesAutoresizingMaskIntoConstraints="NO" id="zkU-S7-MOM">
+                                        <button ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="zkU-S7-MOM">
                                             <rect key="frame" x="105" y="71" width="217" height="18"/>
                                             <buttonCell key="cell" type="check" title="Automatically check for updates" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="2us-TG-ZgZ">
                                                 <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
@@ -281,7 +281,7 @@
                                                 <binding destination="718" name="value" keyPath="automaticallyChecksForUpdates" id="4ca-ns-BBt"/>
                                             </connections>
                                         </button>
-                                        <button translatesAutoresizingMaskIntoConstraints="NO" id="Lqb-EC-Zs0">
+                                        <button ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Lqb-EC-Zs0">
                                             <rect key="frame" x="105" y="49" width="137" height="18"/>
                                             <buttonCell key="cell" type="check" title="Include beta builds" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="LlU-F9-JUG">
                                                 <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
@@ -291,7 +291,7 @@
                                                 <binding destination="718" name="value" keyPath="downloadBetaUpdates" id="F55-nI-gQB"/>
                                             </connections>
                                         </button>
-                                        <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="b3k-dz-ngE" userLabel="Check now GPGPref">
+                                        <button verticalHuggingPriority="750" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="b3k-dz-ngE" userLabel="Check now GPGPref">
                                             <rect key="frame" x="101" y="91" width="164" height="32"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="152" id="R55-RQ-qn7"/>
@@ -304,7 +304,7 @@
                                                 <action selector="checkForUpdates:" target="718" id="5ku-p4-ZC2"/>
                                             </connections>
                                         </button>
-                                        <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Ogz-DZ-1J8" userLabel="Check now GPGPref">
+                                        <button verticalHuggingPriority="750" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Ogz-DZ-1J8" userLabel="Check now GPGPref">
                                             <rect key="frame" x="265" y="91" width="164" height="32"/>
                                             <buttonCell key="cell" type="push" title="Show Release Notes" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="33G-1W-wz2">
                                                 <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
@@ -392,13 +392,13 @@
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
                                         <textField horizontalHuggingPriority="249" verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="YES" translatesAutoresizingMaskIntoConstraints="NO" id="L2e-0m-qsR">
-                                            <rect key="frame" x="17" y="404" width="191" height="22"/>
+                                            <rect key="frame" x="17" y="404" width="190" height="22"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="22" id="QPt-Wl-Ioy"/>
                                             </constraints>
                                             <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" drawsBackground="YES" usesSingleLineMode="YES" id="g1T-Jy-tDB">
                                                 <font key="font" metaFont="system"/>
-                                                <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
+                                                <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                                                 <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                             </textFieldCell>
                                             <connections>
@@ -412,14 +412,14 @@
                                             </connections>
                                         </textField>
                                         <textField verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Bki-KR-VYb">
-                                            <rect key="frame" x="17" y="374" width="395" height="22"/>
+                                            <rect key="frame" x="17" y="374" width="394" height="22"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="22" id="P3v-6H-iJ6"/>
                                                 <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="340" id="bqm-iN-JqI"/>
                                             </constraints>
                                             <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" drawsBackground="YES" usesSingleLineMode="YES" id="Kig-JD-LKI">
                                                 <font key="font" metaFont="system"/>
-                                                <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
+                                                <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                                                 <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                             </textFieldCell>
                                             <connections>
@@ -445,7 +445,7 @@
                                             </connections>
                                         </button>
                                         <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="W8g-0k-cCU">
-                                            <rect key="frame" x="414" y="2" width="183" height="32"/>
+                                            <rect key="frame" x="413" y="2" width="184" height="32"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="158" id="x3b-ai-wez"/>
                                             </constraints>
@@ -460,7 +460,7 @@
                                             </connections>
                                         </button>
                                         <popUpButton verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Wjs-EK-uPp">
-                                            <rect key="frame" x="418" y="403" width="176" height="26"/>
+                                            <rect key="frame" x="417" y="403" width="177" height="25"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="158" id="bzI-Wv-npR"/>
                                             </constraints>
@@ -491,7 +491,7 @@
                                         </popUpButton>
                                         <scrollView autohidesScrollers="YES" horizontalLineScroll="10" horizontalPageScroll="10" verticalLineScroll="10" verticalPageScroll="10" hasHorizontalScroller="NO" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bfv-L7-9qK">
                                             <rect key="frame" x="17" y="191" width="574" height="163"/>
-                                            <clipView key="contentView" id="8yv-m4-YRG">
+                                            <clipView key="contentView" drawsBackground="NO" id="8yv-m4-YRG">
                                                 <rect key="frame" x="1" y="1" width="572" height="161"/>
                                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                 <subviews>
@@ -499,7 +499,7 @@
                                                         <rect key="frame" x="0.0" y="0.0" width="572" height="161"/>
                                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                         <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
-                                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                        <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                                         <size key="minSize" width="572" height="161"/>
                                                         <size key="maxSize" width="825" height="10000000"/>
                                                         <color key="insertionPointColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
@@ -517,7 +517,6 @@
                                                         </connections>
                                                     </textView>
                                                 </subviews>
-                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                             </clipView>
                                             <scroller key="horizontalScroller" hidden="YES" verticalHuggingPriority="750" doubleValue="1" horizontal="YES" id="0z4-YY-Nib">
                                                 <rect key="frame" x="-100" y="-100" width="87" height="18"/>
@@ -533,7 +532,7 @@
                                         </scrollView>
                                         <scrollView autohidesScrollers="YES" horizontalLineScroll="10" horizontalPageScroll="10" verticalLineScroll="10" verticalPageScroll="10" hasHorizontalScroller="NO" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rwV-jy-WlT">
                                             <rect key="frame" x="17" y="39" width="574" height="68"/>
-                                            <clipView key="contentView" id="9gh-SO-vYd">
+                                            <clipView key="contentView" drawsBackground="NO" id="9gh-SO-vYd">
                                                 <rect key="frame" x="1" y="1" width="572" height="66"/>
                                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                 <subviews>
@@ -541,7 +540,7 @@
                                                         <rect key="frame" x="0.0" y="0.0" width="572" height="66"/>
                                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                         <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
-                                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                        <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                                         <size key="minSize" width="572" height="66"/>
                                                         <size key="maxSize" width="825" height="10000000"/>
                                                         <color key="insertionPointColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
@@ -559,7 +558,6 @@
                                                         </connections>
                                                     </textView>
                                                 </subviews>
-                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                             </clipView>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="68" id="gb9-lh-a0D"/>
@@ -578,7 +576,7 @@
                                         </scrollView>
                                         <scrollView autohidesScrollers="YES" horizontalLineScroll="10" horizontalPageScroll="10" verticalLineScroll="10" verticalPageScroll="10" hasHorizontalScroller="NO" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="p5f-cP-c3R">
                                             <rect key="frame" x="17" y="115" width="574" height="68"/>
-                                            <clipView key="contentView" id="m6j-Jf-GRI">
+                                            <clipView key="contentView" drawsBackground="NO" id="m6j-Jf-GRI">
                                                 <rect key="frame" x="1" y="1" width="572" height="66"/>
                                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                 <subviews>
@@ -586,7 +584,7 @@
                                                         <rect key="frame" x="0.0" y="0.0" width="572" height="66"/>
                                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                         <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
-                                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                        <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                                         <size key="minSize" width="572" height="66"/>
                                                         <size key="maxSize" width="825" height="10000000"/>
                                                         <color key="insertionPointColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
@@ -604,7 +602,6 @@
                                                         </connections>
                                                     </textView>
                                                 </subviews>
-                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                             </clipView>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="68" id="iY2-wS-vX0"/>
@@ -625,7 +622,7 @@
                                             <rect key="frame" x="124" y="204" width="361" height="92"/>
                                             <subviews>
                                                 <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="YES" translatesAutoresizingMaskIntoConstraints="NO" id="D4k-uZ-j2t">
-                                                    <rect key="frame" x="82" y="38" width="238" height="17"/>
+                                                    <rect key="frame" x="82" y="39" width="238" height="16"/>
                                                     <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Sending report… this may take a while." id="z2R-JO-OIu">
                                                         <font key="font" metaFont="system"/>
                                                         <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
@@ -650,12 +647,21 @@
                                             </connections>
                                         </customView>
                                         <button toolTip="Hide this report from the public. Only you, GPGTools staff and the company hosting the support platform can access this report." translatesAutoresizingMaskIntoConstraints="NO" id="NgS-lQ-Wdq">
-                                            <rect key="frame" x="153" y="11" width="65" height="18"/>
+                                            <rect key="frame" x="153" y="11" width="64" height="18"/>
                                             <buttonCell key="cell" type="check" title="Private" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="8Ci-Ey-IBB">
                                                 <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                                                 <font key="font" metaFont="system"/>
                                             </buttonCell>
                                             <connections>
+                                                <binding destination="hlC-rl-bAu" name="enabled2" keyPath="privateDisabled" previousBinding="C3e-N2-NK3" id="tO6-H0-hW9">
+                                                    <dictionary key="options">
+                                                        <integer key="NSMultipleValuesPlaceholder" value="-1"/>
+                                                        <integer key="NSNoSelectionPlaceholder" value="-1"/>
+                                                        <integer key="NSNotApplicablePlaceholder" value="-1"/>
+                                                        <integer key="NSNullPlaceholder" value="-1"/>
+                                                        <string key="NSValueTransformerName">NSNegateBoolean</string>
+                                                    </dictionary>
+                                                </binding>
                                                 <binding destination="hlC-rl-bAu" name="value" keyPath="privateDiscussion" id="BL1-uZ-0y0"/>
                                                 <binding destination="hlC-rl-bAu" name="enabled" keyPath="uiEnabled" id="C3e-N2-NK3">
                                                     <dictionary key="options">
@@ -669,13 +675,13 @@
                                             </connections>
                                         </button>
                                         <textField horizontalHuggingPriority="249" verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="YES" translatesAutoresizingMaskIntoConstraints="NO" id="TJz-rG-8VN">
-                                            <rect key="frame" x="216" y="404" width="196" height="22"/>
+                                            <rect key="frame" x="215" y="404" width="196" height="22"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="22" id="qqJ-6q-F2e"/>
                                             </constraints>
                                             <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" drawsBackground="YES" usesSingleLineMode="YES" id="3g6-ma-jJv">
                                                 <font key="font" metaFont="system"/>
-                                                <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
+                                                <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                                                 <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                             </textFieldCell>
                                             <connections>
@@ -777,7 +783,7 @@
                                             </connections>
                                         </textField>
                                         <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Zjb-Pa-5rV">
-                                            <rect key="frame" x="15" y="200" width="82" height="17"/>
+                                            <rect key="frame" x="15" y="200" width="82" height="16"/>
                                             <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Version Info" id="r17-CS-TqP">
                                                 <font key="font" metaFont="systemBold"/>
                                                 <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
@@ -785,7 +791,7 @@
                                             </textFieldCell>
                                         </textField>
                                         <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" setsMaxLayoutWidthAtFirstLayout="YES" allowsCharacterPickerTouchBarItem="YES" translatesAutoresizingMaskIntoConstraints="NO" id="508">
-                                            <rect key="frame" x="15" y="363" width="406" height="51"/>
+                                            <rect key="frame" x="15" y="366" width="406" height="48"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" relation="lessThanOrEqual" constant="102" id="RSz-aY-6l0"/>
                                                 <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="402" id="igN-Zy-CZb"/>

@@ -322,6 +322,13 @@ affectedComponent=_affectedComponent, privateDiscussion=_privateDiscussion;
 	return self;
 }
 - (void)awakeFromNib {
+    GMSupportPlanState state = self.supportPlanManager.supportPlanState;
+    if (state == GMSupportPlanStateActive) {
+		// Always set discussions for users with active support plan to private.
+		self.privateDiscussion = YES;
+		self.privateDisabled = YES;
+	}
+	
 	self.email = self.prefController.crashReportsUserEmail;
 	[self.prefController addObserver:self forKeyPath:@"crashReportsUserEmail" options:NSKeyValueObservingOptionOld context:nil];
 }
