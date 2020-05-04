@@ -329,6 +329,8 @@ affectedComponent=_affectedComponent, privateDiscussion=_privateDiscussion;
 		self.privateDisabled = YES;
 	}
 	
+	self.username = NSFullUserName();
+	
 	self.email = self.prefController.crashReportsUserEmail;
 	[self.prefController addObserver:self forKeyPath:@"crashReportsUserEmail" options:NSKeyValueObservingOptionOld context:nil];
 }
