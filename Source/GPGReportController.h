@@ -11,18 +11,6 @@
 @class GPGToolsPrefController;
 
 @interface GPGReportController : NSObject <NSTextViewDelegate> {
-	NSString *_username;
-	NSString *_email;
-	NSString *_subject;
-	NSAttributedString *_bugDescription;
-	NSAttributedString *_expectedBahavior;
-	NSAttributedString *_additionalInfo;
-	BOOL _attachDebugLog;
-	BOOL _privateDiscussion;
-	NSInteger _affectedComponent;
-	BOOL _uiEnabled;
-	NSProgressIndicator *_progressSpinner;
-	id _textView1, _textView2, _textView3;
 }
 
 @property (nonatomic, strong) NSString *username;

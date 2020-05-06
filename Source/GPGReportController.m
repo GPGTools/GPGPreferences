@@ -6,6 +6,11 @@
 //  Copyright (c) 2016 GPGTools. All rights reserved.
 //
 
+#if !__has_feature(objc_arc)
+#error This files requires ARC.
+#endif
+
+
 #import <Libmacgpg/GPGTaskHelperXPC.h>
 
 #import "GPGReportController.h"
@@ -29,9 +34,6 @@
 
 
 @implementation GPGReportController
-@synthesize username=_username, email=_email, subject=_subject, attachDebugLog=_attachDebugLog,
-bugDescription=_bugDescription, expectedBahavior=_expectedBahavior, additionalInfo=_additionalInfo,
-affectedComponent=_affectedComponent, privateDiscussion=_privateDiscussion;
 
 
 - (void)selectTool:(NSString *)tool {
@@ -88,7 +90,6 @@ affectedComponent=_affectedComponent, privateDiscussion=_privateDiscussion;
 	if (self.attachDebugLog) {
 		GPGDebugCollector *debugCollector = [GPGDebugCollector new];
 		NSDictionary *debugInfos = [debugCollector debugInfos];
-		[debugCollector release];
 		
 		NSError *error = nil;
 		NSData *debugData = [NSPropertyListSerialization dataWithPropertyList:debugInfos format:NSPropertyListBinaryFormat_v1_0 options:0 error:&error];
@@ -188,7 +189,7 @@ affectedComponent=_affectedComponent, privateDiscussion=_privateDiscussion;
 			if ([response respondsToSelector:@selector(statusCode)]) {
 				statusCode = [NSString stringWithFormat:@"%li", [(NSHTTPURLResponse *)response statusCode]];
 			}
-			NSString *result = [[[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding] autorelease];
+			NSString *result = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
 			NSLog(@"Send Report Failed: '%@', Error: '%@', Response: '%@'", result, connectionError, statusCode);
 			
 			[gpgPrefPane showAlert:@"Support_ReportFailed"
@@ -306,9 +307,6 @@ affectedComponent=_affectedComponent, privateDiscussion=_privateDiscussion;
 		[self.progressSpinner startAnimation:nil];
 	}
 }
-- (BOOL)uiEnabled {
-	return _uiEnabled;
-}
 
 
 - (instancetype)init {
@@ -336,7 +334,6 @@ affectedComponent=_affectedComponent, privateDiscussion=_privateDiscussion;
 }
 - (void)dealloc {
 	[self.prefController removeObserver:self forKeyPath:@"crashReportsUserEmail"];
-	[super dealloc];
 }
 
 - (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary<NSKeyValueChangeKey,id> *)change context:(void *)context {
@@ -452,22 +449,22 @@ affectedComponent=_affectedComponent, privateDiscussion=_privateDiscussion;
 		// Content of Info.plist
 		NSDictionary *infoPlist = nil;
 		for (NSString *path in paths) {
-			path = [path stringByExpandingTildeInPath];
+			NSString *expandedPath = [path stringByExpandingTildeInPath];
 			NSString *plistPath = toolInfo[LKEY];
 			if (!plistPath) {
 				plistPath = @"Contents/Info.plist";
 			}
-			plistPath = [path stringByAppendingPathComponent:plistPath];
+			plistPath = [expandedPath stringByAppendingPathComponent:plistPath];
 			if ([fileManager fileExistsAtPath:plistPath]) {
 				infoPlist = [NSDictionary dictionaryWithContentsOfFile:plistPath];
 				
 				if ([name isEqualToString:@"GPG Suite"]) {
-					NSString *versionPlistPath = [path.stringByDeletingLastPathComponent stringByAppendingPathComponent:@"version.plist"];
+					NSString *versionPlistPath = [expandedPath.stringByDeletingLastPathComponent stringByAppendingPathComponent:@"version.plist"];
 					NSDictionary *secondPlist = [NSDictionary dictionaryWithContentsOfFile:versionPlistPath];
 					if (secondPlist[@"CFBundleVersion"]) {
-						NSMutableDictionary *mutablePlist = [[infoPlist mutableCopy] autorelease];
+						NSMutableDictionary *mutablePlist = [infoPlist mutableCopy];
 						mutablePlist[@"CFBundleVersion"] = secondPlist[@"CFBundleVersion"];
-						infoPlist = [[mutablePlist copy] autorelease];
+						infoPlist = [mutablePlist copy];
 					}
 				}
 				
@@ -620,7 +617,7 @@ affectedComponent=_affectedComponent, privateDiscussion=_privateDiscussion;
         gpgMailBundle = [self GPGMailBundleForVersion:@"4"];
     }
 
-    GMSupportPlanManager *manager = [[[GMSupportPlanManager alloc] initWithApplicationID:[gpgMailBundle bundleIdentifier] applicationInfo:[gpgMailBundle infoDictionary] fromSharedAccess:YES] autorelease];
+    GMSupportPlanManager *manager = [[GMSupportPlanManager alloc] initWithApplicationID:[gpgMailBundle bundleIdentifier] applicationInfo:[gpgMailBundle infoDictionary] fromSharedAccess:YES];
 
 
     return manager;
@@ -684,20 +681,24 @@ affectedComponent=_affectedComponent, privateDiscussion=_privateDiscussion;
 	
 	
 	
-	NSMutableParagraphStyle *paragraphStyle = [[NSMutableParagraphStyle new] autorelease];
-	paragraphStyle.tabStops = @[[[[NSTextTab alloc] initWithTextAlignment:0 location:155 options:@{}] autorelease],
-								[[[NSTextTab alloc] initWithTextAlignment:0 location:235 options:@{}] autorelease],
-								[[[NSTextTab alloc] initWithTextAlignment:0 location:310 options:@{}] autorelease],
-								[[[NSTextTab alloc] initWithTextAlignment:0 location:400 options:@{}] autorelease]];
+	NSMutableParagraphStyle *paragraphStyle = [NSMutableParagraphStyle new];
+	paragraphStyle.tabStops = @[[[NSTextTab alloc] initWithTextAlignment:0 location:155 options:@{}],
+								[[NSTextTab alloc] initWithTextAlignment:0 location:235 options:@{}],
+								[[NSTextTab alloc] initWithTextAlignment:0 location:310 options:@{}],
+								[[NSTextTab alloc] initWithTextAlignment:0 location:400 options:@{}]];
 	
 	paragraphStyle.headIndent = DBL_EPSILON; // Fix for Sierra. tabStops doesn't work if headIndent is 0.
 	
-	NSAttributedString *attributedVersions = [[[NSAttributedString alloc] initWithString:infoString attributes:@{NSParagraphStyleAttributeName:paragraphStyle}] autorelease];
+	NSAttributedString *attributedVersions = [[NSAttributedString alloc] initWithString:infoString attributes:@{NSParagraphStyleAttributeName:paragraphStyle}];
 
 	
 	
 	return attributedVersions;
 }
+
+
+
+
 
 
 
@@ -716,26 +717,17 @@ affectedComponent=_affectedComponent, privateDiscussion=_privateDiscussion;
 		[value setTextContainerInset:NSMakeSize(-2, 0)];
 	}
 }
-- (NSTextView *)textView1 {
-	return _textView1;
-}
 - (void)setTextView2:(NSTextView *)value {
 	_textView2 = value;
 	if (value) {
 		[value setTextContainerInset:NSMakeSize(-2, 0)];
 	}
 }
-- (NSTextView *)textView2 {
-	return _textView2;
-}
 - (void)setTextView3:(NSTextView *)value {
 	_textView3 = value;
 	if (value) {
 		[value setTextContainerInset:NSMakeSize(-2, 0)];
 	}
-}
-- (NSTextView *)textView3 {
-	return _textView3;
 }
 
 

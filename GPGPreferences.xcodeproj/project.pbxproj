@@ -11,7 +11,7 @@
 		1BC0519F237452BD00B7B346 /* GMSupportPlan.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BC0519A237452BC00B7B346 /* GMSupportPlan.m */; };
 		1BC051A0237452BD00B7B346 /* GMSPCommon.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BC0519C237452BC00B7B346 /* GMSPCommon.m */; };
 		1BC051A123745E1000B7B346 /* GMDevice.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BC05197237452BC00B7B346 /* GMDevice.m */; };
-		3013BD2D1C96D0C6005744E5 /* GPGReportController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3013BD2C1C96D0C6005744E5 /* GPGReportController.m */; };
+		3013BD2D1C96D0C6005744E5 /* GPGReportController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3013BD2C1C96D0C6005744E5 /* GPGReportController.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
 		3013BD381C974A31005744E5 /* GPGWhiteView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3013BD371C974A31005744E5 /* GPGWhiteView.m */; };
 		3016A62C17522E0F00701881 /* gpgservices.png in Resources */ = {isa = PBXBuildFile; fileRef = 3016A62B17522E0F00701881 /* gpgservices.png */; };
 		3016A62E1752300E00701881 /* GPGTools.iconset in Resources */ = {isa = PBXBuildFile; fileRef = 3016A62D1752300E00701881 /* GPGTools.iconset */; };
