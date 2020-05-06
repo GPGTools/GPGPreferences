@@ -22,6 +22,19 @@
 #import "GMSupportPlan.h"
 #import "GMSPCommon.h"
 
+
+static NSString * const SavedUsernameKey = @"savedReport-username";
+static NSString * const SavedEmailKey = @"savedReport-email";
+static NSString * const SavedAffectedComponentKey = @"savedReport-affectedComponent";
+static NSString * const SavedSubjectKey = @"savedReport-subject";
+static NSString * const SavedBugDescriptionKey = @"savedReport-bugDescription";
+static NSString * const SavedExpectedBahaviorKey = @"savedReport-expectedBahavior";
+static NSString * const SavedAdditionalInfoKey = @"savedReport-additionalInfo";
+static NSString * const SavedAttachDebugLogKey = @"savedReport-attachDebugLog";
+static NSString * const SavedPrivateDiscussionKey = @"savedReport-privateDiscussion";
+
+
+
 @interface NSString (PadWithTabs)
 - (NSString *)stringByPaddingToTab:(NSUInteger)tab;
 @end
@@ -52,9 +65,9 @@
 	NSString *username = [self.username stringByTrimmingCharactersInSet:whitespaceSet];
 	NSString *email = [self.email stringByTrimmingCharactersInSet:whitespaceSet];
 	NSString *subject = [self.subject stringByTrimmingCharactersInSet:whitespaceSet];
-	NSString *bugDescription = [self.bugDescription.string stringByTrimmingCharactersInSet:whitespaceSet];
-	NSString *expectedBahavior = [self.expectedBahavior.string stringByTrimmingCharactersInSet:whitespaceSet];
-	NSString *additionalInfo = [self.additionalInfo.string stringByTrimmingCharactersInSet:whitespaceSet];
+	NSString *bugDescription = [self.bugDescription stringByTrimmingCharactersInSet:whitespaceSet];
+	NSString *expectedBahavior = [self.expectedBahavior stringByTrimmingCharactersInSet:whitespaceSet];
+	NSString *additionalInfo = [self.additionalInfo stringByTrimmingCharactersInSet:whitespaceSet];
 	BOOL privateDiscussion = self.privateDiscussion;
 	
 	
@@ -177,6 +190,20 @@
 		self.uiEnabled = YES;
 
 		if (href) {
+			// Report successfully sent.
+			
+			// Clear saved values.
+			[_options setValue:nil forKey:SavedUsernameKey];
+			[_options setValue:nil forKey:SavedEmailKey];
+			[_options setValue:nil forKey:SavedAffectedComponentKey];
+			[_options setValue:nil forKey:SavedSubjectKey];
+			[_options setValue:nil forKey:SavedBugDescriptionKey];
+			[_options setValue:nil forKey:SavedExpectedBahaviorKey];
+			[_options setValue:nil forKey:SavedAdditionalInfoKey];
+			[_options setValue:nil forKey:SavedAttachDebugLogKey];
+			[_options setValue:nil forKey:SavedPrivateDiscussionKey];
+			
+			
 			NSString *template = privateDiscussion ? @"Support_PrivateReportSucceeded" : @"Support_PublicReportSucceeded";
 			
 			[gpgPrefPane showAlert:template
@@ -211,8 +238,8 @@
 	NSString *username = [self.username stringByTrimmingCharactersInSet:whitespaceSet];
 	NSString *email = [self.email stringByTrimmingCharactersInSet:whitespaceSet];
 	NSString *subject = [self.subject stringByTrimmingCharactersInSet:whitespaceSet];
-	NSString *bugDescription = [self.bugDescription.string stringByTrimmingCharactersInSet:whitespaceSet];
-	NSString *expectedBahavior = [self.expectedBahavior.string stringByTrimmingCharactersInSet:whitespaceSet];
+	NSString *bugDescription = [self.bugDescription stringByTrimmingCharactersInSet:whitespaceSet];
+	NSString *expectedBahavior = [self.expectedBahavior stringByTrimmingCharactersInSet:whitespaceSet];
 	
 	// Check input fields.
 	if (username.length < 3) {
@@ -320,18 +347,28 @@
 	return self;
 }
 - (void)awakeFromNib {
-    GMSupportPlanState state = self.supportPlanManager.supportPlanState;
+	_options = self.prefController.options;
+
+	[self loadSavedValues];
+	
+	GMSupportPlanState state = self.supportPlanManager.supportPlanState;
     if (state == GMSupportPlanStateActive) {
 		// Always set discussions for users with active support plan to private.
 		self.privateDiscussion = YES;
 		self.privateDisabled = YES;
 	}
 	
-	self.username = NSFullUserName();
+	if (_username.length == 0) {
+		self.username = NSFullUserName();
+	}
 	
-	self.email = self.prefController.crashReportsUserEmail;
+	if (_email.length == 0) {
+		self.email = self.prefController.crashReportsUserEmail;
+	}
 	[self.prefController addObserver:self forKeyPath:@"crashReportsUserEmail" options:NSKeyValueObservingOptionOld context:nil];
+	
 }
+
 - (void)dealloc {
 	[self.prefController removeObserver:self forKeyPath:@"crashReportsUserEmail"];
 }
@@ -341,6 +378,60 @@
 		if (self.email.length == 0 || [change[@"old"] isEqual:self.email]) {
 			self.email = self.prefController.crashReportsUserEmail;
 		}
+	}
+}
+
+
+- (void)loadSavedValues {
+	// Fill all the saved fields from a previous (not sent) report.
+	
+	NSString *stringValue;
+	NSNumber *numberValue;
+	
+	stringValue = [_options valueForKey:SavedUsernameKey];
+	if ([stringValue isKindOfClass:NSString.class]) {
+		self.username = stringValue;
+	}
+	stringValue = [_options valueForKey:SavedEmailKey];
+	if ([stringValue isKindOfClass:NSString.class]) {
+		self.email = stringValue;
+	}
+	numberValue = [_options valueForKey:SavedAffectedComponentKey];
+	if ([numberValue isKindOfClass:NSNumber.class]) {
+		self.affectedComponent = numberValue.integerValue;
+	}
+	stringValue = [_options valueForKey:SavedSubjectKey];
+	if ([stringValue isKindOfClass:NSString.class]) {
+		self.subject = stringValue;
+	}
+	stringValue = [_options valueForKey:SavedBugDescriptionKey];
+	if ([stringValue isKindOfClass:NSString.class]) {
+		self.bugDescription = stringValue;
+		// -ensureLayoutForCharacterRange: is required because the textview has allowsNonContiguousLayout set and a negative textContainerInset.
+		// Without this, the text would not be drawn until an e.g. mouse-over event.
+		[self.textView1.layoutManager ensureLayoutForCharacterRange:NSMakeRange(0, stringValue.length)];
+	}
+	stringValue = [_options valueForKey:SavedExpectedBahaviorKey];
+	if ([stringValue isKindOfClass:NSString.class]) {
+		self.expectedBahavior = stringValue;
+		// -ensureLayoutForCharacterRange: is required because the textview has allowsNonContiguousLayout set and a negative textContainerInset.
+		// Without this, the text would not be drawn until an e.g. mouse-over event.
+		[self.textView2.layoutManager ensureLayoutForCharacterRange:NSMakeRange(0, stringValue.length)];
+	}
+	stringValue = [_options valueForKey:SavedAdditionalInfoKey];
+	if ([stringValue isKindOfClass:NSString.class]) {
+		self.additionalInfo = stringValue;
+		// -ensureLayoutForCharacterRange: is required because the textview has allowsNonContiguousLayout set and a negative textContainerInset.
+		// Without this, the text would not be drawn until an e.g. mouse-over event.
+		[self.textView3.layoutManager ensureLayoutForCharacterRange:NSMakeRange(0, stringValue.length)];
+	}
+	numberValue = [_options valueForKey:SavedAttachDebugLogKey];
+	if ([numberValue isKindOfClass:NSNumber.class]) {
+		self.attachDebugLog = numberValue.boolValue;
+	}
+	numberValue = [_options valueForKey:SavedPrivateDiscussionKey];
+	if ([numberValue isKindOfClass:NSNumber.class]) {
+		self.privateDiscussion = numberValue.boolValue;
 	}
 }
 
@@ -698,8 +789,68 @@
 
 
 
+#pragma mark Getters and setters for user entered information.
 
 
+
+
+
+
+
+- (void)setUsername:(NSString *)username {
+	if (username != _username) {
+		_username = username;
+		[_options setValue:username forKey:SavedUsernameKey];
+	}
+}
+- (void)setEmail:(NSString *)email {
+	if (email != _email) {
+		_email = email;
+		[_options setValue:email forKey:SavedEmailKey];
+	}
+}
+- (void)setAffectedComponent:(NSInteger)affectedComponent {
+	if (affectedComponent != _affectedComponent) {
+		_affectedComponent = affectedComponent;
+		[_options setValue:@(affectedComponent) forKey:SavedAffectedComponentKey];
+	}
+}
+- (void)setSubject:(NSString *)subject {
+	if (subject != _subject) {
+		_subject = subject;
+		[_options setValue:subject forKey:SavedSubjectKey];
+	}
+}
+- (void)setBugDescription:(NSString *)bugDescription {
+ 	if (bugDescription != _bugDescription) {
+		_bugDescription = bugDescription;
+		[_options setValue:bugDescription forKey:SavedBugDescriptionKey];
+	}
+}
+- (void)setExpectedBahavior:(NSString *)expectedBahavior {
+	if (expectedBahavior != _expectedBahavior) {
+		_expectedBahavior = expectedBahavior;
+		[_options setValue:expectedBahavior forKey:SavedExpectedBahaviorKey];
+	}
+}
+- (void)setAdditionalInfo:(NSString *)additionalInfo {
+	if (additionalInfo != _additionalInfo) {
+		_additionalInfo = additionalInfo;
+		[_options setValue:additionalInfo forKey:SavedAdditionalInfoKey];
+	}
+}
+- (void)setAttachDebugLog:(BOOL)attachDebugLog {
+	if (attachDebugLog != _attachDebugLog) {
+		_attachDebugLog = attachDebugLog;
+		[_options setValue:@(attachDebugLog) forKey:SavedAttachDebugLogKey];
+	}
+}
+- (void)setPrivateDiscussion:(BOOL)privateDiscussion {
+	if (privateDiscussion != _privateDiscussion) {
+		_privateDiscussion = privateDiscussion;
+		[_options setValue:@(privateDiscussion) forKey:SavedPrivateDiscussionKey];
+	}
+}
 
 
 

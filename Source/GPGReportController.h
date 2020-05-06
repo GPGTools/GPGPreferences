@@ -7,18 +7,20 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <Libmacgpg/Libmacgpg.h>
 
 @class GPGToolsPrefController;
 
 @interface GPGReportController : NSObject <NSTextViewDelegate> {
+	GPGOptions *_options;
 }
 
 @property (nonatomic, strong) NSString *username;
 @property (nonatomic, strong) NSString *email;
 @property (nonatomic, strong) NSString *subject;
-@property (nonatomic, strong) NSAttributedString *bugDescription;
-@property (nonatomic, strong) NSAttributedString *expectedBahavior;
-@property (nonatomic, strong) NSAttributedString *additionalInfo;
+@property (nonatomic, strong) NSString *bugDescription;
+@property (nonatomic, strong) NSString *expectedBahavior;
+@property (nonatomic, strong) NSString *additionalInfo;
 @property (nonatomic) BOOL attachDebugLog;
 @property (nonatomic) BOOL privateDiscussion;
 @property (nonatomic) BOOL privateDisabled;

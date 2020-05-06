@@ -504,7 +504,7 @@
                                                         <size key="maxSize" width="825" height="10000000"/>
                                                         <color key="insertionPointColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                                                         <connections>
-                                                            <binding destination="hlC-rl-bAu" name="attributedString" keyPath="bugDescription" id="CVn-T1-UHW">
+                                                            <binding destination="hlC-rl-bAu" name="value" keyPath="bugDescription" id="CVn-T1-UHW">
                                                                 <dictionary key="options">
                                                                     <bool key="NSContinuouslyUpdatesValue" value="YES"/>
                                                                     <string key="NSNullPlaceholder">Describe the problem. Add reproduce steps if possible.</string>
@@ -545,7 +545,7 @@
                                                         <size key="maxSize" width="825" height="10000000"/>
                                                         <color key="insertionPointColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                                                         <connections>
-                                                            <binding destination="hlC-rl-bAu" name="attributedString" keyPath="additionalInfo" id="mOw-yu-jQL">
+                                                            <binding destination="hlC-rl-bAu" name="value" keyPath="additionalInfo" id="mOw-yu-jQL">
                                                                 <dictionary key="options">
                                                                     <bool key="NSContinuouslyUpdatesValue" value="YES"/>
                                                                     <string key="NSNullPlaceholder">Additional info…</string>
@@ -589,7 +589,7 @@
                                                         <size key="maxSize" width="825" height="10000000"/>
                                                         <color key="insertionPointColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                                                         <connections>
-                                                            <binding destination="hlC-rl-bAu" name="attributedString" keyPath="expectedBahavior" id="ajI-ym-ZZk">
+                                                            <binding destination="hlC-rl-bAu" name="value" keyPath="expectedBahavior" id="ajI-ym-ZZk">
                                                                 <dictionary key="options">
                                                                     <bool key="NSContinuouslyUpdatesValue" value="YES"/>
                                                                     <string key="NSNullPlaceholder">What did you expect instead?</string>
