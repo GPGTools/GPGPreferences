@@ -85,8 +85,8 @@
 	
 	NSMutableDictionary *listings = [NSMutableDictionary dictionary];
 
-	listings[@"Public"] = [self linesFromString:[self runCommand:@[gpgPath, @"--with-subkey-fingerprint", @"--with-keygrip", @"-k"]]];
-	listings[@"Secret"] = [self linesFromString:[self runCommand:@[gpgPath, @"--with-subkey-fingerprint", @"--with-keygrip", @"-K"]]];
+	listings[@"Public"] = [self linesFromString:[self.class runCommand:@[gpgPath, @"--with-subkey-fingerprint", @"--with-keygrip", @"-k"]]];
+	listings[@"Secret"] = [self linesFromString:[self.class runCommand:@[gpgPath, @"--with-subkey-fingerprint", @"--with-keygrip", @"-K"]]];
 	
 	debugInfos[@"Key Listings"] = listings;
 }
@@ -158,7 +158,7 @@
 	NSMutableDictionary *versions = [NSMutableDictionary dictionary];
 	
 	for (NSString *binary in binaries) {
-		NSString *string = [self runCommand:@[binary, @"--version"]];
+		NSString *string = [self.class runCommand:@[binary, @"--version"]];
 		if (string == nil) {
 			string = @"";
 		}
