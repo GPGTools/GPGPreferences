@@ -20,6 +20,7 @@
 		3016A637175230CC00701881 /* gpgservices-gray.png in Resources */ = {isa = PBXBuildFile; fileRef = 3016A632175230CC00701881 /* gpgservices-gray.png */; };
 		3016A638175230CC00701881 /* macgpg2-gray.png in Resources */ = {isa = PBXBuildFile; fileRef = 3016A633175230CC00701881 /* macgpg2-gray.png */; };
 		301C67A61ECB0406001F8933 /* GPGIntegerNumberFormatter.m in Sources */ = {isa = PBXBuildFile; fileRef = 301C67A51ECB0406001F8933 /* GPGIntegerNumberFormatter.m */; };
+		302A87FE249CF17E00B95518 /* GPGPVersionInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 302A87FD249CF17E00B95518 /* GPGPVersionInfo.m */; };
 		3032EC931C63939900A4DFDB /* GPGDebugCollector.m in Sources */ = {isa = PBXBuildFile; fileRef = 3032EC921C63939900A4DFDB /* GPGDebugCollector.m */; };
 		3056D055172D2EEA00CFC0FA /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3056D054172D2EEA00CFC0FA /* Cocoa.framework */; };
 		3056D057172D2EEA00CFC0FA /* PreferencePanes.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3056D056172D2EEA00CFC0FA /* PreferencePanes.framework */; };
@@ -104,6 +105,8 @@
 		301EB4E71D2E879C00A50E38 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/Localizable.strings; sourceTree = "<group>"; };
 		301EB4EC1D2E87AC00A50E38 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/GPGToolsPref.strings; sourceTree = "<group>"; };
 		301EB4ED1D2E87AF00A50E38 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/WarningView.strings; sourceTree = "<group>"; };
+		302A87FC249CF17E00B95518 /* GPGPVersionInfo.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GPGPVersionInfo.h; sourceTree = "<group>"; };
+		302A87FD249CF17E00B95518 /* GPGPVersionInfo.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GPGPVersionInfo.m; sourceTree = "<group>"; };
 		3032EC911C63939900A4DFDB /* GPGDebugCollector.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GPGDebugCollector.h; sourceTree = "<group>"; };
 		3032EC921C63939900A4DFDB /* GPGDebugCollector.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GPGDebugCollector.m; sourceTree = "<group>"; };
 		3048C2B024602E1E0049CFA3 /* th */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = th; path = th.lproj/Localizable.strings; sourceTree = "<group>"; };
@@ -281,6 +284,8 @@
 				3013BD2C1C96D0C6005744E5 /* GPGReportController.m */,
 				3032EC911C63939900A4DFDB /* GPGDebugCollector.h */,
 				3032EC921C63939900A4DFDB /* GPGDebugCollector.m */,
+				302A87FC249CF17E00B95518 /* GPGPVersionInfo.h */,
+				302A87FD249CF17E00B95518 /* GPGPVersionInfo.m */,
 				3013BD361C974A31005744E5 /* GPGWhiteView.h */,
 				3013BD371C974A31005744E5 /* GPGWhiteView.m */,
 				3056D088172D301D00CFC0FA /* GPGIsUnselectedTransformer.h */,
@@ -534,6 +539,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				302A87FE249CF17E00B95518 /* GPGPVersionInfo.m in Sources */,
 				1BC051A123745E1000B7B346 /* GMDevice.m in Sources */,
 				3013BD2D1C96D0C6005744E5 /* GPGReportController.m in Sources */,
 				3032EC931C63939900A4DFDB /* GPGDebugCollector.m in Sources */,

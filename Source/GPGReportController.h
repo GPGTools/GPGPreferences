@@ -9,10 +9,11 @@
 #import <Foundation/Foundation.h>
 #import <Libmacgpg/Libmacgpg.h>
 
-@class GPGToolsPrefController;
+@class GPGToolsPrefController, GPGPVersionInfo;
 
 @interface GPGReportController : NSObject <NSTextViewDelegate> {
 	GPGOptions *_options;
+	GPGPVersionInfo *_versionInfo;
 }
 
 @property (nonatomic, strong) NSString *username;
