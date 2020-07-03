@@ -499,6 +499,8 @@
 		task.standardOutput = pipe;
 		task.standardError = pipe;
 		task.launchPath = command[0];
+		task.environment = @{@"LANG": @"C"};
+		
 		if (command.count > 1) {
 			task.arguments = [command subarrayWithRange:NSMakeRange(1, command.count - 1)];
 		}
@@ -508,6 +510,9 @@
 			string = @"";
 		}
 		string = [string stringByTrimmingCharactersInSet:[NSCharacterSet newlineCharacterSet]];
+		if (!string) {
+			string = @"";
+		}
 		return string;
 	}
 	@catch (NSException *exception) {
