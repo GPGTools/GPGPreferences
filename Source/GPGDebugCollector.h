@@ -7,6 +7,7 @@
 }
 
 - (NSDictionary *)debugInfos;
+- (NSString *)debugInfosJSON;
 + (NSString *)runShellCommand:(NSString *)command;
 + (NSString *)runCommand:(NSArray *)command;
 

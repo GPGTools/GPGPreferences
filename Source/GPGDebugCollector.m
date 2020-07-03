@@ -14,6 +14,20 @@
 @implementation GPGDebugCollector
 
 
+
+// Returns all debug infos as JSON.
+- (NSString *)debugInfosJSON {
+	NSDictionary *debugInfos = self.debugInfos;
+	NSError *error = nil;
+	NSData *data = [NSJSONSerialization dataWithJSONObject:debugInfos options:0 error:&error];
+	if (!data) {
+		data = [NSJSONSerialization dataWithJSONObject:@{@"error": error.debugDescription}
+											   options:0
+												 error:nil];
+	}
+	return data.gpgString;
+}
+
 // Returns all debug infos in a dictionary.
 - (NSDictionary *)debugInfos {
 	[self collectAllDebugInfo];
@@ -561,17 +575,32 @@
 	return string;
 }
 
+
+- (id)plistCompatibleObject:(id)obj {
+	// Remove NSNull and convert NSDate to string.
+	
+	if ([obj isKindOfClass:[NSDictionary class]]) {
+		return [self plistDictionary:obj];
+	} else if ([obj isKindOfClass:[NSArray class]]) {
+		return [self plistArray:obj];
+	} else if ([obj isKindOfClass:[NSNull class]]) {
+		// NSNull is prohibited is a property list.
+		return nil;
+	} else if ([obj isKindOfClass:[NSDate class]]) {
+		// Convert date to string, because date is illegal in JSON.
+		NSISO8601DateFormatter *formatter = [[[NSISO8601DateFormatter alloc] init] autorelease];
+		return [formatter stringFromDate:obj];
+	} else {
+		return obj;
+	}
+}
+
 - (NSDictionary *)plistDictionary:(NSDictionary *)dictionary {
 	NSMutableDictionary *newDictionary = [[NSMutableDictionary new] autorelease];
 	
 	[dictionary enumerateKeysAndObjectsUsingBlock:^(id key, id obj, BOOL *stop) {
-		if ([obj isKindOfClass:[NSDictionary class]]) {
-			newDictionary[key] = [self plistDictionary:obj];
-		} else if ([obj isKindOfClass:[NSArray class]]) {
-			newDictionary[key] = [self plistArray:obj];
-		} else if ([obj isKindOfClass:[NSNull class]]) {
-			// NSNull is prohibited is a property list.
-		} else {
+		obj = [self plistCompatibleObject:obj];
+		if (obj) {
 			newDictionary[key] = obj;
 		}
 	}];
@@ -582,13 +611,8 @@
 	NSMutableArray *newArray = [[NSMutableArray new] autorelease];
 	
 	[array enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
-		if ([obj isKindOfClass:[NSDictionary class]]) {
-			[newArray addObject:[self plistDictionary:obj]];
-		} else if ([obj isKindOfClass:[NSArray class]]) {
-			[newArray addObject:[self plistArray:obj]];
-		} else if ([obj isKindOfClass:[NSNull class]]) {
-			// NSNull is prohibited is a property list.
-		} else {
+		obj = [self plistCompatibleObject:obj];
+		if (obj) {
 			[newArray addObject:obj];
 		}
 	}];

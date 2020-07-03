@@ -79,45 +79,12 @@ static NSString * const SavedPrivateDiscussionKey = @"savedReport-privateDiscuss
 	
 	
 	// Prepare the URL Request.
-	NSMutableURLRequest *request = [[NSMutableURLRequest alloc] initWithURL:[NSURL URLWithString:@"https://gpgtools.org/supportRequest.php"]];
+	NSMutableURLRequest *request = [[NSMutableURLRequest alloc] initWithURL:[NSURL URLWithString:@"https://gpgtools.org/supportRequest/supportRequest.php"]];
 	NSString *boundry = [NSUUID UUID].UUIDString;
-	NSData *boundryData = [[NSString stringWithFormat:@"--%@\r\n", boundry] dataUsingEncoding:NSUTF8StringEncoding];
 	NSMutableData *postData = [NSMutableData data];
 	
 	[request setHTTPMethod:@"POST"];
 	[request setValue:[NSString stringWithFormat:@"multipart/form-data; boundary=%@", boundry] forHTTPHeaderField:@"Content-Type"];
-	
-	
-	
-	// Attach the debug infos.
-	if (self.attachDebugLog) {
-		GPGDebugCollector *debugCollector = [GPGDebugCollector new];
-		NSDictionary *debugInfos = [debugCollector debugInfos];
-		
-		NSError *error = nil;
-		NSData *debugData = [NSPropertyListSerialization dataWithPropertyList:debugInfos format:NSPropertyListBinaryFormat_v1_0 options:0 error:&error];
-		if (debugData.length == 0) {
-			@try {
-				debugData = [NSKeyedArchiver archivedDataWithRootObject:debugInfos];
-			} @finally {}
-		}
-		if (debugData.length == 0) {
-			debugData = [[NSString stringWithFormat:@"Error generating debug info: %@", error] dataUsingEncoding:NSUTF8StringEncoding];
-		}
-		
-		
-		NSDateFormatter *format = [NSDateFormatter new];
-		format.dateFormat = @"yyyy-MM-dd_HH-mm";
-		format.timeZone = [NSTimeZone timeZoneForSecondsFromGMT:0];
-		NSString *filename = [NSString stringWithFormat:@"%@_DebugInfo.plist", [format stringFromDate:[NSDate date]]];
-		
-		[postData appendData:boundryData];
-		[postData appendData:[@"Content-Disposition: form-data; name=\"file\"; filename=\"" dataUsingEncoding:NSUTF8StringEncoding]];
-		[postData appendData:[filename dataUsingEncoding:NSUTF8StringEncoding]];
-		[postData appendData:[@"\"\r\n\r\n" dataUsingEncoding:NSUTF8StringEncoding]];
-		[postData appendData:debugData];
-		[postData appendData:[NSData dataWithBytes:"\r\n" length:2]];
-	}
 	
 	
 	// Add the different fields to the request.
@@ -126,6 +93,17 @@ static NSString * const SavedPrivateDiscussionKey = @"savedReport-privateDiscuss
 	NSMutableString *fieldsString = [NSMutableString string];
 	
 	[fieldsString appendFormat:@"--%@\r\n", boundry];
+
+	// Attach the debug infos as json.
+	if (self.attachDebugLog) {
+		GPGDebugCollector *debugCollector = [GPGDebugCollector new];
+		NSString *json = [debugCollector debugInfosJSON];
+		if (json.length == 0) {
+			json = @"{\"error\": \"Could not generate debug info!\"}";
+		}
+		[fieldsString appendFormat:@"%@debug_log%@%@\r\n--%@\r\n", dispo1, dispo2, json, boundry];
+	}
+
 	[fieldsString appendFormat:@"%@username%@%@\r\n--%@\r\n", dispo1, dispo2, username, boundry];
 	[fieldsString appendFormat:@"%@email%@%@\r\n--%@\r\n", dispo1, dispo2, email, boundry];
 	[fieldsString appendFormat:@"%@subject%@%@\r\n--%@\r\n", dispo1, dispo2, subject, boundry];
