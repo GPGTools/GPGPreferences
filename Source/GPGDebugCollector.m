@@ -69,12 +69,12 @@
 	
 	NSMutableDictionary *results = [NSMutableDictionary dictionary];
 	
-	results[@"Encrypt GPGTools"] = [self.class runShellCommand:[NSString stringWithFormat:@"'%@' --batch --trust-model always --no-tty -aer 85E38F69046B44C1EC9FB07B76D78F0500D026C4 <<<test", gpgPath]];
-	results[@"Encrypt Self"] = [self.class runShellCommand:[NSString stringWithFormat:@"'%@' --batch --trust-model always --no-tty -ae --default-recipient-self <<<test", gpgPath]];
-	results[@"Encrypt+Decrypt"] = [self.class runShellCommand:[NSString stringWithFormat:@"'%@' --batch --trust-model always --no-tty -ae --default-recipient-self <<<test | '%@'  --batch --no-tty -d", gpgPath, gpgPath]];
+	results[@"encrypt_gpgtools"] = [self.class shellCommandOutput:[NSString stringWithFormat:@"'%@' --batch --trust-model always --no-tty -aer 85E38F69046B44C1EC9FB07B76D78F0500D026C4 <<<'Encrypted content'", gpgPath]];
+	results[@"encrypt_self"] = [self.class shellCommandOutput:[NSString stringWithFormat:@"'%@' --batch --trust-model always --no-tty -ae --default-recipient-self <<<'Encrypted content'", gpgPath]];
+	results[@"encrypt_decrypt"] = [self.class shellCommandOutput:[NSString stringWithFormat:@"'%@' --batch --trust-model always --no-tty -ae --default-recipient-self <<<'Encrypted content' | '%@'  --batch --no-tty -d", gpgPath, gpgPath]];
 
-	results[@"Sign"] = [self.class runShellCommand:[NSString stringWithFormat:@"'%@' --batch --trust-model always --no-tty -as <<<test", gpgPath]];
-	results[@"Sign+Encrypt"] = [self.class runShellCommand:[NSString stringWithFormat:@"'%@' --batch --trust-model always --no-tty -aser 85E38F69046B44C1EC9FB07B76D78F0500D026C4 --default-recipient-self <<<test", gpgPath]];
+	results[@"sign"] = [self.class shellCommandOutput:[NSString stringWithFormat:@"'%@' --batch --trust-model always --no-tty -as <<<'Signed content'", gpgPath]];
+	results[@"sign_and_encrypt"] = [self.class shellCommandOutput:[NSString stringWithFormat:@"'%@' --batch --trust-model always --no-tty -aser 85E38F69046B44C1EC9FB07B76D78F0500D026C4 --default-recipient-self <<<'Signed and encrypted content'", gpgPath]];
 
 	
 	debugInfos[@"Encrypt/Sign"] = results;
@@ -89,8 +89,8 @@
 	
 	NSMutableDictionary *listings = [NSMutableDictionary dictionary];
 
-	listings[@"Public"] = [self linesFromString:[self.class runCommand:@[gpgPath, @"--with-subkey-fingerprint", @"--with-keygrip", @"-k"]]];
-	listings[@"Secret"] = [self linesFromString:[self.class runCommand:@[gpgPath, @"--with-subkey-fingerprint", @"--with-keygrip", @"-K"]]];
+	listings[@"public"] = [self.class commandOutput:@[gpgPath, @"--with-subkey-fingerprint", @"--with-keygrip", @"-k"]];
+	listings[@"secret"] = [self.class commandOutput:@[gpgPath, @"--with-subkey-fingerprint", @"--with-keygrip", @"-K"]];
 	
 	debugInfos[@"Key Listings"] = listings;
 }
@@ -99,8 +99,8 @@
 - (void)collectMailBundleConfig {
 	NSMutableDictionary *bundleConfig = [NSMutableDictionary dictionary];
 
-	bundleConfig[@"EnableBundles"] = [self.class runShellCommand:@"defaults read com.apple.mail EnableBundles"];
-	bundleConfig[@"BundleCompatibilityVersion"] = [self.class runShellCommand:@"defaults read com.apple.mail BundleCompatibilityVersion"];
+	bundleConfig[@"enable_bundles"] = [self.class shellCommandOutput:@"defaults read com.apple.mail EnableBundles"];
+	bundleConfig[@"bundle_compatibility_version"] = [self.class shellCommandOutput:@"defaults read com.apple.mail BundleCompatibilityVersion"];
 	
 	debugInfos[@"Bundle Config"] = bundleConfig;
 }
@@ -109,9 +109,9 @@
 - (void)collectAgentInfos {
 	NSMutableDictionary *agentInfos = [NSMutableDictionary dictionary];
 	
-	agentInfos[@"Normal call"] = [self.class runShellCommand:@"gpg-agent"];
-	agentInfos[@"Direct call"] = [self.class runCommand:@[@"/usr/local/MacGPG2/bin/gpg-agent"]];
-	agentInfos[@"ps"] = [self.class runShellCommand:@"ps axo command | grep '[g]pg-agent'"];
+	agentInfos[@"normal_call"] = [self.class shellCommandOutput:@"gpg-agent"];
+	agentInfos[@"direct_call"] = [self.class commandOutput:@[@"/usr/local/MacGPG2/bin/gpg-agent"]];
+	agentInfos[@"ps"] = [self.class shellCommandOutput:@"ps axo command | grep '[g]pg-agent'"];
 
 	debugInfos[@"Agent Infos"] = agentInfos;
 }
@@ -135,8 +135,8 @@
 		paths[@"pinentry"] = options.pinentryPath;
 	}
 
-	paths[@"GnuPGs"] = [self linesFromString:[self.class runShellCommand:@"which -a gpg gpg2"]];
-	paths[@"Agents"] = [self linesFromString:[self.class runShellCommand:@"which -a gpg-agent"]];
+	paths[@"gnupg"] = [self.class runShellCommand:@"which -a gpg gpg2"];
+	paths[@"agent"] = [self.class runShellCommand:@"which -a gpg-agent"];
 	
 	debugInfos[@"Paths"] = paths;
 }
@@ -146,11 +146,11 @@
 	NSDictionary *allPaths = debugInfos[@"Paths"];
 	NSMutableSet *binaries = [NSMutableSet set];
 	
-	if (allPaths[@"GnuPGs"]) {
-		[binaries addObjectsFromArray:allPaths[@"GnuPGs"]];
+	if (allPaths[@"gnupg"]) {
+		[binaries addObjectsFromArray:[self linesFromString:allPaths[@"gnupg"]]];
 	}
-	if (allPaths[@"Agents"]) {
-		[binaries addObjectsFromArray:allPaths[@"Agents"]];
+	if (allPaths[@"agent"]) {
+		[binaries addObjectsFromArray:[self linesFromString:allPaths[@"agent"]]];
 	}
 	if (allPaths[@"gpg"]) {
 		[binaries addObject:allPaths[@"gpg"]];
@@ -178,19 +178,15 @@
 }
 
 
-// All environment variables.
 - (void)collectEnvironment {
-	debugInfos[@"Environment"] = [[NSProcessInfo processInfo] environment];
+	// All environment variables.
+	NSMutableDictionary *environment = [NSMutableDictionary dictionary];
 	
-	NSArray *lines = [self linesFromString:[self.class runShellCommand:@"printenv"]];
-	if (lines) {
-		debugInfos[@"Shell Environment"] = lines;
-	}
+	environment[@"environment"] = [[NSProcessInfo processInfo] environment];
+	environment[@"shell_environment"] = [self.class shellCommandOutput:@"printenv"];
+	environment[@"mount"] = [self.class commandOutput:@[@"/sbin/mount"]];
 	
-	lines = [self linesFromString:[self.class runCommand:@[@"/sbin/mount"]]];
-	if (lines) {
-		debugInfos[@"Mount"] = lines;
-	}
+	debugInfos[@"environment"] = environment;
 }
 
 
@@ -518,6 +514,16 @@
 		return [NSString stringWithFormat:@"Error: %@", exception.description];
 	}
 }
+
++ (NSDictionary *)shellCommandOutput:(NSString *)command {
+	NSString *output = [self runShellCommand:command];
+	return @{@"cmd": command, @"output": output};
+}
++ (NSDictionary *)commandOutput:(NSArray *)command {
+	NSString *output = [self runCommand:command];
+	return @{@"cmd": [command componentsJoinedByString:@" "], @"output": output};
+}
+
 
 - (NSString *)expand:(NSString *)string {
 	string = [string stringByReplacingOccurrencesOfString:@"$GNUPGHOME" withString:gpgHome];
