@@ -1,4 +1,5 @@
 #import "GPGDebugCollector.h"
+#import "GPGPVersionInfo.h"
 #import <Libmacgpg/Libmacgpg.h>
 #import <sys/socket.h>
 #import <sys/un.h>
@@ -22,8 +23,11 @@
 
 
 
-// Calls all the other methods.
 - (void)collectAllDebugInfo {
+	// Calls all the other methods.
+	@try {
+		[self collectVersions];
+	} @catch (NSException *exception) {}
 	@try {
 		[self collectEnvironment];
 	} @catch (NSException *exception) {}
@@ -169,6 +173,9 @@
 	debugInfos[@"Versions"] = versions;
 }
 
+- (void)collectVersions {
+	debugInfos[@"versions"] = [GPGPVersionInfo sharedInstance].versionInfo;
+}
 
 
 // All environment variables.
