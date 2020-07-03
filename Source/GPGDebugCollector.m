@@ -79,9 +79,9 @@
 	} @catch (NSException *exception) {}
 }
 
-// Test encryption and signing.
 - (void)testEncryptAndSign {
-	NSString *gpgPath = debugInfos[@"Paths"][@"gpg"];
+	// Test encryption and signing.
+	NSString *gpgPath = debugInfos[@"paths"][@"gpg"];
 	if (gpgPath == nil) {
 		return;
 	}
@@ -96,12 +96,12 @@
 	results[@"sign_and_encrypt"] = [self.class shellCommandOutput:[NSString stringWithFormat:@"'%@' --batch --trust-model always --no-tty -aser 85E38F69046B44C1EC9FB07B76D78F0500D026C4 --default-recipient-self <<<'Signed and encrypted content'", gpgPath]];
 
 	
-	debugInfos[@"Encrypt/Sign"] = results;
+	debugInfos[@"encrypt_sign"] = results;
 }
 
-// List of user's keys.
 - (void)collectKeyListings {
-	NSString *gpgPath = debugInfos[@"Paths"][@"gpg"];
+	// List of user's keys.
+	NSString *gpgPath = debugInfos[@"paths"][@"gpg"];
 	if (gpgPath == nil) {
 		return;
 	}
@@ -111,32 +111,32 @@
 	listings[@"public"] = [self.class commandOutput:@[gpgPath, @"--with-subkey-fingerprint", @"--with-keygrip", @"-k"]];
 	listings[@"secret"] = [self.class commandOutput:@[gpgPath, @"--with-subkey-fingerprint", @"--with-keygrip", @"-K"]];
 	
-	debugInfos[@"Key Listings"] = listings;
+	debugInfos[@"key_listings"] = listings;
 }
 
-// Are Mail bundles enabled?
 - (void)collectMailBundleConfig {
+	// Are Mail bundles enabled?
 	NSMutableDictionary *bundleConfig = [NSMutableDictionary dictionary];
 
 	bundleConfig[@"enable_bundles"] = [self.class shellCommandOutput:@"defaults read com.apple.mail EnableBundles"];
 	bundleConfig[@"bundle_compatibility_version"] = [self.class shellCommandOutput:@"defaults read com.apple.mail BundleCompatibilityVersion"];
 	
-	debugInfos[@"Bundle Config"] = bundleConfig;
+	debugInfos[@"bundle_config"] = bundleConfig;
 }
 
-// Test if the agent is running correctly.
 - (void)collectAgentInfos {
+	// Test if the agent is running correctly.
 	NSMutableDictionary *agentInfos = [NSMutableDictionary dictionary];
 	
 	agentInfos[@"normal_call"] = [self.class shellCommandOutput:@"gpg-agent"];
 	agentInfos[@"direct_call"] = [self.class commandOutput:@[@"/usr/local/MacGPG2/bin/gpg-agent"]];
 	agentInfos[@"ps"] = [self.class shellCommandOutput:@"ps axo command | grep '[g]pg-agent'"];
 
-	debugInfos[@"Agent Infos"] = agentInfos;
+	debugInfos[@"agent_infos"] = agentInfos;
 }
 
-// Find gpg, gpg2, gpg-agent and pinetry binaries.
 - (void)collectBinaryPaths {
+	// Find gpg, gpg2, gpg-agent and pinetry binaries.
 	NSMutableDictionary *paths = [NSMutableDictionary dictionary];
 	Class GPGTaskHelperClass = NSClassFromString(@"GPGTaskHelper");
 	if (GPGTaskHelperClass) {
@@ -157,12 +157,12 @@
 	paths[@"gnupg"] = [self.class runShellCommand:@"which -a gpg gpg2"];
 	paths[@"agent"] = [self.class runShellCommand:@"which -a gpg-agent"];
 	
-	debugInfos[@"Paths"] = paths;
+	debugInfos[@"paths"] = paths;
 }
 
-// Versions of all binaries found by collectBinaryPaths.
 - (void)collectBinaryVersions {
-	NSDictionary *allPaths = debugInfos[@"Paths"];
+	// Versions of all binaries found by collectBinaryPaths.
+	NSDictionary *allPaths = debugInfos[@"paths"];
 	NSMutableSet *binaries = [NSMutableSet set];
 	
 	if (allPaths[@"gnupg"]) {
@@ -189,7 +189,7 @@
 		[self addPathToCollect:binary maxLinkDepth:3 category:@"gpg"];
 	}
 	
-	debugInfos[@"Versions"] = versions;
+	debugInfos[@"binary_versions"] = versions;
 }
 
 - (void)collectVersions {
@@ -506,11 +506,12 @@
 		return;
 	}
 	
-	if (debugInfos[@"Mail Accounts"] == nil) {
-		debugInfos[@"Mail Accounts"] = [NSMutableDictionary dictionary];
+	if (debugInfos[@"mail_accounts"] == nil) {
+		debugInfos[@"mail_accounts"] = [NSMutableDictionary dictionary];
 	}
 	
-	debugInfos[@"Mail Accounts"][path] = [emailAliases.copy autorelease];
+	
+	debugInfos[@"mail_accounts"][path] = [emailAliases.copy autorelease];
 }
 
 
