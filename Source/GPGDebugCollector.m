@@ -167,7 +167,7 @@
 			string = @"";
 		}
 		versions[binary] = string;
-		[self collectInfoForPath:binary maxLinkDepth:2];
+		[self addPathToCollect:binary maxLinkDepth:3 category:@"gpg"];
 	}
 	
 	debugInfos[@"Versions"] = versions;
@@ -191,41 +191,49 @@
 
 
 
-// Content of files and responses from sockets.
 - (void)collectFileContents {
-	NSArray *files = @[
-					   @"$GNUPGHOME/S.gpg-agent",
-					   @"$GNUPGHOME/gpg.conf",
-					   @"$GNUPGHOME/gpg-agent.conf",
-					   @"$GNUPGHOME/scdaemon.conf",
-					   @"$GNUPGHOME/dirmngr.conf",
-					   @"~/Library/Preferences/org.gpgtools.common.plist",
-					   @"~/Library/Preferences/org.gpgtools.gpgkeychainaccess.plist",
-					   @"~/Library/Preferences/org.gpgtools.gpgmail.plist",
-					   @"~/Library/Preferences/org.gpgtools.updater.plist",
-					   @"/Library/Preferences/org.gpgtools.common.plist",
-					   @"/Library/Preferences/org.gpgtools.gpgkeychainaccess.plist",
-					   @"/Library/Preferences/org.gpgtools.gpgmail.plist",
-					   @"/Library/Preferences/org.gpgtools.updater.plist",
-					   @"~/Library/Mail/V2/MailData/Accounts.plist",
-					   @"~/Library/Mail/V3/MailData/Accounts.plist",
-					   @"~/Library/Mail/V4/MailData/Accounts.plist",
-					   @"~/Library/Mail/V5/MailData/Accounts.plist",
-					   @"/Library/LaunchAgents/org.gpgtools.Libmacgpg.xpc.plist",
-					   @"/Library/LaunchAgents/org.gpgtools.gpgmail.enable-bundles.plist",
-					   @"/Library/LaunchAgents/org.gpgtools.gpgmail.patch-uuid-user.plist",
-					   @"/Library/LaunchAgents/org.gpgtools.macgpg2.fix.plist",
-					   @"/Library/LaunchAgents/org.gpgtools.macgpg2.shutdown-gpg-agent.plist",
-					   @"/Library/LaunchAgents/org.gpgtools.updater.plist"
-					   ];
-	for (NSString *path in files) {
-		NSString *expandedPath = [self expand:path];
-		[self collectContentOfFile:expandedPath];
+	// Content of files and responses from sockets.
+	
+	NSDictionary *files = @{
+		@"gpg_config_files": @[
+			@"$GNUPGHOME/S.gpg-agent",
+			@"$GNUPGHOME/gpg.conf",
+			@"$GNUPGHOME/gpg-agent.conf",
+			@"$GNUPGHOME/scdaemon.conf",
+			@"$GNUPGHOME/dirmngr.conf",
+		],
+		@"gpg_suite_config_files": @[
+			@"~/Library/Preferences/org.gpgtools.common.plist",
+			@"~/Library/Preferences/org.gpgtools.gpgkeychainaccess.plist",
+			@"~/Library/Preferences/org.gpgtools.gpgmail.plist",
+			@"~/Library/Preferences/org.gpgtools.updater.plist",
+			@"/Library/Preferences/org.gpgtools.common.plist",
+			@"/Library/Preferences/org.gpgtools.gpgkeychainaccess.plist",
+			@"/Library/Preferences/org.gpgtools.gpgmail.plist",
+			@"/Library/Preferences/org.gpgtools.updater.plist",
+			@"/Library/LaunchAgents/org.gpgtools.Libmacgpg.xpc.plist",
+			@"/Library/LaunchAgents/org.gpgtools.gpgmail.enable-bundles.plist",
+			@"/Library/LaunchAgents/org.gpgtools.gpgmail.patch-uuid-user.plist",
+			@"/Library/LaunchAgents/org.gpgtools.macgpg2.fix.plist",
+			@"/Library/LaunchAgents/org.gpgtools.macgpg2.shutdown-gpg-agent.plist",
+			@"/Library/LaunchAgents/org.gpgtools.updater.plist"
+		],
+		@"other_files": @[
+			@"~/Library/Mail/V2/MailData/Accounts.plist",
+			@"~/Library/Mail/V3/MailData/Accounts.plist",
+			@"~/Library/Mail/V4/MailData/Accounts.plist",
+			@"~/Library/Mail/V5/MailData/Accounts.plist",
+		]
+	};
+	for (NSString *category in files) {
+		for (NSString *path in files[category]) {
+			NSString *expandedPath = [self expand:path];
+			[self collectContentOfFile:expandedPath category:category];
+		}
 	}
 }
 
 - (id)contentOfFile:(NSString *)file {
-	
 	if ([[file substringWithRange:NSMakeRange(file.length - 6, 6)] isEqualToString:@".plist"]) {
 		NSDictionary *content = [NSDictionary dictionaryWithContentsOfFile:file];
 		if (content) {
@@ -240,6 +248,10 @@
 	fd = open(path, O_RDONLY);
 	if (fd < 0) {
 		if (errno != EOPNOTSUPP) {
+			if (errno == ENOENT) {
+				// No such file or directory.
+				return nil;
+			}
 			return [NSString stringWithFormat:@"Error: %s", strerror(errno)];
 		}
 		
@@ -273,14 +285,19 @@
 	return data.gpgString;
 }
 
-- (void)collectContentOfFile:(NSString *)file {
+- (void)collectContentOfFile:(NSString *)file category:(NSString *)category {
 	id content = [self contentOfFile:file];
 	
-	if (debugInfos[@"File Contents"] == nil) {
-		debugInfos[@"File Contents"] = [NSMutableDictionary dictionary];
-	}
+	if (content) {
+		if (debugInfos[@"file_contents"] == nil) {
+			debugInfos[@"file_contents"] = [NSMutableDictionary dictionary];
+		}
+		if (debugInfos[@"file_contents"][category] == nil) {
+			debugInfos[@"file_contents"][category] = [NSMutableDictionary dictionary];
+		}
 
-	debugInfos[@"File Contents"][file] = content;
+		debugInfos[@"file_contents"][category][file] = content;
+	}
 }
 
 
