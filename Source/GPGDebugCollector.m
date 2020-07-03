@@ -58,6 +58,11 @@
 	@try {
 		[self collectMailAccounts];
 	} @catch (NSException *exception) {}
+	
+	@try {
+		// Must be last.
+		[self collectInfosForPaths];
+	} @catch (NSException *exception) {}
 }
 
 // Test encryption and signing.
@@ -302,121 +307,124 @@
 
 
 
-// Attributes of files and folders.
 - (void)collectFileInfos {
+	// Attributes of files and folders.
 	NSFileManager *fileManager = [NSFileManager defaultManager];
-	NSArray *pathsToCheck = @[@"/Applications/GPG Keychain.app",
-							  @"/Applications/GPG Keychain Access.app",
-							  
-							  @"/Library/Services",
-							  @"/Library/Services/GPGServices.service",
-							  @"~/Library/Services",
-							  @"~/Library/Services/GPGServices.service",
-							  
-							  @"/usr/local",
-							  @"/usr/local/MacGPG1",
-							  @"/usr/local/MacGPG2",
-							  @"/usr/local/MacGPG2/bin/gpg2",
-							  @"/usr/local/MacGPG2/libexec/pinentry-mac.app",
-							  
-							  @"/Library/Mail/Bundles/*",
-							  @"~/Library/Mail/Bundles/*",
-							  @"/Network/Library/Mail/Bundles/*",
-							  
-							  @"/Library/PreferencePanes/GPGPreferences.prefPane",
-							  @"~/Library/PreferencePanes/GPGPreferences.prefPane",
-							  
-							  @"/Library/LaunchAgents/org.gpgtools.macgpg2.gpg-agent.plist",
-							  @"~/Library/LaunchAgents/org.gpgtools.macgpg2.gpg-agent.plist",
-
-							  @"/Library/LaunchAgents/org.gpgtools.Libmacgpg.xpc.plist",
-							  @"/Library/LaunchAgents/org.gpgtools.gpgmail.enable-bundles.plist",
-							  @"/Library/LaunchAgents/org.gpgtools.gpgmail.patch-uuid-user.plist",
-							  @"/Library/LaunchAgents/org.gpgtools.macgpg2.fix.plist",
-							  @"/Library/LaunchAgents/org.gpgtools.macgpg2.shutdown-gpg-agent.plist",
-							  @"/Library/LaunchAgents/org.gpgtools.updater.plist",
-							  
-							  @"/Library/Frameworks/Libmacgpg.framework",
-							  @"~/Library/Frameworks/Libmacgpg.framework",
-
-							  @"/Library/Application Support/GPGTools",
-							  @"/Library/Application Support/GPGTools/*",
-							  @"~/Library/Application Support/GPGTools",
-							  @"~/Library/Application Support/GPGTools/*",
-
-							  @"~/Library/Accounts",
-							  @"~/Library/Accounts/*",
-							  
-							  @"$GNUPGHOME",
-							  @"$GNUPGHOME/*"
-							  ];
 	
-	for (NSString *path in pathsToCheck) {
-		NSString *expandedPath = [self expand:path];
-		if ([[expandedPath substringWithRange:NSMakeRange(expandedPath.length - 2, 2)] isEqualToString:@"/*"]) {
-			NSString *dir = [expandedPath substringWithRange:NSMakeRange(0, expandedPath.length - 2)];
-			[self collectInfoForPath:dir maxLinkDepth:2];
+	NSDictionary *paths = @{
+		@"gpg_suite": @[
+			@"/Applications/GPG Keychain.app",
+			@"/Applications/GPG Keychain Access.app",
 			
-			for (NSString *filename in [fileManager contentsOfDirectoryAtPath:dir error:nil]) {
-				if ([filename isEqualToString:@".DS_Store"]) {
-					continue;
+			@"/Library/Services",
+			@"/Library/Services/GPGServices.service",
+			@"~/Library/Services",
+			@"~/Library/Services/GPGServices.service",
+			
+			@"/Library/PreferencePanes/GPGPreferences.prefPane",
+			@"~/Library/PreferencePanes/GPGPreferences.prefPane",
+			
+			@"/Library/Frameworks/Libmacgpg.framework",
+			@"~/Library/Frameworks/Libmacgpg.framework",
+			
+			@"/Library/Application Support/GPGTools",
+			@"/Library/Application Support/GPGTools/*",
+			@"~/Library/Application Support/GPGTools",
+			@"~/Library/Application Support/GPGTools/*"
+		],
+		@"gpg_suite_config": @[
+			@"/Library/LaunchAgents/org.gpgtools.macgpg2.gpg-agent.plist",
+			@"~/Library/LaunchAgents/org.gpgtools.macgpg2.gpg-agent.plist",
+			
+			@"/Library/LaunchAgents/org.gpgtools.Libmacgpg.xpc.plist",
+			@"/Library/LaunchAgents/org.gpgtools.gpgmail.enable-bundles.plist",
+			@"/Library/LaunchAgents/org.gpgtools.gpgmail.patch-uuid-user.plist",
+			@"/Library/LaunchAgents/org.gpgtools.macgpg2.fix.plist",
+			@"/Library/LaunchAgents/org.gpgtools.macgpg2.shutdown-gpg-agent.plist",
+			@"/Library/LaunchAgents/org.gpgtools.updater.plist"
+		],
+		@"gpg": @[
+			@"/usr/local",
+			@"/usr/local/MacGPG1",
+			@"/usr/local/MacGPG2",
+			@"/usr/local/MacGPG2/bin/gpg2",
+			@"/usr/local/MacGPG2/libexec/pinentry-mac.app",
+			
+			@"$GNUPGHOME",
+			@"$GNUPGHOME/*",
+			@"$GNUPGHOME/private-keys-v1.d/*"
+		],
+		@"mail": @[
+			@"/Library/Mail/Bundles/*",
+			@"~/Library/Mail/Bundles/*",
+			@"/Network/Library/Mail/Bundles/*",
+			
+			
+			@"~/Library/Accounts",
+			@"~/Library/Accounts/*"
+		]
+	};
+	
+	for (NSString *category in paths) {
+		for (NSString *path in paths[category]) {
+			NSString *expandedPath = [self expand:path];
+			if ([[expandedPath substringWithRange:NSMakeRange(expandedPath.length - 2, 2)] isEqualToString:@"/*"]) {
+				NSString *dir = [expandedPath substringWithRange:NSMakeRange(0, expandedPath.length - 2)];
+				[self addPathToCollect:dir maxLinkDepth:3 category:category];
+				
+				for (NSString *filename in [fileManager contentsOfDirectoryAtPath:dir error:nil]) {
+					if ([filename isEqualToString:@".DS_Store"]) {
+						continue;
+					}
+					expandedPath = [dir stringByAppendingPathComponent:filename];
+					[self addPathToCollect:expandedPath maxLinkDepth:3 category:category];
 				}
-				expandedPath = [dir stringByAppendingPathComponent:filename];
-				[self collectInfoForPath:expandedPath maxLinkDepth:2];
+			} else {
+				[self addPathToCollect:expandedPath maxLinkDepth:3 category:category];
 			}
-		} else {
-			[self collectInfoForPath:expandedPath maxLinkDepth:2];
 		}
 	}
 }
 
-- (void)collectInfoForPath:(NSString *)path maxLinkDepth:(NSInteger)depth {
-	if (debugInfos[@"File Infos"] == nil) {
-		debugInfos[@"File Infos"] = [NSMutableDictionary dictionary];
+- (void)addPathToCollect:(NSString *)path maxLinkDepth:(NSInteger)depth category:(NSString *)category {
+	if (!_pathsToCollect) {
+		_pathsToCollect = [[NSMutableDictionary alloc] init];
 	}
-	if (debugInfos[@"File Infos"][path] != nil) {
+	if (!_pathsToCollect[category]) {
+		_pathsToCollect[category] = [NSMutableArray array];
+	}
+	if ([_pathsToCollect[category] containsObject:path]) {
 		// Info for path already collected.
 		return;
 	}
 	
-	
 	NSFileManager *fileManager = [NSFileManager defaultManager];
-	NSArray *attributeKeys = @[NSFileGroupOwnerAccountID,
-							   NSFileGroupOwnerAccountName,
-							   NSFileOwnerAccountID,
-							   NSFileOwnerAccountName,
-							   NSFilePosixPermissions,
-							   NSFileType];
-
 	if ([fileManager fileExistsAtPath:path] == NO) {
 		return;
 	}
-	NSError *error = nil;
-	NSDictionary *attributes = [fileManager attributesOfItemAtPath:path error:&error];
-	id info = nil;
-	if (attributes) {
-		info = [attributes dictionaryWithValuesForKeys:attributeKeys];
-		
-		if ([info[NSFileType] isEqualToString:NSFileTypeSymbolicLink]) {
+	
+	[_pathsToCollect[category] addObject:path];
+	
+	if (depth > 0) {
+		// Follow a possible symlink.
+		NSDictionary *attributes = [fileManager attributesOfItemAtPath:path error:nil];
+		if ([attributes[NSFileType] isEqualToString:NSFileTypeSymbolicLink]) {
 			NSString *linkDestination = [fileManager destinationOfSymbolicLinkAtPath:path error:nil];
 			if (linkDestination) {
-				info = [[info mutableCopy] autorelease];
-				info[@"LinkDestination"] = linkDestination;
-				if (depth > 0) {
-					[self collectInfoForPath:linkDestination maxLinkDepth:depth - 1];
-				}
+				[self addPathToCollect:linkDestination maxLinkDepth:depth - 1 category:category];
 			}
 		}
-		
-	} else {
-		info = error.description;
-		if (!info) {
-			info = @"";
-		}
 	}
+}
+- (void)collectInfosForPaths {
+	debugInfos[@"file_infos"] = [NSMutableDictionary dictionary];
 	
-	
-	debugInfos[@"File Infos"][path] = info;
+	for (NSString *category in _pathsToCollect) {
+		NSArray *paths = [_pathsToCollect[category] sortedArrayUsingSelector:@selector(caseInsensitiveCompare:)];
+		NSArray *command = [@[@"/bin/ls", @"-hle@Od"] arrayByAddingObjectsFromArray:paths];
+		NSString *fileInfos = [[self class] runCommand:command];
+		debugInfos[@"file_infos"][category] = fileInfos;
+	}
 }
 
 
@@ -603,6 +611,7 @@
 - (void)dealloc {
 	[debugInfos release];
 	[gpgHome release];
+	[_pathsToCollect release];
 	[super dealloc];
 }
 

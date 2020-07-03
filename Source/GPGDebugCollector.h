@@ -3,6 +3,7 @@
 @interface GPGDebugCollector : NSObject <NSStreamDelegate> {
 	NSMutableDictionary *debugInfos;
 	NSString *gpgHome;
+	NSMutableDictionary<NSString *, NSMutableArray *> *_pathsToCollect;
 }
 
 - (NSDictionary *)debugInfos;
