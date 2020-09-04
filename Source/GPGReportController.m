@@ -507,16 +507,8 @@ static NSString * const SavedPrivateDiscussionKey = @"savedReport-privateDiscuss
 	
 	NSMutableArray *versions = [NSMutableArray array];
 
-	
-	NSString *osVersion = [systemPlist objectForKey:@"ProductVersion"];
-	NSString *part = [osVersion substringToIndex:5];
-	NSString *osName = @"macOS";
-	
-	if ([part isEqualToString:@"10.9."] || [part isEqualToString:@"10.10."] || [part isEqualToString:@"10.11."]) {
-		osName = @"Mac OS X";
-	}
-	
-	[versions addObject:@{@"name": osName,
+		
+	[versions addObject:@{@"name": @"macOS",
 						  @"version": [systemPlist objectForKey:@"ProductVersion"],
 						  @"build": [systemPlist objectForKey:@"ProductBuildVersion"],
 						  @"commit": @""}];
