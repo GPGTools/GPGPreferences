@@ -21,10 +21,10 @@
 "CVn-T1-UHW.ibShadowedIsNilPlaceholder" = "Describe the problem. Add reproduce steps if possible.";
 "FGo-Ci-zfF.title" = "Send";
 "GN0-q8-084.title" = "Updates";
-"ITf-VV-Ist.title" = "Attach debug log";
+"ITf-VV-Ist.title" = "Include diagnostics";
 "LlU-F9-JUG.title" = "Include beta builds";
 "N7W-a5-kXF.title" = "Check Now";
-"NHG-AV-7kF.label" = "Report Problem";
+"NHG-AV-7kF.label" = "Contact Support";
 "NWt-L7-Mwu.title" = "Beta builds are published more often. New features and improvements are less tested.";
 "NgS-lQ-Wdq.ibShadowedToolTip" = "Hide this report from the public. Only you, GPGTools staff and the company hosting the support platform can access this report.";
 "RTl-LW-KmP.title" = "Reports";
