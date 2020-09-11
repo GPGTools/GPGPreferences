@@ -270,7 +270,8 @@ static NSString * const SavedPrivateDiscussionKey = @"savedReport-privateDiscuss
 	
 	NSAlert *alert = [gpgPrefPane alert:@"Support_SendDebugInfo" parameters:nil];
 	alert.suppressionButton.state = self.attachDebugLog ? NSOnState : NSOffState;
-	
+	alert.accessoryView = [[NSView alloc] initWithFrame:NSMakeRect(0, 0, 380, 0)];
+
 	[gpgPrefPane displayAlert:alert completionHandler:^(NSModalResponse returnCode) {
 		BOOL sendLog = NO;
 		if (returnCode & 0x800) {
