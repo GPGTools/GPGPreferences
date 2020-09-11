@@ -386,7 +386,7 @@
                                     </constraints>
                                 </view>
                             </tabViewItem>
-                            <tabViewItem label="Report Problem" identifier="report" id="NHG-AV-7kF">
+                            <tabViewItem label="Contact Support" identifier="report" id="NHG-AV-7kF">
                                 <view key="view" id="xfu-rM-Apz">
                                     <rect key="frame" x="10" y="33" width="608" height="429"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -433,8 +433,8 @@
                                             </connections>
                                         </textField>
                                         <button toolTip="The debug log will be encrypted, so only GPGTools staff can read it." translatesAutoresizingMaskIntoConstraints="NO" id="Tqr-cf-yu3">
-                                            <rect key="frame" x="15" y="11" width="126" height="18"/>
-                                            <buttonCell key="cell" type="check" title="Attach debug log" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="ITf-VV-Ist">
+                                            <rect key="frame" x="15" y="11" width="140" height="18"/>
+                                            <buttonCell key="cell" type="check" title="Include diagnostics" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="ITf-VV-Ist">
                                                 <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                                                 <font key="font" metaFont="system"/>
                                             </buttonCell>
@@ -647,7 +647,7 @@
                                             </connections>
                                         </customView>
                                         <button toolTip="Hide this report from the public. Only you, GPGTools staff and the company hosting the support platform can access this report." translatesAutoresizingMaskIntoConstraints="NO" id="NgS-lQ-Wdq">
-                                            <rect key="frame" x="153" y="11" width="64" height="18"/>
+                                            <rect key="frame" x="167" y="11" width="64" height="18"/>
                                             <buttonCell key="cell" type="check" title="Private" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="8Ci-Ey-IBB">
                                                 <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                                                 <font key="font" metaFont="system"/>
