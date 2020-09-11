@@ -21,7 +21,7 @@ PassowrdsDeletFailed_Title = "Delete passwords failed!";
 PassowrdsDeletFailed_Msg = "Not all stored passwords could be deleted. Please open Console.app and look for any related errors. Then let us know about this problem via the 'Send Report' tab.";
 
 Support_SendDebugInfo_Title = "Why include diagnostics?";
-Support_SendDebugInfo_Msg = "Including diagnostics is often helpful to find the solution to your problem faster.\n\nThe diagnostics are sent securely to our web server, where they are encrypted with our team key and forwarded to our support platform. That information can exclusively be read by our team.\n\nDuring the collection of the diagnostics information, you may be asked for your secret key's password, as we will test if decryption and signing are working as expected.\n\nThe information includes meta data about your keys.";
+Support_SendDebugInfo_Msg = "Including diagnostics often helps us to solve your problem faster.\n\nThe diagnostics are sent securely to our web server, where they are encrypted with our team key and forwarded to our support platform. The included information contains meta data about your keys. It can only be read by our team.\n\nDuring the collection of the diagnostics, you may be asked for your secret key's password, as we will test if decryption and signing are working as expected.";
 Support_SendDebugInfo_Button1 = "Send Report";
 Support_SendDebugInfo_Button2 = "Cancel";
 Support_SendDebugInfo_Checkbox = "Include diagnostics with this report";
