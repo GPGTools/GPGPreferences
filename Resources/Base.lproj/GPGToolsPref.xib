@@ -386,7 +386,7 @@
                                     </constraints>
                                 </view>
                             </tabViewItem>
-                            <tabViewItem label="Send Report" identifier="report" id="NHG-AV-7kF">
+                            <tabViewItem label="Get Help Problem" identifier="report" id="NHG-AV-7kF">
                                 <view key="view" id="xfu-rM-Apz">
                                     <rect key="frame" x="10" y="33" width="608" height="429"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -449,7 +449,7 @@
                                             <constraints>
                                                 <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="158" id="x3b-ai-wez"/>
                                             </constraints>
-                                            <buttonCell key="cell" type="push" title="Send Report" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="FGo-Ci-zfF">
+                                            <buttonCell key="cell" type="push" title="Send" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="FGo-Ci-zfF">
                                                 <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                                 <font key="font" metaFont="system"/>
                                             </buttonCell>
