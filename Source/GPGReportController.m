@@ -270,6 +270,9 @@ static NSString * const SavedPrivateDiscussionKey = @"savedReport-privateDiscuss
 	
 	NSAlert *alert = [gpgPrefPane alert:@"Support_SendDebugInfo" parameters:nil];
 	alert.suppressionButton.state = self.attachDebugLog ? NSOnState : NSOffState;
+	if (self.attachDebugLog) {
+		alert.showsSuppressionButton = NO;
+	}
 	alert.accessoryView = [[NSView alloc] initWithFrame:NSMakeRect(0, 0, 380, 0)];
 
 	[gpgPrefPane displayAlert:alert completionHandler:^(NSModalResponse returnCode) {
@@ -281,7 +284,9 @@ static NSString * const SavedPrivateDiscussionKey = @"savedReport-privateDiscuss
 		
 		if (returnCode == NSAlertFirstButtonReturn || returnCode == NSAlertDefaultReturn) {
 			self.uiEnabled = NO;
-			self.attachDebugLog = sendLog;
+			if (alert.showsSuppressionButton) {
+				self.attachDebugLog = sendLog;
+			}
 			[self performSelectorInBackground:@selector(sendSupportRequest) withObject:nil];
 		}
 	}];
