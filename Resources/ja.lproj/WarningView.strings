@@ -1,3 +1,2 @@
-"1.title" = "ウインドウ";
-"DaS-p7-6ks.title" = "Libmacgpg がシステムにみつかりません。";
-"GO2-Hl-0zF.title" = "https://www.gpgtools.org から GPG Suite を再インストールしてください。";
+"DaS-p7-6ks.title" = "システムからLibmacgpgが見つかりませんでした!";
+"GO2-Hl-0zF.title" = "https://www.gpgtools.org からGPG Suiteを再インストールしてください。";

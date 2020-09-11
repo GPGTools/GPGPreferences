@@ -6,7 +6,7 @@
 
 /* Bad keyserver */
 BadKeyserver_Title = "鍵サーバが利用できません";
-BadKeyserver_Msg = "The key server you entered is not working.\nPlease verify that the address is correct. It should look something like: hkps://some.key.server.org\n\nSince the key server could also be offline you can try another key server.";
+BadKeyserver_Msg = "あなたが入力した鍵サーバは動作していません。\nアドレスが正しいか確認してください。次のようになるはずです: hkps://some.key.server.org\n\n鍵サーバもまたオフラインになっている可能性があるため、別の鍵サーバを試すことができます。";
 
 
 WarningDeletePasswords_Title = "保存したOpenPGPのパスワードを削除します";
@@ -15,7 +15,7 @@ WarningDeletePasswords_Button1 = "削除";
 WarningDeletePasswords_Button2 = "キャンセル";
 
 PassowrdsDeleted_Title = "パスワードを削除しました";
-PassowrdsDeleted_Msg = "macOS キーチェーンとキャッシュからすべての OpenPGP パスワードを削除しました。";
+PassowrdsDeleted_Msg = "macOSキーチェーンとキャッシュからすべての OpenPGP パスワードを削除しました。";
 
 PassowrdsDeletFailed_Title = "パスワードの削除に失敗しました。";
 PassowrdsDeletFailed_Msg = "Not all stored passwords could be deleted. Please open Console.app and look for any related errors. Then let us know about this problem via the 'Send Report' tab.";
@@ -54,10 +54,10 @@ Support_PrivateReportSucceeded_Title = "レポートを送信しました";
 Support_PrivateReportSucceeded_Msg = "Thank you for the report. A private discussion has been created. Please allow a few days for us to respond. You will receive updates via email.\n\nThe discussion will now be openend in your browser. Consider creating a bookmark.";
 
 
-ShouldRemoveComment_Title = "Information about the comment field";
+ShouldRemoveComment_Title = "コメントフィールドに関する情報";
 ShouldRemoveComment_Msg = "We have removed the option to set a comment in GPG Suite Preferences. Best practices recommend to no longer use the comment field since wrong usage may leak information.\n\nYou have currently configured the following comment:\n\n%@\n\nWould you like to remove it? (recommended)";
 ShouldRemoveComment_Button1 = "コメントを消去";
-ShouldRemoveComment_Button2 = "Keep Comment";
+ShouldRemoveComment_Button2 = "コメントを保つ";
 
 
 EmailCheck_TooLong = "入力されたメールアドレスは長すぎます。";

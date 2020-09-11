@@ -7,7 +7,7 @@
 "570.title" = "Server delle chiavi";
 "573.title" = "secondi";
 "575.title" = "Salva nel portachiavi di macOS";
-"579.title" = "Chiace predefinita";
+"579.title" = "Chiave predefinita";
 "605.title" = "Delete…";
 "1048.ibShadowedToolTip" = "When attempting to verify a signature for which the required public key can not be found on your system, this option will search the key servers. If found, the key is downloaded and added to your keyring.";
 "1049.title" = "Automatically download public keys";
