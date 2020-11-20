@@ -467,21 +467,11 @@ static NSString * const SavedPrivateDiscussionKey = @"savedReport-privateDiscuss
 	
 	// Add locations for GPGMail_12–GPGMail_14 and GPGMail_3–GPGMail_4.
 	NSMutableArray *mailBundleLocations = [NSMutableArray array];
-	NSString *mailBundleLocation = @"/Library/Application Support/GPGTools/GPGMail/GPGMail_%i.mailbundle";
-	if (osVersionParts.count > 1) {
-		int osVersion = osVersionParts[1].intValue;
-		if (osVersion > 12) {
-            if([[GMSupportPlanManager alwaysLoadVersionSharedAccess] isEqualToString:@"3"]) {
-                [mailBundleLocations addObject:[NSString stringWithFormat:mailBundleLocation, 3]];
-            }
-            else {
-                [mailBundleLocations addObject:[NSString stringWithFormat:mailBundleLocation, 4]];
-            }
-		}
-		[mailBundleLocations addObject:[NSString stringWithFormat:mailBundleLocation, osVersion]];
-	}
-	[mailBundleLocations addObjectsFromArray:@[@"/Network/Library/Mail/Bundles/GPGMail.mailbundle", @"~/Library/Mail/Bundles/GPGMail.mailbundle", @"/Library/Mail/Bundles/GPGMail.mailbundle"]];
-	
+    NSString *currentGPGMailPath = [self currentGPGMailPath];
+    if(currentGPGMailPath) {
+        [mailBundleLocations addObject:currentGPGMailPath];
+    }
+
 	NSArray *tools = @[
 					   @{NKEY: @"GPG Suite",
 						 PKEY: @[@"/Library/Application Support/GPGTools/GPGSuite_Updater.app"]},
@@ -649,12 +639,11 @@ static NSString * const SavedPrivateDiscussionKey = @"savedReport-privateDiscuss
 	if (!gpgMailInstalled) {
 		return @"";
 	}
-	
-	
-	// Check if the GPGMailLoader is enabled.
+
+    // Check if the GPGMailLoader is enabled.
 	BOOL loaderEnabled = NO;
-	NSString *bundlesDir = [NSHomeDirectory() stringByAppendingPathComponent:@"Library/Containers/com.apple.mail/Data/DataVaults/MailBundles/Library/Mail/Bundles"];
-	NSArray *loaderNames = @[@"GPGMailLoader.mailbundle", @"GPGMailLoader_2.mailbundle", @"GPGMailLoader_3.mailbundle"];
+    NSString *bundlesDir = [GMSupportPlanManager bundlesContainerPath];
+    NSArray *loaderNames = @[@"GPGMailLoader.mailbundle", @"GPGMailLoader_2.mailbundle", @"GPGMailLoader_5.mailbundle"];
 	NSFileManager *fileManager = [NSFileManager defaultManager];
 
 	for (NSString *loaderName in loaderNames) {
@@ -690,24 +679,102 @@ static NSString * const SavedPrivateDiscussionKey = @"savedReport-privateDiscuss
 	return @"not loaded";
 }
 
+- (NSString *)currentGPGMailVersion {
+    NSString *forcedVersion = [GMSupportPlanManager alwaysLoadVersionSharedAccess];
+    if([forcedVersion length]) {
+        return forcedVersion;
+    }
+
+    return [self newestGPGMailVersion];
+}
+
+- (NSString *)currentGPGMailPath {
+    NSString *version = [self currentGPGMailVersion];
+    return [self GPGMailPathForVersion:version];
+}
+
+- (NSBundle *)currentGPGMailBundle {
+    NSString *path = [self currentGPGMailPath];
+    NSBundle *bundle = [NSBundle bundleWithPath:path];
+
+    return bundle;
+}
+
+- (NSString *)GPGMailPathForVersion:(NSString *)version {
+    NSString *realPath = [[GMSupportPlanManager bundlesInstallationPath] stringByAppendingPathComponent:[NSString stringWithFormat:@"GPGMail_%@.real.mailbundle", version]];
+    NSString *path = [[GMSupportPlanManager bundlesInstallationPath] stringByAppendingPathComponent:[NSString stringWithFormat:@"GPGMail_%@.mailbundle", version]];
+
+    if([[NSFileManager defaultManager] fileExistsAtPath:realPath]) {
+        return realPath;
+    }
+
+    return path;
+}
+
 - (NSBundle *)GPGMailBundleForVersion:(NSString *)version {
-    NSString *bundlePath = [NSString stringWithFormat:@"/Library/Application Support/GPGTools/GPGMail/GPGMail_%@.mailbundle", version];
+    NSString *bundlePath = [self GPGMailPathForVersion:version];
     NSBundle *bundle = [NSBundle bundleWithPath:bundlePath];
 
     return bundle;
 }
 
+- (NSString *)newestGPGMailVersion {
+    NSString *bundlePath = [GMSupportPlanManager bundlesInstallationPath];
+    NSArray *files = [[NSFileManager defaultManager] contentsOfDirectoryAtPath:bundlePath error:nil];
+    NSString *prefix = @"GPGMail_";
+    NSString *identifierPrefix = @"org.gpgtools.gpgmail";
+    NSMutableSet *versions = [NSMutableSet new];
+    for(NSString *file in files) {
+        if(![[file substringToIndex:[prefix length]] isEqualToString:prefix]) {
+            continue;
+        }
+        // Read bundle identifier from mailbundle.
+        NSString *version = [file stringByReplacingOccurrencesOfString:prefix withString:@""];
+        version = [version stringByReplacingOccurrencesOfString:@".mailbundle" withString:@""];
+        NSBundle *bundle = [self GPGMailBundleForVersion:version];
+        NSString *actualVersion = [[bundle bundleIdentifier] stringByReplacingOccurrencesOfString:identifierPrefix withString:@""];
+        if([actualVersion length] <= 0) {
+            actualVersion = @"3";
+        }
+        [versions addObject:actualVersion];
+    }
+
+    // Sort the version by newest.
+    NSArray *versionsArray = [[versions allObjects] sortedArrayUsingComparator:^NSComparisonResult(id  _Nonnull obj1, id  _Nonnull obj2) {
+        if([obj1 integerValue] < [obj2 integerValue]) {
+            return NSOrderedDescending;
+        }
+        if([obj1 integerValue] > [obj2 integerValue]) {
+            return NSOrderedAscending;
+        }
+        return NSOrderedSame;
+    }];
+
+    if([versionsArray count] <= 0) {
+        return nil;
+    }
+
+    return versionsArray[0];
+}
+
+- (NSString *)newestGPGMailPath {
+    NSString *version = [self newestGPGMailVersion];
+    return [self GPGMailPathForVersion:version];
+}
+
+- (NSBundle *)newestGPGMailBundle {
+    NSBundle *newestBundle = [self GPGMailBundleForVersion:[self newestGPGMailVersion]];
+
+    return newestBundle;
+}
+
 - (GMSupportPlanManager *)supportPlanManager {
-    NSBundle *gpgMailBundle = nil;
-    if([[GMSupportPlanManager alwaysLoadVersionSharedAccess] isEqualToString:@"3"]) {
-        gpgMailBundle = [self GPGMailBundleForVersion:@"3"];
-    }
-    else {
-        gpgMailBundle = [self GPGMailBundleForVersion:@"4"];
-    }
+    NSBundle *GPGMailBundle = [self currentGPGMailBundle];
 
-    GMSupportPlanManager *manager = [[GMSupportPlanManager alloc] initWithApplicationID:[gpgMailBundle bundleIdentifier] applicationInfo:[gpgMailBundle infoDictionary] fromSharedAccess:YES];
-
+    if(!GPGMailBundle) {
+        return nil;
+    }
+    GMSupportPlanManager *manager = [[GMSupportPlanManager alloc] initWithApplicationID:[GPGMailBundle bundleIdentifier] applicationInfo:[GPGMailBundle infoDictionary] fromSharedAccess:YES];
 
     return manager;
 }
