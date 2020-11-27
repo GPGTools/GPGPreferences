@@ -14,7 +14,6 @@
 "2us-TG-ZgZ.title" = "Automatically check for updates";
 "33G-1W-wz2.title" = "Show Release Notes";
 "3fg-5i-nL6.title" = "Allow GPGTools to contact me about my reports";
-"8Ci-Ey-IBB.title" = "Private";
 "8Sd-BJ-8sG.title" = "Select Component";
 "9oN-AB-7Fa.title" = "Search key servers for public key when signatures can not be verified because the public key does not exist in GPG Keychain.";
 "ANB-ym-fp2.title" = "GPG Suite Preferences";
@@ -26,7 +25,6 @@
 "N7W-a5-kXF.title" = "Check Now";
 "NHG-AV-7kF.label" = "Contact Support";
 "NWt-L7-Mwu.title" = "Beta builds are published more often. New features and improvements are less tested.";
-"NgS-lQ-Wdq.ibShadowedToolTip" = "Hide this report from the public. Only you, GPGTools staff and the company hosting the support platform can access this report.";
 "RTl-LW-KmP.title" = "Reports";
 "RZt-Ds-s5C.title" = "Tell GPGTools about crashes";
 "Tqr-cf-yu3.ibShadowedToolTip" = "The debug log will be encrypted, so only GPGTools staff can read it.";

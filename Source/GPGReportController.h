@@ -22,8 +22,6 @@
 @property (nonatomic, strong) NSString *expectedBahavior;
 @property (nonatomic, strong) NSString *additionalInfo;
 @property (nonatomic) BOOL attachDebugLog;
-@property (nonatomic) BOOL privateDiscussion;
-@property (nonatomic) BOOL privateDisabled;
 @property (nonatomic) NSInteger affectedComponent;
 @property (nonatomic) BOOL uiEnabled;
 @property (nonatomic, assign) IBOutlet NSProgressIndicator *progressSpinner;

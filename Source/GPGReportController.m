@@ -31,7 +31,6 @@ static NSString * const SavedBugDescriptionKey = @"savedReport-bugDescription";
 static NSString * const SavedExpectedBahaviorKey = @"savedReport-expectedBahavior";
 static NSString * const SavedAdditionalInfoKey = @"savedReport-additionalInfo";
 static NSString * const SavedAttachDebugLogKey = @"savedReport-attachDebugLog";
-static NSString * const SavedPrivateDiscussionKey = @"savedReport-privateDiscussion";
 
 
 
@@ -68,7 +67,6 @@ static NSString * const SavedPrivateDiscussionKey = @"savedReport-privateDiscuss
 	NSString *bugDescription = [self.bugDescription stringByTrimmingCharactersInSet:whitespaceSet];
 	NSString *expectedBahavior = [self.expectedBahavior stringByTrimmingCharactersInSet:whitespaceSet];
 	NSString *additionalInfo = [self.additionalInfo stringByTrimmingCharactersInSet:whitespaceSet];
-	BOOL privateDiscussion = self.privateDiscussion;
 	
 	
 	// Compose the message text.
@@ -140,7 +138,7 @@ static NSString * const SavedPrivateDiscussionKey = @"savedReport-privateDiscuss
 	[fieldsString appendFormat:@"%@email%@%@\r\n--%@\r\n", dispo1, dispo2, email, boundry];
 	[fieldsString appendFormat:@"%@subject%@%@\r\n--%@\r\n", dispo1, dispo2, subject, boundry];
 	[fieldsString appendFormat:@"%@message%@%@\r\n--%@\r\n", dispo1, dispo2, message, boundry];
-	[fieldsString appendFormat:@"%@private%@%@\r\n--%@", dispo1, dispo2, privateDiscussion ? @"1" : @"0", boundry];
+	[fieldsString appendFormat:@"%@private%@1\r\n--%@", dispo1, dispo2, boundry]; // Make private.
 	
     // Fetch support plan information if available.
 	GMSupportPlanManager *manager = [self supportPlanManager];
@@ -174,11 +172,9 @@ static NSString * const SavedPrivateDiscussionKey = @"savedReport-privateDiscuss
 			if ([result isKindOfClass:[NSDictionary class]]) {
 				href = result[@"html_href"];
 				if ([href isKindOfClass:[NSString class]] && [[href substringToIndex:31] isEqualToString:@"https://gpgtools.tenderapp.com/"]) {
-					if (privateDiscussion) {
-						NSString *anon_token = result[@"anon_user_token"];
-						if ([anon_token isKindOfClass:[NSString class]]) {
-							href = [href stringByAppendingFormat:@"?anon_token=%@", anon_token];
-						}
+					NSString *anon_token = result[@"anon_user_token"];
+					if ([anon_token isKindOfClass:[NSString class]]) {
+						href = [href stringByAppendingFormat:@"?anon_token=%@", anon_token];
 					}
 				} else {
 					href = nil;
@@ -201,12 +197,9 @@ static NSString * const SavedPrivateDiscussionKey = @"savedReport-privateDiscuss
 			[_options setValue:nil forKey:SavedExpectedBahaviorKey];
 			[_options setValue:nil forKey:SavedAdditionalInfoKey];
 			[_options setValue:nil forKey:SavedAttachDebugLogKey];
-			[_options setValue:nil forKey:SavedPrivateDiscussionKey];
 			
-			
-			NSString *template = privateDiscussion ? @"Support_PrivateReportSucceeded" : @"Support_PublicReportSucceeded";
-			
-			[gpgPrefPane showAlert:template
+						
+			[gpgPrefPane showAlert:@"Support_PrivateReportSucceeded"
 						parameters:@[href]
 				 completionHandler:^(NSModalResponse returnCode) {
 					 [[NSWorkspace sharedWorkspace] openURL:[NSURL URLWithString:href]];
@@ -358,11 +351,6 @@ static NSString * const SavedPrivateDiscussionKey = @"savedReport-privateDiscuss
 	[self loadSavedValues];
 	
 	GMSupportPlanState state = self.supportPlanManager.supportPlanState;
-    if (state == GMSupportPlanStateActive) {
-		// Always set discussions for users with active support plan to private.
-		self.privateDiscussion = YES;
-		self.privateDisabled = YES;
-	}
 	
 	if (_username.length == 0) {
 		self.username = NSFullUserName();
@@ -434,10 +422,6 @@ static NSString * const SavedPrivateDiscussionKey = @"savedReport-privateDiscuss
 	numberValue = [_options valueForKey:SavedAttachDebugLogKey];
 	if ([numberValue isKindOfClass:NSNumber.class]) {
 		self.attachDebugLog = numberValue.boolValue;
-	}
-	numberValue = [_options valueForKey:SavedPrivateDiscussionKey];
-	if ([numberValue isKindOfClass:NSNumber.class]) {
-		self.privateDiscussion = numberValue.boolValue;
 	}
 }
 
@@ -908,12 +892,6 @@ static NSString * const SavedPrivateDiscussionKey = @"savedReport-privateDiscuss
 	if (attachDebugLog != _attachDebugLog) {
 		_attachDebugLog = attachDebugLog;
 		[_options setValue:@(attachDebugLog) forKey:SavedAttachDebugLogKey];
-	}
-}
-- (void)setPrivateDiscussion:(BOOL)privateDiscussion {
-	if (privateDiscussion != _privateDiscussion) {
-		_privateDiscussion = privateDiscussion;
-		[_options setValue:@(privateDiscussion) forKey:SavedPrivateDiscussionKey];
 	}
 }
 
