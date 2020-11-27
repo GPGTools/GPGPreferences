@@ -198,7 +198,13 @@ static NSString * const SavedAttachDebugLogKey = @"savedReport-attachDebugLog";
 			[_options setValue:nil forKey:SavedAdditionalInfoKey];
 			[_options setValue:nil forKey:SavedAttachDebugLogKey];
 			
-						
+			self.subject = @"";
+			self.affectedComponent = 0;
+			self.bugDescription = @"";
+			self.expectedBahavior = @"";
+			self.additionalInfo = @"";
+			self.attachDebugLog = NO;
+			
 			[gpgPrefPane showAlert:@"Support_PrivateReportSucceeded"
 						parameters:@[href]
 				 completionHandler:^(NSModalResponse returnCode) {
