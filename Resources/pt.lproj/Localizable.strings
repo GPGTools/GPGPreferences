@@ -20,11 +20,11 @@ PassowrdsDeleted_Msg = "Todas as senhas OpenPGP foram apagadas das chaves e do c
 PassowrdsDeletFailed_Title = "Falha ao apagar senhas";
 PassowrdsDeletFailed_Msg = "Nem todas as senhas puderam ser apagadas. Abra o aplicativo Console e busque erros relacionados. Use a aba Enviar Relatório para nos informar sobre o problema.";
 
-Support_SendDebugInfo_Title = "Enviando informações de depuração";
-Support_SendDebugInfo_Msg = "Alguns fatos sobre a opção de incluir informações de depuração no relatório: na maioria das vezes, essas informações ajudarão a acelerar o processo de depuração e o seu problema será resolvido mais rápido.\n\nRecomenda‑se que as informações de depuração sejam adicionadas, a não ser que o relatório seja uma sugestão de recurso.\n\nA comunicação ocorre através de uma conexão TLS criptografada com nossos servidores; chegando lá, a mensagem é criptografada com a chave da nossa equipe e enviada para a plataforma de suporte. Assim, as informações de depuração não estarão acessíveis para ninguém além de nossa equipe principal, mesmo que a opção “Privado” não seja selecionada na aba Enviar Relatório.\n\nDurante a criação das informações de depuração, a senha da sua chave OpenPGP pode ser solicitada, visando testar o funcionamento esperado da descriptografia e assinatura no sistema.\n\nO registro de depuração inclui meta‑informações sobre as suas chaves.";
-Support_SendDebugInfo_Button1 = "Enviar Relatório";
+Support_SendDebugInfo_Title = "Sobre o Diagnóstico";
+Support_SendDebugInfo_Msg = "A inclusão do diagnóstico ajuda a resolver o problema mais rapidamente.\n\nO diagnóstico é enviado com segurança para o nosso servidor web, onde ele é criptografado com a chave da nossa equipe e encaminhado para a plataforma de suporte. As informações incluídas contêm metadados sobre as suas chaves. Elas podem ser lidas apenas pela nossa equipe.\n\nDurante a coleta do diagnóstico, a senha da sua chave secreta pode ser solicitada, já que precisamos testar o funcionamento esperado da descriptografia e assinatura.";
+Support_SendDebugInfo_Button1 = "Enviar";
 Support_SendDebugInfo_Button2 = "Cancelar";
-Support_SendDebugInfo_Checkbox = "Incluir informações de depuração no relatório";
+Support_SendDebugInfo_Checkbox = "Incluir diagnóstico";
 
 Support_BugDescriptionTooShort_Title = "Descrição curta demais";
 Support_BugDescriptionTooShort_Msg = "Adicione mais detalhes no campo de descrição. Quanto mais detalhes forem fornecidos, mais rápido encontraremos uma solução para o problema. Se aplicável, adicione a sequência exata de passos para reproduzir o problema.";
@@ -46,9 +46,6 @@ Support_NoComponentSelected_Msg = "Selecione um componente.";
 
 Support_ReportFailed_Title = "O relatório não pôde ser enviado";
 Support_ReportFailed_Msg = "Use a nossa plataforma de suporte para criar o relatório. Clique em “OK” para abrir a plataforma de suporte no navegador.";
-
-Support_PublicReportSucceeded_Title = "Relatório enviado";
-Support_PublicReportSucceeded_Msg = "Obrigado pelo relatório. Uma discussão pública foi criada. Aguarde alguns dias por uma resposta. Atualizações serão enviadas por e‑mail.\n\nA discussão será aberta no navegador agora. Se desejar, adicione‑a como um favorito no navegador.";
 
 Support_PrivateReportSucceeded_Title = "Relatório enviado";
 Support_PrivateReportSucceeded_Msg = "Obrigado pelo relatório. Uma discussão privada foi criada. Aguarde alguns dias por uma resposta. Atualizações serão enviadas por e‑mail.\n\nA discussão será aberta no navegador agora. Se desejar, adicione‑a como um favorito no navegador.";
