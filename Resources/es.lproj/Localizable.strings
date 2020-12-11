@@ -20,11 +20,11 @@ PassowrdsDeleted_Msg = "All OpenPGP passwords were deleted from macOS keychain a
 PassowrdsDeletFailed_Title = "¡Fallo en el borrado de las contraseñas!";
 PassowrdsDeletFailed_Msg = "No se ha podido borrar todas las contraseñas almacenadas. Por favor abra Console.app y busque errores relacionados. Después infórmenos de este problema a través de la pestaña 'Enviar Informe' ";
 
-Support_SendDebugInfo_Title = "Enviando información de depuración";
-Support_SendDebugInfo_Msg = "Unas palabras rápidas sobre la opción de incluir información de depuración en su informe: A menudo esta información ayudará a acelerar el proceso de depuración. Su problema se solucionará mucho más rápido.\n\nSalvo que su informe sea una petición de una característica, le recomendamos añadir la información de depuración.\n\nEs enviada a través de una conexión cifrada con TLS a nuestro alojamiento. Allí es cifrada con la clave de nuestro equipo y se envía a nuestra plataforma de asistencia. De esta forma a la información de depuración no puede acceder nadie salvo nuestro equipo principal, incluso si su informe no se configura como privado.\n\nDurante la creación de la información de depuración se le preguntará la contraseña de su clave OpenPGP, ya que probaremos si el descifrar y firmar funciona como es esperado en su sistema.\n\nEl registro de depuración incluye meta información sobre sus claves.";
-Support_SendDebugInfo_Button1 = "Enviar Informe";
+Support_SendDebugInfo_Title = "About Diagnostics";
+Support_SendDebugInfo_Msg = "Including diagnostics helps us to solve your problem faster.\n\nThe diagnostics are sent securely to our web server, where they are encrypted with our team key and forwarded to our support platform. The included information contains meta data about your keys. It can only be read by our team.\n\nDuring the collection of the diagnostics, you may be asked for your secret key's password, as we will test if decryption and signing are working as expected.";
+Support_SendDebugInfo_Button1 = "Send";
 Support_SendDebugInfo_Button2 = "Cancelar";
-Support_SendDebugInfo_Checkbox = "Incluir información de depuración con este informe";
+Support_SendDebugInfo_Checkbox = "Include diagnostics";
 
 Support_BugDescriptionTooShort_Title = "Descripción demasiado corta";
 Support_BugDescriptionTooShort_Msg = "Por favor añada más detalles al campo de la descripción. Cuantos más detalles pueda proporcionar, más rápido podremos encontrar una buena solución a su petición. Si es aplicable, por favor añada pasos precisos que nos ayuden a reproducir el problema.";
@@ -46,9 +46,6 @@ Support_NoComponentSelected_Msg = "Por favor seleccione un componente.";
 
 Support_ReportFailed_Title = "Report could not be sent";
 Support_ReportFailed_Msg = "Please create your report on our support platform instead. Click “Ok” to open the support form in your browser.";
-
-Support_PublicReportSucceeded_Title = "Informe enviado";
-Support_PublicReportSucceeded_Msg = "Thank you for the report. A public discussion has been created. Please allow a few days for us to respond. You will receive updates via email.\n\nThe discussion will now be openend in your browser. Consider creating a bookmark.";
 
 Support_PrivateReportSucceeded_Title = "Informe enviado";
 Support_PrivateReportSucceeded_Msg = "Thank you for the report. A private discussion has been created. Please allow a few days for us to respond. You will receive updates via email.\n\nThe discussion will now be openend in your browser. Consider creating a bookmark.";

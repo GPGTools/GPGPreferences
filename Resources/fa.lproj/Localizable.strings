@@ -20,11 +20,11 @@ PassowrdsDeleted_Msg = "All OpenPGP passwords were deleted from macOS keychain a
 PassowrdsDeletFailed_Title = "Delete passwords failed!";
 PassowrdsDeletFailed_Msg = "Not all stored passwords could be deleted. Please open Console.app and look for any related errors. Then let us know about this problem via the 'Send Report' tab.";
 
-Support_SendDebugInfo_Title = "Sending debug information";
-Support_SendDebugInfo_Msg = "A quick word about the option to include debug information with your report: Often this information will help, to speed up the debugging process. Your problem will be solved a lot quicker.\n\nUnless your report is a feature request, we recommended adding the debug information.\n\nIt is sent via encrypted TLS connection to our hoster. There it is encrypted with our team key and then sent to our support platform. That way the debug information will not be accessible for anybody else except our core team, even if your report is not set to private.\n\nDuring the creation of the debug information you may be asked for your OpenPGP key password, since we will test if decryption and signing are working as expected on your system.\n\nThe debug log includes meta information about your keys.";
-Support_SendDebugInfo_Button1 = "Send Report";
+Support_SendDebugInfo_Title = "About Diagnostics";
+Support_SendDebugInfo_Msg = "Including diagnostics helps us to solve your problem faster.\n\nThe diagnostics are sent securely to our web server, where they are encrypted with our team key and forwarded to our support platform. The included information contains meta data about your keys. It can only be read by our team.\n\nDuring the collection of the diagnostics, you may be asked for your secret key's password, as we will test if decryption and signing are working as expected.";
+Support_SendDebugInfo_Button1 = "Send";
 Support_SendDebugInfo_Button2 = "Cancel";
-Support_SendDebugInfo_Checkbox = "Include debug information with this report";
+Support_SendDebugInfo_Checkbox = "Include diagnostics";
 
 Support_BugDescriptionTooShort_Title = "Description too short";
 Support_BugDescriptionTooShort_Msg = "Please add more details to the description field. The more detail you can provide, the faster we will be able to find a good solution to your request. If applicable, please add precise steps that will help reproduce the issue.";
@@ -46,9 +46,6 @@ Support_NoComponentSelected_Msg = "Please select a component.";
 
 Support_ReportFailed_Title = "Report could not be sent";
 Support_ReportFailed_Msg = "Please create your report on our support platform instead. Click “Ok” to open the support form in your browser.";
-
-Support_PublicReportSucceeded_Title = "Report sent";
-Support_PublicReportSucceeded_Msg = "Thank you for the report. A public discussion has been created. Please allow a few days for us to respond. You will receive updates via email.\n\nThe discussion will now be openend in your browser. Consider creating a bookmark.";
 
 Support_PrivateReportSucceeded_Title = "Report sent";
 Support_PrivateReportSucceeded_Msg = "Thank you for the report. A private discussion has been created. Please allow a few days for us to respond. You will receive updates via email.\n\nThe discussion will now be openend in your browser. Consider creating a bookmark.";

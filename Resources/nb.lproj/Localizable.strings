@@ -20,11 +20,11 @@ PassowrdsDeleted_Msg = "All OpenPGP passwords were deleted from macOS keychain a
 PassowrdsDeletFailed_Title = "Sletting av passord mislyktes!";
 PassowrdsDeletFailed_Msg = "Ikke alle lagrede passord kunne slettes. Åpne Console.app og se etter feil som har med dette å gjøre. La oss høre om problemet fra fanen 'Send rapport'.";
 
-Support_SendDebugInfo_Title = "Sender feilrettingsinformasjon";
-Support_SendDebugInfo_Msg = "Feilrettingsinformasjon i rapporten:\n\nHjelper til med å fremskynde feilrettingsprosessen.\n\nDet sendes via kryptert TLS til vårt vertsskap. Der blir det kryptert med vår nøkkel og så sendt til vår brukerstøtteplattform. På den måten er ikke feilrettingsinformasjon tilgjengelig for noen andre enn vårt indre utviklerlag, selv om din rapport ikke har blitt satt til privat.\n\nUnder opprettelsen av feilrettingsinformasjonen vil du bli spurt om ditt OpenPGP-passord for din nøkkel, siden vi tester at dekryptering og signering fungerer som forventet på ditt system.\n\nFeilrettingsinformasjonsloggen inneholder metainformasjon om dine nøkler.\"";
-Support_SendDebugInfo_Button1 = "Send rapport";
+Support_SendDebugInfo_Title = "About Diagnostics";
+Support_SendDebugInfo_Msg = "Including diagnostics helps us to solve your problem faster.\n\nThe diagnostics are sent securely to our web server, where they are encrypted with our team key and forwarded to our support platform. The included information contains meta data about your keys. It can only be read by our team.\n\nDuring the collection of the diagnostics, you may be asked for your secret key's password, as we will test if decryption and signing are working as expected.";
+Support_SendDebugInfo_Button1 = "Send";
 Support_SendDebugInfo_Button2 = "Avbryt";
-Support_SendDebugInfo_Checkbox = "Inkluder feilrettingsinformasjon i denne rapporten";
+Support_SendDebugInfo_Checkbox = "Include diagnostics";
 
 Support_BugDescriptionTooShort_Title = "Beskrivelsen er for kort";
 Support_BugDescriptionTooShort_Msg = "Legg til flere detaljer i beskrivelsesfeltet. Desto mer detaljer du kan oppgi, desto raskere kan vi finne en god løsning på din forespørsel. Hvis det inngår, legg til stegvise beskrivelser for å reprodusere problemet.";
@@ -46,9 +46,6 @@ Support_NoComponentSelected_Msg = "Velg en komponent";
 
 Support_ReportFailed_Title = "Report could not be sent";
 Support_ReportFailed_Msg = "Please create your report on our support platform instead. Click “Ok” to open the support form in your browser.";
-
-Support_PublicReportSucceeded_Title = "Rapport sendt";
-Support_PublicReportSucceeded_Msg = "Thank you for the report. A public discussion has been created. Please allow a few days for us to respond. You will receive updates via email.\n\nThe discussion will now be openend in your browser. Consider creating a bookmark.";
 
 Support_PrivateReportSucceeded_Title = "Rapport sendt";
 Support_PrivateReportSucceeded_Msg = "Thank you for the report. A private discussion has been created. Please allow a few days for us to respond. You will receive updates via email.\n\nThe discussion will now be openend in your browser. Consider creating a bookmark.";

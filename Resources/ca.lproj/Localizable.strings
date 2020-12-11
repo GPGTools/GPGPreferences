@@ -20,11 +20,11 @@ PassowrdsDeleted_Msg = "All OpenPGP passwords were deleted from macOS keychain a
 PassowrdsDeletFailed_Title = "Ha fallat la supressió de contrasenyes!";
 PassowrdsDeletFailed_Msg = "No s'han pogut suprimir totes les contrasenyes desades. Obriu la Console.app i cerqueu qualsevol error. Després, envieu-nos-els mitjançant la pestanya «Envia un informe».";
 
-Support_SendDebugInfo_Title = "Enviament d'informació de depuració";
-Support_SendDebugInfo_Msg = "Un petit comentari sobre l'opció d'incloure informació de depuració en l'informe: Sovint aquesta informació ajudarà a fer més ràpid el procés de depuració. El vostre problema se solucionarà molt més aviat.\n\nRecomanem que inclogueu la informació de depuració, excepte si l'informe és una sol·licitud de funcionalitat.\n\nL'informe s'envia a través d'una connexió TLS xifrada al nostre servidor. Allà, es xifra amb la clau del nostre equip i s'envia a la plataforma d'assistència. D'aquesta manera, ningú no podrà accedir a la informació de depuració excepte el nostre equip, fins i tot si no establiu l'informe com a privat.\n\nMentre es crea la informació de depuració, se us demanarà la contrasenya de la clau OpenPGP, atès que comprovarem que el desxifratge i la sinatura funcionen correctament al vostre sistema.\n\nEl registre de depuració inclou metadades sobre les vostres claus. ";
-Support_SendDebugInfo_Button1 = "Envia l'informe";
+Support_SendDebugInfo_Title = "About Diagnostics";
+Support_SendDebugInfo_Msg = "Including diagnostics helps us to solve your problem faster.\n\nThe diagnostics are sent securely to our web server, where they are encrypted with our team key and forwarded to our support platform. The included information contains meta data about your keys. It can only be read by our team.\n\nDuring the collection of the diagnostics, you may be asked for your secret key's password, as we will test if decryption and signing are working as expected.";
+Support_SendDebugInfo_Button1 = "Send";
 Support_SendDebugInfo_Button2 = "Cancel·la";
-Support_SendDebugInfo_Checkbox = "Inclou informació de depuració en aquest informe";
+Support_SendDebugInfo_Checkbox = "Include diagnostics";
 
 Support_BugDescriptionTooShort_Title = "La descripció és massa curta";
 Support_BugDescriptionTooShort_Msg = "Afegiu més detalls al camp de descripció. Com més detalls hi proporcioneu, més ràpid podrem trobar una bona solució per a la vostra petició. Si podeu, afegiu els passos concrets per a reproduir el problema.";
@@ -46,9 +46,6 @@ Support_NoComponentSelected_Msg = "Seleccioneu un component.";
 
 Support_ReportFailed_Title = "Report could not be sent";
 Support_ReportFailed_Msg = "Please create your report on our support platform instead. Click “Ok” to open the support form in your browser.";
-
-Support_PublicReportSucceeded_Title = "S'ha enviat l'informe";
-Support_PublicReportSucceeded_Msg = "Thank you for the report. A public discussion has been created. Please allow a few days for us to respond. You will receive updates via email.\n\nThe discussion will now be openend in your browser. Consider creating a bookmark.";
 
 Support_PrivateReportSucceeded_Title = "S'ha enviat l'informe";
 Support_PrivateReportSucceeded_Msg = "Thank you for the report. A private discussion has been created. Please allow a few days for us to respond. You will receive updates via email.\n\nThe discussion will now be openend in your browser. Consider creating a bookmark.";

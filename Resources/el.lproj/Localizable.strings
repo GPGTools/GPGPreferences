@@ -20,11 +20,11 @@ PassowrdsDeleted_Msg = "All OpenPGP passwords were deleted from macOS keychain a
 PassowrdsDeletFailed_Title = "Η διαγραφή κωδικών απέτυχε!";
 PassowrdsDeletFailed_Msg = "Δεν ήταν δυνατή η διαγραφή όλων των αποθηκευμένων κωδικών. Παρακαλώ ανοίξτε το Console.app και αναζητήστε σχετικά σφάλματα. Έπειτα ενημερώστε μας για το πρόβλημα μέσω της καρτέλας 'Αποστολή Αναφοράς'.";
 
-Support_SendDebugInfo_Title = "Αποστολή πληροφοριών αποσφαλμάτωσης";
-Support_SendDebugInfo_Msg = "Λίγα λόγια για την επιλογή να περιληφθούν πληροφορίες αποσφαλμάτωσης με την αναφορά σας: Συχνά αυτές οι πληροφορίες θα βοηθήσουν στο να γίνει πιο γρήγορα η διαδικασία αποσφαλμάτωσης. Το πρόβλημά σας θα λυθεί αρκετά γρηγορότερα.\n\nΕκτός των περιπτώσεων όπου η αναφορά σας σχετίζεται με αίτημα για προσθήκη νέων λειτουργιών, προτείνεται να προσθέσετε τις πληροφορίες αποσφαλμάτωσης.\n\nΟι πληροφορίες αυτές στέλνονται μέσω κρυπτογραφημένης TLS σύνδεσης στον φιλοξενητή μας. Εκεί, κρυπτογραφούνται με το κλειδί της ομάδας μας και στέλνονται στην πλατφόρμα υποστήριξής μας. Με αυτό τον τρόπο, οι πληροφορίες αποσφαλμάτωσης δεν είναι προσβάσιμες σε κανένα άλλο εκτός από την ομάδα-πυρήνα μας, ακόμα και αν η αναφορά σας δεν έχει τεθεί να είναι ιδιωτική.\n\nΚατά τη δημιουργία των πληροφοριών αποσφαλμάτωσης μπορεί να σας ζητηθεί ο κωδικός του OpenPGP κλειδιού σας, αφού δοκιμάζεται αν η αποκρυπτογράφηση και η υπογραφή λειτουργούν στο σύστημά σας όπως είναι αναμενόμενο.\n\nΟι πληροφορίες αποσφαλμάτωσης περιέχουν μεταπληροφορίες σχετικά με τα κλειδιά σας.";
-Support_SendDebugInfo_Button1 = "Αποστολή Αναφοράς";
+Support_SendDebugInfo_Title = "About Diagnostics";
+Support_SendDebugInfo_Msg = "Including diagnostics helps us to solve your problem faster.\n\nThe diagnostics are sent securely to our web server, where they are encrypted with our team key and forwarded to our support platform. The included information contains meta data about your keys. It can only be read by our team.\n\nDuring the collection of the diagnostics, you may be asked for your secret key's password, as we will test if decryption and signing are working as expected.";
+Support_SendDebugInfo_Button1 = "Send";
 Support_SendDebugInfo_Button2 = "Ακύρωση";
-Support_SendDebugInfo_Checkbox = "Να συμπεριληφθούν πληφοροφίες αποσφαλμάτωσης με αυτή την αναφορά";
+Support_SendDebugInfo_Checkbox = "Include diagnostics";
 
 Support_BugDescriptionTooShort_Title = "Πολύ σύντομη περιγραφή";
 Support_BugDescriptionTooShort_Msg = "Παρακαλώ εισάγετε περισσότερες λεπτομέρειες στο πεδίο με την περιγραφή. Όσες περισσότερες λεπτομέρειες παρέχετε, τόσο γρηγορότερα θα είμαστε σε θέση να βρούμε μία καλή λύση για το αίτημά σας. Αν είναι δυνατόν, παρακαλώ προσθέστε ακριβή βήματα που θα βοηθήσουν να αναπαραχθεί το πρόβλημα.";
@@ -46,9 +46,6 @@ Support_NoComponentSelected_Msg = "Παρακαλώ επιλέξτε ένα τμ
 
 Support_ReportFailed_Title = "Report could not be sent";
 Support_ReportFailed_Msg = "Please create your report on our support platform instead. Click “Ok” to open the support form in your browser.";
-
-Support_PublicReportSucceeded_Title = "Η αναφορά εστάλη";
-Support_PublicReportSucceeded_Msg = "Thank you for the report. A public discussion has been created. Please allow a few days for us to respond. You will receive updates via email.\n\nThe discussion will now be openend in your browser. Consider creating a bookmark.";
 
 Support_PrivateReportSucceeded_Title = "Η αναφορά εστάλη";
 Support_PrivateReportSucceeded_Msg = "Thank you for the report. A private discussion has been created. Please allow a few days for us to respond. You will receive updates via email.\n\nThe discussion will now be openend in your browser. Consider creating a bookmark.";

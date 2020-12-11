@@ -20,11 +20,11 @@ PassowrdsDeleted_Msg = "Alle OpenPGP Passwörter wurden aus dem macOS Schlüssel
 PassowrdsDeletFailed_Title = "Löschen der Passwörter fehlgeschlagen!";
 PassowrdsDeletFailed_Msg = "Nicht alle gespeicherten Passwörter konnten gelöscht werden. Bitte öffne Konsole.app und schaue, ob du Fehlermeldungen findest, die in Zusammenhang stehen könnten. Informiere uns über dieses Problem über 'Bericht senden'.";
 
-Support_SendDebugInfo_Title = "Diagnose-Informationen senden";
-Support_SendDebugInfo_Msg = "Ein kurzer Hinweis zur Option, Debug Informationen an deinen Bericht anzuhängen: Oft werden uns diese Informationen helfen, den Debugging-Prozess zu beschleunigen. Dein Problem kann so schneller gelöst werden.\n\nSofern dein Bericht nicht ein Feature-Request ist, empfehlen wir die Debug Informationen beizufügen.\n\nDie Infos werden via verschlüsselter TLS-Verbindung an unseren Hoster geschickt. Dort werden sie mit unserem Team-Schlüssel verschlüsselt und weiter an unsere Support-Plattform geschickt. So werden die Debug Infos für niemanden außer unserem Kernteam zugänglich sein, selbst wenn dein Bericht nicht auf Privat gestellt ist.\n\nWährend der Erstellung der Debug Informationen kann es sein, dass du nach deinem OpenPGP Passwort gefragt wirst. Das passiert, weil wir testen, ob auf deinem System das Entschlüsseln und Signieren korrekt funktioniert.\n\nDas Debug Log enthält Metadaten zu deinen Schlüsseln.";
-Support_SendDebugInfo_Button1 = "Bericht senden";
+Support_SendDebugInfo_Title = "Information zu den Diagnosedaten";
+Support_SendDebugInfo_Msg = "Diagnosedaten helfen uns, dein Problem schneller zu lösen.\n\nDie Daten werden auf sicherem Weg an unseren Webserver geschickt, wo sie mit unserem Team-Schlüssel verschlüsselt und an unsere Support-Plattform weitergeleitet werden. Die Diagnosedaten enthalten Metadaten zu deinen Schlüsseln und können nur von unserem Team gelesen werden.\n\nWährend der Erstellung der Diagnosedaten wirst du möglicherweise nach dem Passwort deines geheimen Schlüssels gefragt, da wir testen, ob Entschlüsselung und Signieren korrekt arbeiten.";
+Support_SendDebugInfo_Button1 = "Senden";
 Support_SendDebugInfo_Button2 = "Abbrechen";
-Support_SendDebugInfo_Checkbox = "Debug Informationen mit diesem Bericht versenden";
+Support_SendDebugInfo_Checkbox = "Diagnosedaten senden";
 
 Support_BugDescriptionTooShort_Title = "Beschreibung zu kurz";
 Support_BugDescriptionTooShort_Msg = "Bitte ergänze mehr Details im Beschreibungsfeld. Je mehr Details du uns mitteilst, umso schneller sind wir in der Lage eine Lösung für dein Problem zu finden. Wenn möglich, füge bitte genaue Schritte bei, die uns helfen, das Problem zu reproduzieren.";
@@ -46,9 +46,6 @@ Support_NoComponentSelected_Msg = "Bitte wähle eine Komponente aus.";
 
 Support_ReportFailed_Title = "Bericht konnte nicht gesendet werden";
 Support_ReportFailed_Msg = "Bitte erstelle deinen Bericht über unsere Support-Webseite. Ein Klick auf \"OK\" bringt dich dorthin.";
-
-Support_PublicReportSucceeded_Title = "Bericht gesendet";
-Support_PublicReportSucceeded_Msg = "Danke für den Bericht. Eine öffentliche Diskussion wurde erstellt. Bitte gib uns ein paar Tage Zeit für eine Antwort. Updates wirst du per E-Mail erhalten.\n\nDeine Diskussion wird nun im Browser geöffnet. Lege bei Bedarf ein Lesezeichen an.";
 
 Support_PrivateReportSucceeded_Title = "Bericht gesendet";
 Support_PrivateReportSucceeded_Msg = "Danke für den Bericht. Eine private Diskussion wurde erstellt. Bitte gib uns ein paar Tage Zeit für eine Antwort. Updates wirst du per E-Mail erhalten.\n\nDeine Diskussion wird nun im Browser geöffnet. Lege bei Bedarf ein Lesezeichen an.";

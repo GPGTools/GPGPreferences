@@ -20,11 +20,11 @@ PassowrdsDeleted_Msg = "Všechna hesla OpenPGP byla odstraněna ze systémové a
 PassowrdsDeletFailed_Title = "Mazání hesel selhalo!";
 PassowrdsDeletFailed_Msg = "Ne všechna uložená hesla mohla být odstraněna. Otevřete prosím, program Konzola.app a podívejte se na všechny související chyby. Poté nám o tomto problému dejte vědět prostřednictvím panelu „Odeslat hlášení“.";
 
-Support_SendDebugInfo_Title = "Odesílání ladících informací";
-Support_SendDebugInfo_Msg = "Rychlý návod jak můžete zahrnout do vašeho hlášení ladící informace: Často tyto informace pomohou urychlit proces opravy chyby. Váš problém se tak může vyřešit mnohem rychleji.\n\nPokud vaše hlášení není žádostí o novou funkci, doporučujeme přidat ladící informace.\n\nHlášení se odesílá šifrovaným spojením TLS. Je zašifrováno naším týmovým klíčem a odesláno do našeho systému pro správu hlášení. Tím je zaručeno, že ladící informace nebudou přístupné nikomu jinému, kromě našeho jádrového týmu, a to i v případě, že váše hlášení není označeno jako soukromé.\n\nBěhem sbírání ladících informací můžete být požádáni o heslo klíče OpenPGP, protože testujeme, zda funkce dešifrování a podepisování fungují ve vašem systému správně.\n\nLadící informace obsahují meta data o vašich klíčích.";
-Support_SendDebugInfo_Button1 = "Odeslat hlášení";
+Support_SendDebugInfo_Title = "About Diagnostics";
+Support_SendDebugInfo_Msg = "Including diagnostics helps us to solve your problem faster.\n\nThe diagnostics are sent securely to our web server, where they are encrypted with our team key and forwarded to our support platform. The included information contains meta data about your keys. It can only be read by our team.\n\nDuring the collection of the diagnostics, you may be asked for your secret key's password, as we will test if decryption and signing are working as expected.";
+Support_SendDebugInfo_Button1 = "Odeslat";
 Support_SendDebugInfo_Button2 = "Zrušit";
-Support_SendDebugInfo_Checkbox = "K hlášení přikládat ladící informace";
+Support_SendDebugInfo_Checkbox = "Include diagnostics";
 
 Support_BugDescriptionTooShort_Title = "Popis je příliš krátký";
 Support_BugDescriptionTooShort_Msg = "Přidejte popis další podrobnosti. Čím více detailů nám poskytnete, tím rychleji budeme schopni nalézt řešení vašeho problému. Pokud je to možné, popište přesně všechny kroky, které nám pomohou zreprodukovat problém.";
@@ -46,9 +46,6 @@ Support_NoComponentSelected_Msg = "Vyberte komponentu";
 
 Support_ReportFailed_Title = "Hlášení nelze odeslat";
 Support_ReportFailed_Msg = "Prosím, vytvořte své hlášení na naší platformě uživatelské podpory. Klepnutím na tlačítko „OK“ otevřete formulář v prohlížeči.";
-
-Support_PublicReportSucceeded_Title = "Hlášení bylo odesláno";
-Support_PublicReportSucceeded_Msg = "Děkujeme za hlášení. Byla vytvořena veřejná diskuse. Dejte nám prosím několik dní na odpověď. Obdržíte aktualizace hlášní prostřednictvím e-mailu\n\nDiskuse bude nyní otevřena ve vašem prohlížeči. Zvažte vytvoření záložky k této diskuzi.";
 
 Support_PrivateReportSucceeded_Title = "Hlášení bylo odesláno";
 Support_PrivateReportSucceeded_Msg = "Děkujeme za hlášení. Byla vytvořena neveřejná diskuse. Dejte nám prosím několik dní na odpověď. Obdržíte aktualizace hlášní prostřednictvím e-mailu\n\nDiskuse bude nyní otevřena ve vašem prohlížeči. Zvažte vytvoření záložky k této diskuzi.";

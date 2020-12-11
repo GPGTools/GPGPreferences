@@ -20,11 +20,11 @@ PassowrdsDeleted_Msg = "Alla OpenPGP-lösenord raderades från macOS-nyckelringe
 PassowrdsDeletFailed_Title = "Det gick inte att radera lösenord!";
 PassowrdsDeletFailed_Msg = "Inte alla lagrade lösenorden kunde raderas. Öppna Console.app och leta efter relaterade fel. Meddela oss sedan om detta problem via fliken 'Skicka rapport'.";
 
-Support_SendDebugInfo_Title = "Skickar debug-information";
-Support_SendDebugInfo_Msg = "Ett kort ord om alternativet att inkludera debug-information i din rapport: Denna information kommer ofta bidra till att debug-processen snabbas på. Ditt problem kommer att lösas mycket snabbare.\n\nOm inte din rapport är ett förslag på ny funktionalitet så rekommenderar vi att debug-informationen inkluderas.\n\nDen skickas via en krypterad TLS-anslutning till vår värdtjänst. Där krypteras den med vårt teams nyckel för att sedan skickas till vår supportplattform. På det sättet kommer din informationen inte kunna ses av någon annan än de i vår kärna av utvecklare, även om din rapport inte angivits som privat.\n\nMedan din debug-information skapas kanske du kommer att tillfrågas om lösenordet till din OpenPGP-nyckel, eftersom vi vill testa om dekryptering och signering fungerar som det ska på ditt system.\n\nDebug-loggen inkluderar metainformation om dina nycklar.";
-Support_SendDebugInfo_Button1 = "Skicka rapport";
+Support_SendDebugInfo_Title = "About Diagnostics";
+Support_SendDebugInfo_Msg = "Including diagnostics helps us to solve your problem faster.\n\nThe diagnostics are sent securely to our web server, where they are encrypted with our team key and forwarded to our support platform. The included information contains meta data about your keys. It can only be read by our team.\n\nDuring the collection of the diagnostics, you may be asked for your secret key's password, as we will test if decryption and signing are working as expected.";
+Support_SendDebugInfo_Button1 = "Send";
 Support_SendDebugInfo_Button2 = "Avbryt";
-Support_SendDebugInfo_Checkbox = "Inkludera debug-information i denna rapport";
+Support_SendDebugInfo_Checkbox = "Include diagnostics";
 
 Support_BugDescriptionTooShort_Title = "Beskrivning är fört kort";
 Support_BugDescriptionTooShort_Msg = "Lägg till mer info i fältet för beskrivning. Ju fler detaljer du kan återge, desto snabbare kan vi hitta en bra lösning på din begäran. Om det går, lägg till exakta steg som kan hjälpa oss reproducera felet.";
@@ -46,9 +46,6 @@ Support_NoComponentSelected_Msg = "Välj en komponent.";
 
 Support_ReportFailed_Title = "Rapporten kunde inte skickas";
 Support_ReportFailed_Msg = "Skapa en rapport på vår supportplattform istället. Klicka \"Ok\" för att öppna ett support-formulär i din webbläsare.";
-
-Support_PublicReportSucceeded_Title = "Rapport skickad";
-Support_PublicReportSucceeded_Msg = "Tack för rapporten. En publik diskussion har skapats. Ge oss några dagar att svara. Du kommer att få uppdateringar via e-post.\n\nNu öppnas diskussionen i din webbläsare. Skapa gärna ett bokmärke.";
 
 Support_PrivateReportSucceeded_Title = "Rapport skickad";
 Support_PrivateReportSucceeded_Msg = "Tack för rapporten. En privat diskussion har skapats. Ge oss några dagar att svara. Du kommer att få uppdateringar via e-post.\n\nNu öppnas diskussionen i din webbläsare. Skapa gärna ett bokmärke.";

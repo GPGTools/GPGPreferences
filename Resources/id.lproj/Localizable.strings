@@ -20,11 +20,11 @@ PassowrdsDeleted_Msg = "Semua kata sandi OpenPGP dihapus dari keychain macOS dan
 PassowrdsDeletFailed_Title = "Penghapusan kata sandi gagal!";
 PassowrdsDeletFailed_Msg = "Tidak semua kata sandi yang disimpan dapat dihapus. Harap buka Console.app dan carilah kesalahan yang berhubungan. Lalu beritahu kami masalah ini melalui tab 'Kirim Laporan'.";
 
-Support_SendDebugInfo_Title = "Mengirim informasi debug";
-Support_SendDebugInfo_Msg = "Ulasan singkat tentang opsi untuk menyertakan informasi debug dengan laporan Anda: Seringkali informasi ini akan membantu mempercepat proses debug. Masalah Anda akan jauh lebih cepat dipecahkan.\n\nKecuali apabila laporan Anda adalah permintaan fitur, kami menyarankan menambahkan informasi debug.\n\nInfo dikirim melalui koneksi TLS terenkripsi ke server kami. Di sana itu dienkripsi memakai kunci tim kami lalu dikirim ke platform dukungan kami. Dengan cara itu informasi debug tidak akan dapat diakses oleh siapapun kecuali tim inti kami, bahkan bila laporan Anda tidak diatur untuk privat.\n\nSelama pembuatan informasi debug Anda mungkin ditanyai kata sandi kunci OpenPGP, karena kami akan menguji apakah dekripsi dan penandatanganan bekerja seperti yang diharapkan pada sistem Anda.\n\nLog debug termasuk informasi meta tentang kunci Anda.";
-Support_SendDebugInfo_Button1 = "Kirim Laporan";
+Support_SendDebugInfo_Title = "About Diagnostics";
+Support_SendDebugInfo_Msg = "Including diagnostics helps us to solve your problem faster.\n\nThe diagnostics are sent securely to our web server, where they are encrypted with our team key and forwarded to our support platform. The included information contains meta data about your keys. It can only be read by our team.\n\nDuring the collection of the diagnostics, you may be asked for your secret key's password, as we will test if decryption and signing are working as expected.";
+Support_SendDebugInfo_Button1 = "Kirim";
 Support_SendDebugInfo_Button2 = "Batal";
-Support_SendDebugInfo_Checkbox = "Sertakan informasi debug dengan laporan ini";
+Support_SendDebugInfo_Checkbox = "Include diagnostics";
 
 Support_BugDescriptionTooShort_Title = "Deskripsi terlalu pendek";
 Support_BugDescriptionTooShort_Msg = "Harap tambahkan lebih banyak rincian ke ruas deskripsi. Lebih banyak rincian yang dapat Anda berikan, kami akan bisa lebih cepat menemukan solusi yang bagus ke permintaan Anda. Bila berlaku, harap tambahkan langkah-langkah presisi yang membantu mereproduksi masalah.";
@@ -46,9 +46,6 @@ Support_NoComponentSelected_Msg = "Harap pilih sebuah komponen.";
 
 Support_ReportFailed_Title = "Laporan tidak dapat dikirim";
 Support_ReportFailed_Msg = "Harap buat laporan Anda pada platform dukungan kami. Klik \"Ok\" untuk membuka formulir dukungan dalam peramban Anda.";
-
-Support_PublicReportSucceeded_Title = "Laporan dikirim";
-Support_PublicReportSucceeded_Msg = "Terima kasih atas laporan ini. Suatu diskusi publik telah dibuat. Mohon beri kami beberapa hari untuk merespon. Anda akan menerima pemutakhiran melalui surel.\n\nSekarang diskusi akan dibuka di dalam peramban Anda. Pertimbangkan untuk membuat markah.";
 
 Support_PrivateReportSucceeded_Title = "Laporan dikirim";
 Support_PrivateReportSucceeded_Msg = "Terima kasih atas laporan ini. Suatu diskusi privat telah dibuat. Harap beri kami beberapa hari untuk merespon. Anda akan menerima pemutakhiran melalui surel.\n\nSekarang diskusi akan dibuka dalam peramban Anda. Pertimbangkan untuk membuat markah.";

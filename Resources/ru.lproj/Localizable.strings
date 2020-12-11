@@ -20,11 +20,11 @@ PassowrdsDeleted_Msg = "Все пароли OpenPGP были удалены из
 PassowrdsDeletFailed_Title = "Не удалось удалить пароли!";
 PassowrdsDeletFailed_Msg = "Не все сохраненные пароли могут быть удалены. Откройте Console.app и найдите любые связанные ошибки. Затем сообщите нам об этой проблеме на вкладке 'Отправить отчет'.";
 
-Support_SendDebugInfo_Title = "Отправка отладочной информации";
-Support_SendDebugInfo_Msg = "Пара слов об опции включения отладочной информации в ваш отчет: часто эта информация может помочь ускорить процесс отладки. Ваша проблема будет решена намного быстрее.\n\nЕсли ваш отчет не является запросом на функцию, мы рекомендуем добавить отладочную информацию.\n\nОн отправляется через зашифрованное TLS-соединение с нашим хостером. Шифрование производится с помощью нашего командного ключа, а затем отправляется на нашу платформу поддержки. Таким образом, отладочная информация не будет доступна ни для кого другого, \nкроме нашей основной команды, даже если ваш отчет не сделан приватным.\n\nВо время создания отладочной информации вам может быть предложено ввести пароль ключа OpenPGP, таким образом мы проверим, работают ли в вашей системе дешифрование и подписание.\n\nЖурнал отладки содержит метаинформацию о ваших ключах.";
-Support_SendDebugInfo_Button1 = "Отправить отчет";
+Support_SendDebugInfo_Title = "About Diagnostics";
+Support_SendDebugInfo_Msg = "Including diagnostics helps us to solve your problem faster.\n\nThe diagnostics are sent securely to our web server, where they are encrypted with our team key and forwarded to our support platform. The included information contains meta data about your keys. It can only be read by our team.\n\nDuring the collection of the diagnostics, you may be asked for your secret key's password, as we will test if decryption and signing are working as expected.";
+Support_SendDebugInfo_Button1 = "Send";
 Support_SendDebugInfo_Button2 = "Отмена";
-Support_SendDebugInfo_Checkbox = "Включить отладочную информацию в этот отчет";
+Support_SendDebugInfo_Checkbox = "Include diagnostics";
 
 Support_BugDescriptionTooShort_Title = "Описание слишком короткое";
 Support_BugDescriptionTooShort_Msg = "Пожалуйста, добавьте более подробную информацию в поле описания. Чем больше деталей вы сможете предоставить, тем быстрее мы сможем найти хорошее решение для вашего запроса. Если это возможно, опишите точные шаги, которые помогут нам воспроизвести проблему.";
@@ -46,9 +46,6 @@ Support_NoComponentSelected_Msg = "Выберите компонент.";
 
 Support_ReportFailed_Title = "Не удалось отправить отчет";
 Support_ReportFailed_Msg = "Создайте свой отчет на нашей платформе поддержки. Нажмите «Оk», чтобы открыть форму поддержки в вашем браузере.";
-
-Support_PublicReportSucceeded_Title = "Отчет отправлен";
-Support_PublicReportSucceeded_Msg = "Спасибо за отчет. Была создана публичная дискуссия. Пожалуйста, подождите несколько дней, чтобы мы могли подготовить ответ. Вы будете получать обновления по электронной почте.\n\nСейчас дискуссия открыта в вашем браузере. Подумайте о создании закладки.";
 
 Support_PrivateReportSucceeded_Title = "Отчет отправлен";
 Support_PrivateReportSucceeded_Msg = "Спасибо за отчет. Была создана приватная дискуссия. Пожалуйста, подождите несколько дней, чтобы мы могли подготовить ответ. Вы будете получать обновления по электронной почте.\n\nСейчас дискуссия открыта в вашем браузере. Подумайте о создании закладки.";
