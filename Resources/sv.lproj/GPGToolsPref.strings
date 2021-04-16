@@ -1,6 +1,6 @@
 "217.label" = "Inställningar";
 "248.label" = "Om";
-"510.title" = "GPG Suite är en samling med program som kan kryptera / dekryptera och signera / verifiera e-post och filer. Vårt mål är att vara en användarvänlig OpenPGP-lösning på macOS.";
+"510.title" = "GPG Suite är en samling med program som kan kryptera/dekryptera och signera/verifiera e-post och filer. Vårt mål är att vara en användarvänlig OpenPGP-lösning på macOS.";
 "551.title" = "Support";
 "553.title" = "Kunskapsbas";
 "560.ibShadowedToolTip" = "Denna nyckel används som din förvalda nyckel i GPGServices.";
@@ -18,12 +18,12 @@
 "9oN-AB-7Fa.title" = "Sök på nyckelservrarna efter en publik nyckel när signaturer inte kan verifieras eftersom den publika nyckeln inte finns i GPG Keychain.";
 "ANB-ym-fp2.title" = "GPG Suite-inställningar";
 "CVn-T1-UHW.ibShadowedIsNilPlaceholder" = "Beskriv problemet. Visa reproducerbara steg om möjligt.";
-"FGo-Ci-zfF.title" = "Send";
+"FGo-Ci-zfF.title" = "Skicka";
 "GN0-q8-084.title" = "Uppdateringar";
-"ITf-VV-Ist.title" = "Include diagnostics";
+"ITf-VV-Ist.title" = "Inkludera diagnostik";
 "LlU-F9-JUG.title" = "Inkludera betaversioner";
 "N7W-a5-kXF.title" = "Kontrollera nu";
-"NHG-AV-7kF.label" = "Contact Support";
+"NHG-AV-7kF.label" = "Kontakta support";
 "NWt-L7-Mwu.title" = "Betaversioner publiceras oftare. Nya funktioner och förbättringar är mindre testade.";
 "RTl-LW-KmP.title" = "Rapporter";
 "RZt-Ds-s5C.title" = "Berätta för GPGTools om krascher";

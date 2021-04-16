@@ -20,10 +20,10 @@
 "CVn-T1-UHW.ibShadowedIsNilPlaceholder" = "Popište problém. Pokud je to možné, přidejte kroky jak problém zreprodukovat.";
 "FGo-Ci-zfF.title" = "Odeslat";
 "GN0-q8-084.title" = "Aktualizace";
-"ITf-VV-Ist.title" = "Include diagnostics";
+"ITf-VV-Ist.title" = "Přiložit diagnostiku";
 "LlU-F9-JUG.title" = "Včetně testovacích sestavení";
 "N7W-a5-kXF.title" = "Ověřit nyní";
-"NHG-AV-7kF.label" = "Contact Support";
+"NHG-AV-7kF.label" = "Obraťte se na tech. podporu";
 "NWt-L7-Mwu.title" = "Testovací sestavení vydávány častěji. Nové funkce a vylepšení však ještě nemusejí pracovat správně.";
 "RTl-LW-KmP.title" = "Hlášení";
 "RZt-Ds-s5C.title" = "Nahlašte nám pády aplikace GPGTools";

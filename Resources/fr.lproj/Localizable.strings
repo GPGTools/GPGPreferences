@@ -6,11 +6,11 @@
 
 /* Bad keyserver */
 BadKeyserver_Title = "Le serveur des clés ne fonctionne pas actuellement";
-BadKeyserver_Msg = "The key server you entered is not working.\nPlease verify that the address is correct. It should look something like: hkps://some.key.server.org\n\nSince the key server could also be offline you can try another key server.";
+BadKeyserver_Msg = "Le serveur de clé que vous avez indiqué ne fonctionne pas.\nVérifiez que l'adresse est correcte. Elle doit ressembler à hkps://some.key.server.org\n\nLe serveur peut simplement être déconnecté, vous pouvez en essayer un autre.";
 
 
-WarningDeletePasswords_Title = "Supprimer les mots de passe OpenPGP conservés";
-WarningDeletePasswords_Msg = "This will delete all OpenPGP passwords stored in macOS keychain and empty the cache.";
+WarningDeletePasswords_Title = "Supprimer les mots de passe OpenPGP enregistrés";
+WarningDeletePasswords_Msg = "Cela va effacer tous les mots de passe OpenPGP enregistrés dans le trousseau macOS et vider le cache.";
 WarningDeletePasswords_Button1 = "Supprimer";
 WarningDeletePasswords_Button2 = "Annuler";
 
@@ -18,19 +18,19 @@ PassowrdsDeleted_Title = "Mots de passe supprimés";
 PassowrdsDeleted_Msg = "Tous les mots de passe OpenPGP ont été supprimer du trousseau de macOS et du cache.";
 
 PassowrdsDeletFailed_Title = "Suppression des mots de passe échouées";
-PassowrdsDeletFailed_Msg = "Not all stored passwords could be deleted. Please open Console.app and look for any related errors. Then let us know about this problem via the 'Send Report' tab.";
+PassowrdsDeletFailed_Msg = "Certains mots de passe n'ont pas pu être supprimés. Ouvrez l'application Console et recherchez les erreurs correspondantes. Signalez-nous ensuite le problème à l'aide de la fonction \"Envoyer un rapport\".";
 
-Support_SendDebugInfo_Title = "About Diagnostics";
-Support_SendDebugInfo_Msg = "Including diagnostics helps us to solve your problem faster.\n\nThe diagnostics are sent securely to our web server, where they are encrypted with our team key and forwarded to our support platform. The included information contains meta data about your keys. It can only be read by our team.\n\nDuring the collection of the diagnostics, you may be asked for your secret key's password, as we will test if decryption and signing are working as expected.";
-Support_SendDebugInfo_Button1 = "Send";
+Support_SendDebugInfo_Title = "À propos de Diagnostics";
+Support_SendDebugInfo_Msg = "Joindre un diagnostic nous aide à résoudre plus rapidement votre problème.\n\nLes diagnostics sont envoyés de manière sécurisée sur notre serveur web où ils sont chiffrés avec la clé de notre équipe et transmis à notre plateforme de support. Ils contiennent des méta-données sur vos clés. Ils ne peuvent être lus que par notre équipe.\n\nPendant la constitution du diagnostic, le mot de passe de votre clé secrète peut vous être demandé car nous testons si le déchiffrement et la signature fonctionnent correctement.";
+Support_SendDebugInfo_Button1 = "Envoyé";
 Support_SendDebugInfo_Button2 = "Annuler";
-Support_SendDebugInfo_Checkbox = "Include diagnostics";
+Support_SendDebugInfo_Checkbox = "Inclure les diagnostics";
 
 Support_BugDescriptionTooShort_Title = "Description trop courte";
-Support_BugDescriptionTooShort_Msg = "Please add more details to the description field. The more detail you can provide, the faster we will be able to find a good solution to your request. If applicable, please add precise steps that will help reproduce the issue.";
+Support_BugDescriptionTooShort_Msg = "Merci d'ajouter des précisions dans le champ de description. Plus vous serez précis, plus rapidement nous pourrons apporter une réponse satisfaisante à votre demande. Si possible, détaillez les étapes qui nous permettront de reproduire le problème.";
 
 Support_ExpectedBahaviorTooShort_Title = "Comportement attendu trop court";
-Support_ExpectedBahaviorTooShort_Msg = "Please add more details to the expected behavior field. The more detail you can provide, the faster we will be able to find a solution and answer your request.";
+Support_ExpectedBahaviorTooShort_Msg = "Merci de compléter le champ sur le comportement attendu. Plus vous serez précis, plus rapidement nous pourrons apporter une réponse satisfaisante à votre demande.";
 
 Support_SubjectTooShort_Title = "Sujet trop court";
 Support_SubjectTooShort_Msg = "Veuillez ajoutez un sujet plus descriptif.";
@@ -44,17 +44,17 @@ Support_NameTooShort_Msg = "Merci d'entrer un nom plus long.";
 Support_NoComponentSelected_Title = "Aucun composant sélectionné";
 Support_NoComponentSelected_Msg = "Merci de sélectionner un composant.";
 
-Support_ReportFailed_Title = "Report could not be sent";
-Support_ReportFailed_Msg = "Please create your report on our support platform instead. Click “Ok” to open the support form in your browser.";
+Support_ReportFailed_Title = "Le rapport n'a pas pu être envoyé";
+Support_ReportFailed_Msg = "Merci de créer un rapport sur notre plateforme de support. Appuyez sur \"Ok\" pour ouvrir le formulaire de support dans votre navigateur.";
 
 Support_PrivateReportSucceeded_Title = "Rapport envoyé";
-Support_PrivateReportSucceeded_Msg = "Thank you for the report. A private discussion has been created. Please allow a few days for us to respond. You will receive updates via email.\n\nThe discussion will now be openend in your browser. Consider creating a bookmark.";
+Support_PrivateReportSucceeded_Msg = "Merci pour votre rapport. Une conversation privée a été créée. Nous vous prions de nous accorder quelques jours pour vous répondre. Vous recevrez des nouvelles par courriel.";
 
 
-ShouldRemoveComment_Title = "Information about the comment field";
-ShouldRemoveComment_Msg = "We have removed the option to set a comment in GPG Suite Preferences. Best practices recommend to no longer use the comment field since wrong usage may leak information.\n\nYou have currently configured the following comment:\n\n%@\n\nWould you like to remove it? (recommended)";
+ShouldRemoveComment_Title = "Information à propos du champ commentaire";
+ShouldRemoveComment_Msg = "Nous avons supprimé l'option pour envoyer un commentaire des préférences de GPG Suite. Les règles de bon usage recommandent de ne plus utiliser le champ commentaire car un mauvais usage de ce champ peut conduire à des fuites d'information.\n\nVous avez indiqué le commentaire suivant :\n\n%@\n\nVoulez-vous le supprimer ? (recommandé)";
 ShouldRemoveComment_Button1 = "Supprimer le commentaire";
-ShouldRemoveComment_Button2 = "Keep Comment";
+ShouldRemoveComment_Button2 = "Conserver le commentaire";
 
 
 EmailCheck_TooLong = "L'adresse e-mail que vous avez entré est trop longue.";

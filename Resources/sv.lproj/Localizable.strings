@@ -17,23 +17,23 @@ WarningDeletePasswords_Button2 = "Avbryt";
 PassowrdsDeleted_Title = "Lösenorden raderades";
 PassowrdsDeleted_Msg = "Alla OpenPGP-lösenord raderades från macOS-nyckelringen och cachen.";
 
-PassowrdsDeletFailed_Title = "Det gick inte att radera lösenord!";
-PassowrdsDeletFailed_Msg = "Inte alla lagrade lösenorden kunde raderas. Öppna Console.app och leta efter relaterade fel. Meddela oss sedan om detta problem via fliken 'Skicka rapport'.";
+PassowrdsDeletFailed_Title = "Det gick inte att radera lösenorden!";
+PassowrdsDeletFailed_Msg = "Inte alla lagrade lösenord kunde raderas. Öppna Console.app och leta efter relaterade fel. Meddela oss sedan om detta problem via fliken 'Skicka rapport'.";
 
-Support_SendDebugInfo_Title = "About Diagnostics";
+Support_SendDebugInfo_Title = "Om diagnostik";
 Support_SendDebugInfo_Msg = "Including diagnostics helps us to solve your problem faster.\n\nThe diagnostics are sent securely to our web server, where they are encrypted with our team key and forwarded to our support platform. The included information contains meta data about your keys. It can only be read by our team.\n\nDuring the collection of the diagnostics, you may be asked for your secret key's password, as we will test if decryption and signing are working as expected.";
-Support_SendDebugInfo_Button1 = "Send";
+Support_SendDebugInfo_Button1 = "Skicka";
 Support_SendDebugInfo_Button2 = "Avbryt";
-Support_SendDebugInfo_Checkbox = "Include diagnostics";
+Support_SendDebugInfo_Checkbox = "Inkludera diagnostik";
 
-Support_BugDescriptionTooShort_Title = "Beskrivning är fört kort";
+Support_BugDescriptionTooShort_Title = "Beskrivningen är för kort";
 Support_BugDescriptionTooShort_Msg = "Lägg till mer info i fältet för beskrivning. Ju fler detaljer du kan återge, desto snabbare kan vi hitta en bra lösning på din begäran. Om det går, lägg till exakta steg som kan hjälpa oss reproducera felet.";
 
 Support_ExpectedBahaviorTooShort_Title = "Förväntat beteende är för kort";
 Support_ExpectedBahaviorTooShort_Msg = "Lägg till mer info i fältet för förväntat beteende. Ju fler detaljer du kan återge, desto snabbare kan vi hitta en lösning och svar på din begäran.";
 
 Support_SubjectTooShort_Title = "Ämne är för kort";
-Support_SubjectTooShort_Msg = "Lägg till ett mer beskrivande ämne";
+Support_SubjectTooShort_Msg = "Lägg till ett mer beskrivande ämne.";
 
 Support_MailInvalid_Title = "Ogiltig e-postadress";
 Support_MailInvalid_Msg = "Använd en giltig e-postadress.";

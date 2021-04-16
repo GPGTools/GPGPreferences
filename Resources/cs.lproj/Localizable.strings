@@ -20,11 +20,11 @@ PassowrdsDeleted_Msg = "Všechna hesla OpenPGP byla odstraněna ze systémové a
 PassowrdsDeletFailed_Title = "Mazání hesel selhalo!";
 PassowrdsDeletFailed_Msg = "Ne všechna uložená hesla mohla být odstraněna. Otevřete prosím, program Konzola.app a podívejte se na všechny související chyby. Poté nám o tomto problému dejte vědět prostřednictvím panelu „Odeslat hlášení“.";
 
-Support_SendDebugInfo_Title = "About Diagnostics";
-Support_SendDebugInfo_Msg = "Including diagnostics helps us to solve your problem faster.\n\nThe diagnostics are sent securely to our web server, where they are encrypted with our team key and forwarded to our support platform. The included information contains meta data about your keys. It can only be read by our team.\n\nDuring the collection of the diagnostics, you may be asked for your secret key's password, as we will test if decryption and signing are working as expected.";
+Support_SendDebugInfo_Title = "Co je Diagnostika";
+Support_SendDebugInfo_Msg = "Přiložením diagnostických informací nám pomůžete vyřešit váš problém rychleji.\n\nDiagnostické informace jsou odeslány zabezpečeně na náš web server, kde jsou zašifrovány týmovým klíčem a odeslány na oddělení technické podpory. Vložené informace obsahují pouze metadata o vašich klíčích a jsou čitelné pouze našim týmem.\n\nBěhem sbírání a zpracovávání diagnostických informací, můžete být požádání o heslo vašeho soukromého klíče, abychom se ujistili, že šifrování a podepisování funguje dle našich předpokladů.";
 Support_SendDebugInfo_Button1 = "Odeslat";
 Support_SendDebugInfo_Button2 = "Zrušit";
-Support_SendDebugInfo_Checkbox = "Include diagnostics";
+Support_SendDebugInfo_Checkbox = "Přiložit diagnostické informace";
 
 Support_BugDescriptionTooShort_Title = "Popis je příliš krátký";
 Support_BugDescriptionTooShort_Msg = "Přidejte popis další podrobnosti. Čím více detailů nám poskytnete, tím rychleji budeme schopni nalézt řešení vašeho problému. Pokud je to možné, popište přesně všechny kroky, které nám pomohou zreprodukovat problém.";
