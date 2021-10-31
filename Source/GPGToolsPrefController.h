@@ -11,6 +11,9 @@
 #import <Libmacgpg/Libmacgpg.h>
 #import "GPGToolsPref.h"
 
+@class GPGToolsPref;
+extern GPGToolsPref *gpgPrefPane;
+
 @interface GPGToolsPrefController : NSObject <GPGControllerDelegate> {
 	IBOutlet NSProgressIndicator *spinner;
 	NSBundle *myBundle;
@@ -38,7 +41,6 @@
 @property (nonatomic) BOOL useKeychain;
 
 
-
 // Get a list of keyservers from GPGOptions
 @property (readonly) NSArray *keyservers;
 
@@ -56,5 +58,7 @@
 
 
 - (IBAction)deletePassphrases:(id)sender;
+
+- (void)mainVieWDidLoad;
 
 @end

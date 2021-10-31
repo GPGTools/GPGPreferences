@@ -56,8 +56,6 @@ static NSString * const CrashReportsUserEmailKey = @"CrashReportsUserEmail";
 	[[NSDistributedNotificationCenter defaultCenter] addObserver:self selector:@selector(keysDidChange:) name:GPGKeyManagerKeysDidChangeNotification object:nil];
 	[[GPGKeyManager sharedInstance] loadAllKeys];
 
-	[self performSelectorOnMainThread:@selector(removeCommentIfWanted) withObject:nil waitUntilDone:NO];
-	
 	return self;
 }
 - (void)dealloc {
@@ -67,15 +65,18 @@ static NSString * const CrashReportsUserEmailKey = @"CrashReportsUserEmail";
 }
 
 
-
-
+- (void)mainViewDidLoad {
+	//[self performSelector:@selector(removeCommentIfWanted) withObject:nil afterDelay:0];
+	[self performSelectorOnMainThread:@selector(removeCommentIfWanted) withObject:nil waitUntilDone:NO];
+}
 
 - (void)removeCommentIfWanted {
 	if (![options boolForKey:@"RemoveCommentCheckRan"]) {
 		NSString *comment = [[options valueInGPGConfForKey:@"comment"] componentsJoinedByString:@"\n"];
-		
+		NSLog(@"[gpgpreferences] Check if comment is available and warn user.");
 		if (comment.length > 0) {
-			if ([comment isEqualToString:@"GPGTools - https://gpgtools.org"]) {
+			// Add http option as well, since that was used in the past.
+			if ([comment isEqualToString:@"GPGTools - https://gpgtools.org"] || [comment isEqualToString:@"GPGTools - http://gpgtools.org"]) {
 				[options setValueInGPGConf:nil forKey:@"comment"];
 			} else {
 				[gpgPrefPane showAlert:@"ShouldRemoveComment" parameters:@[comment] completionHandler:^(NSModalResponse returnCode) {

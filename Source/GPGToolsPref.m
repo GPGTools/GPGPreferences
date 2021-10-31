@@ -149,6 +149,18 @@ static NSString * const GPGPreferencesShowTabNotification = @"GPGPreferencesShow
 	[self revealElementWithInfo:@{@"tab": key}];
 }
 - (void)mainViewDidLoad {
+	// At this point the main view is however not necessarily already
+	// connected to the content view of System Preferences and thus
+	// any dialog that would be displayed (for example the comment removal
+	// dialog) might fail to display due to the lack of a configured window.
+	//
+	// In order to be informed, when the main view is properly connected
+	// to the window, a delegate on the root view is used. The root view
+	// itself checks if it's moved to another window, and will inform
+	// this class.
+	self.windowIsReadCheckingView.delegate = self;
+
+	// Now everything is setup.
 	_viewsLoaded = YES;
 	if (self.infoToShow) {
 		[self revealElementWithInfo:self.infoToShow];
@@ -156,10 +168,11 @@ static NSString * const GPGPreferencesShowTabNotification = @"GPGPreferencesShow
 	}
 }
 
-
-
-
-
+- (void)windowIsReady:(NSWindow *)window {
+	if([self.prefsController respondsToSelector:@selector(mainViewDidLoad)]) {
+		[self.prefsController mainViewDidLoad];
+	}
+}
 
 
 - (NSString *)localizedString:(NSString *)key {

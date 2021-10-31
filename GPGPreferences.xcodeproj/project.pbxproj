@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1B8ABCF926CD3F1000478714 /* WindowIsReadyCheckingView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B8ABCF826CD3F1000478714 /* WindowIsReadyCheckingView.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
 		1BC0519E237452BD00B7B346 /* GMSupportPlanManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BC05199237452BC00B7B346 /* GMSupportPlanManager.m */; };
 		1BC0519F237452BD00B7B346 /* GMSupportPlan.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BC0519A237452BC00B7B346 /* GMSupportPlan.m */; };
 		1BC051A0237452BD00B7B346 /* GMSPCommon.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BC0519C237452BC00B7B346 /* GMSPCommon.m */; };
@@ -80,6 +81,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		1B8ABCF726CD3F1000478714 /* WindowIsReadyCheckingView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WindowIsReadyCheckingView.h; sourceTree = "<group>"; };
+		1B8ABCF826CD3F1000478714 /* WindowIsReadyCheckingView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WindowIsReadyCheckingView.m; sourceTree = "<group>"; };
 		1BC05195237452BC00B7B346 /* GMSupportPlanManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GMSupportPlanManager.h; sourceTree = "<group>"; };
 		1BC05196237452BC00B7B346 /* GMSupportPlan.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GMSupportPlan.h; sourceTree = "<group>"; };
 		1BC05197237452BC00B7B346 /* GMDevice.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GMDevice.m; sourceTree = "<group>"; };
@@ -287,6 +290,8 @@
 				3056D089172D301D00CFC0FA /* GPGIsUnselectedTransformer.m */,
 				301C67A41ECB0406001F8933 /* GPGIntegerNumberFormatter.h */,
 				301C67A51ECB0406001F8933 /* GPGIntegerNumberFormatter.m */,
+				1B8ABCF726CD3F1000478714 /* WindowIsReadyCheckingView.h */,
+				1B8ABCF826CD3F1000478714 /* WindowIsReadyCheckingView.m */,
 			);
 			name = Classes;
 			path = Source;
@@ -536,6 +541,7 @@
 			files = (
 				1BC051A123745E1000B7B346 /* GMDevice.m in Sources */,
 				3013BD2D1C96D0C6005744E5 /* GPGReportController.m in Sources */,
+				1B8ABCF926CD3F1000478714 /* WindowIsReadyCheckingView.m in Sources */,
 				3032EC931C63939900A4DFDB /* GPGDebugCollector.m in Sources */,
 				1BC051A0237452BD00B7B346 /* GMSPCommon.m in Sources */,
 				3013BD381C974A31005744E5 /* GPGWhiteView.m in Sources */,

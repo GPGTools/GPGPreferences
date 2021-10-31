@@ -8,6 +8,8 @@
 
 #import <PreferencePanes/PreferencePanes.h>
 #import "GPGReportController.h"
+#import "GPGToolsPrefController.h"
+#import "WindowIsReadyCheckingView.h"
 
 @class GPGToolsPref;
 extern GPGToolsPref *gpgPrefPane;
@@ -17,14 +19,16 @@ extern GPGToolsPref *gpgPrefPane;
 #define localized(string) [gpgPrefPane localizedString:string]
 
 
-@interface GPGToolsPref : NSPreferencePane {
+@interface GPGToolsPref : NSPreferencePane <WindowIsReadyCheckingViewProtocol> {
 	NSTabView *_tabView;
 	BOOL _viewsLoaded;
 }
 
 @property (nonatomic, assign) IBOutlet GPGReportController *reportController;
+@property (nonatomic, assign) IBOutlet GPGToolsPrefController* prefsController;
 @property (nonatomic, copy) NSDictionary *infoToShow;
 @property (nonatomic, strong) IBOutlet NSTabView *tabView;
+@property (nonatomic, strong) IBOutlet WindowIsReadyCheckingView *windowIsReadCheckingView;
 
 - (NSString *)localizedString:(NSString *)key;
 
