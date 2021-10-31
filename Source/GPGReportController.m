@@ -633,7 +633,7 @@ static NSString * const SavedAttachDebugLogKey = @"savedReport-attachDebugLog";
     // Check if the GPGMailLoader is enabled.
 	BOOL loaderEnabled = NO;
     NSString *bundlesDir = [GMSupportPlanManager bundlesContainerPath];
-    NSArray *loaderNames = @[@"GPGMailLoader.mailbundle", @"GPGMailLoader_2.mailbundle", @"GPGMailLoader_5.mailbundle"];
+    NSArray *loaderNames = @[@"GPGMailLoader.mailbundle", @"GPGMailLoader_2.mailbundle", @"GPGMailLoader_5.mailbundle", @"GPGMailLoader_6.mailbundle"];
 	NSFileManager *fileManager = [NSFileManager defaultManager];
 
 	for (NSString *loaderName in loaderNames) {
@@ -723,6 +723,10 @@ static NSString * const SavedAttachDebugLogKey = @"savedReport-attachDebugLog";
         version = [version stringByReplacingOccurrencesOfString:@".mailbundle" withString:@""];
         NSBundle *bundle = [self GPGMailBundleForVersion:version];
         NSString *actualVersion = [[bundle bundleIdentifier] stringByReplacingOccurrencesOfString:identifierPrefix withString:@""];
+        // Check if the version is really supported, depending on LoaderMinOSVersion if set.
+        if(![self bundleSupportsCurrentOS:bundle]) {
+            continue;
+        }
         if([actualVersion length] <= 0) {
             actualVersion = @"3";
         }
@@ -745,6 +749,28 @@ static NSString * const SavedAttachDebugLogKey = @"savedReport-attachDebugLog";
     }
 
     return versionsArray[0];
+}
+
+- (NSOperatingSystemVersion)osVersionFromString:(NSString *)osVersion {
+    NSArray *versionParts = [osVersion componentsSeparatedByString:@"."];
+    NSUInteger majorVersion = [versionParts[0] integerValue];
+    NSUInteger minorVersion = [versionParts count] > 1 ? [versionParts[1] integerValue] : 0;
+    NSUInteger patchVersion = [versionParts count] > 2 ? [versionParts[2] integerValue] : 0;
+
+    return (NSOperatingSystemVersion){majorVersion, minorVersion, patchVersion};
+}
+
+- (BOOL)bundleSupportsCurrentOS:(NSBundle *)bundle {
+    NSString *minOSVersionString = [[bundle infoDictionary] objectForKey:@"LoaderMinOSVersion"];
+    if([minOSVersionString length] <= 0) {
+        return YES;
+    }
+
+    NSOperatingSystemVersion minOSVersion = [self osVersionFromString:minOSVersionString];
+
+    BOOL isSupported = [[NSProcessInfo processInfo] isOperatingSystemAtLeastVersion:minOSVersion];
+
+    return isSupported;
 }
 
 - (NSString *)newestGPGMailPath {
