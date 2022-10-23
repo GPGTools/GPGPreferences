@@ -633,7 +633,7 @@ static NSString * const SavedAttachDebugLogKey = @"savedReport-attachDebugLog";
     // Check if the GPGMailLoader is enabled.
 	BOOL loaderEnabled = NO;
     NSString *bundlesDir = [GMSupportPlanManager bundlesContainerPath];
-    NSArray *loaderNames = @[@"GPGMailLoader.mailbundle", @"GPGMailLoader_2.mailbundle", @"GPGMailLoader_5.mailbundle", @"GPGMailLoader_6.mailbundle"];
+    NSArray *loaderNames = @[@"GPGMailLoader.mailbundle", @"GPGMailLoader_2.mailbundle", @"GPGMailLoader_5.mailbundle", @"GPGMailLoader_6.mailbundle", @"GPGMailLoader_7.mailbundle"];
 	NSFileManager *fileManager = [NSFileManager defaultManager];
 
 	for (NSString *loaderName in loaderNames) {
